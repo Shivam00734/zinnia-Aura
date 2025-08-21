@@ -1,0 +1,3 @@
+robot --listener "allure_robotframework;reports/allure-results" tests/api/
+allure generate reports/allure-results --clean -o reports/allure-report
+allure open reports/allure-report

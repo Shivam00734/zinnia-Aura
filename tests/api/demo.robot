@@ -5,7 +5,7 @@ Library    allure_robotframework
 
 Resource    ../resources/ReportingSetup.resource
 Suite Setup    Setup Allure Reporting
-
+#h
 
 
 ** Variables ***

@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.3.2 (Python 3.12.1 on win32)" generated="2025-09-19T18:56:59.833306" rpa="false" schemaversion="5">
+<suite id="s1" name="Transaction Onboarding Regression Suite" source="C:\Users\sharmash\automation-framwork\tests\api\transaction_onboarding_regression_suite.robot">
+<kw name="Filter Test Date By Execution Flag" owner="ExcelUtils" type="SETUP">
+<msg time="2025-09-19T18:57:13.262160" level="INFO">Filtered data (execution_flag == 'YES') written below existing headers in 'output'.</msg>
+<status status="PASS" start="2025-09-19T18:57:06.222169" elapsed="7.040991"/>
+</kw>
+<test id="s1-t1" name="Perform Systematic Premium Setup Process for client Everly testID: TC_015" line="15">
+<kw name="Add Project Root To Python Path" type="SETUP">
+<kw name="Normalize Path" owner="OperatingSystem">
+<msg time="2025-09-19T18:57:13.266161" level="INFO">${project_root} = C:\Users\sharmash\automation-framwork</msg>
+<var>${project_root}</var>
+<arg>C:\\Users\\sharmash\\automation-framwork\\tests\\api/../../</arg>
+<doc>Normalizes the given path.</doc>
+<status status="PASS" start="2025-09-19T18:57:13.266161" elapsed="0.000000"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<arg>sys.path.insert(0, r'${project_root}')</arg>
+<arg>sys</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-09-19T18:57:13.267161" elapsed="0.000000"/>
+</kw>
+<status status="PASS" start="2025-09-19T18:57:13.265160" elapsed="0.002001"/>
+</kw>
+<kw name="Perform Transaction Onboarding Automation Flow">
+<kw name="Transaction Onboarding Automation Process" owner="zinnialive">
+<kw name="Transaction Onboarding Automation Flow" owner="ZinniaLive">
+<msg time="2025-09-19T18:57:13.272161" level="FAIL">ValueError: Unknown automation flow: {automation_flow}</msg>
+<arg>{automation_flow}</arg>
+<arg>${old_xml_file_name}</arg>
+<arg>${manage_autopay_contract_number}</arg>
+<arg>${payee_name}</arg>
+<arg>${expected_policy_status}</arg>
+<arg>${start_loan_amount}</arg>
+<arg>${loan_autopay_amount}</arg>
+<arg>${Payment_frequency}</arg>
+<arg>${loan_repayment_amount}</arg>
+<arg>${payment_mode}</arg>
+<arg>${fund_allocation_type}</arg>
+<arg>${expected_account_name}</arg>
+<arg>${expected_account_number}</arg>
+<arg>${loan_manage_autopay_amount}</arg>
+<arg>${Manage_payment_frequency}</arg>
+<arg>${fix_fund_allocation_percent}</arg>
+<arg>${cap_account_allocation_percent}</arg>
+<arg>${participation_rate_allocation_percent}</arg>
+<arg>${client_name}</arg>
+<arg>${client_plan_code}</arg>
+<arg>${transfer_amount}</arg>
+<arg>${systematic_withdrawal_and_rmd_amount}</arg>
+<arg>${systematic_premium_update_amount}</arg>
+<arg>${systematic_withdrawal_update_amount}</arg>
+<arg>${systematic_rmd_update_amount}</arg>
+<arg>${preferred_communication}</arg>
+<status status="FAIL" start="2025-09-19T18:57:13.271161" elapsed="0.004011">ValueError: Unknown automation flow: {automation_flow}</status>
+</kw>
+<arg>${automation_flow}</arg>
+<arg>${old_xml_file_name}</arg>
+<arg>${manage_autopay_contract_number}</arg>
+<arg>${payee_name}</arg>
+<arg>${expected_policy_status}</arg>
+<arg>${start_loan_amount}</arg>
+<arg>${loan_autopay_amount}</arg>
+<arg>${Payment_frequency}</arg>
+<arg>${loan_repayment_amount}</arg>
+<arg>${payment_mode}</arg>
+<arg>${fund_allocation_type}</arg>
+<arg>${expected_account_name}</arg>
+<arg>${expected_account_number}</arg>
+<arg>${loan_manage_autopay_amount}</arg>
+<arg>${Manage_payment_frequency}</arg>
+<arg>${fix_fund_allocation_percent}</arg>
+<arg>${cap_account_allocation_percent}</arg>
+<arg>${participation_rate_allocation_percent}</arg>
+<arg>${client_name}</arg>
+<arg>${client_plan_code}</arg>
+<arg>${transfer_amount}</arg>
+<arg>${systematic_withdrawal_and_rmd_amount}</arg>
+<arg>${systematic_premium_update_amount}</arg>
+<arg>${systematic_withdrawal_update_amount}</arg>
+<arg>${systematic_rmd_update_amount}</arg>
+<arg>${preferred_communication}</arg>
+<status status="FAIL" start="2025-09-19T18:57:13.269161" elapsed="0.006011">ValueError: Unknown automation flow: {automation_flow}</status>
+</kw>
+<arg>TestId=TC_015</arg>
+<arg>automation_flow=Systematic Premium Setup</arg>
+<arg>client_name=Everly</arg>
+<arg>client_plan_code=ELIULV01</arg>
+<arg>old_xml_file_name=ZLC1230196</arg>
+<arg>manage_autopay_contract_number=</arg>
+<arg>payee_name=</arg>
+<arg>expected_policy_status=ACTIVE</arg>
+<arg>start_loan_amount=</arg>
+<arg>loan_repayment_amount=</arg>
+<arg>loan_autopay_amount=</arg>
+<arg>loan_manage_autopay_amount=</arg>
+<arg>systematic_premium_update_amount=</arg>
+<arg>systematic_withdrawal_update_amount=</arg>
+<arg>systematic_rmd_update_amount=</arg>
+<arg>Payment_frequency=</arg>
+<arg>Manage_payment_frequency=</arg>
+<arg>payment_mode=</arg>
+<arg>fund_allocation_type=</arg>
+<arg>expected_account_name=</arg>
+<arg>expected_account_number=</arg>
+<arg>fix_fund_allocation_percent=</arg>
+<arg>cap_account_allocation_percent=</arg>
+<arg>participation_rate_allocation_percent=</arg>
+<arg>transfer_amount=</arg>
+<arg>systematic_withdrawal_and_rmd_amount=</arg>
+<arg>preferred_communication=</arg>
+<status status="FAIL" start="2025-09-19T18:57:13.268160" elapsed="0.007012">ValueError: Unknown automation flow: {automation_flow}</status>
+</kw>
+<status status="FAIL" start="2025-09-19T18:57:13.263160" elapsed="0.013002">ValueError: Unknown automation flow: {automation_flow}</status>
+</test>
+<status status="FAIL" start="2025-09-19T18:56:59.836308" elapsed="13.440853"/>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="1" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat name="Transaction Onboarding Regression Suite" id="s1" pass="0" fail="1" skip="0">Transaction Onboarding Regression Suite</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

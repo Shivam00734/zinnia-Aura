@@ -2,10 +2,14 @@
 Library    RequestsLibrary
 Library    Collections
 Library    allure_robotframework
-
-Resource    ../resources/ReportingSetup.resource
+#Resource    ../resources/ReportingSetup.resource
+Resource    ../../resources/Reporting/ReportingSetup.resource
 Suite Setup    Setup Allure Reporting
-#h
+
+Library    FakerLibrary
+
+
+
 
 
 ** Variables ***

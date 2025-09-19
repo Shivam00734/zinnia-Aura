@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.0.1 (Python 3.12.1 on win32)" generated="2025-09-19T18:15:17.068369" rpa="false" schemaversion="5">
+<suite id="s1" name="Sample Api Test" source="C:\Users\sharmash\automation-framwork\tests\api\sample_api_test.robot">
+<kw name="Setup Allure Reporting" type="SETUP">
+<msg time="2025-09-19T18:15:17.663011" level="FAIL">No keyword with name 'Setup Allure Reporting' found.</msg>
+<status status="FAIL" start="2025-09-19T18:15:17.663011" elapsed="0.000000">No keyword with name 'Setup Allure Reporting' found.</status>
+</kw>
+<test id="s1-t1" name="getUserInformation" line="9">
+<doc>This test case is to get user information</doc>
+<tag>feature:Login</tag>
+<tag>smoke</tag>
+<status status="FAIL" start="2025-09-19T18:15:17.665011" elapsed="0.001001">Parent suite setup failed:
+No keyword with name 'Setup Allure Reporting' found.</status>
+</test>
+<test id="s1-t2" name="getStatusCode" line="18">
+<doc>This test fetches user info and validates response structure.</doc>
+<tag>@allure.label.layer:API</tag>
+<tag>@allure.label.priority:P1</tag>
+<tag>feature:API</tag>
+<tag>smoke</tag>
+<status status="FAIL" start="2025-09-19T18:15:17.668011" elapsed="0.000000">Parent suite setup failed:
+No keyword with name 'Setup Allure Reporting' found.</status>
+</test>
+<test id="s1-t3" name="getUserName" line="27">
+<doc>This test fetches user info and validates response structure.</doc>
+<tag>@allure.label.layer:API</tag>
+<tag>@allure.label.priority:P0</tag>
+<tag>feature:User</tag>
+<tag>smoke</tag>
+<status status="FAIL" start="2025-09-19T18:15:17.670012" elapsed="0.000000">Parent suite setup failed:
+No keyword with name 'Setup Allure Reporting' found.</status>
+</test>
+<test id="s1-t4" name="getUserPhoneNumber" line="37">
+<doc>This test validates user phone number</doc>
+<tag>feature:User</tag>
+<tag>smoke</tag>
+<status status="FAIL" start="2025-09-19T18:15:17.673018" elapsed="0.000000">Parent suite setup failed:
+No keyword with name 'Setup Allure Reporting' found.</status>
+</test>
+<test id="s1-t5" name="getUserEmail" line="48">
+<doc>This test validates user email</doc>
+<tag>feature:User</tag>
+<tag>severity:minor</tag>
+<tag>smoke</tag>
+<tag>story:Contact Details</tag>
+<status status="FAIL" start="2025-09-19T18:15:17.675011" elapsed="0.000000">Parent suite setup failed:
+No keyword with name 'Setup Allure Reporting' found.</status>
+</test>
+<status status="FAIL" start="2025-09-19T18:15:17.132369" elapsed="0.544642">Suite setup failed:
+No keyword with name 'Setup Allure Reporting' found.</status>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="5" skip="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="0" fail="2" skip="0">@allure.label.layer:API</stat>
+<stat pass="0" fail="1" skip="0">@allure.label.priority:P0</stat>
+<stat pass="0" fail="1" skip="0">@allure.label.priority:P1</stat>
+<stat pass="0" fail="1" skip="0">feature:API</stat>
+<stat pass="0" fail="1" skip="0">feature:Login</stat>
+<stat pass="0" fail="3" skip="0">feature:User</stat>
+<stat pass="0" fail="1" skip="0">severity:minor</stat>
+<stat pass="0" fail="5" skip="0">smoke</stat>
+<stat pass="0" fail="1" skip="0">story:Contact Details</stat>
+</tag>
+<suite>
+<stat pass="0" fail="5" skip="0" id="s1" name="Sample Api Test">Sample Api Test</stat>
+</suite>
+</statistics>
+<errors>
+<msg time="2025-09-19T18:15:17.659011" level="ERROR">Error in file 'C:\Users\sharmash\automation-framwork\tests\api\sample_api_test.robot' on line 4: Resource file '..\..\resources\ReportingSetup.resource' does not exist.</msg>
+<msg time="2025-09-19T18:15:17.660012" level="ERROR">Error in file 'C:\Users\sharmash\automation-framwork\tests\api\sample_api_test.robot' on line 5: Resource file '..\..\resources\AllureLabels.resource' does not exist.</msg>
+</errors>
+</robot>

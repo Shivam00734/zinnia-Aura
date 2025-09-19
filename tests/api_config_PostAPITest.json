@@ -1,0 +1,92 @@
+{
+  "base_url": "https://qa-lcapi.se2.com",
+  "regions": [
+    {
+      "name": "UAT",
+      "url": "https://uat-lcapi.zinnia.com"
+    },
+    {
+      "name": "QA",
+      "url": "https://qa-lcapi.se2.com"
+    }
+  ],
+  "apis": [
+    {
+      "name": "Withdrawal",
+      "method": "POST",
+      "endpoint": "/lcapigateway/integration/api/transaction/withdrawalTransactionSubmit",
+      "auth_type": "",
+      "sheet_source": "POSTAPI",
+      "api_type": "LifeCAD",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "",
+        "Accept": "application/json"
+      }
+    },
+    {
+      "name": "AddRole",
+      "method": "POST",
+      "endpoint": "/lcapigateway/integration/api/policy/roleAdd",
+      "auth_type": "",
+      "sheet_source": "POSTAPI",
+      "api_type": "LifeCAD",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "",
+        "Accept": "application/json"
+      }
+    },
+    {
+      "name": "NewBusiness",
+      "method": "POST",
+      "endpoint": "/lcapigateway/integration/api/app/NBSubmitIssue",
+      "auth_type": "",
+      "sheet_source": "POSTAPI",
+      "api_type": "LifeCAD",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "",
+        "Accept": "application/json"
+      },
+      "wait_time": 25
+    },
+    {
+      "name": "WithdrawalJMS",
+      "method": "POST",
+      "urls": {
+        "UAT": "",
+        "QA": ""
+      },
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Basic "
+      }
+    },
+    {
+      "name": "RoleJMS",
+      "method": "POST",
+      "urls": {
+        "UAT": "",
+        "QA": ""
+      },
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Basic ="
+      }
+    },
+    {
+      "name": "NewBusinessJMS",
+      "method": "POST",
+      "urls": {
+        "UAT": "",
+        "QA": ""
+      },
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Basic "
+      },
+      "wait_time": 25
+    }
+  ]
+}

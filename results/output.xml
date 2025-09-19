@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.3.2 (Python 3.12.1 on win32)" generated="2025-09-19T13:57:46.882066" rpa="false" schemaversion="5">
+<suite id="s1" name="Automation-Framwork" source="C:\Users\sharmash\automation-framwork">
+<suite id="s1-s1" name="Testsuite" source="C:\Users\sharmash\automation-framwork\testsuite">
+<suite id="s1-s1-s1" name="Zinnia Live Test Suite" source="C:\Users\sharmash\automation-framwork\testsuite\zinnia_live_test_suite">
+<suite id="s1-s1-s1-s1" name="Api" source="C:\Users\sharmash\automation-framwork\testsuite\zinnia_live_test_suite\api">
+<suite id="s1-s1-s1-s1-s1" name="Step 1 Generate DTCC and Upload" source="C:\Users\sharmash\automation-framwork\testsuite\zinnia_live_test_suite\api\Step_1_Generate_DTCC_and_Upload.robot">
+<test id="s1-s1-s1-s1-s1-t1" name="Generate DTCC File Upload To NSCC Folder And Prepare Test Data" line="9">
+<kw name="Generate DTCC File, Upload to NSCC Folder, and Prepare Test Data" owner="zinnialive">
+<kw name="Generate Dtcc File And Upload Dtcc" owner="GenerateDTCC">
+<msg time="2025-09-19T13:57:48.551126" level="FAIL">FileNotFoundError: [Errno 2] No such file or directory: 'C:/Users/suthark/Documents/ZL_Project/QAS-ZinniaLive-AutomationTesting/data/test_data/zinnia_live_test_data5.xlsx'</msg>
+<arg>${group_id}</arg>
+<status status="FAIL" start="2025-09-19T13:57:48.551126" elapsed="0.005969">FileNotFoundError: [Errno 2] No such file or directory: 'C:/Users/suthark/Documents/ZL_Project/QAS-ZinniaLive-AutomationTesting/data/test_data/zinnia_live_test_data5.xlsx'</status>
+</kw>
+<arg>${group_id}</arg>
+<status status="FAIL" start="2025-09-19T13:57:48.550167" elapsed="0.007927">FileNotFoundError: [Errno 2] No such file or directory: 'C:/Users/suthark/Documents/ZL_Project/QAS-ZinniaLive-AutomationTesting/data/test_data/zinnia_live_test_data5.xlsx'</status>
+</kw>
+<status status="FAIL" start="2025-09-19T13:57:48.546143" elapsed="0.011951">FileNotFoundError: [Errno 2] No such file or directory: 'C:/Users/suthark/Documents/ZL_Project/QAS-ZinniaLive-AutomationTesting/data/test_data/zinnia_live_test_data5.xlsx'</status>
+</test>
+<status status="FAIL" start="2025-09-19T13:57:46.947089" elapsed="1.619008"/>
+</suite>
+<status status="FAIL" start="2025-09-19T13:57:46.941090" elapsed="1.632005"/>
+</suite>
+<status status="FAIL" start="2025-09-19T13:57:46.931134" elapsed="1.645960"/>
+</suite>
+<status status="FAIL" start="2025-09-19T13:57:46.919034" elapsed="1.662085"/>
+</suite>
+<status status="FAIL" start="2025-09-19T13:57:46.892048" elapsed="1.698089"/>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="1" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat name="Automation-Framwork" id="s1" pass="0" fail="1" skip="0">Automation-Framwork</stat>
+<stat name="Testsuite" id="s1-s1" pass="0" fail="1" skip="0">Automation-Framwork.Testsuite</stat>
+<stat name="Zinnia Live Test Suite" id="s1-s1-s1" pass="0" fail="1" skip="0">Automation-Framwork.Testsuite.Zinnia Live Test Suite</stat>
+<stat name="Api" id="s1-s1-s1-s1" pass="0" fail="1" skip="0">Automation-Framwork.Testsuite.Zinnia Live Test Suite.Api</stat>
+<stat name="Step 1 Generate DTCC and Upload" id="s1-s1-s1-s1-s1" pass="0" fail="1" skip="0">Automation-Framwork.Testsuite.Zinnia Live Test Suite.Api.Step 1 Generate DTCC and Upload</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

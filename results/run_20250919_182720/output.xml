@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.0.1 (Python 3.12.1 on win32)" generated="2025-09-19T18:27:20.937624" rpa="false" schemaversion="5">
+<suite id="s1" name="Fakerdata" source="C:\Users\sharmash\automation-framwork\tests\api\fakerdata.robot">
+<test id="s1-t1" name="Creating Fake Data" line="10">
+<kw name="First Name" owner="FakerLibrary">
+<msg time="2025-09-19T18:27:22.446602" level="INFO">${first_name} = Abigail</msg>
+<var>${first_name}</var>
+<status status="PASS" start="2025-09-19T18:27:22.446602" elapsed="0.000000"/>
+</kw>
+<kw name="Last Name" owner="FakerLibrary">
+<msg time="2025-09-19T18:27:22.453532" level="INFO">${last_name} = Keller</msg>
+<var>${last_name}</var>
+<status status="PASS" start="2025-09-19T18:27:22.452532" elapsed="0.001000"/>
+</kw>
+<kw name="Email" owner="FakerLibrary">
+<msg time="2025-09-19T18:27:22.462527" level="INFO">${email} = fhayes@example.com</msg>
+<var>${email}</var>
+<status status="PASS" start="2025-09-19T18:27:22.461536" elapsed="0.000991"/>
+</kw>
+<kw name="Phone Number" owner="FakerLibrary">
+<msg time="2025-09-19T18:27:22.468490" level="INFO">${phonenumb} = (245)759-2606</msg>
+<var>${phonenumb}</var>
+<status status="PASS" start="2025-09-19T18:27:22.468490" elapsed="0.000000"/>
+</kw>
+<kw name="Address" owner="FakerLibrary">
+<msg time="2025-09-19T18:27:22.475490" level="INFO">${address} = 7256 Jones Groves Apt. 897
+Brendamouth, VA 56832</msg>
+<var>${address}</var>
+<doc>:example: '791 Crist Parks, Sashabury, IL 86039-9874'</doc>
+<status status="PASS" start="2025-09-19T18:27:22.474529" elapsed="0.000961"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Name: ${first_name}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-19T18:27:22.482529" elapsed="0.000995"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Last name: ${last_name}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-19T18:27:22.483524" elapsed="0.000995"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>email id : ${email}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-19T18:27:22.484519" elapsed="0.000000"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>phone number: ${phonenumb}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-19T18:27:22.485545" elapsed="0.000000"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>address: ${address}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-19T18:27:22.486526" elapsed="0.000000"/>
+</kw>
+<tag>Test Type: Smoke</tag>
+<status status="PASS" start="2025-09-19T18:27:22.445536" elapsed="0.040990"/>
+</test>
+<status status="PASS" start="2025-09-19T18:27:21.032583" elapsed="1.458952"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="1" fail="0" skip="0">Test Type: Smoke</stat>
+</tag>
+<suite>
+<stat pass="1" fail="0" skip="0" id="s1" name="Fakerdata">Fakerdata</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

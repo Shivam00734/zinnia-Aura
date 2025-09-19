@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.0.1 (Python 3.12.1 on win32)" generated="2025-09-18T16:56:30.404337" rpa="false" schemaversion="5">
+<suite id="s1" name="Transaction Onboarding Regression Suite" source="C:\Users\sharmash\automation-framwork\tests\api\transaction_onboarding_regression_suite.robot">
+<kw name="Filter Test Date By Execution Flag" owner="ExcelUtils" type="SETUP">
+<msg time="2025-09-18T16:56:44.840849" level="INFO">Filtered data (execution_flag == 'YES') written below existing headers in 'output'.</msg>
+<status status="PASS" start="2025-09-18T16:56:36.200844" elapsed="8.640973"/>
+</kw>
+<test id="s1-t1" name="Perform New One Time Loan Repayment Process for client Everly testID: TC_001" line="15">
+<kw name="Add Project Root To Python Path" type="SETUP">
+<kw name="Normalize Path" owner="OperatingSystem">
+<msg time="2025-09-18T16:56:44.845817" level="INFO">${project_root} = C:\Users\sharmash\automation-framwork</msg>
+<var>${project_root}</var>
+<arg>C:\\Users\\sharmash\\automation-framwork\\tests\\api/../../</arg>
+<doc>Normalizes the given path.</doc>
+<status status="PASS" start="2025-09-18T16:56:44.845817" elapsed="0.000000"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<arg>sys.path.insert(0, r'${project_root}')</arg>
+<arg>sys</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-09-18T16:56:44.849828" elapsed="0.000000"/>
+</kw>
+<status status="PASS" start="2025-09-18T16:56:44.844817" elapsed="0.006038"/>
+</kw>
+<kw name="Perform Transaction Onboarding Automation Flow">
+<kw name="Transaction Onboarding Automation Process" owner="zinnialive">
+<kw name="Transaction Onboarding Automation Flow" owner="ZinniaLive">
+<msg time="2025-09-18T16:56:44.852850" level="INFO">Perform Policy Creation Process</msg>
+<msg time="2025-09-18T16:56:44.852850" level="INFO">-----------------------------------------------------------</msg>
+<msg time="2025-09-18T16:56:44.852850" level="INFO">Opening browser 'chrome' to base url 'https://qa-zahara-ui.zinnia.io/#/app/policy'.</msg>
+<msg time="2025-09-18T16:56:52.267159" level="INFO">Typing text 'kapil.suthar@zinnia.com' into text field '//input[@id='username']'.</msg>
+<msg time="2025-09-18T16:56:52.367171" level="INFO">Clicking element '//button[@type='submit']'.</msg>
+<msg time="2025-09-18T16:56:57.702867" level="INFO">Typing text 'Nescafe@234568' into text field '//input[@type='password']'.</msg>
+<msg time="2025-09-18T16:56:57.785867" level="INFO">Clicking element '//input[@type='submit']'.</msg>
+<msg time="2025-09-18T16:57:26.085023" level="INFO">Policy has been uploaded successfully on Zahara</msg>
+<msg time="2025-09-18T16:57:36.119495" level="INFO">Clicking element '//button[normalize-space()='Refresh']'.</msg>
+<msg time="2025-09-18T16:57:40.089456" level="INFO">Typing text 'ZLEE3862461' into text field '//input[@type='search']'.</msg>
+<msg time="2025-09-18T16:57:48.562942" level="INFO">Clicking element '//div[contains(text(),'ZLEE3862461')]'.</msg>
+<msg time="2025-09-18T16:57:49.116980" level="INFO">Clicking element '//button[@id='policy-tab-transSummary']'.</msg>
+<msg time="2025-09-18T16:57:50.165697" level="INFO">Lifecycle executed successfully: {"message": "SUCCESS", "status": 201}</msg>
+<msg time="2025-09-18T16:57:50.188665" level="INFO">Clicking element '//button[@id='policy-tab-transSummary']'.</msg>
+<msg time="2025-09-18T16:57:55.284082" level="INFO">Clicking element '//*[@id='root']/div/div[2]/div/div[1]/div[1]/div[3]/div[2]/button'.</msg>
+<msg time="2025-09-18T16:57:56.068112" level="INFO">The policy has been successfully created and activated on Zahara</msg>
+<msg time="2025-09-18T17:05:56.072716" level="INFO">Attempt 1: Lifecycle not completed yet. Retrying in 30 seconds.</msg>
+<msg time="2025-09-18T17:06:26.077858" level="INFO">Attempt 2: Lifecycle not completed yet. Retrying in 30 seconds.</msg>
+<msg time="2025-09-18T17:06:56.079521" level="INFO">Attempt 3: Lifecycle not completed yet. Retrying in 30 seconds.</msg>
+<msg time="2025-09-18T17:07:26.081392" level="INFO">Attempt 4: Lifecycle not completed yet. Retrying in 30 seconds.</msg>
+<msg time="2025-09-18T17:07:56.083695" level="INFO">Attempt 5: Lifecycle not completed yet. Retrying in 30 seconds.</msg>
+<msg time="2025-09-18T17:08:26.087845" level="INFO">Attempt 6: Lifecycle not completed yet. Retrying in 30 seconds.</msg>
+<msg time="2025-09-18T17:08:56.091655" level="INFO">Attempt 7: Lifecycle not completed yet. Retrying in 30 seconds.</msg>
+<msg time="2025-09-18T17:09:26.093322" level="INFO">Attempt 8: Lifecycle not completed yet. Retrying in 30 seconds.</msg>
+<msg time="2025-09-18T17:09:56.096344" level="INFO">Attempt 9: Lifecycle not completed yet. Retrying in 30 seconds.</msg>
+<msg time="2025-09-18T17:10:26.098570" level="INFO">Attempt 10: Lifecycle not completed yet. Retrying in 30 seconds.</msg>
+<msg time="2025-09-18T17:10:56.102818" level="INFO">Attempt 11: Lifecycle not completed yet. Retrying in 30 seconds.</msg>
+<msg time="2025-09-18T17:11:26.105809" level="INFO">Attempt 12: Lifecycle not completed yet. Retrying in 30 seconds.</msg>
+<msg time="2025-09-18T17:11:56.109345" level="INFO">Attempt 13: Lifecycle not completed yet. Retrying in 30 seconds.</msg>
+<msg time="2025-09-18T17:12:26.113876" level="INFO">Attempt 14: Lifecycle not completed yet. Retrying in 30 seconds.</msg>
+<msg time="2025-09-18T17:12:56.117861" level="INFO">Attempt 15: Lifecycle not completed yet. Retrying in 30 seconds.</msg>
+<msg time="2025-09-18T17:13:26.121694" level="INFO">Attempt 16: Lifecycle not completed yet. Retrying in 30 seconds.</msg>
+<msg time="2025-09-18T17:13:56.123529" level="INFO">Attempt 17: Lifecycle not completed yet. Retrying in 30 seconds.</msg>
+<msg time="2025-09-18T17:14:26.125176" level="INFO">Attempt 18: Lifecycle not completed yet. Retrying in 30 seconds.</msg>
+<msg time="2025-09-18T17:14:56.127286" level="INFO">Attempt 19: Lifecycle not completed yet. Retrying in 30 seconds.</msg>
+<msg time="2025-09-18T17:15:26.131156" level="INFO">Attempt 20: Lifecycle not completed yet. Retrying in 30 seconds.</msg>
+<msg time="2025-09-18T17:15:56.135934" level="INFO">Attempt 21: Lifecycle not completed yet. Retrying in 30 seconds.</msg>
+<msg time="2025-09-18T17:16:26.137901" level="INFO">Attempt 22: Lifecycle not completed yet. Retrying in 30 seconds.</msg>
+<msg time="2025-09-18T17:16:56.142390" level="INFO">Attempt 23: Lifecycle not completed yet. Retrying in 30 seconds.</msg>
+<msg time="2025-09-18T17:17:26.144849" level="INFO">Attempt 24: Lifecycle not completed yet. Retrying in 30 seconds.</msg>
+<msg time="2025-09-18T17:17:56.148826" level="INFO">Attempt 25: Lifecycle not completed yet. Retrying in 30 seconds.</msg>
+<msg time="2025-09-18T17:17:56.149869" level="INFO">Lifecycle completion failed.</msg>
+<msg time="2025-09-18T17:17:56.149869" level="FAIL">Element '//div[@class='MuiDataGrid-virtualScrollerRenderZone css-1inm7gi']//div[1]//div[7]//span[normalize-space()='02/04/2025']' not visible after 25 attempts.</msg>
+<arg>${automation_flow}</arg>
+<arg>${old_xml_file_name}</arg>
+<arg>${manage_autopay_contract_number}</arg>
+<arg>${payee_name}</arg>
+<arg>${expected_policy_status}</arg>
+<arg>${start_loan_amount}</arg>
+<arg>${loan_autopay_amount}</arg>
+<arg>${Payment_frequency}</arg>
+<arg>${loan_repayment_amount}</arg>
+<arg>${payment_mode}</arg>
+<arg>${fund_allocation_type}</arg>
+<arg>${expected_account_name}</arg>
+<arg>${expected_account_number}</arg>
+<arg>${loan_manage_autopay_amount}</arg>
+<arg>${Manage_payment_frequency}</arg>
+<arg>${fix_fund_allocation_percent}</arg>
+<arg>${cap_account_allocation_percent}</arg>
+<arg>${participation_rate_allocation_percent}</arg>
+<arg>${client_name}</arg>
+<arg>${client_plan_code}</arg>
+<arg>${transfer_amount}</arg>
+<arg>${systematic_withdrawal_and_rmd_amount}</arg>
+<arg>${systematic_premium_update_amount}</arg>
+<arg>${systematic_withdrawal_update_amount}</arg>
+<arg>${systematic_rmd_update_amount}</arg>
+<arg>${preferred_communication}</arg>
+<status status="FAIL" start="2025-09-18T16:56:44.851849" elapsed="1271.315016">Element '//div[@class='MuiDataGrid-virtualScrollerRenderZone css-1inm7gi']//div[1]//div[7]//span[normalize-space()='02/04/2025']' not visible after 25 attempts.</status>
+</kw>
+<arg>${automation_flow}</arg>
+<arg>${old_xml_file_name}</arg>
+<arg>${manage_autopay_contract_number}</arg>
+<arg>${payee_name}</arg>
+<arg>${expected_policy_status}</arg>
+<arg>${start_loan_amount}</arg>
+<arg>${loan_autopay_amount}</arg>
+<arg>${Payment_frequency}</arg>
+<arg>${loan_repayment_amount}</arg>
+<arg>${payment_mode}</arg>
+<arg>${fund_allocation_type}</arg>
+<arg>${expected_account_name}</arg>
+<arg>${expected_account_number}</arg>
+<arg>${loan_manage_autopay_amount}</arg>
+<arg>${Manage_payment_frequency}</arg>
+<arg>${fix_fund_allocation_percent}</arg>
+<arg>${cap_account_allocation_percent}</arg>
+<arg>${participation_rate_allocation_percent}</arg>
+<arg>${client_name}</arg>
+<arg>${client_plan_code}</arg>
+<arg>${transfer_amount}</arg>
+<arg>${systematic_withdrawal_and_rmd_amount}</arg>
+<arg>${systematic_premium_update_amount}</arg>
+<arg>${systematic_withdrawal_update_amount}</arg>
+<arg>${systematic_rmd_update_amount}</arg>
+<arg>${preferred_communication}</arg>
+<status status="FAIL" start="2025-09-18T16:56:44.850855" elapsed="1271.321008">Element '//div[@class='MuiDataGrid-virtualScrollerRenderZone css-1inm7gi']//div[1]//div[7]//span[normalize-space()='02/04/2025']' not visible after 25 attempts.</status>
+</kw>
+<arg>('TestId', 'TC_001')</arg>
+<arg>('automation_flow', 'New One Time Loan Repayment')</arg>
+<arg>('client_name', 'Everly')</arg>
+<arg>('client_plan_code', 'ELIULV01')</arg>
+<arg>('old_xml_file_name', 'ZLEE3094022')</arg>
+<arg>('manage_autopay_contract_number', '')</arg>
+<arg>('payee_name', '')</arg>
+<arg>('expected_policy_status', 'ACTIVE')</arg>
+<arg>('start_loan_amount', '$1,200.00')</arg>
+<arg>('loan_repayment_amount', '$1,200.00')</arg>
+<arg>('loan_autopay_amount', '$200.00')</arg>
+<arg>('loan_manage_autopay_amount', '$300.00')</arg>
+<arg>('systematic_premium_update_amount', '')</arg>
+<arg>('systematic_withdrawal_update_amount', '')</arg>
+<arg>('systematic_rmd_update_amount', '')</arg>
+<arg>('Payment_frequency', 'Monthly')</arg>
+<arg>('Manage_payment_frequency', 'Quarterly')</arg>
+<arg>('payment_mode', 'ACH')</arg>
+<arg>('fund_allocation_type', 'Pro rata')</arg>
+<arg>('expected_account_name', 'WELLS FERGO')</arg>
+<arg>('expected_account_number', 'Checking ending in 7452')</arg>
+<arg>('fix_fund_allocation_percent', '')</arg>
+<arg>('cap_account_allocation_percent', '')</arg>
+<arg>('participation_rate_allocation_percent', '')</arg>
+<arg>('transfer_amount', '')</arg>
+<arg>('systematic_withdrawal_and_rmd_amount', '')</arg>
+<arg>('preferred_communication', '')</arg>
+<status status="FAIL" start="2025-09-18T16:56:44.850855" elapsed="1271.321008">Element '//div[@class='MuiDataGrid-virtualScrollerRenderZone css-1inm7gi']//div[1]//div[7]//span[normalize-space()='02/04/2025']' not visible after 25 attempts.</status>
+</kw>
+<status status="FAIL" start="2025-09-18T16:56:44.843816" elapsed="1271.329009">Element '//div[@class='MuiDataGrid-virtualScrollerRenderZone css-1inm7gi']//div[1]//div[7]//span[normalize-space()='02/04/2025']' not visible after 25 attempts.</status>
+</test>
+<status status="FAIL" start="2025-09-18T16:56:30.444317" elapsed="1285.736553"/>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="1" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="0" fail="1" skip="0" id="s1" name="Transaction Onboarding Regression Suite">Transaction Onboarding Regression Suite</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

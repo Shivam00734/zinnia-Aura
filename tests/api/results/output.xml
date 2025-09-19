@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.3.2 (Python 3.12.1 on win32)" generated="2025-08-19T15:13:17.945302" rpa="false" schemaversion="5">
+<suite id="s1" name="Sample Api Test" source="C:\Users\sharmash\automation-framwork\tests\api\sample_api_test.robot">
+<test id="s1-t1" name="getUserInformation" line="17">
+<kw name="Set Allure Severity">
+<kw name="Fail" owner="BuiltIn">
+<msg time="2025-08-19T15:13:18.432756" level="FAIL">Not Implemented</msg>
+<arg>Not Implemented</arg>
+<doc>Fails the test with the given message and optionally alters its tags.</doc>
+<status status="FAIL" start="2025-08-19T15:13:18.432756" elapsed="0.000000">Not Implemented</status>
+</kw>
+<arg>critical</arg>
+<status status="FAIL" start="2025-08-19T15:13:18.431807" elapsed="0.000949">Not Implemented</status>
+</kw>
+<kw name="Set Allure Report Title" owner="allure_custom">
+<arg>My Custom API Test Report</arg>
+<status status="NOT RUN" start="2025-08-19T15:13:18.432756" elapsed="0.000998"/>
+</kw>
+<kw name="Create Session" owner="RequestsLibrary">
+<arg>mysession</arg>
+<arg>${baseUrl}</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<status status="NOT RUN" start="2025-08-19T15:13:18.433754" elapsed="0.000000"/>
+</kw>
+<kw name="GET On Session" owner="RequestsLibrary">
+<var>${actualResponce}</var>
+<arg>mysession</arg>
+<arg>${path}</arg>
+<doc>Sends a GET request on a previously created HTTP Session.</doc>
+<status status="NOT RUN" start="2025-08-19T15:13:18.433754" elapsed="0.000000"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<var>${response_body}</var>
+<arg>${actualResponce.json()}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" start="2025-08-19T15:13:18.433754" elapsed="0.000000"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${response_body}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="NOT RUN" start="2025-08-19T15:13:18.433754" elapsed="0.000000"/>
+</kw>
+<tag>feature:Login</tag>
+<tag>smoke</tag>
+<tag>story:Valid Login</tag>
+<status status="FAIL" start="2025-08-19T15:13:18.430795" elapsed="0.002959">Not Implemented</status>
+</test>
+<test id="s1-t2" name="getStatusCode" line="30">
+<kw name="Create Session" owner="RequestsLibrary">
+<msg time="2025-08-19T15:13:18.435794" level="INFO">Creating Session using : alias=mysession, url=https://dummyjson.com/, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<arg>mysession</arg>
+<arg>${baseUrl}</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<status status="PASS" start="2025-08-19T15:13:18.435794" elapsed="0.000000"/>
+</kw>
+<kw name="GET On Session" owner="RequestsLibrary">
+<msg time="2025-08-19T15:13:18.597112" level="INFO">GET Request : url=https://dummyjson.com/users 
+ path_url=/users 
+ headers={'User-Agent': 'python-requests/2.32.4', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+ body=None 
+ </msg>
+<msg time="2025-08-19T15:13:18.597112" level="INFO">GET Response : url=https://dummyjson.com/users 
+ status=200, reason=OK 
+ headers={'Date': 'Tue, 19 Aug 2025 09:43:20 GMT', 'Content-Type': 'application/json; charset=utf-8', 'Transfer-Encoding': 'chunked', 'Connection': 'keep-alive', 'Access-Control-Allow-Origin': '*', 'Report-To': '{"group":"cf-nel","max_age":604800,"endpoints":[{"url":"https://a.nel.cloudflare.com/report/v4?s=5xcItYZTiZvFSwo1S2vpToHly0mlKCYCRMyh7aZaWd8j1tUU4CubL4GVdON2wNxu50XcRvGLwohaYVzP94z0eapIJW5in7nMqXVh5Ng%3D"}]}', 'Etag': 'W/"a36f-Hyqmc+8fsEhjdF4H4imH3z/VXKo"', 'Server': 'cloudflare', 'Strict-Transport-Security': 'max-age=15552000; includeSubDomains', 'Vary': 'Accept-Encoding', 'X-Content-Type-Options': 'nosniff', 'X-Dns-Prefetch-Control': 'off', 'X-Download-Options': 'noopen', 'X-Frame-Options': 'SAMEORIGIN', 'X-Powered-By': 'Cats on Keyboards', 'X-Railway-Edge': 'railway/asia-southeast1-eqsg3a', 'X-Railway-Request-Id': '56lSs4riQgqX1T6IacI7Nw', 'X-Ratelimit-Limit': '100', 'X-Ratelimit-Remaining': '99', 'X-Ratelimit-Reset': '1755536969', 'X-Xss-Protection': '1; mode=block', 'Age': '4583', 'Cache-Control': 'no-store', 'Cf-Cache-Status': 'HIT', 'Nel': '{"report_to":"cf-nel","success_fraction":0.0,"max_age":604800}', 'Content-Encoding': 'gzip', 'CF-RAY': '9718b4be2e04c6d2-DEL', 'alt-svc': 'h3=":443"; ma=86400'} 
+ body={"users":[{"id":1,"firstName":"Emily","lastName":"Johnson","maidenName":"Smith","age":28,"gender":"female","email":"emily.johnson@x.dummyjson.com","phone":"+81 965-431-3024","username":"emilys","password":"emilyspass","birthDate":"1996-5-30","image":"https://dummyjson.com/icon/emilys/128","bloodGroup":"O-","height":193.24,"weight":63.16,"eyeColor":"Green","hair":{"color":"Brown","type":"Curly"},"ip":"42.48.100.32","address":{"address":"626 Main Street","city":"Phoenix","state":"Mississippi","stateCode":"MS","postalCode":"29112","coordinates":{"lat":-77.16213,"lng":-92.084824},"country":"United States"},"macAddress":"47:fa:41:18:ec:eb","university":"University of Wisconsin--Madison","bank":{"cardExpire":"03/26","cardNumber":"9289760655481815","cardType":"Elo","currency":"CNY","iban":"YPUXISOBI7TTHPK2BR3HAIXL"},"company":{"department":"Engineering","name":"Dooley, Kozey and Cronin","title":"Sales Manager","address":{"address":"263 Tenth Street","city":"San Francisco","state":"Wisconsin","stateCode":"WI","postalCode":"37657","coordinates":{"lat":71.814525,"lng":-161.150263},"country":"United States"}},"ein":"977-175","ssn":"900-590-289","userAgent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.93 Safari/537.36","crypto":{"coin":"Bitcoin","wallet":"0xb9fc2fe63b2a6c003f1c324c3bfa53259162181a","network":"Ethereum (ERC20)"},"role":"admin"},{"id":2,"firstName":"Michael","lastName":"Williams","maidenName":"","age":35,"gender":"male","email":"michael.williams@x.dummyjson.com","phone":"+49 258-627-6644","username":"michaelw","password":"michaelwpass","birthDate":"1989-8-10","image":"https://dummyjson.com/icon/michaelw/128","bloodGroup":"B+","height":186.22,"weight":76.32,"eyeColor":"Red","hair":{"color":"Green","type":"Straight"},"ip":"12.13.116.142","address":{"address":"385 Fifth Street","city":"Houston","state":"Alabama","stateCode":"AL","postalCode":"38807","coordinates":{"lat":22.815468,"lng":115.608581},"country":"United States"},"macAddress":"79:15:78:99:60:aa","university":"Ohio State University","bank":{"cardExpire":"02/27","cardNumber":"6737807858721625","cardType":"Elo","currency":"SEK","iban":"83IDT77FWYLCJVR8ISDACFH0"},"company":{"department":"Support","name":"Spinka - Dickinson","title":"Support Specialist","address":{"address":"395 Main Street","city":"Los Angeles","state":"New Hampshire","stateCode":"NH","postalCode":"73442","coordinates":{"lat":79.098326,"lng":-119.624845},"country":"United States"}},"ein":"912-602","ssn":"108-953-962","userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Edge/97.0.1072.76 Safari/537.36","crypto":{"coin":"Bitcoin","wallet":"0xb9fc2fe63b2a6c003f1c324c3bfa53259162181a","network":"Ethereum (ERC20)"},"role":"admin"},{"id":3,"firstName":"Sophia","lastName":"Brown","maidenName":"","age":42,"gender":"female","email":"sophia.brown@x.dummyjson.com","phone":"+81 210-652-2785","username":"sophiab","password":"sophiabpass","birthDate":"1982-11-6","image":"https://dummyjson.com/icon/sophiab/128","bloodGroup":"O-","height":177.72,"weight":52.6,"eyeColor":"Hazel","hair":{"color":"White","type":"Wavy"},"ip":"214.225.51.195","address":{"address":"1642 Ninth Street","city":"Washington","state":"Alabama","stateCode":"AL","postalCode":"32822","coordinates":{"lat":45.289366,"lng":46.832664},"country":"United States"},"macAddress":"12:a3:d3:6f:5c:5b","university":"Pepperdine University","bank":{"cardExpire":"04/25","cardNumber":"7795895470082859","cardType":"Korean Express","currency":"SEK","iban":"90XYKT83LMM7AARZ8JN958JC"},"company":{"department":"Research and Development","name":"Schiller - Zieme","title":"Accountant","address":{"address":"1896 Washington Street","city":"Dallas","state":"Nevada","stateCode":"NV","postalCode":"88511","coordinates":{"lat":20.086743,"lng":-34.577107},"country":"United States"}},"ein":"963-113","ssn":"638-461-822","userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.45 Safari/537.36","crypto":{"coin":"Bitcoin","wallet":"0xb9fc2fe63b2a6c003f1c324c3bfa53259162181a","network":"Ethereum (ERC20)"},"role":"admin"},{"id":4,"firstName":"James","lastName":"Davis","maidenName":"","age":45,"gender":"male","email":"james.davis@x.dummyjson.com","phone":"+49 614-958-9364","username":"jamesd","password":"jamesdpass","birthDate":"1979-5-4","image":"https://dummyjson.com/icon/jamesd/128","bloodGroup":"AB+","height":193.31,"weight":62.1,"eyeColor":"Amber","hair":{"color":"Blonde","type":"Straight"},"ip":"101.118.131.66","address":{"address":"238 Jefferson Street","city":"Seattle","state":"Pennsylvania","stateCode":"PA","postalCode":"68354","coordinates":{"lat":16.782513,"lng":-139.34723},"country":"United States"},"macAddress":"10:7d:df:1f:97:58","university":"University of Southern California","bank":{"cardExpire":"05/29","cardNumber":"5005519846254763","cardType":"Mastercard","currency":"INR","iban":"7N7ZH1PJ8Q4WU1K965HQQR27"},"company":{"department":"Support","name":"Pagac and Sons","title":"Research Analyst","address":{"address":"1622 Lincoln Street","city":"Fort Worth","state":"Pennsylvania","stateCode":"PA","postalCode":"27768","coordinates":{"lat":54.91193,"lng":-79.498328},"country":"United States"}},"ein":"904-810","ssn":"116-951-314","userAgent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.99 Safari/537.36","crypto":{"coin":"Bitcoin","wallet":"0xb9fc2fe63b2a6c003f1c324c3bfa53259162181a","network":"Ethereum (ERC20)"},"role":"admin"},{"id":5,"firstName":"Emma","lastName":"Miller","maidenName":"Johnson","age":30,"gender":"female","email":"emma.miller@x.dummyjson.com","phone":"+91 759-776-1614","username":"emmaj","password":"emmajpass","birthDate":"1994-6-13","image":"https://dummyjson.com/icon/emmaj/128","bloodGroup":"AB-","height":192.8,"weight":63.62,"eyeColor":"Green","hair":{"color":"White","type":"Straight"},"ip":"224.126.22.183","address":{"address":"607 Fourth Street","city":"Jacksonville","state":"Colorado","stateCode":"CO","postalCode":"26593","coordinates":{"lat":0.505589,"lng":-157.43281},"country":"United States"},"macAddress":"32:b9:7e:8d:f5:e8","university":"Northeastern University","bank":{"cardExpire":"03/26","cardNumber":"5772950119588627","cardType":"American Express","currency":"CAD","iban":"TAVHURD845KVBTB8W81AQXRY"},"company":{"department":"Human Resources","name":"Graham - Gulgowski","title":"Quality Assurance Engineer","address":{"address":"1460 Sixth Street","city":"San Antonio","state":"Idaho","stateCode":"ID","postalCode":"21965","coordinates":{"lat":44.346545,"lng":-26.944701},"country":"United States"}},"ein":"403-505","ssn":"526-210-885","userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:97.0) Gecko/20100101 Firefox/97.0","crypto":{"coin":"Bitcoin","wallet":"0xb9fc2fe63b2a6c003f1c324c3bfa53259162181a","network":"Ethereum (ERC20)"},"role":"admin"},{"id":6,"firstName":"Olivia","lastName":"Wilson","maidenName":"","age":22,"gender":"female","email":"olivia.wilson@x.dummyjson.com","phone":"+91 607-295-6448","username":"oliviaw","password":"oliviawpass","birthDate":"2002-4-20","image":"https://dummyjson.com/icon/oliviaw/128","bloodGroup":"B+","height":182.61,"weight":58,"eyeColor":"Hazel","hair":{"color":"Gray","type":"Curly"},"ip":"249.178.112.207","address":{"address":"547 First Street","city":"Fort Worth","state":"Tennessee","stateCode":"TN","postalCode":"83843","coordinates":{"lat":75.32627,"lng":-26.15285},"country":"United States"},"macAddress":"9c:7f:ea:34:18:19","university":"University of North Carolina--Chapel Hill","bank":{"cardExpire":"05/28","cardNumber":"6771923832947881","cardType":"Diners Club International","currency":"BRL","iban":"V6H0O5OE3Q4JVKWDTYWZABMD"},"company":{"department":"Product Management","name":"Pfannerstill Inc","title":"Research Analyst","address":{"address":"425 Sixth Street","city":"Indianapolis","state":"Oklahoma","stateCode":"OK","postalCode":"74263","coordinates":{"lat":74.986644,"lng":-132.916888},"country":"United States"}},"ein":"921-709","ssn":"836-772-168","userAgent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/15.3 Safari/605.1.15","crypto":{"coin":"Bitcoin","wallet":"0xb9fc2fe63b2a6c003f1c324c3bfa53259162181a","network":"Ethereum (ERC20)"},"role":"moderator"},{"id":7,"firstName":"Alexander","lastName":"Jones","maidenName":"","age":38,"gender":"male","email":"alexander.jones@x.dummyjson.com","phone":"+61 260-824-4986","username":"alexanderj","password":"alexanderjpass","birthDate":"1986-10-20","image":"https://dummyjson.com/icon/alexanderj/128","bloodGroup":"AB-","height":153.89,"weight":77.42,"eyeColor":"Blue","hair":{"color":"White","type":"Straight"},"ip":"166.204.84.32","address":{"address":"664 Maple Street","city":"Indianapolis","state":"Delaware","stateCode":"DE","postalCode":"86684","coordinates":{"lat":35.289664,"lng":7.063255},"country":"United States"},"macAddress":"d2:64:58:2d:1c:46","university":"University of Illinois--Urbana-Champaign","bank":{"cardExpire":"05/25","cardNumber":"7344951706130140","cardType":"JCB","currency":"EUR","iban":"49V4GVDVMP0MHIDD4VXMQ3A2"},"company":{"department":"Engineering","name":"Dickens - Beahan","title":"Web Developer","address":{"address":"996 Eighth Street","city":"Washington","state":"Kansas","stateCode":"KS","postalCode":"27858","coordinates":{"lat":-75.462366,"lng":-128.025697},"country":"United States"}},"ein":"638-127","ssn":"722-993-925","userAgent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/95.0.4638.69 Safari/537.36","crypto":{"coin":"Bitcoin","wallet":"0xb9fc2fe63b2a6c003f1c324c3bfa53259162181a","network":"Ethereum (ERC20)"},"role":"moderator"},{"id":8,"firstName":"Ava","lastName":"Taylor","maidenName":"","age":27,"gender":"female","email":"ava.taylor@x.dummyjson.com","phone":"+1 458-853-7877","username":"avat","password":"... (set the log level to DEBUG or TRACE to see the full content) 
+ </msg>
+<msg time="2025-08-19T15:13:18.598109" level="INFO">C:\Users\sharmash\automation-framwork\.venv\Lib\site-packages\urllib3\connectionpool.py:1097: InsecureRequestWarning: Unverified HTTPS request is being made to host 'dummyjson.com'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(</msg>
+<msg time="2025-08-19T15:13:18.600066" level="INFO">${actualResponce} = &lt;Response [200]&gt;</msg>
+<var>${actualResponce}</var>
+<arg>mysession</arg>
+<arg>${path}</arg>
+<doc>Sends a GET request on a previously created HTTP Session.</doc>
+<status status="PASS" start="2025-08-19T15:13:18.436750" elapsed="0.163316"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-08-19T15:13:18.602105" level="INFO">${actual_status_code} = 200</msg>
+<var>${actual_status_code}</var>
+<arg>${actualResponce.status_code}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-08-19T15:13:18.601109" elapsed="0.000996"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${actual_status_code}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-08-19T15:13:18.602105" elapsed="0.000991"/>
+</kw>
+<kw name="Should Be Equal As Integers" owner="BuiltIn">
+<msg time="2025-08-19T15:13:18.604124" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${actual_status_code}</arg>
+<arg>${expected_status_code}</arg>
+<doc>Fails if objects are unequal after converting them to integers.</doc>
+<status status="PASS" start="2025-08-19T15:13:18.604124" elapsed="0.000000"/>
+</kw>
+<status status="PASS" start="2025-08-19T15:13:18.434800" elapsed="0.170366"/>
+</test>
+<status status="FAIL" start="2025-08-19T15:13:17.947881" elapsed="0.660199"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="1" skip="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="0" fail="1" skip="0">feature:Login</stat>
+<stat pass="0" fail="1" skip="0">smoke</stat>
+<stat pass="0" fail="1" skip="0">story:Valid Login</stat>
+</tag>
+<suite>
+<stat name="Sample Api Test" id="s1" pass="1" fail="1" skip="0">Sample Api Test</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

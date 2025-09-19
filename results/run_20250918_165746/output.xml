@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.0.1 (Python 3.12.1 on win32)" generated="2025-09-18T16:57:46.811944" rpa="false" schemaversion="5">
+<suite id="s1" name="Xml" source="C:\Users\sharmash\automation-framwork\tests\api\xml.robot">
+<test id="s1-t1" name="Get xml data and compare" line="17">
+<kw name="Create Session" owner="RequestsLibrary">
+<msg time="2025-09-18T16:57:47.152027" level="INFO">Creating Session using : alias=mysession, url=https://www.w3schools.com, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<arg>mysession</arg>
+<arg>${baseurl}</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<status status="PASS" start="2025-09-18T16:57:47.151023" elapsed="0.001004"/>
+</kw>
+<kw name="GET On Session" owner="RequestsLibrary">
+<msg time="2025-09-18T16:57:47.270996" level="INFO">GET Request : url=https://www.w3schools.com/xml/simple.xml 
+ path_url=/xml/simple.xml 
+ headers={'User-Agent': 'python-requests/2.32.3', 'Accept-Encoding': 'gzip, deflate, br', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+ body=None 
+ </msg>
+<msg time="2025-09-18T16:57:47.270996" level="INFO">GET Response : url=https://www.w3schools.com/xml/simple.xml 
+ status=200, reason=OK 
+ headers={'Content-Type': 'text/xml', 'Last-Modified': 'Wed, 17 Sep 2025 11:54:56 GMT', 'Accept-Ranges': 'bytes', 'ETag': '"0a8b9e2c927dc1:0"', 'Content-Security-Policy': "frame-ancestors 'self' https://mycourses.w3schools.com https://pathfinder.w3schools.com;", 'X-Content-Security-Policy': "frame-ancestors 'self' https://mycourses.w3schools.com https://pathfinder.w3schools.com;", 'Vary': 'Accept-Encoding', 'Content-Encoding': 'gzip', 'Content-Length': '403', 'Cache-Control': 'public, max-age=31452972', 'Expires': 'Thu, 17 Sep 2026 12:23:59 GMT', 'Date': 'Thu, 18 Sep 2025 11:27:47 GMT', 'Connection': 'keep-alive'} 
+ body=&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;breakfast_menu&gt;
+  &lt;food&gt;
+    &lt;name&gt;Belgian Waffles&lt;/name&gt;
+    &lt;price&gt;$5.95&lt;/price&gt;
+    &lt;description&gt;Two of our famous Belgian Waffles with plenty of real maple syrup&lt;/description&gt;
+    &lt;calories&gt;650&lt;/calories&gt;
+  &lt;/food&gt;
+  &lt;food&gt;
+    &lt;name&gt;Strawberry Belgian Waffles&lt;/name&gt;
+    &lt;price&gt;$7.95&lt;/price&gt;
+    &lt;description&gt;Light Belgian waffles covered with strawberries and whipped cream&lt;/description&gt;
+    &lt;calories&gt;900&lt;/calories&gt;
+  &lt;/food&gt;
+  &lt;food&gt;
+    &lt;name&gt;Berry-Berry Belgian Waffles&lt;/name&gt;
+    &lt;price&gt;$8.95&lt;/price&gt;
+    &lt;description&gt;Light Belgian waffles covered with an assortment of fresh berries and whipped cream&lt;/description&gt;
+    &lt;calories&gt;900&lt;/calories&gt;
+  &lt;/food&gt;
+  &lt;food&gt;
+    &lt;name&gt;French Toast&lt;/name&gt;
+    &lt;price&gt;$4.50&lt;/price&gt;
+    &lt;description&gt;Thick slices made from our homemade sourdough bread&lt;/description&gt;
+    &lt;calories&gt;600&lt;/calories&gt;
+  &lt;/food&gt;
+  &lt;food&gt;
+    &lt;name&gt;Homestyle Breakfast&lt;/name&gt;
+    &lt;price&gt;$6.95&lt;/price&gt;
+    &lt;description&gt;Two eggs, bacon or sausage, toast, and our ever-popular hash browns&lt;/description&gt;
+    &lt;calories&gt;950&lt;/calories&gt;
+  &lt;/food&gt;
+&lt;/breakfast_menu&gt;
+ 
+ </msg>
+<msg time="2025-09-18T16:57:47.270996" level="INFO">C:\Users\sharmash\AppData\Roaming\Python\Python312\site-packages\urllib3\connectionpool.py:1103: InsecureRequestWarning: Unverified HTTPS request is being made to host 'www.w3schools.com'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(</msg>
+<msg time="2025-09-18T16:57:47.270996" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<var>${response}</var>
+<arg>mysession</arg>
+<arg>/xml/simple.xml</arg>
+<doc>Sends a GET request on a previously created HTTP Session.</doc>
+<status status="PASS" start="2025-09-18T16:57:47.152948" elapsed="0.118048"/>
+</kw>
+<kw name="Convert To String" owner="BuiltIn">
+<msg time="2025-09-18T16:57:47.275981" level="INFO">${xml_string} = &lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;breakfast_menu&gt;
+  &lt;food&gt;
+    &lt;name&gt;Belgian Waffles&lt;/name&gt;
+    &lt;price&gt;$5.95&lt;/price&gt;
+    &lt;description&gt;Two of our famous Belgian Waffles with plenty of real maple ...</msg>
+<var>${xml_string}</var>
+<arg>${response.content}</arg>
+<doc>Converts the given item to a Unicode string.</doc>
+<status status="PASS" start="2025-09-18T16:57:47.275020" elapsed="0.000961"/>
+</kw>
+<kw name="Parse Xml" owner="XML">
+<msg time="2025-09-18T16:57:47.277943" level="INFO">${xml_obj} = &lt;Element 'breakfast_menu' at 0x000001C2D2251530&gt;</msg>
+<var>${xml_obj}</var>
+<arg>${xml_string}</arg>
+<doc>Parses the given XML file or string into an element structure.</doc>
+<status status="PASS" start="2025-09-18T16:57:47.277943" elapsed="0.000000"/>
+</kw>
+<kw name="Should Be Equal" owner="BuiltIn">
+<msg time="2025-09-18T16:57:47.279943" level="INFO">Argument types are:
+&lt;class 'xml.etree.ElementTree.Element'&gt;
+&lt;class 'str'&gt;</msg>
+<msg time="2025-09-18T16:57:47.279943" level="FAIL">&lt;Element 'breakfast_menu' at 0x000001C2D2251530&gt; != C:\Users\sharmash\automation-framwork\tests\api/../../resources/xml/XML.xml</msg>
+<arg>${xml_obj}</arg>
+<arg>${expectedfile}</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="FAIL" start="2025-09-18T16:57:47.278944" elapsed="0.000999">&lt;Element 'breakfast_menu' at 0x000001C2D2251530&gt; != C:\Users\sharmash\automation-framwork\tests\api/../../resources/xml/XML.xml</status>
+</kw>
+<status status="FAIL" start="2025-09-18T16:57:47.151023" elapsed="0.129920">&lt;Element 'breakfast_menu' at 0x000001C2D2251530&gt; != C:\Users\sharmash\automation-framwork\tests\api/../../resources/xml/XML.xml</status>
+</test>
+<status status="FAIL" start="2025-09-18T16:57:46.864946" elapsed="0.417073"/>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="1" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="0" fail="1" skip="0" id="s1" name="Xml">Xml</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

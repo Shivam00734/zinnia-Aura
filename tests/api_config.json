@@ -1,0 +1,83 @@
+{
+    "regions": {
+      "dev": "https://login.qa.zinnia.com/",
+      "QA": "https://login.qa.zinnia.com/",
+      "prod": "https://login.qa.zinnia.com/"
+    },
+    "apis": [
+      {
+        "name": "Get OAuth Token",
+        "endpoint": "/oauth/token",
+        "method": "POST",
+        "api_type": "Authentication",
+        "payload": {
+          "audience": "https://qa.api.zinnia.io",
+          "grant_type": "client_credentials",
+          "client_id": "UuMribrP3e8zVhfHy6wPJ25lVYh1CWN3",
+          "client_secret": "WQ4ZBFI0RaYnhlhrZBdw4ltrMk8IKT9bDm1DX_U28doSk4F4Au5KiAsoBCSNYWix"
+        },
+        "headers": {
+          "Content-Type": "application/x-www-form-urlencoded"
+        }
+      },
+      {
+        "name": "User Login",
+        "endpoint": "/api/login",
+        "method": "POST",
+        "api_type": "Authentication",
+        "payload": {
+          "username": "testuser",
+          "password": "testpass"
+        },
+        "headers": {
+          "Content-Type": "application/json"
+        }
+      },
+      {
+        "name": "Create Transaction",
+        "endpoint": "/api/transactions",
+        "method": "POST",
+        "api_type": "Transaction",
+        "payload": {
+          "amount": 1000,
+          "currency": "USD",
+          "type": "deposit"
+        },
+        "headers": {
+          "Content-Type": "application/json",
+          "Authorization": "Bearer {token}"
+        }
+      },
+      {
+        "name": "Get Transaction History",
+        "endpoint": "/api/transactions/history",
+        "method": "GET",
+        "api_type": "Transaction",
+        "headers": {
+          "Authorization": "Bearer {token}"
+        }
+      },
+      {
+        "name": "User Onboarding",
+        "endpoint": "/api/onboarding/user",
+        "method": "POST",
+        "api_type": "Onboarding",
+        "payload": {
+          "firstName": "John",
+          "lastName": "Doe",
+          "email": "john.doe@example.com"
+        },
+        "headers": {
+          "Content-Type": "application/json"
+        }
+      },
+      {
+        "name": "Health Check",
+        "endpoint": "/api/health",
+        "method": "GET",
+        "api_type": "Basic",
+        "headers": {}
+      }
+    ]
+  }
+  

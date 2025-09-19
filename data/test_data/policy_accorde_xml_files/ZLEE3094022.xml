@@ -1,0 +1,281 @@
+<?xml version="1.0" encoding="UTF-8"?><TXLife xmlns="http://ACORD.org/Standards/Life/2">
+  <TXLifeRequest PrimaryObjectID="Holding_1">
+    <TransRefGUID>c9acdbfa-2d6a-425b-a636-02f2083ac917</TransRefGUID>
+    <TransType tc="103">New Business Submission</TransType>
+    <TransSubType tc="10301">New Business Submission - Life</TransSubType>
+    <TransExeDate>2024-01-01</TransExeDate>
+    <TransExeTime>04:30:26</TransExeTime>
+    <OLifE>
+      <SourceInfo>
+        <SourceInfoName>PG</SourceInfoName>
+        <SourceInfoDescription>PG</SourceInfoDescription>
+      </SourceInfo>
+      <Holding id="Holding_1">
+        <HoldingTypeCode tc="2">Policy</HoldingTypeCode>
+        <HoldingForm tc="1">Individual</HoldingForm>
+        <Policy>
+          <PolNumber>ZLEE3095053</PolNumber>
+          <LineOfBusiness tc="1">Life</LineOfBusiness>
+          <ProductType tc="5">Indexed Universal Life</ProductType>
+          <ProductCode>ELIULV01</ProductCode>
+          <ProductVersionCode>2024.01.01</ProductVersionCode>
+          <CarrierCode>ELIC</CarrierCode>
+          <PlanName>Everly IUL TermVest+</PlanName>
+          <ShortName>Everly IUL TermVest+</ShortName>
+          <PolicyStatus tc="25">Issued</PolicyStatus>
+          <IssueType tc="1">FULL_UNDERWRITING</IssueType>
+          <Jurisdiction tc="55">VA</Jurisdiction>
+          <Life>
+            <QualPlanType tc="1">Non-Qualified</QualPlanType>
+            <GDBValue>125000</GDBValue>
+            <FaceAmt>125000</FaceAmt>
+            <Coverage id="Base_Coverage">
+              <PlanName>Everly IUL TermVest+</PlanName>
+              <ProductCode>ELIULV01</ProductCode>
+              <IndicatorCode tc="1">Base</IndicatorCode>
+              <DeathBenefitOptType tc="1">Level</DeathBenefitOptType>
+              <ModalPremAmt>1000.00</ModalPremAmt>
+              <EffDate>2024-01-01</EffDate>
+              <LifeParticipant PartyID="Party_PI_1" id="LP_Insured_1">
+                <LifeParticipantRoleCode tc="1">Insured</LifeParticipantRoleCode>
+                <IssueAge>31</IssueAge>
+                <TobaccoPremiumBasis tc="1">Non-Smoker</TobaccoPremiumBasis>
+                <TempTableRating tc="1">None</TempTableRating>
+                <TempFlatExtraAmt>0</TempFlatExtraAmt>
+                <UnderwritingClass tc="11">Standard Non-Tobacco</UnderwritingClass>
+                <UnderwritingStatus tc="6">Approved</UnderwritingStatus>
+                <TempFlatExtraDuration>0</TempFlatExtraDuration>
+              </LifeParticipant>
+              <LifeParticipant PartyID="Party_PB_Primary_Bene_1" id="LP_Primary_Bene_1">
+                <LifeParticipantRoleCode tc="7">Primary Beneficiary</LifeParticipantRoleCode>
+              </LifeParticipant>
+              <BenefitLimit>
+                <MaxBenefitDurPeriod tc="33">30 years</MaxBenefitDurPeriod>
+              </BenefitLimit>
+            </Coverage>
+            <!-- (ELOPR) Overloan Protection Rider -->
+            <Coverage id="Rider_OPR">
+              <PlanName>Overloan Safeguard Benefit Rider</PlanName>
+              <ProductCode>ELIOSBR</ProductCode>
+              <LifeCovStatus tc="1">Active</LifeCovStatus>
+              <IndicatorCode tc="2">Rider</IndicatorCode>
+              <LifeParticipant PartyID="Party_PI_1" id="OPR_Insured_1">
+                <LifeParticipantRoleCode tc="1">Insured</LifeParticipantRoleCode>
+                <IssueAge>31</IssueAge>
+              </LifeParticipant>
+              <OLifEExtension VendorCode="154">
+                <SelectionInd tc="1">True</SelectionInd>
+              </OLifEExtension>
+            </Coverage>
+            <!-- (ELCTR) Children's Term Insurance Rider -->
+            <Coverage id="Rider_ABRTRM">
+              <PlanName>Terminal Illness Accelerated Death Benefit Rider</PlanName>
+              <ProductCode>ELIABRTRM</ProductCode>
+              <LifeCovStatus tc="1">Active</LifeCovStatus>
+              <IndicatorCode tc="2">Rider</IndicatorCode>
+              <LifeParticipant PartyID="Party_PI_1" id="TRM_Insured_1">
+                <LifeParticipantRoleCode tc="1">Insured</LifeParticipantRoleCode>
+                <IssueAge>31</IssueAge>
+              </LifeParticipant>
+              <OLifEExtension VendorCode="154">
+                <SelectionInd tc="1">True</SelectionInd>
+              </OLifEExtension>
+            </Coverage>
+            <Coverage id="Rider_ABRCRI">
+              <PlanName>Critical Illness Accelerated Death Benefit Rider</PlanName>
+              <ProductCode>ELIABRCRI</ProductCode>
+              <LifeCovStatus tc="1">Active</LifeCovStatus>
+              <IndicatorCode tc="2">Rider</IndicatorCode>
+              <LifeParticipant PartyID="Party_PI_1" id="CRI_Insured_1">
+                <LifeParticipantRoleCode tc="1">Insured</LifeParticipantRoleCode>
+                <IssueAge>31</IssueAge>
+              </LifeParticipant>
+              <OLifEExtension VendorCode="154">
+                <SelectionInd tc="1">True</SelectionInd>
+              </OLifEExtension>
+            </Coverage>
+            <Coverage id="Rider_ABRCHR">
+              <PlanName>Chronic Illness Accelerated Death Benefit Rider</PlanName>
+              <ProductCode>ELIABRCHR</ProductCode>
+              <LifeCovStatus tc="1">Active</LifeCovStatus>
+              <IndicatorCode tc="2">Rider</IndicatorCode>
+              <LifeParticipant PartyID="Party_PI_1" id="CHR_Insured_1">
+                <LifeParticipantRoleCode tc="1">Insured</LifeParticipantRoleCode>
+                <IssueAge>31</IssueAge>
+              </LifeParticipant>
+              <OLifEExtension VendorCode="154">
+                <SelectionInd tc="1">True</SelectionInd>
+              </OLifEExtension>
+            </Coverage>
+            <LifeUSA>
+              <DefLifeInsMethod tc="2">Cash Value Test</DefLifeInsMethod>
+            </LifeUSA>
+            <OLifEExtension VendorCode="154">
+              <MatchValueVersion>2024.01.01</MatchValueVersion>
+              <MatchPercentage>1</MatchPercentage>
+            </OLifEExtension>
+          </Life>
+          <ApplicationInfo>
+            <ApplicationType tc="1">New</ApplicationType>
+            <SignedDate>2024-01-01</SignedDate>
+            <MaxRiskAmt>1000000.0</MaxRiskAmt>
+            <SignatureInfo>
+              <SignatureRoleCode tc="18">Owner</SignatureRoleCode>
+              <SignatureDate>2024-01-01</SignatureDate>
+            </SignatureInfo>
+          </ApplicationInfo>
+        </Policy>
+        <Investment>
+          <InvestType tc="32">Investment Account</InvestType>
+          <SubAccount id="SubAcct1">
+            <SubAccountKey>ELF001</SubAccountKey>
+            <ProductFullName>Everly Fixed IUL Fund</ProductFullName>
+            <InvestType tc="22">Fixed Rate</InvestType>
+            <AllocPercent>60</AllocPercent>
+          </SubAccount>
+		  <SubAccount id="SubAcct2">
+            <SubAccountKey>ELI001</SubAccountKey>
+            <ProductFullName>S AND P 500® Price Return Annual Point-to-Point with Cap Account</ProductFullName>
+            <InvestType tc="74">Indexed</InvestType>
+            <AllocPercent>20</AllocPercent>
+          </SubAccount>
+          <SubAccount id="SubAcct3">
+            <SubAccountKey>ELI002</SubAccountKey>
+            <ProductFullName>S AND P 500® Price Return Annual Point-to-Point with Participation Rate Account</ProductFullName>
+            <InvestType tc="74">Indexed</InvestType>
+            <AllocPercent>20</AllocPercent>
+          </SubAccount>
+        </Investment>
+        <Arrangement id="Arr_1">
+          <ArrMode tc="4">Monthly</ArrMode>
+          <ArrType tc="19">Initial Payment</ArrType>
+          <StartDate>2024-01-01</StartDate>
+          <ModalAmt>1000.00</ModalAmt>
+          <PaymentForm tc="7">ACH</PaymentForm>
+        </Arrangement>
+        <Banking AppliesToPartyID="Party_PI_1" id="Bank_1">
+          <BankAcctType tc="2">Checking</BankAcctType>
+          <AccountNumber>560487452</AccountNumber>
+          <RoutingNum>121000248</RoutingNum>
+          <BankName>WELLS FERGO</BankName>
+          <OLifEExtension VendorCode="154">
+            <BillAmtType tc="7">Premium Billing</BillAmtType>
+          </OLifEExtension>
+        </Banking>
+      </Holding>
+      <Party id="Party_PI_1">
+        <PartyTypeCode tc="1">Person</PartyTypeCode>
+        <FullName>James Smith</FullName>
+        <GovtID>245057846</GovtID>
+        <GovtIDTC tc="1">Social Security Number</GovtIDTC>
+        <PrefComm tc="3">Email</PrefComm>
+        <IDReferenceNo>0022b0089076GHT345NN</IDReferenceNo>
+        <IDReferenceType tc="35">Customer Number</IDReferenceType>
+        <Person>
+          <FirstName>James</FirstName>
+          <LastName>Smith</LastName>
+          <Gender tc="1">Male</Gender>
+          <BirthDate>1993-10-09</BirthDate>
+          <DriversLicenseNum>VA058700548745</DriversLicenseNum>
+          <DriversLicenseState tc="55">VA</DriversLicenseState>
+          <BirthCountry tc="1">US</BirthCountry>
+        </Person>
+        <Address id="Party_PI_Address_1">
+          <AddressTypeCode tc="1">Residence</AddressTypeCode>
+          <Line1>988 RHOADS DR</Line1>
+          <City>BELLEMEAD</City>
+          <AddressState>VA</AddressState>
+          <AddressStateTC tc="55">VA</AddressStateTC>
+          <Zip>08502</Zip>
+          <PrefAddr tc="1">true</PrefAddr>
+        </Address>
+        <Phone id="Party_PI_Phone_1">
+          <PhoneTypeCode tc="12">Mobile</PhoneTypeCode>
+          <CountryCode>1</CountryCode>
+          <AreaCode>564</AreaCode>
+          <DialNumber>5472354</DialNumber>
+          <Ext>0919</Ext>
+          <OLifEExtension VendorCode="154">
+            <BestTimeToCall>Any time after 7:00pm</BestTimeToCall>
+          </OLifEExtension>
+        </Phone>
+        <EMailAddress id="Party_PI_EmailAddress_1">
+          <EMailType tc="2">Personal</EMailType>
+          <AddrLine>KARISHMA.KUKU@gmail.com</AddrLine>
+        </EMailAddress>
+        <Risk>
+          <ExistingInsuranceInd tc="0">No</ExistingInsuranceInd>
+        </Risk>
+      </Party>
+      <Party id="Party_PB_Primary_Bene_1">
+        <PartyTypeCode tc="1">Person</PartyTypeCode>
+        <Person>
+          <FirstName>MANIK</FirstName>
+          <LastName>MALIK</LastName>
+          <BirthDate>1993-10-09</BirthDate>
+        </Person>
+      </Party>
+      <Party id="Party_PA_Agent_1">
+        <PartyTypeCode tc="1">Person</PartyTypeCode>
+        <Person>
+          <FirstName>PETER</FirstName>
+          <LastName>ANTHONY</LastName>
+          <Gender tc="1">Male</Gender>
+        </Person>
+        <Producer>
+          <ProducerKey>Agent1</ProducerKey>
+          <License>
+            <LicenseNum>6376559</LicenseNum>
+          </License>
+          <CarrierAppointment>
+            <CompanyProducerID>PG0010028</CompanyProducerID>
+            <CarrierCode>ELIC</CarrierCode>
+            <DistributionChannelInfo>
+              <DistributionChannel tc="13">Bank</DistributionChannel>
+            </DistributionChannelInfo>
+          </CarrierAppointment>
+          <ProducerAgreement>
+            <ProducerType tc="2">Broker</ProducerType>
+          </ProducerAgreement>
+        </Producer>
+        <OLifEExtension VendorCode="154">
+          <StartDate>2024-01-01</StartDate>
+          <EndDate>2060-02-28</EndDate>
+        </OLifEExtension>
+      </Party>
+      <Relation OriginatingObjectID="Holding_1" RelatedObjectID="Party_PI_1" id="Relation_PI_Insured">
+        <OriginatingObjectType tc="4">Holding</OriginatingObjectType>
+        <RelatedObjectType tc="6">Party</RelatedObjectType>
+        <RelationRoleCode tc="32">Insured</RelationRoleCode>
+      </Relation>
+      <Relation OriginatingObjectID="Holding_1" RelatedObjectID="Party_PI_1" id="Relation_PI_Owner">
+        <OriginatingObjectType tc="4">Holding</OriginatingObjectType>
+        <RelatedObjectType tc="6">Party</RelatedObjectType>
+        <RelationRoleCode tc="8">Owner</RelationRoleCode>
+      </Relation>
+      <Relation OriginatingObjectID="Holding_1" RelatedObjectID="Party_PI_1" id="Relation_Holding_Payor">
+        <OriginatingObjectType tc="4">Holding</OriginatingObjectType>
+        <RelatedObjectType tc="6">Party</RelatedObjectType>
+        <RelationRoleCode tc="31">Payer</RelationRoleCode>
+      </Relation>
+      <Relation OriginatingObjectID="Holding_1" RelatedObjectID="Party_PB_Primary_Bene_1" id="Relation_Holding_Primary_Bene_1">
+        <OriginatingObjectType tc="4">Holding</OriginatingObjectType>
+        <RelatedObjectType tc="6">Party</RelatedObjectType>
+        <RelationRoleCode tc="34">Primary Beneficiary</RelationRoleCode>
+        <InterestPercent>100</InterestPercent>
+      </Relation>
+      <Relation OriginatingObjectID="Party_PI_1" RelatedObjectID="Party_PB_Primary_Bene_1" id="Relation_PI_Primary_Bene_1">
+        <OriginatingObjectType tc="6">Party</OriginatingObjectType>
+        <RelatedObjectType tc="6">Party</RelatedObjectType>
+        <RelationRoleCode tc="4">Sibling</RelationRoleCode>
+        <RelationDescription tc="7">Brother</RelationDescription>
+      </Relation>
+      <Relation OriginatingObjectID="Holding_1" RelatedObjectID="Party_PA_Agent_1" id="Relation_Holding_Agent_1">
+        <OriginatingObjectType tc="4">Holding</OriginatingObjectType>
+        <RelatedObjectType tc="6">Party</RelatedObjectType>
+        <RelationRoleCode tc="37">Primary Writing Agent</RelationRoleCode>
+        <InterestPercent>100</InterestPercent>
+      </Relation>
+    </OLifE>
+  </TXLifeRequest>
+</TXLife>

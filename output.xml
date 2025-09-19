@@ -1,0 +1,267 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.3.2 (Python 3.12.1 on win32)" generated="2025-09-19T19:30:09.373528" rpa="false" schemaversion="5">
+<suite id="s1" name="Transaction Onboarding Regression Suite" source="C:\Users\sharmash\Desktop\aura_automation_framework\automation-framwork\tests\api\transaction_onboarding_regression_suite.robot">
+<kw name="Filter Test Date By Execution Flag" owner="ExcelUtils" type="SETUP">
+<msg time="2025-09-19T19:30:22.020785" level="INFO">Filtered data (execution_flag == 'YES') written below existing headers in 'output'.</msg>
+<status status="PASS" start="2025-09-19T19:30:14.870769" elapsed="7.151014"/>
+</kw>
+<test id="s1-t1" name="Perform Systematic Premium Setup Process for client Everly testID: TC_015" line="15">
+<kw name="Add Project Root To Python Path" type="SETUP">
+<kw name="Normalize Path" owner="OperatingSystem">
+<msg time="2025-09-19T19:30:22.025843" level="INFO">${project_root} = C:\Users\sharmash\Desktop\aura_automation_framework\automation-framwork</msg>
+<var>${project_root}</var>
+<arg>C:\\Users\\sharmash\\Desktop\\aura_automation_framework\\automation-framwork\\tests\\api/../../</arg>
+<doc>Normalizes the given path.</doc>
+<status status="PASS" start="2025-09-19T19:30:22.025843" elapsed="0.000000"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<arg>sys.path.insert(0, r'${project_root}')</arg>
+<arg>sys</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-09-19T19:30:22.025843" elapsed="0.001001"/>
+</kw>
+<status status="PASS" start="2025-09-19T19:30:22.024802" elapsed="0.002042"/>
+</kw>
+<kw name="Perform Transaction Onboarding Automation Flow">
+<kw name="Transaction Onboarding Automation Process" owner="zinnialive">
+<kw name="Transaction Onboarding Automation Flow" owner="ZinniaLive">
+<msg time="2025-09-19T19:30:22.028811" level="INFO">Perform Policy Creation Process</msg>
+<msg time="2025-09-19T19:30:22.029825" level="INFO">-----------------------------------------------------------</msg>
+<msg time="2025-09-19T19:30:22.029825" level="INFO">Opening browser 'chrome' to base url 'https://qa-zahara-ui.zinnia.io/#/app/policy'.</msg>
+<msg time="2025-09-19T19:30:28.405388" level="INFO">Typing text 'kapil.suthar@zinnia.com' into text field '//input[@id='username']'.</msg>
+<msg time="2025-09-19T19:30:28.484514" level="INFO">Clicking element '//button[@type='submit']'.</msg>
+<msg time="2025-09-19T19:30:34.954577" level="INFO">Typing text 'Nescafe@234568' into text field '//input[@type='password']'.</msg>
+<msg time="2025-09-19T19:30:35.026790" level="INFO">Clicking element '//input[@type='submit']'.</msg>
+<msg time="2025-09-19T19:30:57.313439" level="INFO">Policy has been uploaded successfully on Zahara</msg>
+<msg time="2025-09-19T19:31:02.341138" level="INFO">Clicking element '//button[normalize-space()='Refresh']'.</msg>
+<msg time="2025-09-19T19:31:12.430751" level="INFO">Typing text 'ZLC1454748' into text field '//input[@type='search']'.</msg>
+<msg time="2025-09-19T19:31:27.828906" level="INFO">Clicking element '//div[contains(text(),'ZLC1454748')]'.</msg>
+<msg time="2025-09-19T19:31:28.352467" level="INFO">Clicking element '//button[@id='policy-tab-transSummary']'.</msg>
+<msg time="2025-09-19T19:31:39.507591" level="INFO">Lifecycle executed successfully: {"message": "SUCCESS", "status": 201}</msg>
+<msg time="2025-09-19T19:31:49.533856" level="INFO">Clicking element '//*[@id='root']/div/div[2]/div/div[1]/div[1]/div[3]/div[2]/button'.</msg>
+<msg time="2025-09-19T19:31:50.312834" level="INFO">The policy has been successfully created and activated on Zahara</msg>
+<msg time="2025-09-19T19:32:50.346356" level="INFO">Clicking element '//*[@id='root']/div/div[2]/div/div[1]/div[1]/div[3]/div[2]/button'.</msg>
+<msg time="2025-09-19T19:32:52.812379" level="INFO">Lifecycle completed on attempt 1</msg>
+<msg time="2025-09-19T19:32:55.042465" level="INFO">Perform Systematic Premium Setup Process</msg>
+<msg time="2025-09-19T19:32:55.042465" level="INFO">-----------------------------------------------------------</msg>
+<msg time="2025-09-19T19:32:55.043467" level="INFO">Opening browser 'chrome' to base url 'https://qa.zinnialive.com/cases'.</msg>
+<msg time="2025-09-19T19:33:00.441850" level="INFO">Typing text 'kapil.suthar@zinnia.com' into text field '//input[@id='username']'.</msg>
+<msg time="2025-09-19T19:33:00.510152" level="INFO">Clicking element '//button[@type='submit']'.</msg>
+<msg time="2025-09-19T19:33:16.554892" level="FAIL">NoSuchWindowException: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=140.0.7339.186)
+Stacktrace:
+	GetHandleVerifier [0x0x7ff61fda30f5+79493]
+	GetHandleVerifier [0x0x7ff61fda3150+79584]
+	(No symbol) [0x0x7ff61fb201ba]
+	(No symbol) [0x0x7ff61faf8271]
+	(No symbol) [0x0x7ff61fba7d2e]
+	(No symbol) [0x0x7ff61fbc84c2]
+	(No symbol) [0x0x7ff61fba04e3]
+	(No symbol) [0x0x7ff61fb68e92]
+	(No symbol) [0x0x7ff61fb69c63]
+	GetHandleVerifier [0x0x7ff620060dbd+2954061]
+	GetHandleVerifier [0x0x7ff62005b02a+2930106]
+	GetHandleVerifier [0x0x7ff62007b357+3061991]
+	GetHandleVerifier [0x0x7ff61fdbd60e+187294]
+	GetHandleVerifier [0x0x7ff61fdc557f+219919]
+	GetHandleVerifier [0x0x7ff61fdac294+116772]
+	GetHandleVerifier [0x0x7ff61fdac449+117209]
+	GetHandleVerifier [0x0x7ff61fd92618+11176]
+	BaseThreadInitThunk [0x0x7ffd63f97374+20]
+	RtlUserThreadStart [0x0x7ffd65b9cc91+33]
+</msg>
+<arg>${automation_flow}</arg>
+<arg>${old_xml_file_name}</arg>
+<arg>${manage_autopay_contract_number}</arg>
+<arg>${payee_name}</arg>
+<arg>${expected_policy_status}</arg>
+<arg>${start_loan_amount}</arg>
+<arg>${loan_autopay_amount}</arg>
+<arg>${Payment_frequency}</arg>
+<arg>${loan_repayment_amount}</arg>
+<arg>${payment_mode}</arg>
+<arg>${fund_allocation_type}</arg>
+<arg>${expected_account_name}</arg>
+<arg>${expected_account_number}</arg>
+<arg>${loan_manage_autopay_amount}</arg>
+<arg>${Manage_payment_frequency}</arg>
+<arg>${fix_fund_allocation_percent}</arg>
+<arg>${cap_account_allocation_percent}</arg>
+<arg>${participation_rate_allocation_percent}</arg>
+<arg>${client_name}</arg>
+<arg>${client_plan_code}</arg>
+<arg>${transfer_amount}</arg>
+<arg>${systematic_withdrawal_and_rmd_amount}</arg>
+<arg>${systematic_premium_update_amount}</arg>
+<arg>${systematic_withdrawal_update_amount}</arg>
+<arg>${systematic_rmd_update_amount}</arg>
+<arg>${preferred_communication}</arg>
+<status status="FAIL" start="2025-09-19T19:30:22.028811" elapsed="174.532081">NoSuchWindowException: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=140.0.7339.186)
+Stacktrace:
+	GetHandleVerifier [0x0x7ff61fda30f5+79493]
+	GetHandleVerifier [0x0x7ff61fda3150+79584]
+	(No symbol) [0x0x7ff61fb201ba]
+	(No symbol) [0x0x7ff61faf8271]
+	(No symbol) [0x0x7ff61fba7d2e]
+	(No symbol) [0x0x7ff61fbc84c2]
+	(No symbol) [0x0x7ff61fba04e3]
+	(No symbol) [0x0x7ff61fb68e92]
+	(No symbol) [0x0x7ff61fb69c63]
+	GetHandleVerifier [0x0x7ff620060dbd+2954061]
+	GetHandleVerifier [0x0x7ff62005b02a+2930106]
+	GetHandleVerifier [0x0x7ff62007b357+3061991]
+	GetHandleVerifier [0x0x7ff61fdbd60e+187294]
+	GetHandleVerifier [0x0x7ff61fdc557f+219919]
+	GetHandleVerifier [0x0x7ff61fdac294+116772]
+	GetHandleVerifier [0x0x7ff61fdac449+117209]
+	GetHandleVerifier [0x0x7ff61fd92618+11176]
+	BaseThreadInitThunk [0x0x7ffd63f97374+20]
+	RtlUserThreadStart [0x0x7ffd65b9cc91+33]
+</status>
+</kw>
+<arg>${automation_flow}</arg>
+<arg>${old_xml_file_name}</arg>
+<arg>${manage_autopay_contract_number}</arg>
+<arg>${payee_name}</arg>
+<arg>${expected_policy_status}</arg>
+<arg>${start_loan_amount}</arg>
+<arg>${loan_autopay_amount}</arg>
+<arg>${Payment_frequency}</arg>
+<arg>${loan_repayment_amount}</arg>
+<arg>${payment_mode}</arg>
+<arg>${fund_allocation_type}</arg>
+<arg>${expected_account_name}</arg>
+<arg>${expected_account_number}</arg>
+<arg>${loan_manage_autopay_amount}</arg>
+<arg>${Manage_payment_frequency}</arg>
+<arg>${fix_fund_allocation_percent}</arg>
+<arg>${cap_account_allocation_percent}</arg>
+<arg>${participation_rate_allocation_percent}</arg>
+<arg>${client_name}</arg>
+<arg>${client_plan_code}</arg>
+<arg>${transfer_amount}</arg>
+<arg>${systematic_withdrawal_and_rmd_amount}</arg>
+<arg>${systematic_premium_update_amount}</arg>
+<arg>${systematic_withdrawal_update_amount}</arg>
+<arg>${systematic_rmd_update_amount}</arg>
+<arg>${preferred_communication}</arg>
+<status status="FAIL" start="2025-09-19T19:30:22.027811" elapsed="174.534082">NoSuchWindowException: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=140.0.7339.186)
+Stacktrace:
+	GetHandleVerifier [0x0x7ff61fda30f5+79493]
+	GetHandleVerifier [0x0x7ff61fda3150+79584]
+	(No symbol) [0x0x7ff61fb201ba]
+	(No symbol) [0x0x7ff61faf8271]
+	(No symbol) [0x0x7ff61fba7d2e]
+	(No symbol) [0x0x7ff61fbc84c2]
+	(No symbol) [0x0x7ff61fba04e3]
+	(No symbol) [0x0x7ff61fb68e92]
+	(No symbol) [0x0x7ff61fb69c63]
+	GetHandleVerifier [0x0x7ff620060dbd+2954061]
+	GetHandleVerifier [0x0x7ff62005b02a+2930106]
+	GetHandleVerifier [0x0x7ff62007b357+3061991]
+	GetHandleVerifier [0x0x7ff61fdbd60e+187294]
+	GetHandleVerifier [0x0x7ff61fdc557f+219919]
+	GetHandleVerifier [0x0x7ff61fdac294+116772]
+	GetHandleVerifier [0x0x7ff61fdac449+117209]
+	GetHandleVerifier [0x0x7ff61fd92618+11176]
+	BaseThreadInitThunk [0x0x7ffd63f97374+20]
+	RtlUserThreadStart [0x0x7ffd65b9cc91+33]
+</status>
+</kw>
+<arg>TestId=TC_015</arg>
+<arg>automation_flow=Systematic Premium Setup</arg>
+<arg>client_name=Everly</arg>
+<arg>client_plan_code=ELIULV01</arg>
+<arg>old_xml_file_name=ZLC1230196</arg>
+<arg>manage_autopay_contract_number=</arg>
+<arg>payee_name=</arg>
+<arg>expected_policy_status=ACTIVE</arg>
+<arg>start_loan_amount=</arg>
+<arg>loan_repayment_amount=</arg>
+<arg>loan_autopay_amount=</arg>
+<arg>loan_manage_autopay_amount=</arg>
+<arg>systematic_premium_update_amount=</arg>
+<arg>systematic_withdrawal_update_amount=</arg>
+<arg>systematic_rmd_update_amount=</arg>
+<arg>Payment_frequency=</arg>
+<arg>Manage_payment_frequency=</arg>
+<arg>payment_mode=</arg>
+<arg>fund_allocation_type=</arg>
+<arg>expected_account_name=</arg>
+<arg>expected_account_number=</arg>
+<arg>fix_fund_allocation_percent=</arg>
+<arg>cap_account_allocation_percent=</arg>
+<arg>participation_rate_allocation_percent=</arg>
+<arg>transfer_amount=</arg>
+<arg>systematic_withdrawal_and_rmd_amount=</arg>
+<arg>preferred_communication=</arg>
+<status status="FAIL" start="2025-09-19T19:30:22.026844" elapsed="174.535049">NoSuchWindowException: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=140.0.7339.186)
+Stacktrace:
+	GetHandleVerifier [0x0x7ff61fda30f5+79493]
+	GetHandleVerifier [0x0x7ff61fda3150+79584]
+	(No symbol) [0x0x7ff61fb201ba]
+	(No symbol) [0x0x7ff61faf8271]
+	(No symbol) [0x0x7ff61fba7d2e]
+	(No symbol) [0x0x7ff61fbc84c2]
+	(No symbol) [0x0x7ff61fba04e3]
+	(No symbol) [0x0x7ff61fb68e92]
+	(No symbol) [0x0x7ff61fb69c63]
+	GetHandleVerifier [0x0x7ff620060dbd+2954061]
+	GetHandleVerifier [0x0x7ff62005b02a+2930106]
+	GetHandleVerifier [0x0x7ff62007b357+3061991]
+	GetHandleVerifier [0x0x7ff61fdbd60e+187294]
+	GetHandleVerifier [0x0x7ff61fdc557f+219919]
+	GetHandleVerifier [0x0x7ff61fdac294+116772]
+	GetHandleVerifier [0x0x7ff61fdac449+117209]
+	GetHandleVerifier [0x0x7ff61fd92618+11176]
+	BaseThreadInitThunk [0x0x7ffd63f97374+20]
+	RtlUserThreadStart [0x0x7ffd65b9cc91+33]
+</status>
+</kw>
+<status status="FAIL" start="2025-09-19T19:30:22.021783" elapsed="174.540110">NoSuchWindowException: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=140.0.7339.186)
+Stacktrace:
+	GetHandleVerifier [0x0x7ff61fda30f5+79493]
+	GetHandleVerifier [0x0x7ff61fda3150+79584]
+	(No symbol) [0x0x7ff61fb201ba]
+	(No symbol) [0x0x7ff61faf8271]
+	(No symbol) [0x0x7ff61fba7d2e]
+	(No symbol) [0x0x7ff61fbc84c2]
+	(No symbol) [0x0x7ff61fba04e3]
+	(No symbol) [0x0x7ff61fb68e92]
+	(No symbol) [0x0x7ff61fb69c63]
+	GetHandleVerifier [0x0x7ff620060dbd+2954061]
+	GetHandleVerifier [0x0x7ff62005b02a+2930106]
+	GetHandleVerifier [0x0x7ff62007b357+3061991]
+	GetHandleVerifier [0x0x7ff61fdbd60e+187294]
+	GetHandleVerifier [0x0x7ff61fdc557f+219919]
+	GetHandleVerifier [0x0x7ff61fdac294+116772]
+	GetHandleVerifier [0x0x7ff61fdac449+117209]
+	GetHandleVerifier [0x0x7ff61fd92618+11176]
+	BaseThreadInitThunk [0x0x7ffd63f97374+20]
+	RtlUserThreadStart [0x0x7ffd65b9cc91+33]
+</status>
+</test>
+<status status="FAIL" start="2025-09-19T19:30:09.375450" elapsed="187.188442"/>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="1" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat name="Transaction Onboarding Regression Suite" id="s1" pass="0" fail="1" skip="0">Transaction Onboarding Regression Suite</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

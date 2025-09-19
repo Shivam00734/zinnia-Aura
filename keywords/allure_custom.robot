@@ -2,7 +2,7 @@
 Library    OperatingSystem
 
 *** Variables ***
-${ALLURE_RESULTS_DIR}    reports/allure-results
+${ALLURE_RESULTS_DIR}    allure-results
 ${ENVIRONMENT_PROPERTIES_FILE}    ${ALLURE_RESULTS_DIR}/environment.properties
 ${SEVERITY_FILE}    ${ALLURE_RESULTS_DIR}/severity.properties
 ${DESCRIPTION_FILE}    ${ALLURE_RESULTS_DIR}/description.properties

@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.0.1 (Python 3.12.1 on win32)" generated="2025-09-18T16:57:56.385323" rpa="false" schemaversion="5">
+<suite id="s1" name="Transaction Onboarding Regression Suite" source="C:\Users\sharmash\automation-framwork\tests\api\transaction_onboarding_regression_suite.robot">
+<kw name="Filter Test Date By Execution Flag" owner="ExcelUtils" type="SETUP">
+<msg time="2025-09-18T16:58:10.921804" level="INFO">Filtered data (execution_flag == 'YES') written below existing headers in 'output'.</msg>
+<status status="PASS" start="2025-09-18T16:58:02.229503" elapsed="8.693302"/>
+</kw>
+<test id="s1-t1" name="Perform New One Time Loan Repayment Process for client Everly testID: TC_001" line="15">
+<kw name="Add Project Root To Python Path" type="SETUP">
+<kw name="Normalize Path" owner="OperatingSystem">
+<msg time="2025-09-18T16:58:10.929805" level="INFO">${project_root} = C:\Users\sharmash\automation-framwork</msg>
+<var>${project_root}</var>
+<arg>C:\\Users\\sharmash\\automation-framwork\\tests\\api/../../</arg>
+<doc>Normalizes the given path.</doc>
+<status status="PASS" start="2025-09-18T16:58:10.928804" elapsed="0.001001"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<arg>sys.path.insert(0, r'${project_root}')</arg>
+<arg>sys</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-09-18T16:58:10.934804" elapsed="0.000000"/>
+</kw>
+<status status="PASS" start="2025-09-18T16:58:10.928804" elapsed="0.007065"/>
+</kw>
+<kw name="Perform Transaction Onboarding Automation Flow">
+<kw name="Transaction Onboarding Automation Process" owner="zinnialive">
+<kw name="Transaction Onboarding Automation Flow" owner="ZinniaLive">
+<msg time="2025-09-18T16:58:10.939907" level="INFO">Perform Policy Creation Process</msg>
+<msg time="2025-09-18T16:58:10.939907" level="INFO">-----------------------------------------------------------</msg>
+<msg time="2025-09-18T16:58:10.939907" level="INFO">Opening browser 'chrome' to base url 'https://qa-zahara-ui.zinnia.io/#/app/policy'.</msg>
+<msg time="2025-09-18T16:58:18.140849" level="INFO">Typing text 'kapil.suthar@zinnia.com' into text field '//input[@id='username']'.</msg>
+<msg time="2025-09-18T16:58:18.243765" level="INFO">Clicking element '//button[@type='submit']'.</msg>
+<msg time="2025-09-18T16:58:23.633995" level="INFO">Typing text 'Nescafe@234568' into text field '//input[@type='password']'.</msg>
+<msg time="2025-09-18T16:58:23.709995" level="INFO">Clicking element '//input[@type='submit']'.</msg>
+<msg time="2025-09-18T16:58:53.071360" level="INFO">Policy has been uploaded successfully on Zahara</msg>
+<msg time="2025-09-18T16:59:03.102673" level="INFO">Clicking element '//button[normalize-space()='Refresh']'.</msg>
+<msg time="2025-09-18T16:59:05.737781" level="INFO">Typing text 'ZLEE3287354' into text field '//input[@type='search']'.</msg>
+<msg time="2025-09-18T16:59:12.336041" level="INFO">Clicking element '//div[contains(text(),'ZLEE3287354')]'.</msg>
+<msg time="2025-09-18T16:59:12.877955" level="INFO">Clicking element '//button[@id='policy-tab-transSummary']'.</msg>
+<msg time="2025-09-18T16:59:13.982894" level="INFO">Lifecycle executed successfully: {"message": "SUCCESS", "status": 201}</msg>
+<msg time="2025-09-18T16:59:14.108954" level="INFO">Clicking element '//button[@id='policy-tab-transSummary']'.</msg>
+<msg time="2025-09-18T16:59:19.350640" level="INFO">Clicking element '//*[@id='root']/div/div[2]/div/div[1]/div[1]/div[3]/div[2]/button'.</msg>
+<msg time="2025-09-18T16:59:20.055792" level="INFO">The policy has been successfully created and activated on Zahara</msg>
+<msg time="2025-09-18T17:07:20.084334" level="INFO">Clicking element '//*[@id='root']/div/div[2]/div/div[1]/div[1]/div[3]/div[2]/button'.</msg>
+<msg time="2025-09-18T17:07:25.406431" level="INFO">Attempt 1: Lifecycle not completed yet. Retrying in 30 seconds.</msg>
+<msg time="2025-09-18T17:07:55.435505" level="INFO">Clicking element '//*[@id='root']/div/div[2]/div/div[1]/div[1]/div[3]/div[2]/button'.</msg>
+<msg time="2025-09-18T17:08:00.925161" level="INFO">Attempt 2: Lifecycle not completed yet. Retrying in 30 seconds.</msg>
+<msg time="2025-09-18T17:08:30.950788" level="INFO">Clicking element '//*[@id='root']/div/div[2]/div/div[1]/div[1]/div[3]/div[2]/button'.</msg>
+<msg time="2025-09-18T17:08:36.346956" level="INFO">Attempt 3: Lifecycle not completed yet. Retrying in 30 seconds.</msg>
+<msg time="2025-09-18T17:09:06.372981" level="INFO">Clicking element '//*[@id='root']/div/div[2]/div/div[1]/div[1]/div[3]/div[2]/button'.</msg>
+<msg time="2025-09-18T17:09:11.796997" level="INFO">Attempt 4: Lifecycle not completed yet. Retrying in 30 seconds.</msg>
+<msg time="2025-09-18T17:09:41.828311" level="INFO">Clicking element '//*[@id='root']/div/div[2]/div/div[1]/div[1]/div[3]/div[2]/button'.</msg>
+<msg time="2025-09-18T17:09:47.198809" level="INFO">Attempt 5: Lifecycle not completed yet. Retrying in 30 seconds.</msg>
+<msg time="2025-09-18T17:10:17.221221" level="INFO">Clicking element '//*[@id='root']/div/div[2]/div/div[1]/div[1]/div[3]/div[2]/button'.</msg>
+<msg time="2025-09-18T17:10:22.622576" level="INFO">Attempt 6: Lifecycle not completed yet. Retrying in 30 seconds.</msg>
+<msg time="2025-09-18T17:10:52.651413" level="INFO">Clicking element '//*[@id='root']/div/div[2]/div/div[1]/div[1]/div[3]/div[2]/button'.</msg>
+<msg time="2025-09-18T17:10:57.992724" level="INFO">Attempt 7: Lifecycle not completed yet. Retrying in 30 seconds.</msg>
+<msg time="2025-09-18T17:11:28.024523" level="INFO">Clicking element '//*[@id='root']/div/div[2]/div/div[1]/div[1]/div[3]/div[2]/button'.</msg>
+<msg time="2025-09-18T17:11:33.297404" level="INFO">Attempt 8: Lifecycle not completed yet. Retrying in 30 seconds.</msg>
+<msg time="2025-09-18T17:12:03.319987" level="INFO">Clicking element '//*[@id='root']/div/div[2]/div/div[1]/div[1]/div[3]/div[2]/button'.</msg>
+<msg time="2025-09-18T17:12:08.722249" level="INFO">Attempt 9: Lifecycle not completed yet. Retrying in 30 seconds.</msg>
+<msg time="2025-09-18T17:12:38.742031" level="INFO">Clicking element '//*[@id='root']/div/div[2]/div/div[1]/div[1]/div[3]/div[2]/button'.</msg>
+<msg time="2025-09-18T17:12:44.099897" level="INFO">Attempt 10: Lifecycle not completed yet. Retrying in 30 seconds.</msg>
+<msg time="2025-09-18T17:13:14.119039" level="INFO">Clicking element '//*[@id='root']/div/div[2]/div/div[1]/div[1]/div[3]/div[2]/button'.</msg>
+<msg time="2025-09-18T17:13:19.415937" level="INFO">Attempt 11: Lifecycle not completed yet. Retrying in 30 seconds.</msg>
+<msg time="2025-09-18T17:13:49.435476" level="INFO">Clicking element '//*[@id='root']/div/div[2]/div/div[1]/div[1]/div[3]/div[2]/button'.</msg>
+<msg time="2025-09-18T17:13:54.792531" level="INFO">Attempt 12: Lifecycle not completed yet. Retrying in 30 seconds.</msg>
+<msg time="2025-09-18T17:14:24.813605" level="INFO">Clicking element '//*[@id='root']/div/div[2]/div/div[1]/div[1]/div[3]/div[2]/button'.</msg>
+<msg time="2025-09-18T17:14:30.354145" level="INFO">Attempt 13: Lifecycle not completed yet. Retrying in 30 seconds.</msg>
+<msg time="2025-09-18T17:15:00.375909" level="INFO">Clicking element '//*[@id='root']/div/div[2]/div/div[1]/div[1]/div[3]/div[2]/button'.</msg>
+<msg time="2025-09-18T17:15:05.835104" level="INFO">Attempt 14: Lifecycle not completed yet. Retrying in 30 seconds.</msg>
+<msg time="2025-09-18T17:15:35.870851" level="INFO">Clicking element '//*[@id='root']/div/div[2]/div/div[1]/div[1]/div[3]/div[2]/button'.</msg>
+<msg time="2025-09-18T17:15:41.348931" level="INFO">Attempt 15: Lifecycle not completed yet. Retrying in 30 seconds.</msg>
+<msg time="2025-09-18T17:16:11.368873" level="INFO">Clicking element '//*[@id='root']/div/div[2]/div/div[1]/div[1]/div[3]/div[2]/button'.</msg>
+<msg time="2025-09-18T17:16:16.862683" level="INFO">Attempt 16: Lifecycle not completed yet. Retrying in 30 seconds.</msg>
+<msg time="2025-09-18T17:16:46.896886" level="INFO">Clicking element '//*[@id='root']/div/div[2]/div/div[1]/div[1]/div[3]/div[2]/button'.</msg>
+<msg time="2025-09-18T17:16:52.387493" level="INFO">Attempt 17: Lifecycle not completed yet. Retrying in 30 seconds.</msg>
+<msg time="2025-09-18T17:17:22.421180" level="INFO">Clicking element '//*[@id='root']/div/div[2]/div/div[1]/div[1]/div[3]/div[2]/button'.</msg>
+<msg time="2025-09-18T17:17:27.873004" level="INFO">Attempt 18: Lifecycle not completed yet. Retrying in 30 seconds.</msg>
+<msg time="2025-09-18T17:17:57.903501" level="INFO">Clicking element '//*[@id='root']/div/div[2]/div/div[1]/div[1]/div[3]/div[2]/button'.</msg>
+<msg time="2025-09-18T17:18:03.429951" level="INFO">Attempt 19: Lifecycle not completed yet. Retrying in 30 seconds.</msg>
+<msg time="2025-09-18T17:18:33.468333" level="INFO">Clicking element '//*[@id='root']/div/div[2]/div/div[1]/div[1]/div[3]/div[2]/button'.</msg>
+<msg time="2025-09-18T17:18:38.860597" level="INFO">Attempt 20: Lifecycle not completed yet. Retrying in 30 seconds.</msg>
+<msg time="2025-09-18T17:19:08.894283" level="INFO">Clicking element '//*[@id='root']/div/div[2]/div/div[1]/div[1]/div[3]/div[2]/button'.</msg>
+<msg time="2025-09-18T17:19:14.482518" level="INFO">Attempt 21: Lifecycle not completed yet. Retrying in 30 seconds.</msg>
+<msg time="2025-09-18T17:19:44.513865" level="INFO">Clicking element '//*[@id='root']/div/div[2]/div/div[1]/div[1]/div[3]/div[2]/button'.</msg>
+<msg time="2025-09-18T17:19:50.010335" level="INFO">Attempt 22: Lifecycle not completed yet. Retrying in 30 seconds.</msg>
+<msg time="2025-09-18T17:20:20.042503" level="INFO">Clicking element '//*[@id='root']/div/div[2]/div/div[1]/div[1]/div[3]/div[2]/button'.</msg>
+<msg time="2025-09-18T17:20:25.413013" level="INFO">Attempt 23: Lifecycle not completed yet. Retrying in 30 seconds.</msg>
+<msg time="2025-09-18T17:20:55.446435" level="INFO">Clicking element '//*[@id='root']/div/div[2]/div/div[1]/div[1]/div[3]/div[2]/button'.</msg>
+<msg time="2025-09-18T17:20:57.716858" level="INFO">Lifecycle completed on attempt 24</msg>
+<msg time="2025-09-18T17:21:00.098769" level="INFO">Perform Start A Loan Process</msg>
+<msg time="2025-09-18T17:21:00.098769" level="INFO">-----------------------------------------------------------</msg>
+<msg time="2025-09-18T17:21:00.098769" level="INFO">Opening browser 'chrome' to base url 'https://qa.zinnialive.com/cases'.</msg>
+<msg time="2025-09-18T17:21:15.684688" level="INFO">Typing text 'kapil.suthar@zinnia.com' into text field '//input[@id='username']'.</msg>
+<msg time="2025-09-18T17:21:15.774684" level="INFO">Clicking element '//button[@type='submit']'.</msg>
+<msg time="2025-09-18T17:22:43.157799" level="FAIL">Element '//span[normalize-space()='Policies &amp; Contracts']' not visible after 1 minute.</msg>
+<arg>${automation_flow}</arg>
+<arg>${old_xml_file_name}</arg>
+<arg>${manage_autopay_contract_number}</arg>
+<arg>${payee_name}</arg>
+<arg>${expected_policy_status}</arg>
+<arg>${start_loan_amount}</arg>
+<arg>${loan_autopay_amount}</arg>
+<arg>${Payment_frequency}</arg>
+<arg>${loan_repayment_amount}</arg>
+<arg>${payment_mode}</arg>
+<arg>${fund_allocation_type}</arg>
+<arg>${expected_account_name}</arg>
+<arg>${expected_account_number}</arg>
+<arg>${loan_manage_autopay_amount}</arg>
+<arg>${Manage_payment_frequency}</arg>
+<arg>${fix_fund_allocation_percent}</arg>
+<arg>${cap_account_allocation_percent}</arg>
+<arg>${participation_rate_allocation_percent}</arg>
+<arg>${client_name}</arg>
+<arg>${client_plan_code}</arg>
+<arg>${transfer_amount}</arg>
+<arg>${systematic_withdrawal_and_rmd_amount}</arg>
+<arg>${systematic_premium_update_amount}</arg>
+<arg>${systematic_withdrawal_update_amount}</arg>
+<arg>${systematic_rmd_update_amount}</arg>
+<arg>${preferred_communication}</arg>
+<status status="FAIL" start="2025-09-18T16:58:10.938910" elapsed="1472.225863">Element '//span[normalize-space()='Policies &amp; Contracts']' not visible after 1 minute.</status>
+</kw>
+<arg>${automation_flow}</arg>
+<arg>${old_xml_file_name}</arg>
+<arg>${manage_autopay_contract_number}</arg>
+<arg>${payee_name}</arg>
+<arg>${expected_policy_status}</arg>
+<arg>${start_loan_amount}</arg>
+<arg>${loan_autopay_amount}</arg>
+<arg>${Payment_frequency}</arg>
+<arg>${loan_repayment_amount}</arg>
+<arg>${payment_mode}</arg>
+<arg>${fund_allocation_type}</arg>
+<arg>${expected_account_name}</arg>
+<arg>${expected_account_number}</arg>
+<arg>${loan_manage_autopay_amount}</arg>
+<arg>${Manage_payment_frequency}</arg>
+<arg>${fix_fund_allocation_percent}</arg>
+<arg>${cap_account_allocation_percent}</arg>
+<arg>${participation_rate_allocation_percent}</arg>
+<arg>${client_name}</arg>
+<arg>${client_plan_code}</arg>
+<arg>${transfer_amount}</arg>
+<arg>${systematic_withdrawal_and_rmd_amount}</arg>
+<arg>${systematic_premium_update_amount}</arg>
+<arg>${systematic_withdrawal_update_amount}</arg>
+<arg>${systematic_rmd_update_amount}</arg>
+<arg>${preferred_communication}</arg>
+<status status="FAIL" start="2025-09-18T16:58:10.936804" elapsed="1472.229915">Element '//span[normalize-space()='Policies &amp; Contracts']' not visible after 1 minute.</status>
+</kw>
+<arg>('TestId', 'TC_001')</arg>
+<arg>('automation_flow', 'New One Time Loan Repayment')</arg>
+<arg>('client_name', 'Everly')</arg>
+<arg>('client_plan_code', 'ELIULV01')</arg>
+<arg>('old_xml_file_name', 'ZLEE3094022')</arg>
+<arg>('manage_autopay_contract_number', '')</arg>
+<arg>('payee_name', '')</arg>
+<arg>('expected_policy_status', 'ACTIVE')</arg>
+<arg>('start_loan_amount', '$1,200.00')</arg>
+<arg>('loan_repayment_amount', '$1,200.00')</arg>
+<arg>('loan_autopay_amount', '$200.00')</arg>
+<arg>('loan_manage_autopay_amount', '$300.00')</arg>
+<arg>('systematic_premium_update_amount', '')</arg>
+<arg>('systematic_withdrawal_update_amount', '')</arg>
+<arg>('systematic_rmd_update_amount', '')</arg>
+<arg>('Payment_frequency', 'Monthly')</arg>
+<arg>('Manage_payment_frequency', 'Quarterly')</arg>
+<arg>('payment_mode', 'ACH')</arg>
+<arg>('fund_allocation_type', 'Pro rata')</arg>
+<arg>('expected_account_name', 'WELLS FERGO')</arg>
+<arg>('expected_account_number', 'Checking ending in 7452')</arg>
+<arg>('fix_fund_allocation_percent', '')</arg>
+<arg>('cap_account_allocation_percent', '')</arg>
+<arg>('participation_rate_allocation_percent', '')</arg>
+<arg>('transfer_amount', '')</arg>
+<arg>('systematic_withdrawal_and_rmd_amount', '')</arg>
+<arg>('preferred_communication', '')</arg>
+<status status="FAIL" start="2025-09-18T16:58:10.935869" elapsed="1472.231898">Element '//span[normalize-space()='Policies &amp; Contracts']' not visible after 1 minute.</status>
+</kw>
+<status status="FAIL" start="2025-09-18T16:58:10.925805" elapsed="1472.241962">Element '//span[normalize-space()='Policies &amp; Contracts']' not visible after 1 minute.</status>
+</test>
+<status status="FAIL" start="2025-09-18T16:57:56.425275" elapsed="1486.749477"/>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="1" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="0" fail="1" skip="0" id="s1" name="Transaction Onboarding Regression Suite">Transaction Onboarding Regression Suite</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

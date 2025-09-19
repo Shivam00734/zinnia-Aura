@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.0.1 (Python 3.12.1 on win32)" generated="2025-09-18T16:38:51.561695" rpa="false" schemaversion="5">
+<suite id="s1" name="Transaction Onboarding Regression Suite" source="C:\Users\sharmash\automation-framwork\tests\api\transaction_onboarding_regression_suite.robot">
+<kw name="Filter Test Date By Execution Flag" owner="ExcelUtils" type="SETUP">
+<status status="NOT RUN" start="2025-09-18T16:38:57.775426" elapsed="0.000000"/>
+</kw>
+<test id="s1-t1" name="Perform New One Time Loan Repayment Process for client Everly testID: TC_001" line="15">
+<kw name="Add Project Root To Python Path" type="SETUP">
+<kw name="Normalize Path" owner="OperatingSystem">
+<var>${project_root}</var>
+<arg>C:\\Users\\sharmash\\automation-framwork\\tests\\api/../../</arg>
+<doc>Normalizes the given path.</doc>
+<status status="NOT RUN" start="2025-09-18T16:38:57.776379" elapsed="0.000000"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<arg>sys.path.insert(0, r'${project_root}')</arg>
+<arg>sys</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="NOT RUN" start="2025-09-18T16:38:57.776379" elapsed="0.000000"/>
+</kw>
+<status status="PASS" start="2025-09-18T16:38:57.776379" elapsed="0.000985"/>
+</kw>
+<kw name="Perform Transaction Onboarding Automation Flow">
+<kw name="Transaction Onboarding Automation Process" owner="zinnialive">
+<kw name="Transaction Onboarding Automation Flow" owner="ZinniaLive">
+<arg>${automation_flow}</arg>
+<arg>${old_xml_file_name}</arg>
+<arg>${manage_autopay_contract_number}</arg>
+<arg>${payee_name}</arg>
+<arg>${expected_policy_status}</arg>
+<arg>${start_loan_amount}</arg>
+<arg>${loan_autopay_amount}</arg>
+<arg>${Payment_frequency}</arg>
+<arg>${loan_repayment_amount}</arg>
+<arg>${payment_mode}</arg>
+<arg>${fund_allocation_type}</arg>
+<arg>${expected_account_name}</arg>
+<arg>${expected_account_number}</arg>
+<arg>${loan_manage_autopay_amount}</arg>
+<arg>${Manage_payment_frequency}</arg>
+<arg>${fix_fund_allocation_percent}</arg>
+<arg>${cap_account_allocation_percent}</arg>
+<arg>${participation_rate_allocation_percent}</arg>
+<arg>${client_name}</arg>
+<arg>${client_plan_code}</arg>
+<arg>${transfer_amount}</arg>
+<arg>${systematic_withdrawal_and_rmd_amount}</arg>
+<arg>${systematic_premium_update_amount}</arg>
+<arg>${systematic_withdrawal_update_amount}</arg>
+<arg>${systematic_rmd_update_amount}</arg>
+<arg>${preferred_communication}</arg>
+<status status="NOT RUN" start="2025-09-18T16:38:57.777364" elapsed="0.001014"/>
+</kw>
+<arg>${automation_flow}</arg>
+<arg>${old_xml_file_name}</arg>
+<arg>${manage_autopay_contract_number}</arg>
+<arg>${payee_name}</arg>
+<arg>${expected_policy_status}</arg>
+<arg>${start_loan_amount}</arg>
+<arg>${loan_autopay_amount}</arg>
+<arg>${Payment_frequency}</arg>
+<arg>${loan_repayment_amount}</arg>
+<arg>${payment_mode}</arg>
+<arg>${fund_allocation_type}</arg>
+<arg>${expected_account_name}</arg>
+<arg>${expected_account_number}</arg>
+<arg>${loan_manage_autopay_amount}</arg>
+<arg>${Manage_payment_frequency}</arg>
+<arg>${fix_fund_allocation_percent}</arg>
+<arg>${cap_account_allocation_percent}</arg>
+<arg>${participation_rate_allocation_percent}</arg>
+<arg>${client_name}</arg>
+<arg>${client_plan_code}</arg>
+<arg>${transfer_amount}</arg>
+<arg>${systematic_withdrawal_and_rmd_amount}</arg>
+<arg>${systematic_premium_update_amount}</arg>
+<arg>${systematic_withdrawal_update_amount}</arg>
+<arg>${systematic_rmd_update_amount}</arg>
+<arg>${preferred_communication}</arg>
+<status status="PASS" start="2025-09-18T16:38:57.777364" elapsed="0.001014"/>
+</kw>
+<arg>('TestId', 'TC_001')</arg>
+<arg>('automation_flow', 'New One Time Loan Repayment')</arg>
+<arg>('client_name', 'Everly')</arg>
+<arg>('client_plan_code', 'ELIULV01')</arg>
+<arg>('old_xml_file_name', 'ZLEE3094022')</arg>
+<arg>('manage_autopay_contract_number', '')</arg>
+<arg>('payee_name', '')</arg>
+<arg>('expected_policy_status', 'ACTIVE')</arg>
+<arg>('start_loan_amount', '$1,200.00')</arg>
+<arg>('loan_repayment_amount', '$1,200.00')</arg>
+<arg>('loan_autopay_amount', '$200.00')</arg>
+<arg>('loan_manage_autopay_amount', '$300.00')</arg>
+<arg>('systematic_premium_update_amount', '')</arg>
+<arg>('systematic_withdrawal_update_amount', '')</arg>
+<arg>('systematic_rmd_update_amount', '')</arg>
+<arg>('Payment_frequency', 'Monthly')</arg>
+<arg>('Manage_payment_frequency', 'Quarterly')</arg>
+<arg>('payment_mode', 'ACH')</arg>
+<arg>('fund_allocation_type', 'Pro rata')</arg>
+<arg>('expected_account_name', 'WELLS FERGO')</arg>
+<arg>('expected_account_number', 'Checking ending in 7452')</arg>
+<arg>('fix_fund_allocation_percent', '')</arg>
+<arg>('cap_account_allocation_percent', '')</arg>
+<arg>('participation_rate_allocation_percent', '')</arg>
+<arg>('transfer_amount', '')</arg>
+<arg>('systematic_withdrawal_and_rmd_amount', '')</arg>
+<arg>('preferred_communication', '')</arg>
+<status status="PASS" start="2025-09-18T16:38:57.777364" elapsed="0.001014"/>
+</kw>
+<status status="PASS" start="2025-09-18T16:38:57.775426" elapsed="0.002952"/>
+</test>
+<status status="PASS" start="2025-09-18T16:38:51.562722" elapsed="6.217633"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="1" fail="0" skip="0" id="s1" name="Transaction Onboarding Regression Suite">Transaction Onboarding Regression Suite</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

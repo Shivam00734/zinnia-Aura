@@ -1,0 +1,33 @@
+name: Python Robot Framework
+
+on:
+  push:
+    branches: [ "transaction_onboarding" ]
+  pull_request:
+    branches: [ "transaction_onboarding" ]
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: [self-hosted, WORKSPA-CE5E72F]
+    timeout-minutes: 1440
+
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Debug Python installation
+      run: |
+        where python
+        python --version
+        
+#    - name: Install dependencies
+#      run: |
+#        python -m pip install --upgrade pip
+#        pip install -r requirements.txt
+
+
+    - name: Run OTP E2E Automation Process
+      run: |
+        $env:PYTHONPATH = (Get-Location).Path; python script\transaction_onboarding_regression_suite.py

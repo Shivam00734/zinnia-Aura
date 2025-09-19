@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.0.1 (Python 3.12.1 on win32)" generated="2025-09-19T19:20:24.579524" rpa="false" schemaversion="5">
+<suite id="s1" name="Transaction Onboarding Regression Suite" source="C:\Users\sharmash\Desktop\aura_automation_framework\automation-framwork\tests\api\transaction_onboarding_regression_suite.robot">
+<kw name="Filter Test Date By Execution Flag" owner="ExcelUtils" type="SETUP">
+<msg time="2025-09-19T19:20:37.154981" level="INFO">Filtered data (execution_flag == 'YES') written below existing headers in 'output'.</msg>
+<status status="PASS" start="2025-09-19T19:20:30.053035" elapsed="7.101946"/>
+</kw>
+<test id="s1-t1" name="Perform Systematic Premium Setup Process for client Everly testID: TC_015" line="15">
+<kw name="Add Project Root To Python Path" type="SETUP">
+<kw name="Normalize Path" owner="OperatingSystem">
+<msg time="2025-09-19T19:20:37.164978" level="INFO">${project_root} = C:\Users\sharmash\Desktop\aura_automation_framework\automation-framwork</msg>
+<var>${project_root}</var>
+<arg>C:\\Users\\sharmash\\Desktop\\aura_automation_framework\\automation-framwork\\tests\\api/../../</arg>
+<doc>Normalizes the given path.</doc>
+<status status="PASS" start="2025-09-19T19:20:37.163979" elapsed="0.000999"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<arg>sys.path.insert(0, r'${project_root}')</arg>
+<arg>sys</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-09-19T19:20:37.170774" elapsed="0.000000"/>
+</kw>
+<status status="PASS" start="2025-09-19T19:20:37.163979" elapsed="0.007796"/>
+</kw>
+<kw name="Perform Transaction Onboarding Automation Flow">
+<kw name="Transaction Onboarding Automation Process" owner="zinnialive">
+<kw name="Transaction Onboarding Automation Flow" owner="ZinniaLive">
+<msg time="2025-09-19T19:20:37.176772" level="INFO">Perform Policy Creation Process</msg>
+<msg time="2025-09-19T19:20:37.176772" level="INFO">-----------------------------------------------------------</msg>
+<msg time="2025-09-19T19:20:37.176772" level="INFO">Opening browser 'chrome' to base url 'https://qa-zahara-ui.zinnia.io/#/app/policy'.</msg>
+<msg time="2025-09-19T19:20:44.325201" level="INFO">Typing text 'kapil.suthar@zinnia.com' into text field '//input[@id='username']'.</msg>
+<msg time="2025-09-19T19:20:44.407202" level="INFO">Clicking element '//button[@type='submit']'.</msg>
+<msg time="2025-09-19T19:20:50.541719" level="INFO">Typing text 'Nescafe@234568' into text field '//input[@type='password']'.</msg>
+<msg time="2025-09-19T19:20:50.609651" level="INFO">Clicking element '//input[@type='submit']'.</msg>
+<msg time="2025-09-19T19:21:13.231098" level="INFO">Policy has been uploaded successfully on Zahara</msg>
+<msg time="2025-09-19T19:21:18.256947" level="INFO">Clicking element '//button[normalize-space()='Refresh']'.</msg>
+<msg time="2025-09-19T19:21:31.858469" level="INFO">Typing text 'ZLC1513429' into text field '//input[@type='search']'.</msg>
+<msg time="2025-09-19T19:21:47.754532" level="INFO">Clicking element '//div[contains(text(),'ZLC1513429')]'.</msg>
+<msg time="2025-09-19T19:21:48.267493" level="INFO">Clicking element '//button[@id='policy-tab-transSummary']'.</msg>
+<msg time="2025-09-19T19:21:59.432443" level="INFO">Lifecycle executed successfully: {"message": "SUCCESS", "status": 201}</msg>
+<msg time="2025-09-19T19:22:09.462722" level="INFO">Clicking element '//*[@id='root']/div/div[2]/div/div[1]/div[1]/div[3]/div[2]/button'.</msg>
+<msg time="2025-09-19T19:22:10.217061" level="INFO">The policy has been successfully created and activated on Zahara</msg>
+<msg time="2025-09-19T19:23:10.244913" level="INFO">Clicking element '//*[@id='root']/div/div[2]/div/div[1]/div[1]/div[3]/div[2]/button'.</msg>
+<msg time="2025-09-19T19:23:12.148467" level="INFO">Lifecycle completed on attempt 1</msg>
+<msg time="2025-09-19T19:23:14.388552" level="INFO">Perform Systematic Premium Setup Process</msg>
+<msg time="2025-09-19T19:23:14.388552" level="INFO">-----------------------------------------------------------</msg>
+<msg time="2025-09-19T19:23:14.389436" level="INFO">Opening browser 'chrome' to base url 'https://qa.zinnialive.com/cases'.</msg>
+<msg time="2025-09-19T19:23:19.391013" level="INFO">Typing text 'kapil.suthar@zinnia.com' into text field '//input[@id='username']'.</msg>
+<msg time="2025-09-19T19:23:19.457467" level="INFO">Clicking element '//button[@type='submit']'.</msg>
+<msg time="2025-09-19T19:24:21.319714" level="FAIL">Element '//span[normalize-space()='Policies &amp; Contracts']' not visible after 1 minute.</msg>
+<arg>${automation_flow}</arg>
+<arg>${old_xml_file_name}</arg>
+<arg>${manage_autopay_contract_number}</arg>
+<arg>${payee_name}</arg>
+<arg>${expected_policy_status}</arg>
+<arg>${start_loan_amount}</arg>
+<arg>${loan_autopay_amount}</arg>
+<arg>${Payment_frequency}</arg>
+<arg>${loan_repayment_amount}</arg>
+<arg>${payment_mode}</arg>
+<arg>${fund_allocation_type}</arg>
+<arg>${expected_account_name}</arg>
+<arg>${expected_account_number}</arg>
+<arg>${loan_manage_autopay_amount}</arg>
+<arg>${Manage_payment_frequency}</arg>
+<arg>${fix_fund_allocation_percent}</arg>
+<arg>${cap_account_allocation_percent}</arg>
+<arg>${participation_rate_allocation_percent}</arg>
+<arg>${client_name}</arg>
+<arg>${client_plan_code}</arg>
+<arg>${transfer_amount}</arg>
+<arg>${systematic_withdrawal_and_rmd_amount}</arg>
+<arg>${systematic_premium_update_amount}</arg>
+<arg>${systematic_withdrawal_update_amount}</arg>
+<arg>${systematic_rmd_update_amount}</arg>
+<arg>${preferred_communication}</arg>
+<status status="FAIL" start="2025-09-19T19:20:37.175773" elapsed="224.146053">Element '//span[normalize-space()='Policies &amp; Contracts']' not visible after 1 minute.</status>
+</kw>
+<arg>${automation_flow}</arg>
+<arg>${old_xml_file_name}</arg>
+<arg>${manage_autopay_contract_number}</arg>
+<arg>${payee_name}</arg>
+<arg>${expected_policy_status}</arg>
+<arg>${start_loan_amount}</arg>
+<arg>${loan_autopay_amount}</arg>
+<arg>${Payment_frequency}</arg>
+<arg>${loan_repayment_amount}</arg>
+<arg>${payment_mode}</arg>
+<arg>${fund_allocation_type}</arg>
+<arg>${expected_account_name}</arg>
+<arg>${expected_account_number}</arg>
+<arg>${loan_manage_autopay_amount}</arg>
+<arg>${Manage_payment_frequency}</arg>
+<arg>${fix_fund_allocation_percent}</arg>
+<arg>${cap_account_allocation_percent}</arg>
+<arg>${participation_rate_allocation_percent}</arg>
+<arg>${client_name}</arg>
+<arg>${client_plan_code}</arg>
+<arg>${transfer_amount}</arg>
+<arg>${systematic_withdrawal_and_rmd_amount}</arg>
+<arg>${systematic_premium_update_amount}</arg>
+<arg>${systematic_withdrawal_update_amount}</arg>
+<arg>${systematic_rmd_update_amount}</arg>
+<arg>${preferred_communication}</arg>
+<status status="FAIL" start="2025-09-19T19:20:37.173773" elapsed="224.150032">Element '//span[normalize-space()='Policies &amp; Contracts']' not visible after 1 minute.</status>
+</kw>
+<arg>('TestId', 'TC_015')</arg>
+<arg>('automation_flow', 'Systematic Premium Setup')</arg>
+<arg>('client_name', 'Everly')</arg>
+<arg>('client_plan_code', 'ELIULV01')</arg>
+<arg>('old_xml_file_name', 'ZLC1230196')</arg>
+<arg>('manage_autopay_contract_number', '')</arg>
+<arg>('payee_name', '')</arg>
+<arg>('expected_policy_status', 'ACTIVE')</arg>
+<arg>('start_loan_amount', '')</arg>
+<arg>('loan_repayment_amount', '')</arg>
+<arg>('loan_autopay_amount', '')</arg>
+<arg>('loan_manage_autopay_amount', '')</arg>
+<arg>('systematic_premium_update_amount', '')</arg>
+<arg>('systematic_withdrawal_update_amount', '')</arg>
+<arg>('systematic_rmd_update_amount', '')</arg>
+<arg>('Payment_frequency', '')</arg>
+<arg>('Manage_payment_frequency', '')</arg>
+<arg>('payment_mode', '')</arg>
+<arg>('fund_allocation_type', '')</arg>
+<arg>('expected_account_name', '')</arg>
+<arg>('expected_account_number', '')</arg>
+<arg>('fix_fund_allocation_percent', '')</arg>
+<arg>('cap_account_allocation_percent', '')</arg>
+<arg>('participation_rate_allocation_percent', '')</arg>
+<arg>('transfer_amount', '')</arg>
+<arg>('systematic_withdrawal_and_rmd_amount', '')</arg>
+<arg>('preferred_communication', '')</arg>
+<status status="FAIL" start="2025-09-19T19:20:37.171775" elapsed="224.153008">Element '//span[normalize-space()='Policies &amp; Contracts']' not visible after 1 minute.</status>
+</kw>
+<status status="FAIL" start="2025-09-19T19:20:37.160980" elapsed="224.163803">Element '//span[normalize-space()='Policies &amp; Contracts']' not visible after 1 minute.</status>
+</test>
+<status status="FAIL" start="2025-09-19T19:20:24.621623" elapsed="236.707128"/>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="1" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="0" fail="1" skip="0" id="s1" name="Transaction Onboarding Regression Suite">Transaction Onboarding Regression Suite</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

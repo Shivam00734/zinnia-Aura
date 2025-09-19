@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.0.1 (Python 3.12.1 on win32)" generated="2025-09-18T18:12:15.191935" rpa="false" schemaversion="5">
+<suite id="s1" name="Demo" source="C:\Users\sharmash\automation-framwork\tests\api\demo.robot">
+<kw name="Setup Allure Reporting" type="SETUP">
+<msg time="2025-09-18T18:12:15.754940" level="FAIL">No keyword with name 'Setup Allure Reporting' found.</msg>
+<status status="FAIL" start="2025-09-18T18:12:15.754940" elapsed="0.000000">No keyword with name 'Setup Allure Reporting' found.</status>
+</kw>
+<test id="s1-t1" name="getUserInformation" line="25">
+<tag>allure.label.epic:Web interface</tag>
+<tag>allure.label.feature:Essential features</tag>
+<tag>allure.label.story:Authentication</tag>
+<status status="FAIL" start="2025-09-18T18:12:15.757862" elapsed="0.000000">Parent suite setup failed:
+No keyword with name 'Setup Allure Reporting' found.</status>
+</test>
+<test id="s1-t2" name="getStatusCode" line="43">
+<tag>feature:API</tag>
+<tag>priority:medium</tag>
+<tag>smoke</tag>
+<tag>story:Status Check</tag>
+<status status="FAIL" start="2025-09-18T18:12:15.758898" elapsed="0.000000">Parent suite setup failed:
+No keyword with name 'Setup Allure Reporting' found.</status>
+</test>
+<status status="FAIL" start="2025-09-18T18:12:15.232904" elapsed="0.528052">Suite setup failed:
+No keyword with name 'Setup Allure Reporting' found.</status>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="2" skip="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="0" fail="1" skip="0">allure.label.epic:Web interface</stat>
+<stat pass="0" fail="1" skip="0">allure.label.feature:Essential features</stat>
+<stat pass="0" fail="1" skip="0">allure.label.story:Authentication</stat>
+<stat pass="0" fail="1" skip="0">feature:API</stat>
+<stat pass="0" fail="1" skip="0">priority:medium</stat>
+<stat pass="0" fail="1" skip="0">smoke</stat>
+<stat pass="0" fail="1" skip="0">story:Status Check</stat>
+</tag>
+<suite>
+<stat pass="0" fail="2" skip="0" id="s1" name="Demo">Demo</stat>
+</suite>
+</statistics>
+<errors>
+<msg time="2025-09-18T18:12:15.475940" level="ERROR">Error in file 'C:\Users\sharmash\automation-framwork\tests\api\demo.robot' on line 6: Resource file '..\..\resources\Reporting\ReportingSetup.resource' does not exist.</msg>
+</errors>
+</robot>

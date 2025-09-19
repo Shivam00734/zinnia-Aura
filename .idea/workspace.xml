@@ -1,0 +1,651 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="c8667e26-c328-42f8-bb3b-3bd4fb1de4bf" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/test_data/transaction_onboarding.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/data/test_data/transaction_onboarding.xlsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/log.html" beforeDir="false" afterPath="$PROJECT_DIR$/log.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/output.xml" beforeDir="false" afterPath="$PROJECT_DIR$/output.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/report.html" beforeDir="false" afterPath="$PROJECT_DIR$/report.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/keywords/ui_keywords/Zahara.py" beforeDir="false" afterPath="$PROJECT_DIR$/resources/keywords/ui_keywords/Zahara.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/keywords/ui_keywords/ZinniaLive.py" beforeDir="false" afterPath="$PROJECT_DIR$/resources/keywords/ui_keywords/ZinniaLive.py" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="transaction_onboarding" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="UPDATE_TYPE" value="REBASE" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/resources/keywords/ui_keywords/Zahara.py" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/script/transaction_onboarding_regression_suite.py" root0="SKIP_INSPECTION" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 1
+}</component>
+  <component name="ProjectId" id="2wBFH4HbFGyWsStJ0LUlKxIDLWq" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Python.AccordeXmlUpdate.executor&quot;: &quot;Run&quot;,
+    &quot;Python.EappHelper.executor&quot;: &quot;Run&quot;,
+    &quot;Python.ExcelUtilities.executor&quot;: &quot;Run&quot;,
+    &quot;Python.FileUtils.executor&quot;: &quot;Run&quot;,
+    &quot;Python.GenerateAttachment.executor&quot;: &quot;Run&quot;,
+    &quot;Python.Transaction_Onboarding_E2E_TestCases_Validation.executor&quot;: &quot;Run&quot;,
+    &quot;Python.Zahara.executor&quot;: &quot;Run&quot;,
+    &quot;Python.ZaharaApi.executor&quot;: &quot;Run&quot;,
+    &quot;Python.ZinniaLive_E2E_TestCases_Validation.executor&quot;: &quot;Run&quot;,
+    &quot;Python.new_one_time_loan_repayment_process (1).executor&quot;: &quot;Run&quot;,
+    &quot;Python.test.executor&quot;: &quot;Run&quot;,
+    &quot;Python.testing.executor&quot;: &quot;Run&quot;,
+    &quot;Python.transaction_onboarding_regression_suite (1).executor&quot;: &quot;Run&quot;,
+    &quot;Robot.New_One_Time_Loan_Repayment_Process.robot.executor&quot;: &quot;Run&quot;,
+    &quot;Robot.Step_1_Generate_DTCC_and_Upload.robot.executor&quot;: &quot;Run&quot;,
+    &quot;Robot.Step_2_Perform_Zinnia_Live_Case_Validation.robot.executor&quot;: &quot;Run&quot;,
+    &quot;Robot.test.robot.executor&quot;: &quot;Run&quot;,
+    &quot;Robot.transaction_onboarding_regression_suite.robot.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;Rebasing transaction__onboarding&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/suthark/Documents/PeopleSoft_Project/PeopleSoft_Automation&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;org.jetbrains.plugins.github.ui.GithubSettingsConfigurable&quot;,
+    &quot;vcs.patch.path&quot;: &quot;C:/Users/suthark/OneDrive - Zinnia/otp/robot_farmework_patch&quot;
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\sharmash\automation-framwork\data\test_data" />
+      <recent name="C:\Users\sharmash\automation-framwork\testsuite\zinnia_live_test_suite\api" />
+      <recent name="C:\Users\sharmash\automation-framwork\resources\locators" />
+      <recent name="C:\Users\sharmash\automation-framwork\resources\keywords\helper_keywords" />
+      <recent name="C:\Users\sharmash\automation-framwork\resources\keywords\db_keywords" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\sharmash\automation-framwork\data\test_data" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Robot.transaction_onboarding_regression_suite.robot">
+    <configuration name="FileUtils" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="automation-framwork" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/resources/utilities" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/resources/utilities/FileUtils.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="ZaharaApi" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="automation-framwork" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/resources/keywords/api_keywords" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/resources/keywords/api_keywords/ZaharaApi.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="transaction_onboarding_regression_suite (1)" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="automation-framwork" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/script" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/script/transaction_onboarding_regression_suite.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="New_One_Time_Loan_Repayment_Process.robot" type="RobotRunConfiguration" factoryName="RobotRunConfiguration" temporary="true">
+      <module name="automation-framwork" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="C:\Users\sharmash\AppData\Local\Programs\Python\Python312\python.exe" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="robot.run" />
+      <option name="PARAMETERS" value="--suite &quot;automation-framwork.testsuite.transaction_onboarding_test_suite.ui.New_One_Time_Loan_Repayment_Process&quot; ." />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="true" />
+      <option name="MODULE_MODE" value="true" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="transaction_onboarding_regression_suite.robot" type="RobotRunConfiguration" factoryName="RobotRunConfiguration" temporary="true">
+      <module name="automation-framwork" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="C:\Users\sharmash\AppData\Local\Programs\Python\Python312\python.exe" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="robot.run" />
+      <option name="PARAMETERS" value="--suite &quot;automation-framwork.testsuite.transaction_onboarding_test_suite.ui.transaction_onboarding_regression_suite&quot; ." />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="true" />
+      <option name="MODULE_MODE" value="true" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Robot.transaction_onboarding_regression_suite.robot" />
+        <item itemvalue="Python.transaction_onboarding_regression_suite (1)" />
+        <item itemvalue="Python.ZaharaApi" />
+        <item itemvalue="Python.FileUtils" />
+        <item itemvalue="Robot.New_One_Time_Loan_Repayment_Process.robot" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-python-sdk-09665e90c3a7-d3b881c8e49f-com.jetbrains.pycharm.community.sharedIndexes.bundled-PC-233.15026.15" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="c8667e26-c328-42f8-bb3b-3bd4fb1de4bf" name="Changes" comment="" />
+      <created>1745506969278</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1745506969278</updated>
+    </task>
+    <task id="LOCAL-00079" summary="Merge branch 'transaction_onboarding' of https://github.com/zinnia/automation-framwork into transaction_onboarding">
+      <option name="closed" value="true" />
+      <created>1751528454181</created>
+      <option name="number" value="00079" />
+      <option name="presentableId" value="LOCAL-00079" />
+      <option name="project" value="LOCAL" />
+      <updated>1751528454181</updated>
+    </task>
+    <task id="LOCAL-00080" summary="Merge branch 'transaction_onboarding' of https://github.com/zinnia/automation-framwork into transaction_onboarding">
+      <option name="closed" value="true" />
+      <created>1751531049659</created>
+      <option name="number" value="00080" />
+      <option name="presentableId" value="LOCAL-00080" />
+      <option name="project" value="LOCAL" />
+      <updated>1751531049659</updated>
+    </task>
+    <task id="LOCAL-00081" summary="Merge branch 'transaction_onboarding' of https://github.com/zinnia/automation-framwork into transaction_onboarding">
+      <option name="closed" value="true" />
+      <created>1751540751895</created>
+      <option name="number" value="00081" />
+      <option name="presentableId" value="LOCAL-00081" />
+      <option name="project" value="LOCAL" />
+      <updated>1751540751895</updated>
+    </task>
+    <task id="LOCAL-00082" summary="Merge branch 'transaction_onboarding' of https://github.com/zinnia/automation-framwork into transaction_onboarding">
+      <option name="closed" value="true" />
+      <created>1751541321875</created>
+      <option name="number" value="00082" />
+      <option name="presentableId" value="LOCAL-00082" />
+      <option name="project" value="LOCAL" />
+      <updated>1751541321875</updated>
+    </task>
+    <task id="LOCAL-00083" summary="Merge branch 'transaction_onboarding' of https://github.com/zinnia/automation-framwork into transaction_onboarding">
+      <option name="closed" value="true" />
+      <created>1751554230374</created>
+      <option name="number" value="00083" />
+      <option name="presentableId" value="LOCAL-00083" />
+      <option name="project" value="LOCAL" />
+      <updated>1751554230375</updated>
+    </task>
+    <task id="LOCAL-00084" summary="Merge branch 'transaction_onboarding' of https://github.com/zinnia/automation-framwork into transaction_onboarding">
+      <option name="closed" value="true" />
+      <created>1751889106688</created>
+      <option name="number" value="00084" />
+      <option name="presentableId" value="LOCAL-00084" />
+      <option name="project" value="LOCAL" />
+      <updated>1751889106689</updated>
+    </task>
+    <task id="LOCAL-00085" summary="Merge branch 'transaction_onboarding' of https://github.com/zinnia/automation-framwork into transaction_onboarding">
+      <option name="closed" value="true" />
+      <created>1751895630337</created>
+      <option name="number" value="00085" />
+      <option name="presentableId" value="LOCAL-00085" />
+      <option name="project" value="LOCAL" />
+      <updated>1751895630338</updated>
+    </task>
+    <task id="LOCAL-00086" summary="Merge branch 'transaction_onboarding' of https://github.com/zinnia/automation-framwork into transaction_onboarding">
+      <option name="closed" value="true" />
+      <created>1751966387473</created>
+      <option name="number" value="00086" />
+      <option name="presentableId" value="LOCAL-00086" />
+      <option name="project" value="LOCAL" />
+      <updated>1751966387474</updated>
+    </task>
+    <task id="LOCAL-00087" summary="Merge branch 'transaction_onboarding' of https://github.com/zinnia/automation-framwork into transaction_onboarding">
+      <option name="closed" value="true" />
+      <created>1751972446521</created>
+      <option name="number" value="00087" />
+      <option name="presentableId" value="LOCAL-00087" />
+      <option name="project" value="LOCAL" />
+      <updated>1751972446521</updated>
+    </task>
+    <task id="LOCAL-00088" summary="Merge branch 'transaction_onboarding' of https://github.com/zinnia/automation-framwork into transaction_onboarding">
+      <option name="closed" value="true" />
+      <created>1752131155366</created>
+      <option name="number" value="00088" />
+      <option name="presentableId" value="LOCAL-00088" />
+      <option name="project" value="LOCAL" />
+      <updated>1752131155368</updated>
+    </task>
+    <task id="LOCAL-00089" summary="Merge branch 'transaction_onboarding' of https://github.com/zinnia/automation-framwork into transaction_onboarding">
+      <option name="closed" value="true" />
+      <created>1752739603488</created>
+      <option name="number" value="00089" />
+      <option name="presentableId" value="LOCAL-00089" />
+      <option name="project" value="LOCAL" />
+      <updated>1752739603489</updated>
+    </task>
+    <task id="LOCAL-00090" summary="Merge branch 'transaction_onboarding' of https://github.com/zinnia/automation-framwork into transaction_onboarding">
+      <option name="closed" value="true" />
+      <created>1752752946060</created>
+      <option name="number" value="00090" />
+      <option name="presentableId" value="LOCAL-00090" />
+      <option name="project" value="LOCAL" />
+      <updated>1752752946060</updated>
+    </task>
+    <task id="LOCAL-00091" summary="Merge branch 'transaction_onboarding' of https://github.com/zinnia/automation-framwork into transaction_onboarding">
+      <option name="closed" value="true" />
+      <created>1752830855794</created>
+      <option name="number" value="00091" />
+      <option name="presentableId" value="LOCAL-00091" />
+      <option name="project" value="LOCAL" />
+      <updated>1752830855794</updated>
+    </task>
+    <task id="LOCAL-00092" summary="Merge branch 'transaction_onboarding' of https://github.com/zinnia/automation-framwork into transaction_onboarding">
+      <option name="closed" value="true" />
+      <created>1752831464097</created>
+      <option name="number" value="00092" />
+      <option name="presentableId" value="LOCAL-00092" />
+      <option name="project" value="LOCAL" />
+      <updated>1752831464097</updated>
+    </task>
+    <task id="LOCAL-00093" summary="Merge branch 'transaction_onboarding' of https://github.com/zinnia/automation-framwork into transaction_onboarding">
+      <option name="closed" value="true" />
+      <created>1752831526839</created>
+      <option name="number" value="00093" />
+      <option name="presentableId" value="LOCAL-00093" />
+      <option name="project" value="LOCAL" />
+      <updated>1752831526839</updated>
+    </task>
+    <task id="LOCAL-00094" summary="Merge branch 'transaction_onboarding' of https://github.com/zinnia/automation-framwork into transaction_onboarding">
+      <option name="closed" value="true" />
+      <created>1753260671065</created>
+      <option name="number" value="00094" />
+      <option name="presentableId" value="LOCAL-00094" />
+      <option name="project" value="LOCAL" />
+      <updated>1753260671065</updated>
+    </task>
+    <task id="LOCAL-00095" summary="Merge branch 'transaction_onboarding' of https://github.com/zinnia/automation-framwork into transaction_onboarding">
+      <option name="closed" value="true" />
+      <created>1753260733895</created>
+      <option name="number" value="00095" />
+      <option name="presentableId" value="LOCAL-00095" />
+      <option name="project" value="LOCAL" />
+      <updated>1753260733896</updated>
+    </task>
+    <task id="LOCAL-00096" summary="Merge branch 'transaction_onboarding' of https://github.com/zinnia/automation-framwork into transaction_onboarding">
+      <option name="closed" value="true" />
+      <created>1753274949347</created>
+      <option name="number" value="00096" />
+      <option name="presentableId" value="LOCAL-00096" />
+      <option name="project" value="LOCAL" />
+      <updated>1753274949347</updated>
+    </task>
+    <task id="LOCAL-00097" summary="Merge branch 'transaction_onboarding' of https://github.com/zinnia/automation-framwork into transaction_onboarding">
+      <option name="closed" value="true" />
+      <created>1753430951836</created>
+      <option name="number" value="00097" />
+      <option name="presentableId" value="LOCAL-00097" />
+      <option name="project" value="LOCAL" />
+      <updated>1753430951836</updated>
+    </task>
+    <task id="LOCAL-00098" summary="Merge branch 'transaction_onboarding' of https://github.com/zinnia/automation-framwork into transaction_onboarding">
+      <option name="closed" value="true" />
+      <created>1754639134430</created>
+      <option name="number" value="00098" />
+      <option name="presentableId" value="LOCAL-00098" />
+      <option name="project" value="LOCAL" />
+      <updated>1754639134430</updated>
+    </task>
+    <task id="LOCAL-00099" summary="Merge branch 'transaction_onboarding' of https://github.com/zinnia/automation-framwork into transaction_onboarding">
+      <option name="closed" value="true" />
+      <created>1754642771905</created>
+      <option name="number" value="00099" />
+      <option name="presentableId" value="LOCAL-00099" />
+      <option name="project" value="LOCAL" />
+      <updated>1754642771905</updated>
+    </task>
+    <task id="LOCAL-00100" summary="Merge branch 'transaction_onboarding' of https://github.com/zinnia/automation-framwork into transaction_onboarding">
+      <option name="closed" value="true" />
+      <created>1754644879100</created>
+      <option name="number" value="00100" />
+      <option name="presentableId" value="LOCAL-00100" />
+      <option name="project" value="LOCAL" />
+      <updated>1754644879100</updated>
+    </task>
+    <task id="LOCAL-00101" summary="Merge branch 'transaction_onboarding' of https://github.com/zinnia/automation-framwork into transaction_onboarding">
+      <option name="closed" value="true" />
+      <created>1754649127258</created>
+      <option name="number" value="00101" />
+      <option name="presentableId" value="LOCAL-00101" />
+      <option name="project" value="LOCAL" />
+      <updated>1754649127258</updated>
+    </task>
+    <task id="LOCAL-00102" summary="Merge branch 'transaction_onboarding' of https://github.com/zinnia/automation-framwork into transaction_onboarding">
+      <option name="closed" value="true" />
+      <created>1754650733300</created>
+      <option name="number" value="00102" />
+      <option name="presentableId" value="LOCAL-00102" />
+      <option name="project" value="LOCAL" />
+      <updated>1754650733300</updated>
+    </task>
+    <task id="LOCAL-00103" summary="Merge branch 'transaction_onboarding' of https://github.com/zinnia/automation-framwork into transaction_onboarding">
+      <option name="closed" value="true" />
+      <created>1754651594895</created>
+      <option name="number" value="00103" />
+      <option name="presentableId" value="LOCAL-00103" />
+      <option name="project" value="LOCAL" />
+      <updated>1754651594895</updated>
+    </task>
+    <task id="LOCAL-00104" summary="Merge branch 'transaction_onboarding' of https://github.com/zinnia/automation-framwork into transaction_onboarding">
+      <option name="closed" value="true" />
+      <created>1755687940159</created>
+      <option name="number" value="00104" />
+      <option name="presentableId" value="LOCAL-00104" />
+      <option name="project" value="LOCAL" />
+      <updated>1755687940160</updated>
+    </task>
+    <task id="LOCAL-00105" summary="Merge branch 'transaction_onboarding' of https://github.com/zinnia/automation-framwork into transaction_onboarding">
+      <option name="closed" value="true" />
+      <created>1755704287764</created>
+      <option name="number" value="00105" />
+      <option name="presentableId" value="LOCAL-00105" />
+      <option name="project" value="LOCAL" />
+      <updated>1755704287765</updated>
+    </task>
+    <task id="LOCAL-00106" summary="Merge branch 'transaction_onboarding' of https://github.com/zinnia/automation-framwork into transaction_onboarding">
+      <option name="closed" value="true" />
+      <created>1755779163472</created>
+      <option name="number" value="00106" />
+      <option name="presentableId" value="LOCAL-00106" />
+      <option name="project" value="LOCAL" />
+      <updated>1755779163473</updated>
+    </task>
+    <task id="LOCAL-00107" summary="Merge branch 'transaction_onboarding' of https://github.com/zinnia/automation-framwork into transaction_onboarding">
+      <option name="closed" value="true" />
+      <created>1755859412121</created>
+      <option name="number" value="00107" />
+      <option name="presentableId" value="LOCAL-00107" />
+      <option name="project" value="LOCAL" />
+      <updated>1755859412121</updated>
+    </task>
+    <task id="LOCAL-00108" summary="Merge branch 'transaction_onboarding' of https://github.com/zinnia/automation-framwork into transaction_onboarding">
+      <option name="closed" value="true" />
+      <created>1755859506545</created>
+      <option name="number" value="00108" />
+      <option name="presentableId" value="LOCAL-00108" />
+      <option name="project" value="LOCAL" />
+      <updated>1755859506545</updated>
+    </task>
+    <task id="LOCAL-00109" summary="Merge branch 'transaction_onboarding' of https://github.com/zinnia/automation-framwork into transaction_onboarding">
+      <option name="closed" value="true" />
+      <created>1755861818092</created>
+      <option name="number" value="00109" />
+      <option name="presentableId" value="LOCAL-00109" />
+      <option name="project" value="LOCAL" />
+      <updated>1755861818092</updated>
+    </task>
+    <task id="LOCAL-00110" summary="Merge branch 'transaction_onboarding' of https://github.com/zinnia/automation-framwork into transaction_onboarding">
+      <option name="closed" value="true" />
+      <created>1755862074684</created>
+      <option name="number" value="00110" />
+      <option name="presentableId" value="LOCAL-00110" />
+      <option name="project" value="LOCAL" />
+      <updated>1755862074684</updated>
+    </task>
+    <task id="LOCAL-00111" summary="Merge branch 'transaction_onboarding' of https://github.com/zinnia/automation-framwork into transaction_onboarding">
+      <option name="closed" value="true" />
+      <created>1755862146690</created>
+      <option name="number" value="00111" />
+      <option name="presentableId" value="LOCAL-00111" />
+      <option name="project" value="LOCAL" />
+      <updated>1755862146691</updated>
+    </task>
+    <task id="LOCAL-00112" summary="Merge branch 'transaction_onboarding' of https://github.com/zinnia/automation-framwork into transaction_onboarding">
+      <option name="closed" value="true" />
+      <created>1755863426361</created>
+      <option name="number" value="00112" />
+      <option name="presentableId" value="LOCAL-00112" />
+      <option name="project" value="LOCAL" />
+      <updated>1755863426361</updated>
+    </task>
+    <task id="LOCAL-00113" summary="Merge branch 'transaction_onboarding' of https://github.com/zinnia/automation-framwork into transaction_onboarding">
+      <option name="closed" value="true" />
+      <created>1755863500398</created>
+      <option name="number" value="00113" />
+      <option name="presentableId" value="LOCAL-00113" />
+      <option name="project" value="LOCAL" />
+      <updated>1755863500398</updated>
+    </task>
+    <task id="LOCAL-00114" summary="Merge branch 'transaction_onboarding' of https://github.com/zinnia/automation-framwork into transaction_onboarding">
+      <option name="closed" value="true" />
+      <created>1755864708991</created>
+      <option name="number" value="00114" />
+      <option name="presentableId" value="LOCAL-00114" />
+      <option name="project" value="LOCAL" />
+      <updated>1755864708991</updated>
+    </task>
+    <task id="LOCAL-00115" summary="Merge branch 'transaction_onboarding' of https://github.com/zinnia/automation-framwork into transaction_onboarding">
+      <option name="closed" value="true" />
+      <created>1755864849833</created>
+      <option name="number" value="00115" />
+      <option name="presentableId" value="LOCAL-00115" />
+      <option name="project" value="LOCAL" />
+      <updated>1755864849833</updated>
+    </task>
+    <task id="LOCAL-00116" summary="Merge branch 'transaction_onboarding' of https://github.com/zinnia/automation-framwork into transaction_onboarding">
+      <option name="closed" value="true" />
+      <created>1756121496336</created>
+      <option name="number" value="00116" />
+      <option name="presentableId" value="LOCAL-00116" />
+      <option name="project" value="LOCAL" />
+      <updated>1756121496336</updated>
+    </task>
+    <task id="LOCAL-00117" summary="Merge branch 'transaction_onboarding' of https://github.com/zinnia/automation-framwork into transaction_onboarding">
+      <option name="closed" value="true" />
+      <created>1756126715381</created>
+      <option name="number" value="00117" />
+      <option name="presentableId" value="LOCAL-00117" />
+      <option name="project" value="LOCAL" />
+      <updated>1756126715381</updated>
+    </task>
+    <task id="LOCAL-00118" summary="Merge branch 'transaction_onboarding' of https://github.com/zinnia/automation-framwork into transaction_onboarding">
+      <option name="closed" value="true" />
+      <created>1756126845821</created>
+      <option name="number" value="00118" />
+      <option name="presentableId" value="LOCAL-00118" />
+      <option name="project" value="LOCAL" />
+      <updated>1756126845821</updated>
+    </task>
+    <task id="LOCAL-00119" summary="Merge branch 'transaction_onboarding' of https://github.com/zinnia/automation-framwork into transaction_onboarding">
+      <option name="closed" value="true" />
+      <created>1756129709632</created>
+      <option name="number" value="00119" />
+      <option name="presentableId" value="LOCAL-00119" />
+      <option name="project" value="LOCAL" />
+      <updated>1756129709632</updated>
+    </task>
+    <task id="LOCAL-00120" summary="Merge branch 'transaction_onboarding' of https://github.com/zinnia/automation-framwork into transaction_onboarding">
+      <option name="closed" value="true" />
+      <created>1756133214272</created>
+      <option name="number" value="00120" />
+      <option name="presentableId" value="LOCAL-00120" />
+      <option name="project" value="LOCAL" />
+      <updated>1756133214272</updated>
+    </task>
+    <task id="LOCAL-00121" summary="Merge branch 'transaction_onboarding' of https://github.com/zinnia/automation-framwork into transaction_onboarding">
+      <option name="closed" value="true" />
+      <created>1756138098315</created>
+      <option name="number" value="00121" />
+      <option name="presentableId" value="LOCAL-00121" />
+      <option name="project" value="LOCAL" />
+      <updated>1756138098315</updated>
+    </task>
+    <task id="LOCAL-00122" summary="Merge branch 'transaction_onboarding' of https://github.com/zinnia/automation-framwork into transaction_onboarding">
+      <option name="closed" value="true" />
+      <created>1756183350215</created>
+      <option name="number" value="00122" />
+      <option name="presentableId" value="LOCAL-00122" />
+      <option name="project" value="LOCAL" />
+      <updated>1756183350215</updated>
+    </task>
+    <task id="LOCAL-00123" summary="Merge branch 'transaction_onboarding' of https://github.com/zinnia/automation-framwork into transaction_onboarding">
+      <option name="closed" value="true" />
+      <created>1756185859355</created>
+      <option name="number" value="00123" />
+      <option name="presentableId" value="LOCAL-00123" />
+      <option name="project" value="LOCAL" />
+      <updated>1756185859355</updated>
+    </task>
+    <task id="LOCAL-00124" summary="Merge branch 'transaction_onboarding' of https://github.com/zinnia/automation-framwork into transaction_onboarding">
+      <option name="closed" value="true" />
+      <created>1756185952785</created>
+      <option name="number" value="00124" />
+      <option name="presentableId" value="LOCAL-00124" />
+      <option name="project" value="LOCAL" />
+      <updated>1756185952785</updated>
+    </task>
+    <task id="LOCAL-00125" summary="Merge branch 'transaction_onboarding' of https://github.com/zinnia/automation-framwork into transaction_onboarding">
+      <option name="closed" value="true" />
+      <created>1756189842632</created>
+      <option name="number" value="00125" />
+      <option name="presentableId" value="LOCAL-00125" />
+      <option name="project" value="LOCAL" />
+      <updated>1756189842632</updated>
+    </task>
+    <task id="LOCAL-00126" summary="Merge branch 'transaction_onboarding' of https://github.com/zinnia/automation-framwork into transaction_onboarding">
+      <option name="closed" value="true" />
+      <created>1756190345911</created>
+      <option name="number" value="00126" />
+      <option name="presentableId" value="LOCAL-00126" />
+      <option name="project" value="LOCAL" />
+      <updated>1756190345911</updated>
+    </task>
+    <task id="LOCAL-00127" summary="Merge branch 'transaction_onboarding' of https://github.com/zinnia/automation-framwork into transaction_onboarding">
+      <option name="closed" value="true" />
+      <created>1756195530324</created>
+      <option name="number" value="00127" />
+      <option name="presentableId" value="LOCAL-00127" />
+      <option name="project" value="LOCAL" />
+      <updated>1756195530324</updated>
+    </task>
+    <option name="localTasksCounter" value="128" />
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="565556" />
+    <MESSAGE value="565556gdgd" />
+    <MESSAGE value="Merge branch 'transaction_onboarding' of https://github.com/zinnia/automation-framwork into transaction_onboarding&#10;# Please enter a commit message to explain why this merge is necessary,&#10;# especially if it merges an updated upstream into a topic branch.&#10;#&#10;# Lines starting with '#' will be ignored, and an empty message aborts&#10;# the commit.&#10;" />
+    <MESSAGE value="Merge branch 'transaction_onboarding' of https://github.com/zinnia/automation-framwork into transaction_onboarding&#10;# Please enter a commit message to explain why this merge is necessary,&#10;# especially if it merges an updated upstream into a topic branch.&#10;#&#10;# Lines starting with '#' will be ignored, and an empty message aborts&#10;# the commit." />
+    <MESSAGE value="Merge branch 'transaction_onboarding' of https://github.com/zinnia/automation-framwork into transaction_onboarding&#10;&#10;# Conflicts:&#10;#&#9;.github/workflows/python-app.yml&#10;" />
+    <MESSAGE value="Merge branch 'transaction_onboarding' of https://github.com/zinnia/automation-framwork into transaction_onboarding&#10;&#10;# Conflicts:&#10;#&#9;.github/workflows/python-app.yml" />
+    <MESSAGE value="Merge branch 'transaction_onboarding' of https://github.com/zinnia/automation-framwork into transaction_onboarding&#10;&#10;# Conflicts:&#10;#&#9;.github/workflows/main.yml&#10;" />
+    <MESSAGE value="Merge branch 'transaction_onboarding' of https://github.com/zinnia/automation-framwork into transaction_onboarding&#10;&#10;# Conflicts:&#10;#&#9;.github/workflows/main.yml" />
+    <MESSAGE value="Merge branch 'transaction_onboarding' of https://github.com/zinnia/automation-framwork into transaction_onboarding&#10;" />
+    <MESSAGE value="Merge branch 'transaction_onboarding' of https://github.com/zinnia/automation-framwork into transaction_onboarding" />
+    <option name="LAST_COMMIT_MESSAGE" value="Merge branch 'transaction_onboarding' of https://github.com/zinnia/automation-framwork into transaction_onboarding" />
+  </component>
+</project>

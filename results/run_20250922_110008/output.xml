@@ -1,0 +1,2290 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.0.1 (Python 3.12.1 on win32)" generated="2025-09-22T11:00:09.105863" rpa="false" schemaversion="5">
+<suite id="s1" name="Transaction Onboarding Regression Suite" source="C:\Users\sharmash\automation-framwork\tests\api\transaction_onboarding_regression_suite.robot">
+<kw name="Filter Test Date By Execution Flag" owner="ExcelUtils" type="SETUP">
+<msg time="2025-09-22T11:00:23.745051" level="INFO">Filtered data (execution_flag == 'YES') written below existing headers in 'output'.</msg>
+<status status="PASS" start="2025-09-22T11:00:15.961249" elapsed="7.783802"/>
+</kw>
+<test id="s1-t1" name="Perform Systematic Premium Setup Process for client Everly testID: TC_015" line="18">
+<kw name="Add Project Root To Python Path" type="SETUP">
+<kw name="Normalize Path" owner="OperatingSystem">
+<msg time="2025-09-22T11:00:23.754049" level="INFO">${project_root} = C:\Users\sharmash\automation-framwork</msg>
+<var>${project_root}</var>
+<arg>C:\\Users\\sharmash\\automation-framwork\\tests\\api/../../</arg>
+<doc>Normalizes the given path.</doc>
+<status status="PASS" start="2025-09-22T11:00:23.754049" elapsed="0.001005"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<arg>sys.path.insert(0, r'${project_root}')</arg>
+<arg>sys</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-09-22T11:00:23.762121" elapsed="0.000982"/>
+</kw>
+<status status="PASS" start="2025-09-22T11:00:23.753049" elapsed="0.010054"/>
+</kw>
+<kw name="Perform Transaction Onboarding Automation Flow">
+<kw name="Transaction Onboarding Automation Process">
+<kw name="Transaction Onboarding Automation Flow Until Lifecycle Completion" owner="ZinniaLive">
+<msg time="2025-09-22T11:00:23.770102" level="INFO">Executing Systematic Premium Setup until lifecycle completion only</msg>
+<msg time="2025-09-22T11:00:23.771101" level="INFO">Perform Policy Creation Process</msg>
+<msg time="2025-09-22T11:00:23.771101" level="INFO">-----------------------------------------------------------</msg>
+<msg time="2025-09-22T11:00:23.771101" level="INFO">Opening browser 'chrome' to base url 'https://qa-zahara-ui.zinnia.io/#/app/policy'.</msg>
+<msg time="2025-09-22T11:00:31.223277" level="INFO">Typing text 'kapil.suthar@zinnia.com' into text field '//input[@id='username']'.</msg>
+<msg time="2025-09-22T11:00:31.416511" level="INFO">Clicking element '//button[@type='submit']'.</msg>
+<msg time="2025-09-22T11:00:37.421823" level="INFO">Typing text 'Nescafe@234568' into text field '//input[@type='password']'.</msg>
+<msg time="2025-09-22T11:00:37.633846" level="INFO">Clicking element '//input[@type='submit']'.</msg>
+<msg time="2025-09-22T11:01:05.168653" level="INFO">Policy has been uploaded successfully on Zahara</msg>
+<msg time="2025-09-22T11:01:13.363294" level="INFO">Clicking element '//button[normalize-space()='Refresh']'.</msg>
+<msg time="2025-09-22T11:01:31.990045" level="INFO">Typing text 'ZLC1061375' into text field '//input[@type='search']'.</msg>
+<msg time="2025-09-22T11:01:40.366385" level="INFO">Clicking element '//div[contains(text(),'ZLC1061375')]'.</msg>
+<msg time="2025-09-22T11:01:40.991763" level="INFO">Clicking element '//button[@id='policy-tab-transSummary']'.</msg>
+<msg time="2025-09-22T11:01:52.123750" level="INFO">Lifecycle executed successfully: {"message": "SUCCESS", "status": 201}</msg>
+<msg time="2025-09-22T11:03:02.206765" level="FAIL">Element '//*[@id='root']/div/div[2]/div/div[1]/div[1]/div[3]/div[2]/button' not visible after 1 minute.</msg>
+<arg>${automation_flow}</arg>
+<arg>${old_xml_file_name}</arg>
+<arg>${manage_autopay_contract_number}</arg>
+<arg>${payee_name}</arg>
+<arg>${expected_policy_status}</arg>
+<arg>${start_loan_amount}</arg>
+<arg>${loan_autopay_amount}</arg>
+<arg>${Payment_frequency}</arg>
+<arg>${loan_repayment_amount}</arg>
+<arg>${payment_mode}</arg>
+<arg>${fund_allocation_type}</arg>
+<arg>${expected_account_name}</arg>
+<arg>${expected_account_number}</arg>
+<arg>${loan_manage_autopay_amount}</arg>
+<arg>${Manage_payment_frequency}</arg>
+<arg>${fix_fund_allocation_percent}</arg>
+<arg>${cap_account_allocation_percent}</arg>
+<arg>${participation_rate_allocation_percent}</arg>
+<arg>${client_name}</arg>
+<arg>${client_plan_code}</arg>
+<arg>${transfer_amount}</arg>
+<arg>${systematic_withdrawal_and_rmd_amount}</arg>
+<arg>${systematic_premium_update_amount}</arg>
+<arg>${systematic_withdrawal_update_amount}</arg>
+<arg>${systematic_rmd_update_amount}</arg>
+<arg>${preferred_communication}</arg>
+<status status="FAIL" start="2025-09-22T11:00:23.769101" elapsed="158.444560">Element '//*[@id='root']/div/div[2]/div/div[1]/div[1]/div[3]/div[2]/button' not visible after 1 minute.</status>
+</kw>
+<arg>${automation_flow}</arg>
+<arg>${old_xml_file_name}</arg>
+<arg>${manage_autopay_contract_number}</arg>
+<arg>${payee_name}</arg>
+<arg>${expected_policy_status}</arg>
+<arg>${start_loan_amount}</arg>
+<arg>${loan_autopay_amount}</arg>
+<arg>${Payment_frequency}</arg>
+<arg>${loan_repayment_amount}</arg>
+<arg>${payment_mode}</arg>
+<arg>${fund_allocation_type}</arg>
+<arg>${expected_account_name}</arg>
+<arg>${expected_account_number}</arg>
+<arg>${loan_manage_autopay_amount}</arg>
+<arg>${Manage_payment_frequency}</arg>
+<arg>${fix_fund_allocation_percent}</arg>
+<arg>${cap_account_allocation_percent}</arg>
+<arg>${participation_rate_allocation_percent}</arg>
+<arg>${client_name}</arg>
+<arg>${client_plan_code}</arg>
+<arg>${transfer_amount}</arg>
+<arg>${systematic_withdrawal_and_rmd_amount}</arg>
+<arg>${systematic_premium_update_amount}</arg>
+<arg>${systematic_withdrawal_update_amount}</arg>
+<arg>${systematic_rmd_update_amount}</arg>
+<arg>${preferred_communication}</arg>
+<status status="FAIL" start="2025-09-22T11:00:23.766107" elapsed="158.451555">Element '//*[@id='root']/div/div[2]/div/div[1]/div[1]/div[3]/div[2]/button' not visible after 1 minute.</status>
+</kw>
+<arg>('TestId', 'TC_015')</arg>
+<arg>('automation_flow', 'Systematic Premium Setup')</arg>
+<arg>('client_name', 'Everly')</arg>
+<arg>('client_plan_code', 'ELIULV01')</arg>
+<arg>('old_xml_file_name', 'ZLC1230196')</arg>
+<arg>('manage_autopay_contract_number', '')</arg>
+<arg>('payee_name', '')</arg>
+<arg>('expected_policy_status', 'ACTIVE')</arg>
+<arg>('start_loan_amount', '')</arg>
+<arg>('loan_repayment_amount', '')</arg>
+<arg>('loan_autopay_amount', '')</arg>
+<arg>('loan_manage_autopay_amount', '')</arg>
+<arg>('systematic_premium_update_amount', '')</arg>
+<arg>('systematic_withdrawal_update_amount', '')</arg>
+<arg>('systematic_rmd_update_amount', '')</arg>
+<arg>('Payment_frequency', '')</arg>
+<arg>('Manage_payment_frequency', '')</arg>
+<arg>('payment_mode', '')</arg>
+<arg>('fund_allocation_type', '')</arg>
+<arg>('expected_account_name', '')</arg>
+<arg>('expected_account_number', '')</arg>
+<arg>('fix_fund_allocation_percent', '')</arg>
+<arg>('cap_account_allocation_percent', '')</arg>
+<arg>('participation_rate_allocation_percent', '')</arg>
+<arg>('transfer_amount', '')</arg>
+<arg>('systematic_withdrawal_and_rmd_amount', '')</arg>
+<arg>('preferred_communication', '')</arg>
+<status status="FAIL" start="2025-09-22T11:00:23.764108" elapsed="158.454553">Element '//*[@id='root']/div/div[2]/div/div[1]/div[1]/div[3]/div[2]/button' not visible after 1 minute.</status>
+</kw>
+<kw name="Test Failure Browser Teardown" owner="BrowserTeardown" type="TEARDOWN">
+<kw name="Log To Console" owner="BuiltIn">
+<arg>❌ Test failure detected - initiating browser teardown...</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-22T11:03:02.220696" elapsed="0.000000"/>
+</kw>
+<kw name="Get Variable Value" owner="BuiltIn">
+<msg time="2025-09-22T11:03:02.221663" level="INFO">${test_name} = Perform Systematic Premium Setup Process for client Everly testID: TC_015</msg>
+<var>${test_name}</var>
+<arg>${TEST_NAME}</arg>
+<arg>Unknown Test</arg>
+<doc>Returns variable value or ``default`` if the variable does not exist.</doc>
+<status status="PASS" start="2025-09-22T11:03:02.221663" elapsed="0.001002"/>
+</kw>
+<kw name="Get Variable Value" owner="BuiltIn">
+<msg time="2025-09-22T11:03:02.228675" level="INFO">${test_status} = FAIL</msg>
+<var>${test_status}</var>
+<arg>${TEST_STATUS}</arg>
+<arg>UNKNOWN</arg>
+<doc>Returns variable value or ``default`` if the variable does not exist.</doc>
+<status status="PASS" start="2025-09-22T11:03:02.227668" elapsed="0.001007"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>📝 Failed Test: ${test_name}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-22T11:03:02.233727" elapsed="0.000000"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>📝 Test Status: ${test_status}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-22T11:03:02.234706" elapsed="0.000966"/>
+</kw>
+<kw name="Run Keyword And Ignore Error" owner="BuiltIn">
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2025-09-22T11:03:02.823227" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-1.png"&gt;&lt;img src="selenium-screenshot-1.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2025-09-22T11:03:02.823227" level="FAIL">OSError: Bad path: failure_screenshot_Perform Systematic Premium Setup Process for client Everly testID: TC_015.png</msg>
+<arg>failure_screenshot_${test_name}.png</arg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="FAIL" start="2025-09-22T11:03:02.236661" elapsed="0.607568">OSError: Bad path: failure_screenshot_Perform Systematic Premium Setup Process for client Everly testID: TC_015.png</status>
+</kw>
+<arg>Capture Page Screenshot</arg>
+<arg>failure_screenshot_${test_name}.png</arg>
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<status status="PASS" start="2025-09-22T11:03:02.235672" elapsed="0.615553"/>
+</kw>
+<kw name="Emergency Browser Teardown" owner="BrowserTeardown">
+<kw name="Log To Console" owner="BuiltIn">
+<arg>🔄 Starting Emergency Browser Teardown...</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-22T11:03:02.853226" elapsed="0.003000"/>
+</kw>
+<kw name="Run Keyword And Ignore Error" owner="BuiltIn">
+<kw name="Graceful Browser Cleanup" owner="BrowserTeardown">
+<kw name="Log To Console" owner="BuiltIn">
+<arg>🔄 Attempting graceful browser cleanup...</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-22T11:03:02.860227" elapsed="0.001000"/>
+</kw>
+<kw name="Get Browser Count" owner="BrowserTeardown">
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Get Window Handles" owner="SeleniumLibrary">
+<doc>Returns all child window handles of the selected browser as a list.</doc>
+<status status="PASS" start="2025-09-22T11:03:02.863226" elapsed="0.003999"/>
+</kw>
+<msg time="2025-09-22T11:03:02.868225" level="INFO">${count} = True</msg>
+<var>${count}</var>
+<arg>Get Window Handles</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2025-09-22T11:03:02.863226" elapsed="0.004999"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Get Window Handles" owner="SeleniumLibrary">
+<doc>Returns all child window handles of the selected browser as a list.</doc>
+<status status="PASS" start="2025-09-22T11:03:02.873227" elapsed="0.003998"/>
+</kw>
+<msg time="2025-09-22T11:03:02.877225" level="INFO">${browser_handles} = ['E0E3CDF3BE89BCC13D16B4A857EEC7F9']</msg>
+<var>${browser_handles}</var>
+<arg>${count}</arg>
+<arg>Get Window Handles</arg>
+<arg>ELSE</arg>
+<arg>Create List</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-09-22T11:03:02.872227" elapsed="0.006002"/>
+</kw>
+<kw name="Get Length" owner="BuiltIn">
+<msg time="2025-09-22T11:03:02.884226" level="INFO">Length is 1.</msg>
+<msg time="2025-09-22T11:03:02.884226" level="INFO">${browser_count} = 1</msg>
+<var>${browser_count}</var>
+<arg>${browser_handles}</arg>
+<doc>Returns and logs the length of the given item as an integer.</doc>
+<status status="PASS" start="2025-09-22T11:03:02.883225" elapsed="0.001001"/>
+</kw>
+<return>
+<value>${browser_count}</value>
+<status status="PASS" start="2025-09-22T11:03:02.891225" elapsed="0.000000"/>
+</return>
+<msg time="2025-09-22T11:03:02.891225" level="INFO">${browser_count_before} = 1</msg>
+<var>${browser_count_before}</var>
+<tag>verification</tag>
+<doc>Returns the number of active browser instances</doc>
+<status status="PASS" start="2025-09-22T11:03:02.862229" elapsed="0.029996"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>📊 Active browsers before cleanup: ${browser_count_before}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-22T11:03:02.896225" elapsed="0.000000"/>
+</kw>
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Close Window" owner="SeleniumLibrary">
+<doc>Closes currently opened and selected browser window/tab.</doc>
+<status status="PASS" start="2025-09-22T11:03:02.898228" elapsed="0.289999"/>
+</kw>
+<msg time="2025-09-22T11:03:03.189226" level="INFO">${status1} = True</msg>
+<var>${status1}</var>
+<arg>Close Window</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2025-09-22T11:03:02.897230" elapsed="0.291996"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Log To Console" owner="BuiltIn">
+<arg>✅ Current window closed successfully</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-22T11:03:03.194226" elapsed="0.000999"/>
+</kw>
+<arg>${status1}</arg>
+<arg>Log To Console</arg>
+<arg>✅ Current window closed successfully</arg>
+<arg>ELSE</arg>
+<arg>Log To Console</arg>
+<arg>⚠️ Failed to close current window</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-09-22T11:03:03.194226" elapsed="0.000999"/>
+</kw>
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Close All Browsers" owner="SeleniumLibrary">
+<doc>Closes all open browsers and resets the browser cache.</doc>
+<status status="PASS" start="2025-09-22T11:03:03.195225" elapsed="6.521984"/>
+</kw>
+<msg time="2025-09-22T11:03:09.718135" level="INFO">${status2} = True</msg>
+<var>${status2}</var>
+<arg>Close All Browsers</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2025-09-22T11:03:03.195225" elapsed="6.522910"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Log To Console" owner="BuiltIn">
+<arg>✅ All browsers closed via SeleniumLibrary</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-22T11:03:09.722169" elapsed="0.000000"/>
+</kw>
+<arg>${status2}</arg>
+<arg>Log To Console</arg>
+<arg>✅ All browsers closed via SeleniumLibrary</arg>
+<arg>ELSE</arg>
+<arg>Log To Console</arg>
+<arg>⚠️ SeleniumLibrary browser cleanup failed</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-09-22T11:03:09.721182" elapsed="0.000987"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-09-22T11:03:11.723605" level="INFO">Slept 2 seconds.</msg>
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-09-22T11:03:09.723137" elapsed="2.000468"/>
+</kw>
+<kw name="Get Browser Count" owner="BrowserTeardown">
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Get Window Handles" owner="SeleniumLibrary">
+<msg time="2025-09-22T11:03:11.729601" level="INFO">Cannot capture screenshot because no browser is open.</msg>
+<msg time="2025-09-22T11:03:11.729601" level="FAIL">No browser is open.</msg>
+<doc>Returns all child window handles of the selected browser as a list.</doc>
+<status status="FAIL" start="2025-09-22T11:03:11.729601" elapsed="0.008963">No browser is open.</status>
+</kw>
+<msg time="2025-09-22T11:03:11.742563" level="INFO">${count} = False</msg>
+<var>${count}</var>
+<arg>Get Window Handles</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2025-09-22T11:03:11.728629" elapsed="0.014976"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Create List" owner="BuiltIn">
+<doc>Returns a list containing given items.</doc>
+<status status="PASS" start="2025-09-22T11:03:11.748565" elapsed="0.000000"/>
+</kw>
+<msg time="2025-09-22T11:03:11.749606" level="INFO">${browser_handles} = []</msg>
+<var>${browser_handles}</var>
+<arg>${count}</arg>
+<arg>Get Window Handles</arg>
+<arg>ELSE</arg>
+<arg>Create List</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-09-22T11:03:11.747563" elapsed="0.002043"/>
+</kw>
+<kw name="Get Length" owner="BuiltIn">
+<msg time="2025-09-22T11:03:11.754615" level="INFO">Length is 0.</msg>
+<msg time="2025-09-22T11:03:11.754615" level="INFO">${browser_count} = 0</msg>
+<var>${browser_count}</var>
+<arg>${browser_handles}</arg>
+<doc>Returns and logs the length of the given item as an integer.</doc>
+<status status="PASS" start="2025-09-22T11:03:11.753586" elapsed="0.001029"/>
+</kw>
+<return>
+<value>${browser_count}</value>
+<status status="PASS" start="2025-09-22T11:03:11.758562" elapsed="0.000000"/>
+</return>
+<msg time="2025-09-22T11:03:11.759563" level="INFO">${browser_count_after} = 0</msg>
+<var>${browser_count_after}</var>
+<tag>verification</tag>
+<doc>Returns the number of active browser instances</doc>
+<status status="PASS" start="2025-09-22T11:03:11.727562" elapsed="0.032001"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>📊 Active browsers after cleanup: ${browser_count_after}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-22T11:03:11.763572" elapsed="0.000000"/>
+</kw>
+<tag>graceful</tag>
+<tag>teardown</tag>
+<doc>Attempts graceful browser shutdown using SeleniumLibrary</doc>
+<status status="PASS" start="2025-09-22T11:03:02.858236" elapsed="8.906420"/>
+</kw>
+<arg>Graceful Browser Cleanup</arg>
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<status status="PASS" start="2025-09-22T11:03:02.857226" elapsed="8.907430"/>
+</kw>
+<kw name="Run Keyword And Ignore Error" owner="BuiltIn">
+<kw name="Force Close All Browser Processes" owner="BrowserTeardown">
+<kw name="Log To Console" owner="BuiltIn">
+<arg>🔄 Force closing browser processes...</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-22T11:03:11.766633" elapsed="0.000000"/>
+</kw>
+<kw name="Force Kill Browser Process" owner="BrowserTeardown">
+<kw name="Log To Console" owner="BuiltIn">
+<arg>🔄 Checking for ${process_name} processes...</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-22T11:03:11.768602" elapsed="0.000000"/>
+</kw>
+<kw name="Run Process" owner="Process">
+<msg time="2025-09-22T11:03:11.769621" level="INFO">Starting process:
+tasklist /FI "IMAGENAME eq chrome.exe"</msg>
+<msg time="2025-09-22T11:03:11.787602" level="INFO">Waiting for process to complete.</msg>
+<msg time="2025-09-22T11:03:12.432561" level="INFO">Process completed.</msg>
+<msg time="2025-09-22T11:03:12.432561" level="INFO">${result} = &lt;result object with rc 0&gt;</msg>
+<var>${result}</var>
+<arg>tasklist</arg>
+<arg>/FI</arg>
+<arg>IMAGENAME eq ${process_name}</arg>
+<arg>shell=True</arg>
+<doc>Runs a process and waits for it to complete.</doc>
+<status status="PASS" start="2025-09-22T11:03:11.769621" elapsed="0.662940"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Run Keywords" owner="BuiltIn">
+<kw name="Log To Console" owner="BuiltIn">
+<arg>⚠️ Found ${process_name} processes, terminating...</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-22T11:03:12.438951" elapsed="0.000000"/>
+</kw>
+<kw name="Run Process" owner="Process">
+<msg time="2025-09-22T11:03:12.439953" level="INFO">Starting process:
+taskkill /F /IM chrome.exe</msg>
+<msg time="2025-09-22T11:03:12.454951" level="INFO">Waiting for process to complete.</msg>
+<msg time="2025-09-22T11:03:12.796951" level="INFO">Process completed.</msg>
+<arg>taskkill</arg>
+<arg>/F</arg>
+<arg>/IM</arg>
+<arg>${process_name}</arg>
+<arg>shell=True</arg>
+<doc>Runs a process and waits for it to complete.</doc>
+<status status="PASS" start="2025-09-22T11:03:12.439953" elapsed="0.356998"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>✅ ${process_name} processes terminated</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-22T11:03:12.800950" elapsed="0.001000"/>
+</kw>
+<arg>Log To Console</arg>
+<arg>⚠️ Found ${process_name} processes, terminating...</arg>
+<arg>AND</arg>
+<arg>Run Process</arg>
+<arg>taskkill</arg>
+<arg>/F</arg>
+<arg>/IM</arg>
+<arg>${process_name}</arg>
+<arg>shell=True</arg>
+<arg>AND</arg>
+<arg>Log To Console</arg>
+<arg>✅ ${process_name} processes terminated</arg>
+<doc>Executes all the given keywords in a sequence.</doc>
+<status status="PASS" start="2025-09-22T11:03:12.437953" elapsed="0.363997"/>
+</kw>
+<arg>'${process_name}' in '''${result.stdout}'''</arg>
+<arg>Run Keywords</arg>
+<arg>Log To Console</arg>
+<arg>⚠️ Found ${process_name} processes, terminating...</arg>
+<arg>AND</arg>
+<arg>Run Process</arg>
+<arg>taskkill</arg>
+<arg>/F</arg>
+<arg>/IM</arg>
+<arg>${process_name}</arg>
+<arg>shell=True</arg>
+<arg>AND</arg>
+<arg>Log To Console</arg>
+<arg>✅ ${process_name} processes terminated</arg>
+<arg>ELSE</arg>
+<arg>Log To Console</arg>
+<arg>✅ No ${process_name} processes found</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-09-22T11:03:12.436953" elapsed="0.365998"/>
+</kw>
+<arg>chrome.exe</arg>
+<tag>process</tag>
+<tag>teardown</tag>
+<doc>Kills specific browser process by name</doc>
+<status status="PASS" start="2025-09-22T11:03:11.767643" elapsed="1.035308"/>
+</kw>
+<kw name="Force Kill Browser Process" owner="BrowserTeardown">
+<kw name="Log To Console" owner="BuiltIn">
+<arg>🔄 Checking for ${process_name} processes...</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-22T11:03:12.804951" elapsed="0.000000"/>
+</kw>
+<kw name="Run Process" owner="Process">
+<msg time="2025-09-22T11:03:12.805950" level="INFO">Starting process:
+tasklist /FI "IMAGENAME eq chromedriver.exe"</msg>
+<msg time="2025-09-22T11:03:12.821952" level="INFO">Waiting for process to complete.</msg>
+<msg time="2025-09-22T11:03:13.193951" level="INFO">Process completed.</msg>
+<msg time="2025-09-22T11:03:13.193951" level="INFO">${result} = &lt;result object with rc 0&gt;</msg>
+<var>${result}</var>
+<arg>tasklist</arg>
+<arg>/FI</arg>
+<arg>IMAGENAME eq ${process_name}</arg>
+<arg>shell=True</arg>
+<doc>Runs a process and waits for it to complete.</doc>
+<status status="PASS" start="2025-09-22T11:03:12.805950" elapsed="0.388001"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Run Keywords" owner="BuiltIn">
+<kw name="Log To Console" owner="BuiltIn">
+<arg>⚠️ Found ${process_name} processes, terminating...</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-22T11:03:13.199952" elapsed="0.000000"/>
+</kw>
+<kw name="Run Process" owner="Process">
+<msg time="2025-09-22T11:03:13.200952" level="INFO">Starting process:
+taskkill /F /IM chromedriver.exe</msg>
+<msg time="2025-09-22T11:03:13.215995" level="INFO">Waiting for process to complete.</msg>
+<msg time="2025-09-22T11:03:13.571952" level="INFO">Process completed.</msg>
+<arg>taskkill</arg>
+<arg>/F</arg>
+<arg>/IM</arg>
+<arg>${process_name}</arg>
+<arg>shell=True</arg>
+<doc>Runs a process and waits for it to complete.</doc>
+<status status="PASS" start="2025-09-22T11:03:13.200952" elapsed="0.371000"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>✅ ${process_name} processes terminated</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-22T11:03:13.577950" elapsed="0.000000"/>
+</kw>
+<arg>Log To Console</arg>
+<arg>⚠️ Found ${process_name} processes, terminating...</arg>
+<arg>AND</arg>
+<arg>Run Process</arg>
+<arg>taskkill</arg>
+<arg>/F</arg>
+<arg>/IM</arg>
+<arg>${process_name}</arg>
+<arg>shell=True</arg>
+<arg>AND</arg>
+<arg>Log To Console</arg>
+<arg>✅ ${process_name} processes terminated</arg>
+<doc>Executes all the given keywords in a sequence.</doc>
+<status status="PASS" start="2025-09-22T11:03:13.198951" elapsed="0.379999"/>
+</kw>
+<arg>'${process_name}' in '''${result.stdout}'''</arg>
+<arg>Run Keywords</arg>
+<arg>Log To Console</arg>
+<arg>⚠️ Found ${process_name} processes, terminating...</arg>
+<arg>AND</arg>
+<arg>Run Process</arg>
+<arg>taskkill</arg>
+<arg>/F</arg>
+<arg>/IM</arg>
+<arg>${process_name}</arg>
+<arg>shell=True</arg>
+<arg>AND</arg>
+<arg>Log To Console</arg>
+<arg>✅ ${process_name} processes terminated</arg>
+<arg>ELSE</arg>
+<arg>Log To Console</arg>
+<arg>✅ No ${process_name} processes found</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-09-22T11:03:13.197949" elapsed="0.382004"/>
+</kw>
+<arg>chromedriver.exe</arg>
+<tag>process</tag>
+<tag>teardown</tag>
+<doc>Kills specific browser process by name</doc>
+<status status="PASS" start="2025-09-22T11:03:12.803951" elapsed="0.777002"/>
+</kw>
+<kw name="Force Kill Browser Process" owner="BrowserTeardown">
+<kw name="Log To Console" owner="BuiltIn">
+<arg>🔄 Checking for ${process_name} processes...</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-22T11:03:13.582952" elapsed="0.002042"/>
+</kw>
+<kw name="Run Process" owner="Process">
+<msg time="2025-09-22T11:03:13.585999" level="INFO">Starting process:
+tasklist /FI "IMAGENAME eq firefox.exe"</msg>
+<msg time="2025-09-22T11:03:13.601949" level="INFO">Waiting for process to complete.</msg>
+<msg time="2025-09-22T11:03:13.880006" level="INFO">Process completed.</msg>
+<msg time="2025-09-22T11:03:13.880006" level="INFO">${result} = &lt;result object with rc 0&gt;</msg>
+<var>${result}</var>
+<arg>tasklist</arg>
+<arg>/FI</arg>
+<arg>IMAGENAME eq ${process_name}</arg>
+<arg>shell=True</arg>
+<doc>Runs a process and waits for it to complete.</doc>
+<status status="PASS" start="2025-09-22T11:03:13.584994" elapsed="0.295955"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Log To Console" owner="BuiltIn">
+<arg>✅ No ${process_name} processes found</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-22T11:03:13.886948" elapsed="0.000000"/>
+</kw>
+<arg>'${process_name}' in '''${result.stdout}'''</arg>
+<arg>Run Keywords</arg>
+<arg>Log To Console</arg>
+<arg>⚠️ Found ${process_name} processes, terminating...</arg>
+<arg>AND</arg>
+<arg>Run Process</arg>
+<arg>taskkill</arg>
+<arg>/F</arg>
+<arg>/IM</arg>
+<arg>${process_name}</arg>
+<arg>shell=True</arg>
+<arg>AND</arg>
+<arg>Log To Console</arg>
+<arg>✅ ${process_name} processes terminated</arg>
+<arg>ELSE</arg>
+<arg>Log To Console</arg>
+<arg>✅ No ${process_name} processes found</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-09-22T11:03:13.884949" elapsed="0.003000"/>
+</kw>
+<arg>firefox.exe</arg>
+<tag>process</tag>
+<tag>teardown</tag>
+<doc>Kills specific browser process by name</doc>
+<status status="PASS" start="2025-09-22T11:03:13.581970" elapsed="0.305979"/>
+</kw>
+<kw name="Force Kill Browser Process" owner="BrowserTeardown">
+<kw name="Log To Console" owner="BuiltIn">
+<arg>🔄 Checking for ${process_name} processes...</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-22T11:03:13.888949" elapsed="0.000999"/>
+</kw>
+<kw name="Run Process" owner="Process">
+<msg time="2025-09-22T11:03:13.890949" level="INFO">Starting process:
+tasklist /FI "IMAGENAME eq geckodriver.exe"</msg>
+<msg time="2025-09-22T11:03:13.904988" level="INFO">Waiting for process to complete.</msg>
+<msg time="2025-09-22T11:03:14.264949" level="INFO">Process completed.</msg>
+<msg time="2025-09-22T11:03:14.264949" level="INFO">${result} = &lt;result object with rc 0&gt;</msg>
+<var>${result}</var>
+<arg>tasklist</arg>
+<arg>/FI</arg>
+<arg>IMAGENAME eq ${process_name}</arg>
+<arg>shell=True</arg>
+<doc>Runs a process and waits for it to complete.</doc>
+<status status="PASS" start="2025-09-22T11:03:13.889948" elapsed="0.376000"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Log To Console" owner="BuiltIn">
+<arg>✅ No ${process_name} processes found</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-22T11:03:14.271948" elapsed="0.000000"/>
+</kw>
+<arg>'${process_name}' in '''${result.stdout}'''</arg>
+<arg>Run Keywords</arg>
+<arg>Log To Console</arg>
+<arg>⚠️ Found ${process_name} processes, terminating...</arg>
+<arg>AND</arg>
+<arg>Run Process</arg>
+<arg>taskkill</arg>
+<arg>/F</arg>
+<arg>/IM</arg>
+<arg>${process_name}</arg>
+<arg>shell=True</arg>
+<arg>AND</arg>
+<arg>Log To Console</arg>
+<arg>✅ ${process_name} processes terminated</arg>
+<arg>ELSE</arg>
+<arg>Log To Console</arg>
+<arg>✅ No ${process_name} processes found</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-09-22T11:03:14.269950" elapsed="0.002999"/>
+</kw>
+<arg>geckodriver.exe</arg>
+<tag>process</tag>
+<tag>teardown</tag>
+<doc>Kills specific browser process by name</doc>
+<status status="PASS" start="2025-09-22T11:03:13.888949" elapsed="0.384000"/>
+</kw>
+<kw name="Force Kill Browser Process" owner="BrowserTeardown">
+<kw name="Log To Console" owner="BuiltIn">
+<arg>🔄 Checking for ${process_name} processes...</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-22T11:03:14.274949" elapsed="0.000999"/>
+</kw>
+<kw name="Run Process" owner="Process">
+<msg time="2025-09-22T11:03:14.276950" level="INFO">Starting process:
+tasklist /FI "IMAGENAME eq msedge.exe"</msg>
+<msg time="2025-09-22T11:03:14.291948" level="INFO">Waiting for process to complete.</msg>
+<msg time="2025-09-22T11:03:14.712146" level="INFO">Process completed.</msg>
+<msg time="2025-09-22T11:03:14.712146" level="INFO">${result} = &lt;result object with rc 0&gt;</msg>
+<var>${result}</var>
+<arg>tasklist</arg>
+<arg>/FI</arg>
+<arg>IMAGENAME eq ${process_name}</arg>
+<arg>shell=True</arg>
+<doc>Runs a process and waits for it to complete.</doc>
+<status status="PASS" start="2025-09-22T11:03:14.275948" elapsed="0.436198"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Run Keywords" owner="BuiltIn">
+<kw name="Log To Console" owner="BuiltIn">
+<arg>⚠️ Found ${process_name} processes, terminating...</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-22T11:03:14.718144" elapsed="0.000000"/>
+</kw>
+<kw name="Run Process" owner="Process">
+<msg time="2025-09-22T11:03:14.719145" level="INFO">Starting process:
+taskkill /F /IM msedge.exe</msg>
+<msg time="2025-09-22T11:03:14.735145" level="INFO">Waiting for process to complete.</msg>
+<msg time="2025-09-22T11:03:15.244146" level="INFO">Process completed.</msg>
+<arg>taskkill</arg>
+<arg>/F</arg>
+<arg>/IM</arg>
+<arg>${process_name}</arg>
+<arg>shell=True</arg>
+<doc>Runs a process and waits for it to complete.</doc>
+<status status="PASS" start="2025-09-22T11:03:14.719145" elapsed="0.526001"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>✅ ${process_name} processes terminated</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-22T11:03:15.257145" elapsed="0.001000"/>
+</kw>
+<arg>Log To Console</arg>
+<arg>⚠️ Found ${process_name} processes, terminating...</arg>
+<arg>AND</arg>
+<arg>Run Process</arg>
+<arg>taskkill</arg>
+<arg>/F</arg>
+<arg>/IM</arg>
+<arg>${process_name}</arg>
+<arg>shell=True</arg>
+<arg>AND</arg>
+<arg>Log To Console</arg>
+<arg>✅ ${process_name} processes terminated</arg>
+<doc>Executes all the given keywords in a sequence.</doc>
+<status status="PASS" start="2025-09-22T11:03:14.717151" elapsed="0.540994"/>
+</kw>
+<arg>'${process_name}' in '''${result.stdout}'''</arg>
+<arg>Run Keywords</arg>
+<arg>Log To Console</arg>
+<arg>⚠️ Found ${process_name} processes, terminating...</arg>
+<arg>AND</arg>
+<arg>Run Process</arg>
+<arg>taskkill</arg>
+<arg>/F</arg>
+<arg>/IM</arg>
+<arg>${process_name}</arg>
+<arg>shell=True</arg>
+<arg>AND</arg>
+<arg>Log To Console</arg>
+<arg>✅ ${process_name} processes terminated</arg>
+<arg>ELSE</arg>
+<arg>Log To Console</arg>
+<arg>✅ No ${process_name} processes found</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-09-22T11:03:14.716145" elapsed="0.543002"/>
+</kw>
+<arg>msedge.exe</arg>
+<tag>process</tag>
+<tag>teardown</tag>
+<doc>Kills specific browser process by name</doc>
+<status status="PASS" start="2025-09-22T11:03:14.273948" elapsed="0.986199"/>
+</kw>
+<kw name="Force Kill Browser Process" owner="BrowserTeardown">
+<kw name="Log To Console" owner="BuiltIn">
+<arg>🔄 Checking for ${process_name} processes...</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-22T11:03:15.262145" elapsed="0.001000"/>
+</kw>
+<kw name="Run Process" owner="Process">
+<msg time="2025-09-22T11:03:15.264146" level="INFO">Starting process:
+tasklist /FI "IMAGENAME eq msedgedriver.exe"</msg>
+<msg time="2025-09-22T11:03:15.290145" level="INFO">Waiting for process to complete.</msg>
+<msg time="2025-09-22T11:03:15.834143" level="INFO">Process completed.</msg>
+<msg time="2025-09-22T11:03:15.834143" level="INFO">${result} = &lt;result object with rc 0&gt;</msg>
+<var>${result}</var>
+<arg>tasklist</arg>
+<arg>/FI</arg>
+<arg>IMAGENAME eq ${process_name}</arg>
+<arg>shell=True</arg>
+<doc>Runs a process and waits for it to complete.</doc>
+<status status="PASS" start="2025-09-22T11:03:15.263145" elapsed="0.570998"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Log To Console" owner="BuiltIn">
+<arg>✅ No ${process_name} processes found</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-22T11:03:15.858144" elapsed="0.001001"/>
+</kw>
+<arg>'${process_name}' in '''${result.stdout}'''</arg>
+<arg>Run Keywords</arg>
+<arg>Log To Console</arg>
+<arg>⚠️ Found ${process_name} processes, terminating...</arg>
+<arg>AND</arg>
+<arg>Run Process</arg>
+<arg>taskkill</arg>
+<arg>/F</arg>
+<arg>/IM</arg>
+<arg>${process_name}</arg>
+<arg>shell=True</arg>
+<arg>AND</arg>
+<arg>Log To Console</arg>
+<arg>✅ ${process_name} processes terminated</arg>
+<arg>ELSE</arg>
+<arg>Log To Console</arg>
+<arg>✅ No ${process_name} processes found</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-09-22T11:03:15.855145" elapsed="0.005001"/>
+</kw>
+<arg>msedgedriver.exe</arg>
+<tag>process</tag>
+<tag>teardown</tag>
+<doc>Kills specific browser process by name</doc>
+<status status="PASS" start="2025-09-22T11:03:15.261146" elapsed="0.599000"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-09-22T11:03:18.861438" level="INFO">Slept 3 seconds.</msg>
+<arg>3s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-09-22T11:03:15.861144" elapsed="3.000294"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>✅ Browser process cleanup completed</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-22T11:03:18.865444" elapsed="0.000000"/>
+</kw>
+<tag>force</tag>
+<tag>teardown</tag>
+<doc>Force kills browser processes at OS level</doc>
+<status status="PASS" start="2025-09-22T11:03:11.765604" elapsed="7.100840"/>
+</kw>
+<arg>Force Close All Browser Processes</arg>
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<status status="PASS" start="2025-09-22T11:03:11.765604" elapsed="7.100840"/>
+</kw>
+<kw name="Run Keyword And Ignore Error" owner="BuiltIn">
+<kw name="Clean Browser Temporary Files" owner="BrowserTeardown">
+<kw name="Log To Console" owner="BuiltIn">
+<arg>🔄 Cleaning browser temporary files...</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-22T11:03:18.868443" elapsed="0.001000"/>
+</kw>
+<kw name="Clean Chrome Temporary Files" owner="BrowserTeardown">
+<kw name="Get Environment Variable" owner="OperatingSystem">
+<msg time="2025-09-22T11:03:18.870479" level="INFO">${temp_dir} = C:\Users\sharmash\AppData\Local\Temp</msg>
+<var>${temp_dir}</var>
+<arg>TEMP</arg>
+<arg>%TEMP%</arg>
+<doc>Returns the value of an environment variable with the given name.</doc>
+<status status="PASS" start="2025-09-22T11:03:18.870479" elapsed="0.001010"/>
+</kw>
+<kw name="Get Environment Variable" owner="OperatingSystem">
+<msg time="2025-09-22T11:03:18.875445" level="INFO">${user_profile} = C:\Users\sharmash</msg>
+<var>${user_profile}</var>
+<arg>USERPROFILE</arg>
+<arg>%USERPROFILE%</arg>
+<doc>Returns the value of an environment variable with the given name.</doc>
+<status status="PASS" start="2025-09-22T11:03:18.875445" elapsed="0.000000"/>
+</kw>
+<kw name="Create List" owner="BuiltIn">
+<msg time="2025-09-22T11:03:18.881528" level="INFO">@{chrome_temp_dirs} = [ C:\Users\sharmash\AppData\Local\Temp\chrome_driver_* | C:\Users\sharmash\AppData\Local\Google\Chrome\User Data\Default\Web Data-journal | C:\Users\sharmash\AppData\Local\Google\Chrome\User Data\Defa...</msg>
+<var>@{chrome_temp_dirs}</var>
+<arg>${temp_dir}\\chrome_driver_*</arg>
+<arg>${user_profile}\\AppData\\Local\\Google\\Chrome\\User Data\\Default\\Web Data-journal</arg>
+<arg>${user_profile}\\AppData\\Local\\Google\\Chrome\\User Data\\Default\\History-journal</arg>
+<arg>${user_profile}\\AppData\\Local\\Google\\Chrome\\User Data\\Crashpad</arg>
+<doc>Returns a list containing given items.</doc>
+<status status="PASS" start="2025-09-22T11:03:18.880547" elapsed="0.000981"/>
+</kw>
+<for flavor="IN">
+<iter>
+<kw name="Run Keyword And Ignore Error" owner="BuiltIn">
+<kw name="Remove Directory" owner="OperatingSystem">
+<msg time="2025-09-22T11:03:18.887487" level="INFO" html="true">Directory '&lt;a href="file://C:\Users\sharmash\AppData\Local\Temp\chrome_driver_*"&gt;C:\Users\sharmash\AppData\Local\Temp\chrome_driver_*&lt;/a&gt;' does not exist.</msg>
+<arg>${dir_pattern}</arg>
+<arg>recursive=True</arg>
+<doc>Removes the directory pointed to by the given ``path``.</doc>
+<status status="PASS" start="2025-09-22T11:03:18.886521" elapsed="0.000966"/>
+</kw>
+<arg>Remove Directory</arg>
+<arg>${dir_pattern}</arg>
+<arg>recursive=True</arg>
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<status status="PASS" start="2025-09-22T11:03:18.885515" elapsed="0.005966"/>
+</kw>
+<var name="${dir_pattern}">C:\Users\sharmash\AppData\Local\Temp\chrome_driver_*</var>
+<status status="PASS" start="2025-09-22T11:03:18.885515" elapsed="0.006961"/>
+</iter>
+<iter>
+<kw name="Run Keyword And Ignore Error" owner="BuiltIn">
+<kw name="Remove Directory" owner="OperatingSystem">
+<msg time="2025-09-22T11:03:18.894445" level="FAIL">Path 'C:\Users\sharmash\AppData\Local\Google\Chrome\User Data\Default\Web Data-journal' is not a directory.</msg>
+<arg>${dir_pattern}</arg>
+<arg>recursive=True</arg>
+<doc>Removes the directory pointed to by the given ``path``.</doc>
+<status status="FAIL" start="2025-09-22T11:03:18.893444" elapsed="0.001001">Path 'C:\Users\sharmash\AppData\Local\Google\Chrome\User Data\Default\Web Data-journal' is not a directory.</status>
+</kw>
+<arg>Remove Directory</arg>
+<arg>${dir_pattern}</arg>
+<arg>recursive=True</arg>
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<status status="PASS" start="2025-09-22T11:03:18.893444" elapsed="0.005057"/>
+</kw>
+<var name="${dir_pattern}">C:\Users\sharmash\AppData\Local\Google\Chrome\User Data\Default\Web Data-journal</var>
+<status status="PASS" start="2025-09-22T11:03:18.892476" elapsed="0.006973"/>
+</iter>
+<iter>
+<kw name="Run Keyword And Ignore Error" owner="BuiltIn">
+<kw name="Remove Directory" owner="OperatingSystem">
+<msg time="2025-09-22T11:03:18.901545" level="FAIL">Path 'C:\Users\sharmash\AppData\Local\Google\Chrome\User Data\Default\History-journal' is not a directory.</msg>
+<arg>${dir_pattern}</arg>
+<arg>recursive=True</arg>
+<doc>Removes the directory pointed to by the given ``path``.</doc>
+<status status="FAIL" start="2025-09-22T11:03:18.901545" elapsed="0.000000">Path 'C:\Users\sharmash\AppData\Local\Google\Chrome\User Data\Default\History-journal' is not a directory.</status>
+</kw>
+<arg>Remove Directory</arg>
+<arg>${dir_pattern}</arg>
+<arg>recursive=True</arg>
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<status status="PASS" start="2025-09-22T11:03:18.900551" elapsed="0.004934"/>
+</kw>
+<var name="${dir_pattern}">C:\Users\sharmash\AppData\Local\Google\Chrome\User Data\Default\History-journal</var>
+<status status="PASS" start="2025-09-22T11:03:18.900551" elapsed="0.005893"/>
+</iter>
+<iter>
+<kw name="Run Keyword And Ignore Error" owner="BuiltIn">
+<kw name="Remove Directory" owner="OperatingSystem">
+<msg time="2025-09-22T11:03:18.913521" level="INFO" html="true">Removed directory '&lt;a href="file://C:\Users\sharmash\AppData\Local\Google\Chrome\User Data\Crashpad"&gt;C:\Users\sharmash\AppData\Local\Google\Chrome\User Data\Crashpad&lt;/a&gt;'.</msg>
+<arg>${dir_pattern}</arg>
+<arg>recursive=True</arg>
+<doc>Removes the directory pointed to by the given ``path``.</doc>
+<status status="PASS" start="2025-09-22T11:03:18.907444" elapsed="0.006077"/>
+</kw>
+<arg>Remove Directory</arg>
+<arg>${dir_pattern}</arg>
+<arg>recursive=True</arg>
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<status status="PASS" start="2025-09-22T11:03:18.907444" elapsed="0.011000"/>
+</kw>
+<var name="${dir_pattern}">C:\Users\sharmash\AppData\Local\Google\Chrome\User Data\Crashpad</var>
+<status status="PASS" start="2025-09-22T11:03:18.906444" elapsed="0.012000"/>
+</iter>
+<var>${dir_pattern}</var>
+<value>@{chrome_temp_dirs}</value>
+<status status="PASS" start="2025-09-22T11:03:18.885515" elapsed="0.032929"/>
+</for>
+<tag>chrome</tag>
+<tag>cleanup</tag>
+<doc>Removes Chrome temporary files and crashed session data</doc>
+<status status="PASS" start="2025-09-22T11:03:18.869443" elapsed="0.050001"/>
+</kw>
+<kw name="Clean Firefox Temporary Files" owner="BrowserTeardown">
+<kw name="Get Environment Variable" owner="OperatingSystem">
+<msg time="2025-09-22T11:03:18.921444" level="INFO">${temp_dir} = C:\Users\sharmash\AppData\Local\Temp</msg>
+<var>${temp_dir}</var>
+<arg>TEMP</arg>
+<arg>%TEMP%</arg>
+<doc>Returns the value of an environment variable with the given name.</doc>
+<status status="PASS" start="2025-09-22T11:03:18.920444" elapsed="0.001000"/>
+</kw>
+<kw name="Get Environment Variable" owner="OperatingSystem">
+<msg time="2025-09-22T11:03:18.927490" level="INFO">${user_profile} = C:\Users\sharmash</msg>
+<var>${user_profile}</var>
+<arg>USERPROFILE</arg>
+<arg>%USERPROFILE%</arg>
+<doc>Returns the value of an environment variable with the given name.</doc>
+<status status="PASS" start="2025-09-22T11:03:18.926448" elapsed="0.001042"/>
+</kw>
+<kw name="Create List" owner="BuiltIn">
+<msg time="2025-09-22T11:03:18.932444" level="INFO">@{firefox_temp_dirs} = [ C:\Users\sharmash\AppData\Local\Temp\rust_mozprofile* | C:\Users\sharmash\AppData\Local\Mozilla\Firefox\Profiles\*\sessionstore-backups ]</msg>
+<var>@{firefox_temp_dirs}</var>
+<arg>${temp_dir}\\rust_mozprofile*</arg>
+<arg>${user_profile}\\AppData\\Local\\Mozilla\\Firefox\\Profiles\\*\\sessionstore-backups</arg>
+<doc>Returns a list containing given items.</doc>
+<status status="PASS" start="2025-09-22T11:03:18.931444" elapsed="0.001000"/>
+</kw>
+<for flavor="IN">
+<iter>
+<kw name="Run Keyword And Ignore Error" owner="BuiltIn">
+<kw name="Remove Directory" owner="OperatingSystem">
+<msg time="2025-09-22T11:03:18.938445" level="INFO" html="true">Directory '&lt;a href="file://C:\Users\sharmash\AppData\Local\Temp\rust_mozprofile*"&gt;C:\Users\sharmash\AppData\Local\Temp\rust_mozprofile*&lt;/a&gt;' does not exist.</msg>
+<arg>${dir_pattern}</arg>
+<arg>recursive=True</arg>
+<doc>Removes the directory pointed to by the given ``path``.</doc>
+<status status="PASS" start="2025-09-22T11:03:18.937449" elapsed="0.000996"/>
+</kw>
+<arg>Remove Directory</arg>
+<arg>${dir_pattern}</arg>
+<arg>recursive=True</arg>
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<status status="PASS" start="2025-09-22T11:03:18.936444" elapsed="0.008062"/>
+</kw>
+<var name="${dir_pattern}">C:\Users\sharmash\AppData\Local\Temp\rust_mozprofile*</var>
+<status status="PASS" start="2025-09-22T11:03:18.936444" elapsed="0.008062"/>
+</iter>
+<iter>
+<kw name="Run Keyword And Ignore Error" owner="BuiltIn">
+<kw name="Remove Directory" owner="OperatingSystem">
+<msg time="2025-09-22T11:03:18.946513" level="INFO" html="true">Directory '&lt;a href="file://C:\Users\sharmash\AppData\Local\Mozilla\Firefox\Profiles\*\sessionstore-backups"&gt;C:\Users\sharmash\AppData\Local\Mozilla\Firefox\Profiles\*\sessionstore-backups&lt;/a&gt;' does not exist.</msg>
+<arg>${dir_pattern}</arg>
+<arg>recursive=True</arg>
+<doc>Removes the directory pointed to by the given ``path``.</doc>
+<status status="PASS" start="2025-09-22T11:03:18.946513" elapsed="0.000000"/>
+</kw>
+<arg>Remove Directory</arg>
+<arg>${dir_pattern}</arg>
+<arg>recursive=True</arg>
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<status status="PASS" start="2025-09-22T11:03:18.945477" elapsed="0.005001"/>
+</kw>
+<var name="${dir_pattern}">C:\Users\sharmash\AppData\Local\Mozilla\Firefox\Profiles\*\sessionstore-backups</var>
+<status status="PASS" start="2025-09-22T11:03:18.945477" elapsed="0.006006"/>
+</iter>
+<var>${dir_pattern}</var>
+<value>@{firefox_temp_dirs}</value>
+<status status="PASS" start="2025-09-22T11:03:18.935444" elapsed="0.016039"/>
+</for>
+<tag>cleanup</tag>
+<tag>firefox</tag>
+<doc>Removes Firefox temporary files and crashed session data</doc>
+<status status="PASS" start="2025-09-22T11:03:18.920444" elapsed="0.031039"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>✅ Browser temporary files cleaned</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-22T11:03:18.952515" elapsed="0.000000"/>
+</kw>
+<tag>cleanup</tag>
+<tag>teardown</tag>
+<doc>Cleans up browser temporary files and profiles</doc>
+<status status="PASS" start="2025-09-22T11:03:18.867444" elapsed="0.086000"/>
+</kw>
+<arg>Clean Browser Temporary Files</arg>
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<status status="PASS" start="2025-09-22T11:03:18.867444" elapsed="0.086000"/>
+</kw>
+<kw name="Verify Browser Cleanup Completion" owner="BrowserTeardown">
+<kw name="Log To Console" owner="BuiltIn">
+<arg>🔄 Verifying browser cleanup completion...</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-22T11:03:18.955452" elapsed="0.000000"/>
+</kw>
+<kw name="Check If Process Running" owner="BrowserTeardown">
+<kw name="Run Process" owner="Process">
+<msg time="2025-09-22T11:03:18.958484" level="INFO">Starting process:
+tasklist /FI "IMAGENAME eq chrome.exe"</msg>
+<msg time="2025-09-22T11:03:18.982488" level="INFO">Waiting for process to complete.</msg>
+<msg time="2025-09-22T11:03:19.296485" level="INFO">Process completed.</msg>
+<msg time="2025-09-22T11:03:19.296485" level="INFO">${result} = &lt;result object with rc 0&gt;</msg>
+<var>${result}</var>
+<arg>tasklist</arg>
+<arg>/FI</arg>
+<arg>IMAGENAME eq ${process_name}</arg>
+<arg>shell=True</arg>
+<doc>Runs a process and waits for it to complete.</doc>
+<status status="PASS" start="2025-09-22T11:03:18.957446" elapsed="0.339039"/>
+</kw>
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Should Contain" owner="BuiltIn">
+<msg time="2025-09-22T11:03:19.302515" level="FAIL">'INFO: No tasks are running which match the specified criteria.' does not contain 'chrome.exe'</msg>
+<arg>${result.stdout}</arg>
+<arg>${process_name}</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="FAIL" start="2025-09-22T11:03:19.301500" elapsed="0.001015">'INFO: No tasks are running which match the specified criteria.' does not contain 'chrome.exe'</status>
+</kw>
+<msg time="2025-09-22T11:03:19.306443" level="INFO">${is_running} = False</msg>
+<var>${is_running}</var>
+<arg>Should Contain</arg>
+<arg>${result.stdout}</arg>
+<arg>${process_name}</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2025-09-22T11:03:19.300494" elapsed="0.006965"/>
+</kw>
+<return>
+<value>${is_running}</value>
+<status status="PASS" start="2025-09-22T11:03:19.311443" elapsed="0.000000"/>
+</return>
+<msg time="2025-09-22T11:03:19.312443" level="INFO">${chrome_running} = False</msg>
+<var>${chrome_running}</var>
+<arg>chrome.exe</arg>
+<tag>verification</tag>
+<doc>Checks if a specific process is currently running</doc>
+<status status="PASS" start="2025-09-22T11:03:18.956444" elapsed="0.355999"/>
+</kw>
+<kw name="Check If Process Running" owner="BrowserTeardown">
+<kw name="Run Process" owner="Process">
+<msg time="2025-09-22T11:03:19.317451" level="INFO">Starting process:
+tasklist /FI "IMAGENAME eq chromedriver.exe"</msg>
+<msg time="2025-09-22T11:03:19.335446" level="INFO">Waiting for process to complete.</msg>
+<msg time="2025-09-22T11:03:19.673483" level="INFO">Process completed.</msg>
+<msg time="2025-09-22T11:03:19.674484" level="INFO">${result} = &lt;result object with rc 0&gt;</msg>
+<var>${result}</var>
+<arg>tasklist</arg>
+<arg>/FI</arg>
+<arg>IMAGENAME eq ${process_name}</arg>
+<arg>shell=True</arg>
+<doc>Runs a process and waits for it to complete.</doc>
+<status status="PASS" start="2025-09-22T11:03:19.317451" elapsed="0.357033"/>
+</kw>
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Should Contain" owner="BuiltIn">
+<msg time="2025-09-22T11:03:19.679516" level="FAIL">'INFO: No tasks are running which match the specified criteria.' does not contain 'chromedriver.exe'</msg>
+<arg>${result.stdout}</arg>
+<arg>${process_name}</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="FAIL" start="2025-09-22T11:03:19.678492" elapsed="0.001024">'INFO: No tasks are running which match the specified criteria.' does not contain 'chromedriver.exe'</status>
+</kw>
+<msg time="2025-09-22T11:03:19.683442" level="INFO">${is_running} = False</msg>
+<var>${is_running}</var>
+<arg>Should Contain</arg>
+<arg>${result.stdout}</arg>
+<arg>${process_name}</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2025-09-22T11:03:19.678492" elapsed="0.004950"/>
+</kw>
+<return>
+<value>${is_running}</value>
+<status status="PASS" start="2025-09-22T11:03:19.686442" elapsed="0.001002"/>
+</return>
+<msg time="2025-09-22T11:03:19.687444" level="INFO">${chromedriver_running} = False</msg>
+<var>${chromedriver_running}</var>
+<arg>chromedriver.exe</arg>
+<tag>verification</tag>
+<doc>Checks if a specific process is currently running</doc>
+<status status="PASS" start="2025-09-22T11:03:19.316445" elapsed="0.370999"/>
+</kw>
+<kw name="Check If Process Running" owner="BrowserTeardown">
+<kw name="Run Process" owner="Process">
+<msg time="2025-09-22T11:03:19.693513" level="INFO">Starting process:
+tasklist /FI "IMAGENAME eq firefox.exe"</msg>
+<msg time="2025-09-22T11:03:19.708495" level="INFO">Waiting for process to complete.</msg>
+<msg time="2025-09-22T11:03:20.006442" level="INFO">Process completed.</msg>
+<msg time="2025-09-22T11:03:20.006442" level="INFO">${result} = &lt;result object with rc 0&gt;</msg>
+<var>${result}</var>
+<arg>tasklist</arg>
+<arg>/FI</arg>
+<arg>IMAGENAME eq ${process_name}</arg>
+<arg>shell=True</arg>
+<doc>Runs a process and waits for it to complete.</doc>
+<status status="PASS" start="2025-09-22T11:03:19.692481" elapsed="0.314986"/>
+</kw>
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Should Contain" owner="BuiltIn">
+<msg time="2025-09-22T11:03:20.013519" level="FAIL">'INFO: No tasks are running which match the specified criteria.' does not contain 'firefox.exe'</msg>
+<arg>${result.stdout}</arg>
+<arg>${process_name}</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="FAIL" start="2025-09-22T11:03:20.011443" elapsed="0.002076">'INFO: No tasks are running which match the specified criteria.' does not contain 'firefox.exe'</status>
+</kw>
+<msg time="2025-09-22T11:03:20.017490" level="INFO">${is_running} = False</msg>
+<var>${is_running}</var>
+<arg>Should Contain</arg>
+<arg>${result.stdout}</arg>
+<arg>${process_name}</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2025-09-22T11:03:20.011443" elapsed="0.006047"/>
+</kw>
+<return>
+<value>${is_running}</value>
+<status status="PASS" start="2025-09-22T11:03:20.021479" elapsed="0.000000"/>
+</return>
+<msg time="2025-09-22T11:03:20.022481" level="INFO">${firefox_running} = False</msg>
+<var>${firefox_running}</var>
+<arg>firefox.exe</arg>
+<tag>verification</tag>
+<doc>Checks if a specific process is currently running</doc>
+<status status="PASS" start="2025-09-22T11:03:19.691527" elapsed="0.330954"/>
+</kw>
+<kw name="Check If Process Running" owner="BrowserTeardown">
+<kw name="Run Process" owner="Process">
+<msg time="2025-09-22T11:03:20.027486" level="INFO">Starting process:
+tasklist /FI "IMAGENAME eq geckodriver.exe"</msg>
+<msg time="2025-09-22T11:03:20.041480" level="INFO">Waiting for process to complete.</msg>
+<msg time="2025-09-22T11:03:20.334442" level="INFO">Process completed.</msg>
+<msg time="2025-09-22T11:03:20.335478" level="INFO">${result} = &lt;result object with rc 0&gt;</msg>
+<var>${result}</var>
+<arg>tasklist</arg>
+<arg>/FI</arg>
+<arg>IMAGENAME eq ${process_name}</arg>
+<arg>shell=True</arg>
+<doc>Runs a process and waits for it to complete.</doc>
+<status status="PASS" start="2025-09-22T11:03:20.026481" elapsed="0.308997"/>
+</kw>
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Should Contain" owner="BuiltIn">
+<msg time="2025-09-22T11:03:20.342441" level="FAIL">'INFO: No tasks are running which match the specified criteria.' does not contain 'geckodriver.exe'</msg>
+<arg>${result.stdout}</arg>
+<arg>${process_name}</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="FAIL" start="2025-09-22T11:03:20.341442" elapsed="0.000999">'INFO: No tasks are running which match the specified criteria.' does not contain 'geckodriver.exe'</status>
+</kw>
+<msg time="2025-09-22T11:03:20.346441" level="INFO">${is_running} = False</msg>
+<var>${is_running}</var>
+<arg>Should Contain</arg>
+<arg>${result.stdout}</arg>
+<arg>${process_name}</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2025-09-22T11:03:20.340443" elapsed="0.005998"/>
+</kw>
+<return>
+<value>${is_running}</value>
+<status status="PASS" start="2025-09-22T11:03:20.349484" elapsed="0.001000"/>
+</return>
+<msg time="2025-09-22T11:03:20.350484" level="INFO">${geckodriver_running} = False</msg>
+<var>${geckodriver_running}</var>
+<arg>geckodriver.exe</arg>
+<tag>verification</tag>
+<doc>Checks if a specific process is currently running</doc>
+<status status="PASS" start="2025-09-22T11:03:20.025482" elapsed="0.325002"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Log To Console" owner="BuiltIn">
+<arg>✅ All browser processes successfully terminated</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-22T11:03:20.355484" elapsed="0.000959"/>
+</kw>
+<arg>${chrome_running} or ${chromedriver_running} or ${firefox_running} or ${geckodriver_running}</arg>
+<arg>Log To Console</arg>
+<arg>⚠️ Warning: Some browser processes may still be running</arg>
+<arg>ELSE</arg>
+<arg>Log To Console</arg>
+<arg>✅ All browser processes successfully terminated</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-09-22T11:03:20.354443" elapsed="0.002000"/>
+</kw>
+<kw name="Get Browser Count" owner="BrowserTeardown">
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Get Window Handles" owner="SeleniumLibrary">
+<msg time="2025-09-22T11:03:20.359443" level="INFO">Cannot capture screenshot because no browser is open.</msg>
+<msg time="2025-09-22T11:03:20.359443" level="FAIL">No browser is open.</msg>
+<doc>Returns all child window handles of the selected browser as a list.</doc>
+<status status="FAIL" start="2025-09-22T11:03:20.359443" elapsed="0.001999">No browser is open.</status>
+</kw>
+<msg time="2025-09-22T11:03:20.364441" level="INFO">${count} = False</msg>
+<var>${count}</var>
+<arg>Get Window Handles</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2025-09-22T11:03:20.358486" elapsed="0.005955"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Create List" owner="BuiltIn">
+<doc>Returns a list containing given items.</doc>
+<status status="PASS" start="2025-09-22T11:03:20.369441" elapsed="0.000000"/>
+</kw>
+<msg time="2025-09-22T11:03:20.370441" level="INFO">${browser_handles} = []</msg>
+<var>${browser_handles}</var>
+<arg>${count}</arg>
+<arg>Get Window Handles</arg>
+<arg>ELSE</arg>
+<arg>Create List</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-09-22T11:03:20.368441" elapsed="0.002000"/>
+</kw>
+<kw name="Get Length" owner="BuiltIn">
+<msg time="2025-09-22T11:03:20.375443" level="INFO">Length is 0.</msg>
+<msg time="2025-09-22T11:03:20.375443" level="INFO">${browser_count} = 0</msg>
+<var>${browser_count}</var>
+<arg>${browser_handles}</arg>
+<doc>Returns and logs the length of the given item as an integer.</doc>
+<status status="PASS" start="2025-09-22T11:03:20.374443" elapsed="0.001000"/>
+</kw>
+<return>
+<value>${browser_count}</value>
+<status status="PASS" start="2025-09-22T11:03:20.379441" elapsed="0.000000"/>
+</return>
+<msg time="2025-09-22T11:03:20.380442" level="INFO">${final_browser_count} = 0</msg>
+<var>${final_browser_count}</var>
+<tag>verification</tag>
+<doc>Returns the number of active browser instances</doc>
+<status status="PASS" start="2025-09-22T11:03:20.357444" elapsed="0.022998"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>📊 Final browser count: ${final_browser_count}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-22T11:03:20.383441" elapsed="0.001001"/>
+</kw>
+<tag>teardown</tag>
+<tag>verification</tag>
+<doc>Verifies that browser cleanup was successful</doc>
+<status status="PASS" start="2025-09-22T11:03:18.954444" elapsed="1.429998"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>✅ Emergency Browser Teardown Completed</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-22T11:03:20.385441" elapsed="0.000000"/>
+</kw>
+<tag>browser</tag>
+<tag>teardown</tag>
+<doc>Performs comprehensive browser cleanup when tests fail</doc>
+<status status="PASS" start="2025-09-22T11:03:02.852226" elapsed="17.534215"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>✅ Test failure browser teardown completed</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-22T11:03:20.386441" elapsed="0.001001"/>
+</kw>
+<tag>failure</tag>
+<tag>teardown</tag>
+<doc>Called when a test fails to ensure browser cleanup</doc>
+<status status="PASS" start="2025-09-22T11:03:02.219663" elapsed="18.167779"/>
+</kw>
+<status status="FAIL" start="2025-09-22T11:00:23.750060" elapsed="176.638382">Element '//*[@id='root']/div/div[2]/div/div[1]/div[1]/div[3]/div[2]/button' not visible after 1 minute.</status>
+</test>
+<kw name="Emergency Browser Teardown" owner="BrowserTeardown" type="TEARDOWN">
+<kw name="Log To Console" owner="BuiltIn">
+<arg>🔄 Starting Emergency Browser Teardown...</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-22T11:03:20.417451" elapsed="0.000991"/>
+</kw>
+<kw name="Run Keyword And Ignore Error" owner="BuiltIn">
+<kw name="Graceful Browser Cleanup" owner="BrowserTeardown">
+<kw name="Log To Console" owner="BuiltIn">
+<arg>🔄 Attempting graceful browser cleanup...</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-22T11:03:20.419441" elapsed="0.001034"/>
+</kw>
+<kw name="Get Browser Count" owner="BrowserTeardown">
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Get Window Handles" owner="SeleniumLibrary">
+<msg time="2025-09-22T11:03:20.423443" level="INFO">Cannot capture screenshot because no browser is open.</msg>
+<msg time="2025-09-22T11:03:20.423443" level="FAIL">No browser is open.</msg>
+<doc>Returns all child window handles of the selected browser as a list.</doc>
+<status status="FAIL" start="2025-09-22T11:03:20.422443" elapsed="0.004000">No browser is open.</status>
+</kw>
+<msg time="2025-09-22T11:03:20.430441" level="INFO">${count} = False</msg>
+<var>${count}</var>
+<arg>Get Window Handles</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2025-09-22T11:03:20.422443" elapsed="0.007998"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Create List" owner="BuiltIn">
+<doc>Returns a list containing given items.</doc>
+<status status="PASS" start="2025-09-22T11:03:20.434442" elapsed="0.001297"/>
+</kw>
+<msg time="2025-09-22T11:03:20.435739" level="INFO">${browser_handles} = []</msg>
+<var>${browser_handles}</var>
+<arg>${count}</arg>
+<arg>Get Window Handles</arg>
+<arg>ELSE</arg>
+<arg>Create List</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-09-22T11:03:20.434442" elapsed="0.001297"/>
+</kw>
+<kw name="Get Length" owner="BuiltIn">
+<msg time="2025-09-22T11:03:20.443740" level="INFO">Length is 0.</msg>
+<msg time="2025-09-22T11:03:20.443740" level="INFO">${browser_count} = 0</msg>
+<var>${browser_count}</var>
+<arg>${browser_handles}</arg>
+<doc>Returns and logs the length of the given item as an integer.</doc>
+<status status="PASS" start="2025-09-22T11:03:20.442740" elapsed="0.001000"/>
+</kw>
+<return>
+<value>${browser_count}</value>
+<status status="PASS" start="2025-09-22T11:03:20.447740" elapsed="0.000000"/>
+</return>
+<msg time="2025-09-22T11:03:20.448741" level="INFO">${browser_count_before} = 0</msg>
+<var>${browser_count_before}</var>
+<tag>verification</tag>
+<doc>Returns the number of active browser instances</doc>
+<status status="PASS" start="2025-09-22T11:03:20.421443" elapsed="0.027298"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>📊 Active browsers before cleanup: ${browser_count_before}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-22T11:03:20.453741" elapsed="0.000999"/>
+</kw>
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Close Window" owner="SeleniumLibrary">
+<msg time="2025-09-22T11:03:20.455741" level="INFO">Cannot capture screenshot because no browser is open.</msg>
+<msg time="2025-09-22T11:03:20.455741" level="FAIL">No browser is open.</msg>
+<doc>Closes currently opened and selected browser window/tab.</doc>
+<status status="FAIL" start="2025-09-22T11:03:20.455741" elapsed="0.001999">No browser is open.</status>
+</kw>
+<msg time="2025-09-22T11:03:20.461740" level="INFO">${status1} = False</msg>
+<var>${status1}</var>
+<arg>Close Window</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2025-09-22T11:03:20.454740" elapsed="0.007000"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Log To Console" owner="BuiltIn">
+<arg>⚠️ Failed to close current window</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-22T11:03:20.473740" elapsed="0.000000"/>
+</kw>
+<arg>${status1}</arg>
+<arg>Log To Console</arg>
+<arg>✅ Current window closed successfully</arg>
+<arg>ELSE</arg>
+<arg>Log To Console</arg>
+<arg>⚠️ Failed to close current window</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-09-22T11:03:20.472740" elapsed="0.001999"/>
+</kw>
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Close All Browsers" owner="SeleniumLibrary">
+<doc>Closes all open browsers and resets the browser cache.</doc>
+<status status="PASS" start="2025-09-22T11:03:20.475739" elapsed="0.000000"/>
+</kw>
+<msg time="2025-09-22T11:03:20.476739" level="INFO">${status2} = True</msg>
+<var>${status2}</var>
+<arg>Close All Browsers</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2025-09-22T11:03:20.474739" elapsed="0.002000"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Log To Console" owner="BuiltIn">
+<arg>✅ All browsers closed via SeleniumLibrary</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-22T11:03:20.480740" elapsed="0.000000"/>
+</kw>
+<arg>${status2}</arg>
+<arg>Log To Console</arg>
+<arg>✅ All browsers closed via SeleniumLibrary</arg>
+<arg>ELSE</arg>
+<arg>Log To Console</arg>
+<arg>⚠️ SeleniumLibrary browser cleanup failed</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-09-22T11:03:20.479739" elapsed="0.002000"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-09-22T11:03:22.483269" level="INFO">Slept 2 seconds.</msg>
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-09-22T11:03:20.481739" elapsed="2.001530"/>
+</kw>
+<kw name="Get Browser Count" owner="BrowserTeardown">
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Get Window Handles" owner="SeleniumLibrary">
+<msg time="2025-09-22T11:03:22.488281" level="INFO">Cannot capture screenshot because no browser is open.</msg>
+<msg time="2025-09-22T11:03:22.489327" level="FAIL">No browser is open.</msg>
+<doc>Returns all child window handles of the selected browser as a list.</doc>
+<status status="FAIL" start="2025-09-22T11:03:22.488281" elapsed="0.003037">No browser is open.</status>
+</kw>
+<msg time="2025-09-22T11:03:22.495280" level="INFO">${count} = False</msg>
+<var>${count}</var>
+<arg>Get Window Handles</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2025-09-22T11:03:22.488281" elapsed="0.006999"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Create List" owner="BuiltIn">
+<doc>Returns a list containing given items.</doc>
+<status status="PASS" start="2025-09-22T11:03:22.499336" elapsed="0.000000"/>
+</kw>
+<msg time="2025-09-22T11:03:22.500386" level="INFO">${browser_handles} = []</msg>
+<var>${browser_handles}</var>
+<arg>${count}</arg>
+<arg>Get Window Handles</arg>
+<arg>ELSE</arg>
+<arg>Create List</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-09-22T11:03:22.499336" elapsed="0.001050"/>
+</kw>
+<kw name="Get Length" owner="BuiltIn">
+<msg time="2025-09-22T11:03:22.504281" level="INFO">Length is 0.</msg>
+<msg time="2025-09-22T11:03:22.504281" level="INFO">${browser_count} = 0</msg>
+<var>${browser_count}</var>
+<arg>${browser_handles}</arg>
+<doc>Returns and logs the length of the given item as an integer.</doc>
+<status status="PASS" start="2025-09-22T11:03:22.504281" elapsed="0.000000"/>
+</kw>
+<return>
+<value>${browser_count}</value>
+<status status="PASS" start="2025-09-22T11:03:22.508373" elapsed="0.000922"/>
+</return>
+<msg time="2025-09-22T11:03:22.509295" level="INFO">${browser_count_after} = 0</msg>
+<var>${browser_count_after}</var>
+<tag>verification</tag>
+<doc>Returns the number of active browser instances</doc>
+<status status="PASS" start="2025-09-22T11:03:22.487281" elapsed="0.022014"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>📊 Active browsers after cleanup: ${browser_count_after}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-22T11:03:22.514330" elapsed="0.000000"/>
+</kw>
+<tag>graceful</tag>
+<tag>teardown</tag>
+<doc>Attempts graceful browser shutdown using SeleniumLibrary</doc>
+<status status="PASS" start="2025-09-22T11:03:20.419441" elapsed="2.094889"/>
+</kw>
+<arg>Graceful Browser Cleanup</arg>
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<status status="PASS" start="2025-09-22T11:03:20.418442" elapsed="2.096948"/>
+</kw>
+<kw name="Run Keyword And Ignore Error" owner="BuiltIn">
+<kw name="Force Close All Browser Processes" owner="BrowserTeardown">
+<kw name="Log To Console" owner="BuiltIn">
+<arg>🔄 Force closing browser processes...</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-22T11:03:22.516281" elapsed="0.001074"/>
+</kw>
+<kw name="Force Kill Browser Process" owner="BrowserTeardown">
+<kw name="Log To Console" owner="BuiltIn">
+<arg>🔄 Checking for ${process_name} processes...</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-22T11:03:22.518360" elapsed="0.000000"/>
+</kw>
+<kw name="Run Process" owner="Process">
+<msg time="2025-09-22T11:03:22.519355" level="INFO">Starting process:
+tasklist /FI "IMAGENAME eq chrome.exe"</msg>
+<msg time="2025-09-22T11:03:22.535328" level="INFO">Waiting for process to complete.</msg>
+<msg time="2025-09-22T11:03:22.795313" level="INFO">Process completed.</msg>
+<msg time="2025-09-22T11:03:22.795313" level="INFO">${result} = &lt;result object with rc 0&gt;</msg>
+<var>${result}</var>
+<arg>tasklist</arg>
+<arg>/FI</arg>
+<arg>IMAGENAME eq ${process_name}</arg>
+<arg>shell=True</arg>
+<doc>Runs a process and waits for it to complete.</doc>
+<status status="PASS" start="2025-09-22T11:03:22.518360" elapsed="0.276953"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Log To Console" owner="BuiltIn">
+<arg>✅ No ${process_name} processes found</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-22T11:03:22.800354" elapsed="0.000000"/>
+</kw>
+<arg>'${process_name}' in '''${result.stdout}'''</arg>
+<arg>Run Keywords</arg>
+<arg>Log To Console</arg>
+<arg>⚠️ Found ${process_name} processes, terminating...</arg>
+<arg>AND</arg>
+<arg>Run Process</arg>
+<arg>taskkill</arg>
+<arg>/F</arg>
+<arg>/IM</arg>
+<arg>${process_name}</arg>
+<arg>shell=True</arg>
+<arg>AND</arg>
+<arg>Log To Console</arg>
+<arg>✅ ${process_name} processes terminated</arg>
+<arg>ELSE</arg>
+<arg>Log To Console</arg>
+<arg>✅ No ${process_name} processes found</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-09-22T11:03:22.799279" elapsed="0.002080"/>
+</kw>
+<arg>chrome.exe</arg>
+<tag>process</tag>
+<tag>teardown</tag>
+<doc>Kills specific browser process by name</doc>
+<status status="PASS" start="2025-09-22T11:03:22.517355" elapsed="0.284004"/>
+</kw>
+<kw name="Force Kill Browser Process" owner="BrowserTeardown">
+<kw name="Log To Console" owner="BuiltIn">
+<arg>🔄 Checking for ${process_name} processes...</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-22T11:03:22.802316" elapsed="0.001003"/>
+</kw>
+<kw name="Run Process" owner="Process">
+<msg time="2025-09-22T11:03:22.804315" level="INFO">Starting process:
+tasklist /FI "IMAGENAME eq chromedriver.exe"</msg>
+<msg time="2025-09-22T11:03:22.816357" level="INFO">Waiting for process to complete.</msg>
+<msg time="2025-09-22T11:03:23.067280" level="INFO">Process completed.</msg>
+<msg time="2025-09-22T11:03:23.068323" level="INFO">${result} = &lt;result object with rc 0&gt;</msg>
+<var>${result}</var>
+<arg>tasklist</arg>
+<arg>/FI</arg>
+<arg>IMAGENAME eq ${process_name}</arg>
+<arg>shell=True</arg>
+<doc>Runs a process and waits for it to complete.</doc>
+<status status="PASS" start="2025-09-22T11:03:22.803319" elapsed="0.265004"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Log To Console" owner="BuiltIn">
+<arg>✅ No ${process_name} processes found</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-22T11:03:23.073322" elapsed="0.000000"/>
+</kw>
+<arg>'${process_name}' in '''${result.stdout}'''</arg>
+<arg>Run Keywords</arg>
+<arg>Log To Console</arg>
+<arg>⚠️ Found ${process_name} processes, terminating...</arg>
+<arg>AND</arg>
+<arg>Run Process</arg>
+<arg>taskkill</arg>
+<arg>/F</arg>
+<arg>/IM</arg>
+<arg>${process_name}</arg>
+<arg>shell=True</arg>
+<arg>AND</arg>
+<arg>Log To Console</arg>
+<arg>✅ ${process_name} processes terminated</arg>
+<arg>ELSE</arg>
+<arg>Log To Console</arg>
+<arg>✅ No ${process_name} processes found</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-09-22T11:03:23.071315" elapsed="0.002007"/>
+</kw>
+<arg>chromedriver.exe</arg>
+<tag>process</tag>
+<tag>teardown</tag>
+<doc>Kills specific browser process by name</doc>
+<status status="PASS" start="2025-09-22T11:03:22.802316" elapsed="0.272001"/>
+</kw>
+<kw name="Force Kill Browser Process" owner="BrowserTeardown">
+<kw name="Log To Console" owner="BuiltIn">
+<arg>🔄 Checking for ${process_name} processes...</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-22T11:03:23.075321" elapsed="0.000000"/>
+</kw>
+<kw name="Run Process" owner="Process">
+<msg time="2025-09-22T11:03:23.076324" level="INFO">Starting process:
+tasklist /FI "IMAGENAME eq firefox.exe"</msg>
+<msg time="2025-09-22T11:03:23.088327" level="INFO">Waiting for process to complete.</msg>
+<msg time="2025-09-22T11:03:23.346278" level="INFO">Process completed.</msg>
+<msg time="2025-09-22T11:03:23.346278" level="INFO">${result} = &lt;result object with rc 0&gt;</msg>
+<var>${result}</var>
+<arg>tasklist</arg>
+<arg>/FI</arg>
+<arg>IMAGENAME eq ${process_name}</arg>
+<arg>shell=True</arg>
+<doc>Runs a process and waits for it to complete.</doc>
+<status status="PASS" start="2025-09-22T11:03:23.076324" elapsed="0.269954"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Log To Console" owner="BuiltIn">
+<arg>✅ No ${process_name} processes found</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-22T11:03:23.351278" elapsed="0.001001"/>
+</kw>
+<arg>'${process_name}' in '''${result.stdout}'''</arg>
+<arg>Run Keywords</arg>
+<arg>Log To Console</arg>
+<arg>⚠️ Found ${process_name} processes, terminating...</arg>
+<arg>AND</arg>
+<arg>Run Process</arg>
+<arg>taskkill</arg>
+<arg>/F</arg>
+<arg>/IM</arg>
+<arg>${process_name}</arg>
+<arg>shell=True</arg>
+<arg>AND</arg>
+<arg>Log To Console</arg>
+<arg>✅ ${process_name} processes terminated</arg>
+<arg>ELSE</arg>
+<arg>Log To Console</arg>
+<arg>✅ No ${process_name} processes found</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-09-22T11:03:23.350565" elapsed="0.007714"/>
+</kw>
+<arg>firefox.exe</arg>
+<tag>process</tag>
+<tag>teardown</tag>
+<doc>Kills specific browser process by name</doc>
+<status status="PASS" start="2025-09-22T11:03:23.074317" elapsed="0.283962"/>
+</kw>
+<kw name="Force Kill Browser Process" owner="BrowserTeardown">
+<kw name="Log To Console" owner="BuiltIn">
+<arg>🔄 Checking for ${process_name} processes...</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-22T11:03:23.360278" elapsed="0.000000"/>
+</kw>
+<kw name="Run Process" owner="Process">
+<msg time="2025-09-22T11:03:23.361278" level="INFO">Starting process:
+tasklist /FI "IMAGENAME eq geckodriver.exe"</msg>
+<msg time="2025-09-22T11:03:23.376279" level="INFO">Waiting for process to complete.</msg>
+<msg time="2025-09-22T11:03:23.719783" level="INFO">Process completed.</msg>
+<msg time="2025-09-22T11:03:23.719783" level="INFO">${result} = &lt;result object with rc 0&gt;</msg>
+<var>${result}</var>
+<arg>tasklist</arg>
+<arg>/FI</arg>
+<arg>IMAGENAME eq ${process_name}</arg>
+<arg>shell=True</arg>
+<doc>Runs a process and waits for it to complete.</doc>
+<status status="PASS" start="2025-09-22T11:03:23.361278" elapsed="0.358505"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Log To Console" owner="BuiltIn">
+<arg>✅ No ${process_name} processes found</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-22T11:03:23.724785" elapsed="0.000998"/>
+</kw>
+<arg>'${process_name}' in '''${result.stdout}'''</arg>
+<arg>Run Keywords</arg>
+<arg>Log To Console</arg>
+<arg>⚠️ Found ${process_name} processes, terminating...</arg>
+<arg>AND</arg>
+<arg>Run Process</arg>
+<arg>taskkill</arg>
+<arg>/F</arg>
+<arg>/IM</arg>
+<arg>${process_name}</arg>
+<arg>shell=True</arg>
+<arg>AND</arg>
+<arg>Log To Console</arg>
+<arg>✅ ${process_name} processes terminated</arg>
+<arg>ELSE</arg>
+<arg>Log To Console</arg>
+<arg>✅ No ${process_name} processes found</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-09-22T11:03:23.723786" elapsed="0.001997"/>
+</kw>
+<arg>geckodriver.exe</arg>
+<tag>process</tag>
+<tag>teardown</tag>
+<doc>Kills specific browser process by name</doc>
+<status status="PASS" start="2025-09-22T11:03:23.359278" elapsed="0.367507"/>
+</kw>
+<kw name="Force Kill Browser Process" owner="BrowserTeardown">
+<kw name="Log To Console" owner="BuiltIn">
+<arg>🔄 Checking for ${process_name} processes...</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-22T11:03:23.727782" elapsed="0.000000"/>
+</kw>
+<kw name="Run Process" owner="Process">
+<msg time="2025-09-22T11:03:23.728783" level="INFO">Starting process:
+tasklist /FI "IMAGENAME eq msedge.exe"</msg>
+<msg time="2025-09-22T11:03:23.743783" level="INFO">Waiting for process to complete.</msg>
+<msg time="2025-09-22T11:03:24.006820" level="INFO">Process completed.</msg>
+<msg time="2025-09-22T11:03:24.006820" level="INFO">${result} = &lt;result object with rc 0&gt;</msg>
+<var>${result}</var>
+<arg>tasklist</arg>
+<arg>/FI</arg>
+<arg>IMAGENAME eq ${process_name}</arg>
+<arg>shell=True</arg>
+<doc>Runs a process and waits for it to complete.</doc>
+<status status="PASS" start="2025-09-22T11:03:23.728783" elapsed="0.278037"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Log To Console" owner="BuiltIn">
+<arg>✅ No ${process_name} processes found</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-22T11:03:24.011819" elapsed="0.000000"/>
+</kw>
+<arg>'${process_name}' in '''${result.stdout}'''</arg>
+<arg>Run Keywords</arg>
+<arg>Log To Console</arg>
+<arg>⚠️ Found ${process_name} processes, terminating...</arg>
+<arg>AND</arg>
+<arg>Run Process</arg>
+<arg>taskkill</arg>
+<arg>/F</arg>
+<arg>/IM</arg>
+<arg>${process_name}</arg>
+<arg>shell=True</arg>
+<arg>AND</arg>
+<arg>Log To Console</arg>
+<arg>✅ ${process_name} processes terminated</arg>
+<arg>ELSE</arg>
+<arg>Log To Console</arg>
+<arg>✅ No ${process_name} processes found</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-09-22T11:03:24.009824" elapsed="0.001995"/>
+</kw>
+<arg>msedge.exe</arg>
+<tag>process</tag>
+<tag>teardown</tag>
+<doc>Kills specific browser process by name</doc>
+<status status="PASS" start="2025-09-22T11:03:23.726785" elapsed="0.286033"/>
+</kw>
+<kw name="Force Kill Browser Process" owner="BrowserTeardown">
+<kw name="Log To Console" owner="BuiltIn">
+<arg>🔄 Checking for ${process_name} processes...</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-22T11:03:24.013819" elapsed="0.000000"/>
+</kw>
+<kw name="Run Process" owner="Process">
+<msg time="2025-09-22T11:03:24.014817" level="INFO">Starting process:
+tasklist /FI "IMAGENAME eq msedgedriver.exe"</msg>
+<msg time="2025-09-22T11:03:24.027833" level="INFO">Waiting for process to complete.</msg>
+<msg time="2025-09-22T11:03:24.331784" level="INFO">Process completed.</msg>
+<msg time="2025-09-22T11:03:24.331784" level="INFO">${result} = &lt;result object with rc 0&gt;</msg>
+<var>${result}</var>
+<arg>tasklist</arg>
+<arg>/FI</arg>
+<arg>IMAGENAME eq ${process_name}</arg>
+<arg>shell=True</arg>
+<doc>Runs a process and waits for it to complete.</doc>
+<status status="PASS" start="2025-09-22T11:03:24.014817" elapsed="0.316967"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Log To Console" owner="BuiltIn">
+<arg>✅ No ${process_name} processes found</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-22T11:03:24.336783" elapsed="0.001004"/>
+</kw>
+<arg>'${process_name}' in '''${result.stdout}'''</arg>
+<arg>Run Keywords</arg>
+<arg>Log To Console</arg>
+<arg>⚠️ Found ${process_name} processes, terminating...</arg>
+<arg>AND</arg>
+<arg>Run Process</arg>
+<arg>taskkill</arg>
+<arg>/F</arg>
+<arg>/IM</arg>
+<arg>${process_name}</arg>
+<arg>shell=True</arg>
+<arg>AND</arg>
+<arg>Log To Console</arg>
+<arg>✅ ${process_name} processes terminated</arg>
+<arg>ELSE</arg>
+<arg>Log To Console</arg>
+<arg>✅ No ${process_name} processes found</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-09-22T11:03:24.335784" elapsed="0.002003"/>
+</kw>
+<arg>msedgedriver.exe</arg>
+<tag>process</tag>
+<tag>teardown</tag>
+<doc>Kills specific browser process by name</doc>
+<status status="PASS" start="2025-09-22T11:03:24.013819" elapsed="0.323968"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-09-22T11:03:27.339286" level="INFO">Slept 3 seconds.</msg>
+<arg>3s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-09-22T11:03:24.338786" elapsed="3.000500"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>✅ Browser process cleanup completed</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-22T11:03:27.342290" elapsed="0.000000"/>
+</kw>
+<tag>force</tag>
+<tag>teardown</tag>
+<doc>Force kills browser processes at OS level</doc>
+<status status="PASS" start="2025-09-22T11:03:22.516281" elapsed="4.826979"/>
+</kw>
+<arg>Force Close All Browser Processes</arg>
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<status status="PASS" start="2025-09-22T11:03:22.515390" elapsed="4.827870"/>
+</kw>
+<kw name="Run Keyword And Ignore Error" owner="BuiltIn">
+<kw name="Clean Browser Temporary Files" owner="BrowserTeardown">
+<kw name="Log To Console" owner="BuiltIn">
+<arg>🔄 Cleaning browser temporary files...</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-22T11:03:27.344287" elapsed="0.000924"/>
+</kw>
+<kw name="Clean Chrome Temporary Files" owner="BrowserTeardown">
+<kw name="Get Environment Variable" owner="OperatingSystem">
+<msg time="2025-09-22T11:03:27.346212" level="INFO">${temp_dir} = C:\Users\sharmash\AppData\Local\Temp</msg>
+<var>${temp_dir}</var>
+<arg>TEMP</arg>
+<arg>%TEMP%</arg>
+<doc>Returns the value of an environment variable with the given name.</doc>
+<status status="PASS" start="2025-09-22T11:03:27.346212" elapsed="0.000000"/>
+</kw>
+<kw name="Get Environment Variable" owner="OperatingSystem">
+<msg time="2025-09-22T11:03:27.349210" level="INFO">${user_profile} = C:\Users\sharmash</msg>
+<var>${user_profile}</var>
+<arg>USERPROFILE</arg>
+<arg>%USERPROFILE%</arg>
+<doc>Returns the value of an environment variable with the given name.</doc>
+<status status="PASS" start="2025-09-22T11:03:27.349210" elapsed="0.001000"/>
+</kw>
+<kw name="Create List" owner="BuiltIn">
+<msg time="2025-09-22T11:03:27.353210" level="INFO">@{chrome_temp_dirs} = [ C:\Users\sharmash\AppData\Local\Temp\chrome_driver_* | C:\Users\sharmash\AppData\Local\Google\Chrome\User Data\Default\Web Data-journal | C:\Users\sharmash\AppData\Local\Google\Chrome\User Data\Defa...</msg>
+<var>@{chrome_temp_dirs}</var>
+<arg>${temp_dir}\\chrome_driver_*</arg>
+<arg>${user_profile}\\AppData\\Local\\Google\\Chrome\\User Data\\Default\\Web Data-journal</arg>
+<arg>${user_profile}\\AppData\\Local\\Google\\Chrome\\User Data\\Default\\History-journal</arg>
+<arg>${user_profile}\\AppData\\Local\\Google\\Chrome\\User Data\\Crashpad</arg>
+<doc>Returns a list containing given items.</doc>
+<status status="PASS" start="2025-09-22T11:03:27.353210" elapsed="0.000000"/>
+</kw>
+<for flavor="IN">
+<iter>
+<kw name="Run Keyword And Ignore Error" owner="BuiltIn">
+<kw name="Remove Directory" owner="OperatingSystem">
+<msg time="2025-09-22T11:03:27.358210" level="INFO" html="true">Directory '&lt;a href="file://C:\Users\sharmash\AppData\Local\Temp\chrome_driver_*"&gt;C:\Users\sharmash\AppData\Local\Temp\chrome_driver_*&lt;/a&gt;' does not exist.</msg>
+<arg>${dir_pattern}</arg>
+<arg>recursive=True</arg>
+<doc>Removes the directory pointed to by the given ``path``.</doc>
+<status status="PASS" start="2025-09-22T11:03:27.358210" elapsed="0.001000"/>
+</kw>
+<arg>Remove Directory</arg>
+<arg>${dir_pattern}</arg>
+<arg>recursive=True</arg>
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<status status="PASS" start="2025-09-22T11:03:27.358210" elapsed="0.004000"/>
+</kw>
+<var name="${dir_pattern}">C:\Users\sharmash\AppData\Local\Temp\chrome_driver_*</var>
+<status status="PASS" start="2025-09-22T11:03:27.357210" elapsed="0.005000"/>
+</iter>
+<iter>
+<kw name="Run Keyword And Ignore Error" owner="BuiltIn">
+<kw name="Remove Directory" owner="OperatingSystem">
+<msg time="2025-09-22T11:03:27.364209" level="FAIL">Path 'C:\Users\sharmash\AppData\Local\Google\Chrome\User Data\Default\Web Data-journal' is not a directory.</msg>
+<arg>${dir_pattern}</arg>
+<arg>recursive=True</arg>
+<doc>Removes the directory pointed to by the given ``path``.</doc>
+<status status="FAIL" start="2025-09-22T11:03:27.363210" elapsed="0.000999">Path 'C:\Users\sharmash\AppData\Local\Google\Chrome\User Data\Default\Web Data-journal' is not a directory.</status>
+</kw>
+<arg>Remove Directory</arg>
+<arg>${dir_pattern}</arg>
+<arg>recursive=True</arg>
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<status status="PASS" start="2025-09-22T11:03:27.363210" elapsed="0.004000"/>
+</kw>
+<var name="${dir_pattern}">C:\Users\sharmash\AppData\Local\Google\Chrome\User Data\Default\Web Data-journal</var>
+<status status="PASS" start="2025-09-22T11:03:27.362210" elapsed="0.005000"/>
+</iter>
+<iter>
+<kw name="Run Keyword And Ignore Error" owner="BuiltIn">
+<kw name="Remove Directory" owner="OperatingSystem">
+<msg time="2025-09-22T11:03:27.369210" level="FAIL">Path 'C:\Users\sharmash\AppData\Local\Google\Chrome\User Data\Default\History-journal' is not a directory.</msg>
+<arg>${dir_pattern}</arg>
+<arg>recursive=True</arg>
+<doc>Removes the directory pointed to by the given ``path``.</doc>
+<status status="FAIL" start="2025-09-22T11:03:27.368210" elapsed="0.001000">Path 'C:\Users\sharmash\AppData\Local\Google\Chrome\User Data\Default\History-journal' is not a directory.</status>
+</kw>
+<arg>Remove Directory</arg>
+<arg>${dir_pattern}</arg>
+<arg>recursive=True</arg>
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<status status="PASS" start="2025-09-22T11:03:27.368210" elapsed="0.005999"/>
+</kw>
+<var name="${dir_pattern}">C:\Users\sharmash\AppData\Local\Google\Chrome\User Data\Default\History-journal</var>
+<status status="PASS" start="2025-09-22T11:03:27.368210" elapsed="0.005999"/>
+</iter>
+<iter>
+<kw name="Run Keyword And Ignore Error" owner="BuiltIn">
+<kw name="Remove Directory" owner="OperatingSystem">
+<msg time="2025-09-22T11:03:27.376210" level="INFO" html="true">Directory '&lt;a href="file://C:\Users\sharmash\AppData\Local\Google\Chrome\User Data\Crashpad"&gt;C:\Users\sharmash\AppData\Local\Google\Chrome\User Data\Crashpad&lt;/a&gt;' does not exist.</msg>
+<arg>${dir_pattern}</arg>
+<arg>recursive=True</arg>
+<doc>Removes the directory pointed to by the given ``path``.</doc>
+<status status="PASS" start="2025-09-22T11:03:27.375209" elapsed="0.001001"/>
+</kw>
+<arg>Remove Directory</arg>
+<arg>${dir_pattern}</arg>
+<arg>recursive=True</arg>
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<status status="PASS" start="2025-09-22T11:03:27.375209" elapsed="0.004000"/>
+</kw>
+<var name="${dir_pattern}">C:\Users\sharmash\AppData\Local\Google\Chrome\User Data\Crashpad</var>
+<status status="PASS" start="2025-09-22T11:03:27.375209" elapsed="0.004000"/>
+</iter>
+<var>${dir_pattern}</var>
+<value>@{chrome_temp_dirs}</value>
+<status status="PASS" start="2025-09-22T11:03:27.357210" elapsed="0.021999"/>
+</for>
+<tag>chrome</tag>
+<tag>cleanup</tag>
+<doc>Removes Chrome temporary files and crashed session data</doc>
+<status status="PASS" start="2025-09-22T11:03:27.345211" elapsed="0.034998"/>
+</kw>
+<kw name="Clean Firefox Temporary Files" owner="BrowserTeardown">
+<kw name="Get Environment Variable" owner="OperatingSystem">
+<msg time="2025-09-22T11:03:27.381209" level="INFO">${temp_dir} = C:\Users\sharmash\AppData\Local\Temp</msg>
+<var>${temp_dir}</var>
+<arg>TEMP</arg>
+<arg>%TEMP%</arg>
+<doc>Returns the value of an environment variable with the given name.</doc>
+<status status="PASS" start="2025-09-22T11:03:27.381209" elapsed="0.000000"/>
+</kw>
+<kw name="Get Environment Variable" owner="OperatingSystem">
+<msg time="2025-09-22T11:03:27.384209" level="INFO">${user_profile} = C:\Users\sharmash</msg>
+<var>${user_profile}</var>
+<arg>USERPROFILE</arg>
+<arg>%USERPROFILE%</arg>
+<doc>Returns the value of an environment variable with the given name.</doc>
+<status status="PASS" start="2025-09-22T11:03:27.384209" elapsed="0.000000"/>
+</kw>
+<kw name="Create List" owner="BuiltIn">
+<msg time="2025-09-22T11:03:27.388209" level="INFO">@{firefox_temp_dirs} = [ C:\Users\sharmash\AppData\Local\Temp\rust_mozprofile* | C:\Users\sharmash\AppData\Local\Mozilla\Firefox\Profiles\*\sessionstore-backups ]</msg>
+<var>@{firefox_temp_dirs}</var>
+<arg>${temp_dir}\\rust_mozprofile*</arg>
+<arg>${user_profile}\\AppData\\Local\\Mozilla\\Firefox\\Profiles\\*\\sessionstore-backups</arg>
+<doc>Returns a list containing given items.</doc>
+<status status="PASS" start="2025-09-22T11:03:27.387209" elapsed="0.001000"/>
+</kw>
+<for flavor="IN">
+<iter>
+<kw name="Run Keyword And Ignore Error" owner="BuiltIn">
+<kw name="Remove Directory" owner="OperatingSystem">
+<msg time="2025-09-22T11:03:27.392210" level="INFO" html="true">Directory '&lt;a href="file://C:\Users\sharmash\AppData\Local\Temp\rust_mozprofile*"&gt;C:\Users\sharmash\AppData\Local\Temp\rust_mozprofile*&lt;/a&gt;' does not exist.</msg>
+<arg>${dir_pattern}</arg>
+<arg>recursive=True</arg>
+<doc>Removes the directory pointed to by the given ``path``.</doc>
+<status status="PASS" start="2025-09-22T11:03:27.392210" elapsed="0.000000"/>
+</kw>
+<arg>Remove Directory</arg>
+<arg>${dir_pattern}</arg>
+<arg>recursive=True</arg>
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<status status="PASS" start="2025-09-22T11:03:27.391209" elapsed="0.004000"/>
+</kw>
+<var name="${dir_pattern}">C:\Users\sharmash\AppData\Local\Temp\rust_mozprofile*</var>
+<status status="PASS" start="2025-09-22T11:03:27.391209" elapsed="0.005000"/>
+</iter>
+<iter>
+<kw name="Run Keyword And Ignore Error" owner="BuiltIn">
+<kw name="Remove Directory" owner="OperatingSystem">
+<msg time="2025-09-22T11:03:27.397209" level="INFO" html="true">Directory '&lt;a href="file://C:\Users\sharmash\AppData\Local\Mozilla\Firefox\Profiles\*\sessionstore-backups"&gt;C:\Users\sharmash\AppData\Local\Mozilla\Firefox\Profiles\*\sessionstore-backups&lt;/a&gt;' does not exist.</msg>
+<arg>${dir_pattern}</arg>
+<arg>recursive=True</arg>
+<doc>Removes the directory pointed to by the given ``path``.</doc>
+<status status="PASS" start="2025-09-22T11:03:27.397209" elapsed="0.000000"/>
+</kw>
+<arg>Remove Directory</arg>
+<arg>${dir_pattern}</arg>
+<arg>recursive=True</arg>
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<status status="PASS" start="2025-09-22T11:03:27.396209" elapsed="0.004000"/>
+</kw>
+<var name="${dir_pattern}">C:\Users\sharmash\AppData\Local\Mozilla\Firefox\Profiles\*\sessionstore-backups</var>
+<status status="PASS" start="2025-09-22T11:03:27.396209" elapsed="0.004000"/>
+</iter>
+<var>${dir_pattern}</var>
+<value>@{firefox_temp_dirs}</value>
+<status status="PASS" start="2025-09-22T11:03:27.391209" elapsed="0.010049"/>
+</for>
+<tag>cleanup</tag>
+<tag>firefox</tag>
+<doc>Removes Firefox temporary files and crashed session data</doc>
+<status status="PASS" start="2025-09-22T11:03:27.380209" elapsed="0.021049"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>✅ Browser temporary files cleaned</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-22T11:03:27.401258" elapsed="0.001035"/>
+</kw>
+<tag>cleanup</tag>
+<tag>teardown</tag>
+<doc>Cleans up browser temporary files and profiles</doc>
+<status status="PASS" start="2025-09-22T11:03:27.344287" elapsed="0.058006"/>
+</kw>
+<arg>Clean Browser Temporary Files</arg>
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<status status="PASS" start="2025-09-22T11:03:27.343260" elapsed="0.059033"/>
+</kw>
+<kw name="Verify Browser Cleanup Completion" owner="BrowserTeardown">
+<kw name="Log To Console" owner="BuiltIn">
+<arg>🔄 Verifying browser cleanup completion...</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-22T11:03:27.403260" elapsed="0.001031"/>
+</kw>
+<kw name="Check If Process Running" owner="BrowserTeardown">
+<kw name="Run Process" owner="Process">
+<msg time="2025-09-22T11:03:27.405301" level="INFO">Starting process:
+tasklist /FI "IMAGENAME eq chrome.exe"</msg>
+<msg time="2025-09-22T11:03:27.418210" level="INFO">Waiting for process to complete.</msg>
+<msg time="2025-09-22T11:03:27.670209" level="INFO">Process completed.</msg>
+<msg time="2025-09-22T11:03:27.671209" level="INFO">${result} = &lt;result object with rc 0&gt;</msg>
+<var>${result}</var>
+<arg>tasklist</arg>
+<arg>/FI</arg>
+<arg>IMAGENAME eq ${process_name}</arg>
+<arg>shell=True</arg>
+<doc>Runs a process and waits for it to complete.</doc>
+<status status="PASS" start="2025-09-22T11:03:27.405301" elapsed="0.265908"/>
+</kw>
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Should Contain" owner="BuiltIn">
+<msg time="2025-09-22T11:03:27.676213" level="FAIL">'INFO: No tasks are running which match the specified criteria.' does not contain 'chrome.exe'</msg>
+<arg>${result.stdout}</arg>
+<arg>${process_name}</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="FAIL" start="2025-09-22T11:03:27.675214" elapsed="0.000999">'INFO: No tasks are running which match the specified criteria.' does not contain 'chrome.exe'</status>
+</kw>
+<msg time="2025-09-22T11:03:27.679210" level="INFO">${is_running} = False</msg>
+<var>${is_running}</var>
+<arg>Should Contain</arg>
+<arg>${result.stdout}</arg>
+<arg>${process_name}</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2025-09-22T11:03:27.674209" elapsed="0.005001"/>
+</kw>
+<return>
+<value>${is_running}</value>
+<status status="PASS" start="2025-09-22T11:03:27.681209" elapsed="0.001000"/>
+</return>
+<msg time="2025-09-22T11:03:27.682209" level="INFO">${chrome_running} = False</msg>
+<var>${chrome_running}</var>
+<arg>chrome.exe</arg>
+<tag>verification</tag>
+<doc>Checks if a specific process is currently running</doc>
+<status status="PASS" start="2025-09-22T11:03:27.404291" elapsed="0.277918"/>
+</kw>
+<kw name="Check If Process Running" owner="BrowserTeardown">
+<kw name="Run Process" owner="Process">
+<msg time="2025-09-22T11:03:27.686209" level="INFO">Starting process:
+tasklist /FI "IMAGENAME eq chromedriver.exe"</msg>
+<msg time="2025-09-22T11:03:27.698210" level="INFO">Waiting for process to complete.</msg>
+<msg time="2025-09-22T11:03:27.928208" level="INFO">Process completed.</msg>
+<msg time="2025-09-22T11:03:27.928208" level="INFO">${result} = &lt;result object with rc 0&gt;</msg>
+<var>${result}</var>
+<arg>tasklist</arg>
+<arg>/FI</arg>
+<arg>IMAGENAME eq ${process_name}</arg>
+<arg>shell=True</arg>
+<doc>Runs a process and waits for it to complete.</doc>
+<status status="PASS" start="2025-09-22T11:03:27.686209" elapsed="0.241999"/>
+</kw>
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Should Contain" owner="BuiltIn">
+<msg time="2025-09-22T11:03:27.933213" level="FAIL">'INFO: No tasks are running which match the specified criteria.' does not contain 'chromedriver.exe'</msg>
+<arg>${result.stdout}</arg>
+<arg>${process_name}</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="FAIL" start="2025-09-22T11:03:27.932210" elapsed="0.001003">'INFO: No tasks are running which match the specified criteria.' does not contain 'chromedriver.exe'</status>
+</kw>
+<msg time="2025-09-22T11:03:27.937209" level="INFO">${is_running} = False</msg>
+<var>${is_running}</var>
+<arg>Should Contain</arg>
+<arg>${result.stdout}</arg>
+<arg>${process_name}</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2025-09-22T11:03:27.932210" elapsed="0.004999"/>
+</kw>
+<return>
+<value>${is_running}</value>
+<status status="PASS" start="2025-09-22T11:03:27.940209" elapsed="0.000000"/>
+</return>
+<msg time="2025-09-22T11:03:27.941210" level="INFO">${chromedriver_running} = False</msg>
+<var>${chromedriver_running}</var>
+<arg>chromedriver.exe</arg>
+<tag>verification</tag>
+<doc>Checks if a specific process is currently running</doc>
+<status status="PASS" start="2025-09-22T11:03:27.685209" elapsed="0.256001"/>
+</kw>
+<kw name="Check If Process Running" owner="BrowserTeardown">
+<kw name="Run Process" owner="Process">
+<msg time="2025-09-22T11:03:27.945209" level="INFO">Starting process:
+tasklist /FI "IMAGENAME eq firefox.exe"</msg>
+<msg time="2025-09-22T11:03:27.959210" level="INFO">Waiting for process to complete.</msg>
+<msg time="2025-09-22T11:03:28.238847" level="INFO">Process completed.</msg>
+<msg time="2025-09-22T11:03:28.238847" level="INFO">${result} = &lt;result object with rc 0&gt;</msg>
+<var>${result}</var>
+<arg>tasklist</arg>
+<arg>/FI</arg>
+<arg>IMAGENAME eq ${process_name}</arg>
+<arg>shell=True</arg>
+<doc>Runs a process and waits for it to complete.</doc>
+<status status="PASS" start="2025-09-22T11:03:27.945209" elapsed="0.293638"/>
+</kw>
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Should Contain" owner="BuiltIn">
+<msg time="2025-09-22T11:03:28.243726" level="FAIL">'INFO: No tasks are running which match the specified criteria.' does not contain 'firefox.exe'</msg>
+<arg>${result.stdout}</arg>
+<arg>${process_name}</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="FAIL" start="2025-09-22T11:03:28.242727" elapsed="0.000999">'INFO: No tasks are running which match the specified criteria.' does not contain 'firefox.exe'</status>
+</kw>
+<msg time="2025-09-22T11:03:28.246795" level="INFO">${is_running} = False</msg>
+<var>${is_running}</var>
+<arg>Should Contain</arg>
+<arg>${result.stdout}</arg>
+<arg>${process_name}</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2025-09-22T11:03:28.242727" elapsed="0.004068"/>
+</kw>
+<return>
+<value>${is_running}</value>
+<status status="PASS" start="2025-09-22T11:03:28.251660" elapsed="0.001006"/>
+</return>
+<msg time="2025-09-22T11:03:28.253664" level="INFO">${firefox_running} = False</msg>
+<var>${firefox_running}</var>
+<arg>firefox.exe</arg>
+<tag>verification</tag>
+<doc>Checks if a specific process is currently running</doc>
+<status status="PASS" start="2025-09-22T11:03:27.944208" elapsed="0.310457"/>
+</kw>
+<kw name="Check If Process Running" owner="BrowserTeardown">
+<kw name="Run Process" owner="Process">
+<msg time="2025-09-22T11:03:28.257924" level="INFO">Starting process:
+tasklist /FI "IMAGENAME eq geckodriver.exe"</msg>
+<msg time="2025-09-22T11:03:28.270984" level="INFO">Waiting for process to complete.</msg>
+<msg time="2025-09-22T11:03:28.536486" level="INFO">Process completed.</msg>
+<msg time="2025-09-22T11:03:28.537486" level="INFO">${result} = &lt;result object with rc 0&gt;</msg>
+<var>${result}</var>
+<arg>tasklist</arg>
+<arg>/FI</arg>
+<arg>IMAGENAME eq ${process_name}</arg>
+<arg>shell=True</arg>
+<doc>Runs a process and waits for it to complete.</doc>
+<status status="PASS" start="2025-09-22T11:03:28.257924" elapsed="0.279562"/>
+</kw>
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Should Contain" owner="BuiltIn">
+<msg time="2025-09-22T11:03:28.542569" level="FAIL">'INFO: No tasks are running which match the specified criteria.' does not contain 'geckodriver.exe'</msg>
+<arg>${result.stdout}</arg>
+<arg>${process_name}</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="FAIL" start="2025-09-22T11:03:28.541489" elapsed="0.001080">'INFO: No tasks are running which match the specified criteria.' does not contain 'geckodriver.exe'</status>
+</kw>
+<msg time="2025-09-22T11:03:28.545540" level="INFO">${is_running} = False</msg>
+<var>${is_running}</var>
+<arg>Should Contain</arg>
+<arg>${result.stdout}</arg>
+<arg>${process_name}</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2025-09-22T11:03:28.540578" elapsed="0.004962"/>
+</kw>
+<return>
+<value>${is_running}</value>
+<status status="PASS" start="2025-09-22T11:03:28.548487" elapsed="0.001010"/>
+</return>
+<msg time="2025-09-22T11:03:28.549497" level="INFO">${geckodriver_running} = False</msg>
+<var>${geckodriver_running}</var>
+<arg>geckodriver.exe</arg>
+<tag>verification</tag>
+<doc>Checks if a specific process is currently running</doc>
+<status status="PASS" start="2025-09-22T11:03:28.257924" elapsed="0.291573"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Log To Console" owner="BuiltIn">
+<arg>✅ All browser processes successfully terminated</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-22T11:03:28.553489" elapsed="0.001042"/>
+</kw>
+<arg>${chrome_running} or ${chromedriver_running} or ${firefox_running} or ${geckodriver_running}</arg>
+<arg>Log To Console</arg>
+<arg>⚠️ Warning: Some browser processes may still be running</arg>
+<arg>ELSE</arg>
+<arg>Log To Console</arg>
+<arg>✅ All browser processes successfully terminated</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-09-22T11:03:28.553489" elapsed="0.001042"/>
+</kw>
+<kw name="Get Browser Count" owner="BrowserTeardown">
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Get Window Handles" owner="SeleniumLibrary">
+<msg time="2025-09-22T11:03:28.556566" level="INFO">Cannot capture screenshot because no browser is open.</msg>
+<msg time="2025-09-22T11:03:28.556566" level="FAIL">No browser is open.</msg>
+<doc>Returns all child window handles of the selected browser as a list.</doc>
+<status status="FAIL" start="2025-09-22T11:03:28.555562" elapsed="0.002009">No browser is open.</status>
+</kw>
+<msg time="2025-09-22T11:03:28.560489" level="INFO">${count} = False</msg>
+<var>${count}</var>
+<arg>Get Window Handles</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2025-09-22T11:03:28.555562" elapsed="0.005925"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Create List" owner="BuiltIn">
+<doc>Returns a list containing given items.</doc>
+<status status="PASS" start="2025-09-22T11:03:28.564487" elapsed="0.001091"/>
+</kw>
+<msg time="2025-09-22T11:03:28.565578" level="INFO">${browser_handles} = []</msg>
+<var>${browser_handles}</var>
+<arg>${count}</arg>
+<arg>Get Window Handles</arg>
+<arg>ELSE</arg>
+<arg>Create List</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-09-22T11:03:28.564487" elapsed="0.001091"/>
+</kw>
+<kw name="Get Length" owner="BuiltIn">
+<msg time="2025-09-22T11:03:28.569128" level="INFO">Length is 0.</msg>
+<msg time="2025-09-22T11:03:28.569128" level="INFO">${browser_count} = 0</msg>
+<var>${browser_count}</var>
+<arg>${browser_handles}</arg>
+<doc>Returns and logs the length of the given item as an integer.</doc>
+<status status="PASS" start="2025-09-22T11:03:28.568122" elapsed="0.001006"/>
+</kw>
+<return>
+<value>${browser_count}</value>
+<status status="PASS" start="2025-09-22T11:03:28.571821" elapsed="0.000000"/>
+</return>
+<msg time="2025-09-22T11:03:28.572826" level="INFO">${final_browser_count} = 0</msg>
+<var>${final_browser_count}</var>
+<tag>verification</tag>
+<doc>Returns the number of active browser instances</doc>
+<status status="PASS" start="2025-09-22T11:03:28.554531" elapsed="0.018295"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>📊 Final browser count: ${final_browser_count}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-22T11:03:28.576437" elapsed="0.000000"/>
+</kw>
+<tag>teardown</tag>
+<tag>verification</tag>
+<doc>Verifies that browser cleanup was successful</doc>
+<status status="PASS" start="2025-09-22T11:03:27.403260" elapsed="1.173177"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>✅ Emergency Browser Teardown Completed</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-22T11:03:28.577436" elapsed="0.000000"/>
+</kw>
+<tag>browser</tag>
+<tag>teardown</tag>
+<doc>Performs comprehensive browser cleanup when tests fail</doc>
+<status status="PASS" start="2025-09-22T11:03:20.417451" elapsed="8.159985"/>
+</kw>
+<meta name="Environment">dev</meta>
+<meta name="Test_Suite">transaction_onboarding_regression_suite.robot</meta>
+<meta name="Test_Type">smoke</meta>
+<status status="FAIL" start="2025-09-22T11:00:09.229866" elapsed="199.348570"/>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="1" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="0" fail="1" skip="0" id="s1" name="Transaction Onboarding Regression Suite">Transaction Onboarding Regression Suite</stat>
+</suite>
+</statistics>
+<errors>
+<msg time="2025-09-22T11:00:09.217907" level="ERROR">Taking listener 'allure_console_listener.AllureConsoleListener:results/run_20250922_110008\allure-results' into use failed: Importing listener 'allure_console_listener.AllureConsoleListener' failed: ModuleNotFoundError: No module named 'allure_console_listener'
+Traceback (most recent call last):
+  None
+PYTHONPATH:
+  C:\Program Files\Python312\Scripts\robot.exe
+  c:\Users\sharmash\Downloads\QAS-ZinniaLive-AutomationTesting (1)\QAS-ZinniaLive-AutomationTesting
+  C:\Users\sharmash\automation-framwork\%PYTHONPATH%
+  C:\Program Files\Python312\python312.zip
+  C:\Program Files\Python312\DLLs
+  C:\Program Files\Python312\Lib
+  C:\Program Files\Python312
+  C:\Users\sharmash\AppData\Roaming\Python\Python312\site-packages
+  C:\Users\sharmash\AppData\Roaming\Python\Python312\site-packages\win32
+  C:\Users\sharmash\AppData\Roaming\Python\Python312\site-packages\win32\lib
+  C:\Users\sharmash\AppData\Roaming\Python\Python312\site-packages\Pythonwin
+  C:\Program Files\Python312\Lib\site-packages</msg>
+<msg time="2025-09-22T11:00:09.223906" level="ERROR">Taking listener 'DebugLibrary' into use failed: Importing listener 'DebugLibrary' failed: ModuleNotFoundError: No module named 'DebugLibrary'
+Traceback (most recent call last):
+  None
+PYTHONPATH:
+  C:\Program Files\Python312\Scripts\robot.exe
+  c:\Users\sharmash\Downloads\QAS-ZinniaLive-AutomationTesting (1)\QAS-ZinniaLive-AutomationTesting
+  C:\Users\sharmash\automation-framwork\%PYTHONPATH%
+  C:\Program Files\Python312\python312.zip
+  C:\Program Files\Python312\DLLs
+  C:\Program Files\Python312\Lib
+  C:\Program Files\Python312
+  C:\Users\sharmash\AppData\Roaming\Python\Python312\site-packages
+  C:\Users\sharmash\AppData\Roaming\Python\Python312\site-packages\win32
+  C:\Users\sharmash\AppData\Roaming\Python\Python312\site-packages\win32\lib
+  C:\Users\sharmash\AppData\Roaming\Python\Python312\site-packages\Pythonwin
+  C:\Program Files\Python312\Lib\site-packages</msg>
+</errors>
+</robot>

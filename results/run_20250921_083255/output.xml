@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.0.1 (Python 3.12.1 on win32)" generated="2025-09-21T08:32:56.514208" rpa="false" schemaversion="5">
+<suite id="s1" name="Transaction Onboarding Regression Suite" source="C:\Users\sharmash\automation-framwork\tests\api\transaction_onboarding_regression_suite.robot">
+<kw name="Filter Test Date By Execution Flag" owner="ExcelUtils" type="SETUP">
+<msg time="2025-09-21T08:33:12.310625" level="INFO">Filtered data (execution_flag == 'YES') written below existing headers in 'output'.</msg>
+<status status="PASS" start="2025-09-21T08:33:04.190762" elapsed="8.120862"/>
+</kw>
+<test id="s1-t1" name="Perform Systematic Premium Setup Process for client Everly testID: TC_015" line="15">
+<kw name="Add Project Root To Python Path" type="SETUP">
+<kw name="Normalize Path" owner="OperatingSystem">
+<msg time="2025-09-21T08:33:12.321620" level="INFO">${project_root} = C:\Users\sharmash\automation-framwork</msg>
+<var>${project_root}</var>
+<arg>C:\\Users\\sharmash\\automation-framwork\\tests\\api/../../</arg>
+<doc>Normalizes the given path.</doc>
+<status status="PASS" start="2025-09-21T08:33:12.320620" elapsed="0.001000"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<arg>sys.path.insert(0, r'${project_root}')</arg>
+<arg>sys</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-09-21T08:33:12.328146" elapsed="0.001000"/>
+</kw>
+<status status="PASS" start="2025-09-21T08:33:12.319615" elapsed="0.009531"/>
+</kw>
+<kw name="Perform Transaction Onboarding Automation Flow">
+<kw name="Transaction Onboarding Automation Flow" owner="ZinniaLive">
+<msg time="2025-09-21T08:33:12.334185" level="INFO">Perform Policy Creation Process</msg>
+<msg time="2025-09-21T08:33:12.334185" level="INFO">-----------------------------------------------------------</msg>
+<msg time="2025-09-21T08:33:12.334185" level="INFO">Opening browser 'chrome' to base url 'https://qa-zahara-ui.zinnia.io/#/app/policy'.</msg>
+<msg time="2025-09-21T08:33:19.457282" level="INFO">Typing text 'kapil.suthar@zinnia.com' into text field '//input[@id='username']'.</msg>
+<msg time="2025-09-21T08:33:19.588329" level="INFO">Clicking element '//button[@type='submit']'.</msg>
+<msg time="2025-09-21T08:33:26.826824" level="INFO">Typing text 'Nescafe@234568' into text field '//input[@type='password']'.</msg>
+<msg time="2025-09-21T08:33:26.933495" level="INFO">Clicking element '//input[@type='submit']'.</msg>
+<msg time="2025-09-21T08:33:49.635140" level="INFO">Policy has been uploaded successfully on Zahara</msg>
+<msg time="2025-09-21T08:33:54.640174" level="FAIL">InvalidSessionIdException: Message: invalid session id: session deleted as the browser has closed the connection
+from disconnected: not connected to DevTools
+  (Session info: chrome=140.0.7339.186)
+Stacktrace:
+	GetHandleVerifier [0x0x7ff61fda30f5+79493]
+	GetHandleVerifier [0x0x7ff61fda3150+79584]
+	(No symbol) [0x0x7ff61fb201ba]
+	(No symbol) [0x0x7ff61fb0c085]
+	(No symbol) [0x0x7ff61fb312ca]
+	(No symbol) [0x0x7ff61fba7f76]
+	(No symbol) [0x0x7ff61fbc84c2]
+	(No symbol) [0x0x7ff61fba04e3]
+	(No symbol) [0x0x7ff61fb68e92]
+	(No symbol) [0x0x7ff61fb69c63]
+	GetHandleVerifier [0x0x7ff620060dbd+2954061]
+	GetHandleVerifier [0x0x7ff62005b02a+2930106]
+	GetHandleVerifier [0x0x7ff62007b357+3061991]
+	GetHandleVerifier [0x0x7ff61fdbd60e+187294]
+	GetHandleVerifier [0x0x7ff61fdc557f+219919]
+	GetHandleVerifier [0x0x7ff61fdac294+116772]
+	GetHandleVerifier [0x0x7ff61fdac449+117209]
+	GetHandleVerifier [0x0x7ff61fd92618+11176]
+	BaseThreadInitThunk [0x0x7ffd63f97374+20]
+	RtlUserThreadStart [0x0x7ffd65b9cc91+33]
+</msg>
+<arg>${automation_flow}</arg>
+<arg>${old_xml_file_name}</arg>
+<arg>${manage_autopay_contract_number}</arg>
+<arg>${payee_name}</arg>
+<arg>${expected_policy_status}</arg>
+<arg>${start_loan_amount}</arg>
+<arg>${loan_autopay_amount}</arg>
+<arg>${Payment_frequency}</arg>
+<arg>${loan_repayment_amount}</arg>
+<arg>${payment_mode}</arg>
+<arg>${fund_allocation_type}</arg>
+<arg>${expected_account_name}</arg>
+<arg>${expected_account_number}</arg>
+<arg>${loan_manage_autopay_amount}</arg>
+<arg>${Manage_payment_frequency}</arg>
+<arg>${fix_fund_allocation_percent}</arg>
+<arg>${cap_account_allocation_percent}</arg>
+<arg>${participation_rate_allocation_percent}</arg>
+<arg>${client_name}</arg>
+<arg>${client_plan_code}</arg>
+<arg>${transfer_amount}</arg>
+<arg>${systematic_withdrawal_and_rmd_amount}</arg>
+<arg>${systematic_premium_update_amount}</arg>
+<arg>${systematic_withdrawal_update_amount}</arg>
+<arg>${systematic_rmd_update_amount}</arg>
+<arg>${preferred_communication}</arg>
+<status status="FAIL" start="2025-09-21T08:33:12.332148" elapsed="42.328044">InvalidSessionIdException: Message: invalid session id: session deleted as the browser has closed the connection
+from disconnected: not connected to DevTools
+  (Session info: chrome=140.0.7339.186)
+Stacktrace:
+	GetHandleVerifier [0x0x7ff61fda30f5+79493]
+	GetHandleVerifier [0x0x7ff61fda3150+79584]
+	(No symbol) [0x0x7ff61fb201ba]
+	(No symbol) [0x0x7ff61fb0c085]
+	(No symbol) [0x0x7ff61fb312ca]
+	(No symbol) [0x0x7ff61fba7f76]
+	(No symbol) [0x0x7ff61fbc84c2]
+	(No symbol) [0x0x7ff61fba04e3]
+	(No symbol) [0x0x7ff61fb68e92]
+	(No symbol) [0x0x7ff61fb69c63]
+	GetHandleVerifier [0x0x7ff620060dbd+2954061]
+	GetHandleVerifier [0x0x7ff62005b02a+2930106]
+	GetHandleVerifier [0x0x7ff62007b357+3061991]
+	GetHandleVerifier [0x0x7ff61fdbd60e+187294]
+	GetHandleVerifier [0x0x7ff61fdc557f+219919]
+	GetHandleVerifier [0x0x7ff61fdac294+116772]
+	GetHandleVerifier [0x0x7ff61fdac449+117209]
+	GetHandleVerifier [0x0x7ff61fd92618+11176]
+	BaseThreadInitThunk [0x0x7ffd63f97374+20]
+	RtlUserThreadStart [0x0x7ffd65b9cc91+33]
+</status>
+</kw>
+<arg>('TestId', 'TC_015')</arg>
+<arg>('automation_flow', 'Systematic Premium Setup')</arg>
+<arg>('client_name', 'Everly')</arg>
+<arg>('client_plan_code', 'ELIULV01')</arg>
+<arg>('old_xml_file_name', 'ZLC1230196')</arg>
+<arg>('manage_autopay_contract_number', '')</arg>
+<arg>('payee_name', '')</arg>
+<arg>('expected_policy_status', 'ACTIVE')</arg>
+<arg>('start_loan_amount', '')</arg>
+<arg>('loan_repayment_amount', '')</arg>
+<arg>('loan_autopay_amount', '')</arg>
+<arg>('loan_manage_autopay_amount', '')</arg>
+<arg>('systematic_premium_update_amount', '')</arg>
+<arg>('systematic_withdrawal_update_amount', '')</arg>
+<arg>('systematic_rmd_update_amount', '')</arg>
+<arg>('Payment_frequency', '')</arg>
+<arg>('Manage_payment_frequency', '')</arg>
+<arg>('payment_mode', '')</arg>
+<arg>('fund_allocation_type', '')</arg>
+<arg>('expected_account_name', '')</arg>
+<arg>('expected_account_number', '')</arg>
+<arg>('fix_fund_allocation_percent', '')</arg>
+<arg>('cap_account_allocation_percent', '')</arg>
+<arg>('participation_rate_allocation_percent', '')</arg>
+<arg>('transfer_amount', '')</arg>
+<arg>('systematic_withdrawal_and_rmd_amount', '')</arg>
+<arg>('preferred_communication', '')</arg>
+<status status="FAIL" start="2025-09-21T08:33:12.330145" elapsed="42.335059">InvalidSessionIdException: Message: invalid session id: session deleted as the browser has closed the connection
+from disconnected: not connected to DevTools
+  (Session info: chrome=140.0.7339.186)
+Stacktrace:
+	GetHandleVerifier [0x0x7ff61fda30f5+79493]
+	GetHandleVerifier [0x0x7ff61fda3150+79584]
+	(No symbol) [0x0x7ff61fb201ba]
+	(No symbol) [0x0x7ff61fb0c085]
+	(No symbol) [0x0x7ff61fb312ca]
+	(No symbol) [0x0x7ff61fba7f76]
+	(No symbol) [0x0x7ff61fbc84c2]
+	(No symbol) [0x0x7ff61fba04e3]
+	(No symbol) [0x0x7ff61fb68e92]
+	(No symbol) [0x0x7ff61fb69c63]
+	GetHandleVerifier [0x0x7ff620060dbd+2954061]
+	GetHandleVerifier [0x0x7ff62005b02a+2930106]
+	GetHandleVerifier [0x0x7ff62007b357+3061991]
+	GetHandleVerifier [0x0x7ff61fdbd60e+187294]
+	GetHandleVerifier [0x0x7ff61fdc557f+219919]
+	GetHandleVerifier [0x0x7ff61fdac294+116772]
+	GetHandleVerifier [0x0x7ff61fdac449+117209]
+	GetHandleVerifier [0x0x7ff61fd92618+11176]
+	BaseThreadInitThunk [0x0x7ffd63f97374+20]
+	RtlUserThreadStart [0x0x7ffd65b9cc91+33]
+</status>
+</kw>
+<status status="FAIL" start="2025-09-21T08:33:12.316581" elapsed="42.349584">InvalidSessionIdException: Message: invalid session id: session deleted as the browser has closed the connection
+from disconnected: not connected to DevTools
+  (Session info: chrome=140.0.7339.186)
+Stacktrace:
+	GetHandleVerifier [0x0x7ff61fda30f5+79493]
+	GetHandleVerifier [0x0x7ff61fda3150+79584]
+	(No symbol) [0x0x7ff61fb201ba]
+	(No symbol) [0x0x7ff61fb0c085]
+	(No symbol) [0x0x7ff61fb312ca]
+	(No symbol) [0x0x7ff61fba7f76]
+	(No symbol) [0x0x7ff61fbc84c2]
+	(No symbol) [0x0x7ff61fba04e3]
+	(No symbol) [0x0x7ff61fb68e92]
+	(No symbol) [0x0x7ff61fb69c63]
+	GetHandleVerifier [0x0x7ff620060dbd+2954061]
+	GetHandleVerifier [0x0x7ff62005b02a+2930106]
+	GetHandleVerifier [0x0x7ff62007b357+3061991]
+	GetHandleVerifier [0x0x7ff61fdbd60e+187294]
+	GetHandleVerifier [0x0x7ff61fdc557f+219919]
+	GetHandleVerifier [0x0x7ff61fdac294+116772]
+	GetHandleVerifier [0x0x7ff61fdac449+117209]
+	GetHandleVerifier [0x0x7ff61fd92618+11176]
+	BaseThreadInitThunk [0x0x7ffd63f97374+20]
+	RtlUserThreadStart [0x0x7ffd65b9cc91+33]
+</status>
+</test>
+<status status="FAIL" start="2025-09-21T08:32:56.613153" elapsed="58.061092"/>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="1" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="0" fail="1" skip="0" id="s1" name="Transaction Onboarding Regression Suite">Transaction Onboarding Regression Suite</stat>
+</suite>
+</statistics>
+<errors>
+<msg time="2025-09-21T08:32:58.762512" level="ERROR">Error in file 'C:\Users\sharmash\automation-framwork\resources\zinnialive.resource' on line 3: Library 'keywords\data_creation_keywords\GenerateDTCC.py' does not exist.</msg>
+</errors>
+</robot>

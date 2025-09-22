@@ -1,0 +1,75 @@
+fakerdata.robot Console Output
+==================================================
+Test Suite: fakerdata.robot
+Environment: dev
+Test Type: smoke
+Start Time: 2025-09-22 10:46:46
+==================================================
+
+STDOUT:
+====================================================================================================
+Fakerdata
+====================================================================================================
+Allure environment setup completed
+Environment: QA | Type: Data_Generation
+OS: Windows 10 | Python: 3.12.1
+Creating Fake Data :: Generate fake user data using FakerLibrary with console logging       Starting test: Creating Fake Data
+STEP: Starting fake data generation process
+[10:46:45] PROCESS: Generating user profile data
+STEP: Logging generated data to console and Allure
+Last name: Keller
+Email id: fhayes@example.com
+Phone number: (245)759-2606
+Address: 7256 Jones Groves Apt. 897
+Brendamouth, VA 56832
+User data file created: C:\Users\sharmash\automation-framwork\results\run_20250922_104644/generated_user_data.txt
+STEP: Validating generated data format
+STEP: Fake data generation completed successfully
+Console log attached: C:\Users\sharmash\automation-framwork\results\run_20250922_104644/console_output.log
+Test completed with console logs attached to Allure
+| PASS |
+----------------------------------------------------------------------------------------------------
+Test execution summary created: C:\Users\sharmash\automation-framwork\results\run_20250922_104644/test_execution_summary.txt
+Test execution summary created and attached to Allure
+Fakerdata                                                                                   | PASS |
+1 test, 1 passed, 0 failed
+====================================================================================================
+Output:  C:\Users\sharmash\automation-framwork\results\run_20250922_104644\output.xml
+Log:     C:\Users\sharmash\automation-framwork\results\run_20250922_104644\results\run_20250922_104644\fakerdata.robot_detailed_log.html
+Report:  C:\Users\sharmash\automation-framwork\results\run_20250922_104644\results\run_20250922_104644\fakerdata.robot_detailed_report.html
+
+STDERR:
+[ ERROR ] Taking listener 'allure_console_listener.AllureConsoleListener:results/run_20250922_104644\allure-results' into use failed: Importing listener 'allure_console_listener.AllureConsoleListener' failed: ModuleNotFoundError: No module named 'allure_console_listener'
+Traceback (most recent call last):
+None
+PYTHONPATH:
+C:\Program Files\Python312\Scripts\robot.exe
+c:\Users\sharmash\Downloads\QAS-ZinniaLive-AutomationTesting (1)\QAS-ZinniaLive-AutomationTesting
+C:\Users\sharmash\automation-framwork\%PYTHONPATH%
+C:\Program Files\Python312\python312.zip
+C:\Program Files\Python312\DLLs
+C:\Program Files\Python312\Lib
+C:\Program Files\Python312
+C:\Users\sharmash\AppData\Roaming\Python\Python312\site-packages
+C:\Users\sharmash\AppData\Roaming\Python\Python312\site-packages\win32
+C:\Users\sharmash\AppData\Roaming\Python\Python312\site-packages\win32\lib
+C:\Users\sharmash\AppData\Roaming\Python\Python312\site-packages\Pythonwin
+C:\Program Files\Python312\Lib\site-packages
+[ ERROR ] Taking listener 'DebugLibrary' into use failed: Importing listener 'DebugLibrary' failed: ModuleNotFoundError: No module named 'DebugLibrary'
+Traceback (most recent call last):
+None
+PYTHONPATH:
+C:\Program Files\Python312\Scripts\robot.exe
+c:\Users\sharmash\Downloads\QAS-ZinniaLive-AutomationTesting (1)\QAS-ZinniaLive-AutomationTesting
+C:\Users\sharmash\automation-framwork\%PYTHONPATH%
+C:\Program Files\Python312\python312.zip
+C:\Program Files\Python312\DLLs
+C:\Program Files\Python312\Lib
+C:\Program Files\Python312
+C:\Users\sharmash\AppData\Roaming\Python\Python312\site-packages
+C:\Users\sharmash\AppData\Roaming\Python\Python312\site-packages\win32
+C:\Users\sharmash\AppData\Roaming\Python\Python312\site-packages\win32\lib
+C:\Users\sharmash\AppData\Roaming\Python\Python312\site-packages\Pythonwin
+C:\Program Files\Python312\Lib\site-packages
+
+Process Exit Code: 0

@@ -1,0 +1,12 @@
+[2025-09-22 10:47:25] ========================================
+[2025-09-22 10:47:25] Test: Creating Fake Data
+[2025-09-22 10:47:25] Started: 2025-09-22 10:47:25
+[2025-09-22 10:47:25] ========================================
+[2025-09-22 10:47:25] STEP: Starting fake data generation process
+[2025-09-22 10:47:25] [10:47:25] PROCESS: Generating user profile data
+[2025-09-22 10:47:26] PROCESS DETAILS: Using FakerLibrary with seed=234
+[2025-09-22 10:47:26] STEP: Logging generated data to console and Allure
+[2025-09-22 10:47:26] STEP: Validating generated data format
+[2025-09-22 10:47:26] STEP: Fake data generation completed successfully
+[2025-09-22 10:47:26] Test completed at: 2025-09-22 10:47:26
+[2025-09-22 10:47:26] ========================================

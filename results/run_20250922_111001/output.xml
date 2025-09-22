@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.0.1 (Python 3.12.1 on win32)" generated="2025-09-22T11:10:02.374711" rpa="false" schemaversion="5">
+<suite id="s1" name="Transaction Onboarding Regression Suite" source="C:\Users\sharmash\automation-framwork\tests\api\transaction_onboarding_regression_suite.robot">
+<kw name="Filter Test Date By Execution Flag" owner="ExcelUtils" type="SETUP">
+<msg time="2025-09-22T11:10:17.525076" level="INFO">Filtered data (execution_flag == 'YES') written below existing headers in 'output'.</msg>
+<status status="PASS" start="2025-09-22T11:10:10.080778" elapsed="7.444298"/>
+</kw>
+<test id="s1-t1" name="Perform Systematic Premium Setup Process for client Everly testID: TC_015" line="18">
+<kw name="Add Project Root To Python Path" type="SETUP">
+<kw name="Normalize Path" owner="OperatingSystem">
+<msg time="2025-09-22T11:10:17.534153" level="INFO">${project_root} = C:\Users\sharmash\automation-framwork</msg>
+<var>${project_root}</var>
+<arg>C:\\Users\\sharmash\\automation-framwork\\tests\\api/../../</arg>
+<doc>Normalizes the given path.</doc>
+<status status="PASS" start="2025-09-22T11:10:17.533150" elapsed="0.001003"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<arg>sys.path.insert(0, r'${project_root}')</arg>
+<arg>sys</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-09-22T11:10:17.540078" elapsed="0.001045"/>
+</kw>
+<status status="PASS" start="2025-09-22T11:10:17.532178" elapsed="0.008945"/>
+</kw>
+<kw name="Perform Transaction Onboarding Automation Flow">
+<kw name="Transaction Onboarding Automation Process">
+<kw name="Transaction Onboarding Automation Flow Until Lifecycle Completion" owner="ZinniaLive">
+<msg time="2025-09-22T11:10:17.548152" level="INFO">Executing Systematic Premium Setup until lifecycle completion only</msg>
+<msg time="2025-09-22T11:10:17.548152" level="INFO">Perform Policy Creation Process</msg>
+<msg time="2025-09-22T11:10:17.549157" level="INFO">-----------------------------------------------------------</msg>
+<msg time="2025-09-22T11:10:17.549157" level="INFO">Opening browser 'chrome' to base url 'https://qa-zahara-ui.zinnia.io/#/app/policy'.</msg>
+<msg time="2025-09-22T11:10:24.930378" level="INFO">Typing text 'kapil.suthar@zinnia.com' into text field '//input[@id='username']'.</msg>
+<msg time="2025-09-22T11:10:25.296316" level="INFO">Clicking element '//button[@type='submit']'.</msg>
+<msg time="2025-09-22T11:10:31.374512" level="INFO">Typing text 'Nescafe@234568' into text field '//input[@type='password']'.</msg>
+<msg time="2025-09-22T11:10:31.706263" level="INFO">Clicking element '//input[@type='submit']'.</msg>
+<msg time="2025-09-22T11:11:00.777113" level="INFO">Policy has been uploaded successfully on Zahara</msg>
+<msg time="2025-09-22T11:11:08.842570" level="INFO">Clicking element '//button[normalize-space()='Refresh']'.</msg>
+<msg time="2025-09-22T11:11:21.592376" level="INFO">Typing text 'ZLC1399481' into text field '//input[@type='search']'.</msg>
+<msg time="2025-09-22T11:11:22.676438" level="INFO">Clicking element '//div[contains(text(),'ZLC1399481')]'.</msg>
+<msg time="2025-09-22T11:11:23.258224" level="INFO">Clicking element '//button[@id='policy-tab-transSummary']'.</msg>
+<msg time="2025-09-22T11:11:34.516218" level="INFO">Lifecycle executed successfully: {"message": "SUCCESS", "status": 201}</msg>
+<msg time="2025-09-22T11:12:44.583113" level="FAIL">Element '//*[@id='root']/div/div[2]/div/div[1]/div[1]/div[3]/div[2]/button' not visible after 1 minute.</msg>
+<arg>${automation_flow}</arg>
+<arg>${old_xml_file_name}</arg>
+<arg>${manage_autopay_contract_number}</arg>
+<arg>${payee_name}</arg>
+<arg>${expected_policy_status}</arg>
+<arg>${start_loan_amount}</arg>
+<arg>${loan_autopay_amount}</arg>
+<arg>${Payment_frequency}</arg>
+<arg>${loan_repayment_amount}</arg>
+<arg>${payment_mode}</arg>
+<arg>${fund_allocation_type}</arg>
+<arg>${expected_account_name}</arg>
+<arg>${expected_account_number}</arg>
+<arg>${loan_manage_autopay_amount}</arg>
+<arg>${Manage_payment_frequency}</arg>
+<arg>${fix_fund_allocation_percent}</arg>
+<arg>${cap_account_allocation_percent}</arg>
+<arg>${participation_rate_allocation_percent}</arg>
+<arg>${client_name}</arg>
+<arg>${client_plan_code}</arg>
+<arg>${transfer_amount}</arg>
+<arg>${systematic_withdrawal_and_rmd_amount}</arg>
+<arg>${systematic_premium_update_amount}</arg>
+<arg>${systematic_withdrawal_update_amount}</arg>
+<arg>${systematic_rmd_update_amount}</arg>
+<arg>${preferred_communication}</arg>
+<status status="FAIL" start="2025-09-22T11:10:17.547076" elapsed="147.044095">Element '//*[@id='root']/div/div[2]/div/div[1]/div[1]/div[3]/div[2]/button' not visible after 1 minute.</status>
+</kw>
+<arg>${automation_flow}</arg>
+<arg>${old_xml_file_name}</arg>
+<arg>${manage_autopay_contract_number}</arg>
+<arg>${payee_name}</arg>
+<arg>${expected_policy_status}</arg>
+<arg>${start_loan_amount}</arg>
+<arg>${loan_autopay_amount}</arg>
+<arg>${Payment_frequency}</arg>
+<arg>${loan_repayment_amount}</arg>
+<arg>${payment_mode}</arg>
+<arg>${fund_allocation_type}</arg>
+<arg>${expected_account_name}</arg>
+<arg>${expected_account_number}</arg>
+<arg>${loan_manage_autopay_amount}</arg>
+<arg>${Manage_payment_frequency}</arg>
+<arg>${fix_fund_allocation_percent}</arg>
+<arg>${cap_account_allocation_percent}</arg>
+<arg>${participation_rate_allocation_percent}</arg>
+<arg>${client_name}</arg>
+<arg>${client_plan_code}</arg>
+<arg>${transfer_amount}</arg>
+<arg>${systematic_withdrawal_and_rmd_amount}</arg>
+<arg>${systematic_premium_update_amount}</arg>
+<arg>${systematic_withdrawal_update_amount}</arg>
+<arg>${systematic_rmd_update_amount}</arg>
+<arg>${preferred_communication}</arg>
+<status status="FAIL" start="2025-09-22T11:10:17.544160" elapsed="147.052009">Element '//*[@id='root']/div/div[2]/div/div[1]/div[1]/div[3]/div[2]/button' not visible after 1 minute.</status>
+</kw>
+<arg>('TestId', 'TC_015')</arg>
+<arg>('automation_flow', 'Systematic Premium Setup')</arg>
+<arg>('client_name', 'Everly')</arg>
+<arg>('client_plan_code', 'ELIULV01')</arg>
+<arg>('old_xml_file_name', 'ZLC1230196')</arg>
+<arg>('manage_autopay_contract_number', '')</arg>
+<arg>('payee_name', '')</arg>
+<arg>('expected_policy_status', 'ACTIVE')</arg>
+<arg>('start_loan_amount', '')</arg>
+<arg>('loan_repayment_amount', '')</arg>
+<arg>('loan_autopay_amount', '')</arg>
+<arg>('loan_manage_autopay_amount', '')</arg>
+<arg>('systematic_premium_update_amount', '')</arg>
+<arg>('systematic_withdrawal_update_amount', '')</arg>
+<arg>('systematic_rmd_update_amount', '')</arg>
+<arg>('Payment_frequency', '')</arg>
+<arg>('Manage_payment_frequency', '')</arg>
+<arg>('payment_mode', '')</arg>
+<arg>('fund_allocation_type', '')</arg>
+<arg>('expected_account_name', '')</arg>
+<arg>('expected_account_number', '')</arg>
+<arg>('fix_fund_allocation_percent', '')</arg>
+<arg>('cap_account_allocation_percent', '')</arg>
+<arg>('participation_rate_allocation_percent', '')</arg>
+<arg>('transfer_amount', '')</arg>
+<arg>('systematic_withdrawal_and_rmd_amount', '')</arg>
+<arg>('preferred_communication', '')</arg>
+<status status="FAIL" start="2025-09-22T11:10:17.542156" elapsed="147.054996">Element '//*[@id='root']/div/div[2]/div/div[1]/div[1]/div[3]/div[2]/button' not visible after 1 minute.</status>
+</kw>
+<kw name="Test Failure Browser Teardown" type="TEARDOWN">
+<msg time="2025-09-22T11:12:44.604165" level="FAIL">No keyword with name 'Test Failure Browser Teardown' found.</msg>
+<status status="FAIL" start="2025-09-22T11:12:44.604165" elapsed="0.000000">No keyword with name 'Test Failure Browser Teardown' found.</status>
+</kw>
+<status status="FAIL" start="2025-09-22T11:10:17.530075" elapsed="147.078083">Element '//*[@id='root']/div/div[2]/div/div[1]/div[1]/div[3]/div[2]/button' not visible after 1 minute.
+
+Also teardown failed:
+No keyword with name 'Test Failure Browser Teardown' found.</status>
+</test>
+<kw name="Emergency Browser Teardown" type="TEARDOWN">
+<msg time="2025-09-22T11:12:44.621226" level="FAIL">No keyword with name 'Emergency Browser Teardown' found.</msg>
+<status status="FAIL" start="2025-09-22T11:12:44.621226" elapsed="0.000895">No keyword with name 'Emergency Browser Teardown' found.</status>
+</kw>
+<meta name="Environment">dev</meta>
+<meta name="Test_Suite">transaction_onboarding_regression_suite.robot</meta>
+<meta name="Test_Type">smoke</meta>
+<status status="FAIL" start="2025-09-22T11:10:02.517710" elapsed="162.107473">Suite teardown failed:
+No keyword with name 'Emergency Browser Teardown' found.</status>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="1" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="0" fail="1" skip="0" id="s1" name="Transaction Onboarding Regression Suite">Transaction Onboarding Regression Suite</stat>
+</suite>
+</statistics>
+<errors>
+<msg time="2025-09-22T11:10:02.499712" level="ERROR">Taking listener 'allure_console_listener.AllureConsoleListener:results/run_20250922_111001\allure-results' into use failed: Importing listener 'allure_console_listener.AllureConsoleListener' failed: ModuleNotFoundError: No module named 'allure_console_listener'
+Traceback (most recent call last):
+  None
+PYTHONPATH:
+  C:\Program Files\Python312\Scripts\robot.exe
+  c:\Users\sharmash\Downloads\QAS-ZinniaLive-AutomationTesting (1)\QAS-ZinniaLive-AutomationTesting
+  C:\Users\sharmash\automation-framwork\%PYTHONPATH%
+  C:\Program Files\Python312\python312.zip
+  C:\Program Files\Python312\DLLs
+  C:\Program Files\Python312\Lib
+  C:\Program Files\Python312
+  C:\Users\sharmash\AppData\Roaming\Python\Python312\site-packages
+  C:\Users\sharmash\AppData\Roaming\Python\Python312\site-packages\win32
+  C:\Users\sharmash\AppData\Roaming\Python\Python312\site-packages\win32\lib
+  C:\Users\sharmash\AppData\Roaming\Python\Python312\site-packages\Pythonwin
+  C:\Program Files\Python312\Lib\site-packages</msg>
+<msg time="2025-09-22T11:10:02.509711" level="ERROR">Taking listener 'DebugLibrary' into use failed: Importing listener 'DebugLibrary' failed: ModuleNotFoundError: No module named 'DebugLibrary'
+Traceback (most recent call last):
+  None
+PYTHONPATH:
+  C:\Program Files\Python312\Scripts\robot.exe
+  c:\Users\sharmash\Downloads\QAS-ZinniaLive-AutomationTesting (1)\QAS-ZinniaLive-AutomationTesting
+  C:\Users\sharmash\automation-framwork\%PYTHONPATH%
+  C:\Program Files\Python312\python312.zip
+  C:\Program Files\Python312\DLLs
+  C:\Program Files\Python312\Lib
+  C:\Program Files\Python312
+  C:\Users\sharmash\AppData\Roaming\Python\Python312\site-packages
+  C:\Users\sharmash\AppData\Roaming\Python\Python312\site-packages\win32
+  C:\Users\sharmash\AppData\Roaming\Python\Python312\site-packages\win32\lib
+  C:\Users\sharmash\AppData\Roaming\Python\Python312\site-packages\Pythonwin
+  C:\Program Files\Python312\Lib\site-packages</msg>
+<msg time="2025-09-22T11:10:05.649448" level="WARN">Imported resource file 'C:\Users\sharmash\automation-framwork\resources\BrowserTeardown.resource' is empty.</msg>
+</errors>
+</robot>

@@ -1,0 +1,121 @@
+transaction_onboarding_regression_suite.robot Console Output
+==================================================
+Test Suite: transaction_onboarding_regression_suite.robot
+Environment: dev
+Test Type: smoke
+Start Time: 2025-09-22 11:04:23
+==================================================
+
+STDOUT:
+====================================================================================================
+Transaction Onboarding Regression Suite
+====================================================================================================
+Perform Systematic Premium Setup Process for client Everly testID: TC_015                   Executing Systematic Premium Setup until lifecycle completion only
+Perform Policy Creation Process
+-----------------------------------------------------------
+Policy has been uploaded successfully on Zahara
+Lifecycle executed successfully: {"message": "SUCCESS", "status": 201}
+? Test failure detected - initiating browser teardown...
+? Failed Test: Perform Systematic Premium Setup Process for client Everly testID: TC_015
+? Test Status: FAIL
+? Starting Emergency Browser Teardown...
+? Attempting graceful browser cleanup...
+? Active browsers before cleanup: 1
+? Current window closed successfully
+? All browsers closed via SeleniumLibrary
+? Active browsers after cleanup: 0
+? Force closing browser processes...
+? Checking for chrome.exe processes...
+?? Found chrome.exe processes, terminating...
+? chrome.exe processes terminated
+? Checking for chromedriver.exe processes...
+?? Found chromedriver.exe processes, terminating...
+? chromedriver.exe processes terminated
+? Checking for firefox.exe processes...
+? No firefox.exe processes found
+? Checking for geckodriver.exe processes...
+? No geckodriver.exe processes found
+? Checking for msedge.exe processes...
+?? Found msedge.exe processes, terminating...
+? msedge.exe processes terminated
+? Checking for msedgedriver.exe processes...
+? No msedgedriver.exe processes found
+? Browser process cleanup completed
+? Cleaning browser temporary files...
+? Browser temporary files cleaned
+? Verifying browser cleanup completion...
+? All browser processes successfully terminated
+? Final browser count: 0
+? Emergency Browser Teardown Completed
+? Test failure browser teardown completed
+| FAIL |
+Element '//*[@id='root']/div/div[2]/div/div[1]/div[1]/div[3]/div[2]/button' not visible after 1 minute.
+----------------------------------------------------------------------------------------------------
+? Starting Emergency Browser Teardown...
+? Attempting graceful browser cleanup...
+? Active browsers before cleanup: 0
+?? Failed to close current window
+? All browsers closed via SeleniumLibrary
+? Active browsers after cleanup: 0
+? Force closing browser processes...
+? Checking for chrome.exe processes...
+? No chrome.exe processes found
+? Checking for chromedriver.exe processes...
+? No chromedriver.exe processes found
+? Checking for firefox.exe processes...
+? No firefox.exe processes found
+? Checking for geckodriver.exe processes...
+? No geckodriver.exe processes found
+? Checking for msedge.exe processes...
+? No msedge.exe processes found
+? Checking for msedgedriver.exe processes...
+? No msedgedriver.exe processes found
+? Browser process cleanup completed
+? Cleaning browser temporary files...
+? Browser temporary files cleaned
+? Verifying browser cleanup completion...
+? All browser processes successfully terminated
+? Final browser count: 0
+? Emergency Browser Teardown Completed
+Transaction Onboarding Regression Suite                                                     | FAIL |
+1 test, 0 passed, 1 failed
+====================================================================================================
+Output:  C:\Users\sharmash\automation-framwork\results\run_20250922_110008\output.xml
+Log:     C:\Users\sharmash\automation-framwork\results\run_20250922_110008\results\run_20250922_110008\transaction_onboarding_regression_suite.robot_detailed_log.html
+Report:  C:\Users\sharmash\automation-framwork\results\run_20250922_110008\results\run_20250922_110008\transaction_onboarding_regression_suite.robot_detailed_report.html
+
+STDERR:
+[ ERROR ] Taking listener 'allure_console_listener.AllureConsoleListener:results/run_20250922_110008\allure-results' into use failed: Importing listener 'allure_console_listener.AllureConsoleListener' failed: ModuleNotFoundError: No module named 'allure_console_listener'
+Traceback (most recent call last):
+None
+PYTHONPATH:
+C:\Program Files\Python312\Scripts\robot.exe
+c:\Users\sharmash\Downloads\QAS-ZinniaLive-AutomationTesting (1)\QAS-ZinniaLive-AutomationTesting
+C:\Users\sharmash\automation-framwork\%PYTHONPATH%
+C:\Program Files\Python312\python312.zip
+C:\Program Files\Python312\DLLs
+C:\Program Files\Python312\Lib
+C:\Program Files\Python312
+C:\Users\sharmash\AppData\Roaming\Python\Python312\site-packages
+C:\Users\sharmash\AppData\Roaming\Python\Python312\site-packages\win32
+C:\Users\sharmash\AppData\Roaming\Python\Python312\site-packages\win32\lib
+C:\Users\sharmash\AppData\Roaming\Python\Python312\site-packages\Pythonwin
+C:\Program Files\Python312\Lib\site-packages
+[ ERROR ] Taking listener 'DebugLibrary' into use failed: Importing listener 'DebugLibrary' failed: ModuleNotFoundError: No module named 'DebugLibrary'
+Traceback (most recent call last):
+None
+PYTHONPATH:
+C:\Program Files\Python312\Scripts\robot.exe
+c:\Users\sharmash\Downloads\QAS-ZinniaLive-AutomationTesting (1)\QAS-ZinniaLive-AutomationTesting
+C:\Users\sharmash\automation-framwork\%PYTHONPATH%
+C:\Program Files\Python312\python312.zip
+C:\Program Files\Python312\DLLs
+C:\Program Files\Python312\Lib
+C:\Program Files\Python312
+C:\Users\sharmash\AppData\Roaming\Python\Python312\site-packages
+C:\Users\sharmash\AppData\Roaming\Python\Python312\site-packages\win32
+C:\Users\sharmash\AppData\Roaming\Python\Python312\site-packages\win32\lib
+C:\Users\sharmash\AppData\Roaming\Python\Python312\site-packages\Pythonwin
+C:\Program Files\Python312\Lib\site-packages
+
+Process Exit Code: 1

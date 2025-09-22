@@ -1,0 +1,14 @@
+{
+  "execution_info": {
+    "timestamp": "2025-09-22T12:12:14.654965",
+    "environment": "dev",
+    "test_type": "smoke",
+    "selected_apis": [],
+    "selected_tests": [
+      "transaction_onboarding_regression_suite.robot"
+    ],
+    "execution_failures": [],
+    "console_integration": "enabled",
+    "enhanced_logging": "enabled"
+  }
+}

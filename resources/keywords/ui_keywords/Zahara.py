@@ -12,6 +12,8 @@ import pyautogui
 from resources.locators import ZaharaLocators
 from resources.vo.FilePropertiesVo import FilePropertiesVo
 
+# from resources.Reporting.ReportingSetup import ReportingSetup
+
 
 @library
 class Zahara:
@@ -44,7 +46,7 @@ class Zahara:
                 
                 if expected_policy_status == actual_policy_status:
                     BuiltIn().log(f"The policy has been successfully created and activated on Zahara")
-                    BuiltIn().log_to_console(f"The policy has been successfully created and activated on Zahara")
+                    BuiltIn().log(f"The policy has been successfully created and activated on Zahara")
                     return
                 else:
                     BuiltIn().log(f"Status mismatch - Expected: '{expected_policy_status}', Actual: '{actual_policy_status}'")

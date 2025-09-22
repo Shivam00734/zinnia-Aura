@@ -1,0 +1,76 @@
+Complete Test Execution Console Output
+============================================================
+Execution Time: 2025-09-22 08:10:58
+Environment: dev
+Test Type: smoke
+Selected APIs: []
+Selected Tests: ['fakerdata.robot']
+============================================================
+
+
+=== fakerdata.robot_console_output.log ===
+fakerdata.robot Console Output
+==================================================
+Test Suite: fakerdata.robot
+Environment: dev
+Test Type: smoke
+Start Time: 2025-09-22 08:10:58
+==================================================
+
+STDOUT:
+====================================================================================================
+Fakerdata
+====================================================================================================
+Creating Fake Data                                                                          Name: Abigail
+Last name: Keller
+email id : fhayes@example.com
+phone number: (245)759-2606
+address: 7256 Jones Groves Apt. 897
+Brendamouth, VA 56832
+| PASS |
+----------------------------------------------------------------------------------------------------
+Fakerdata                                                                                   | PASS |
+1 test, 1 passed, 0 failed
+====================================================================================================
+Output:  C:\Users\sharmash\automation-framwork\results\run_20250922_081057\output.xml
+Log:     C:\Users\sharmash\automation-framwork\results\run_20250922_081057\results\run_20250922_081057\fakerdata.robot_detailed_log.html
+Report:  C:\Users\sharmash\automation-framwork\results\run_20250922_081057\results\run_20250922_081057\fakerdata.robot_detailed_report.html
+
+STDERR:
+[ ERROR ] Taking listener 'allure_console_listener.AllureConsoleListener:results/run_20250922_081057\allure-results' into use failed: Importing listener 'allure_console_listener.AllureConsoleListener' failed: ModuleNotFoundError: No module named 'allure_console_listener'
+Traceback (most recent call last):
+None
+PYTHONPATH:
+C:\Program Files\Python312\Scripts\robot.exe
+c:\Users\sharmash\Downloads\QAS-ZinniaLive-AutomationTesting (1)\QAS-ZinniaLive-AutomationTesting
+C:\Users\sharmash\automation-framwork\%PYTHONPATH%
+C:\Program Files\Python312\python312.zip
+C:\Program Files\Python312\DLLs
+C:\Program Files\Python312\Lib
+C:\Program Files\Python312
+C:\Users\sharmash\AppData\Roaming\Python\Python312\site-packages
+C:\Users\sharmash\AppData\Roaming\Python\Python312\site-packages\win32
+C:\Users\sharmash\AppData\Roaming\Python\Python312\site-packages\win32\lib
+C:\Users\sharmash\AppData\Roaming\Python\Python312\site-packages\Pythonwin
+C:\Program Files\Python312\Lib\site-packages
+[ ERROR ] Taking listener 'DebugLibrary' into use failed: Importing listener 'DebugLibrary' failed: ModuleNotFoundError: No module named 'DebugLibrary'
+Traceback (most recent call last):
+None
+PYTHONPATH:
+C:\Program Files\Python312\Scripts\robot.exe
+c:\Users\sharmash\Downloads\QAS-ZinniaLive-AutomationTesting (1)\QAS-ZinniaLive-AutomationTesting
+  C:\Users\sharmash\automation-framwork\%PYTHONPATH%
+  C:\Program Files\Python312\python312.zip
+  C:\Program Files\Python312\DLLs
+  C:\Program Files\Python312\Lib
+  C:\Program Files\Python312
+  C:\Users\sharmash\AppData\Roaming\Python\Python312\site-packages
+  C:\Users\sharmash\AppData\Roaming\Python\Python312\site-packages\win32
+  C:\Users\sharmash\AppData\Roaming\Python\Python312\site-packages\win32\lib
+  C:\Users\sharmash\AppData\Roaming\Python\Python312\site-packages\Pythonwin
+  C:\Program Files\Python312\Lib\site-packages
+
+Process Exit Code: 0
+
+=== End of fakerdata.robot_console_output.log ===
+

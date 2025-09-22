@@ -1,4 +1,5 @@
 from flask import Flask, render_template_string, request, jsonify, send_from_directory, abort
+from flask_socketio import SocketIO, emit
 import os
 import json
 import subprocess
@@ -10,9 +11,146 @@ import typing as t
 import re as _re_for_paths
 import io as _io_for_excel
 import shutil
-from tag_management import get_tags_for_dashboard, generate_pytest_command
+import threading
+import queue
+import sys
+import time
+import platform
 
 app = Flask(__name__)
+app.config['SECRET_KEY'] = 'zinnia_dashboard_secret_2024'
+socketio = SocketIO(app, cors_allowed_origins="*")
+
+# Cross-platform subprocess execution with real-time output
+def execute_command_with_realtime_output(cmd, env=None, working_dir=None, emit_to_websocket=True):
+    """
+    Execute command with real-time output capture that works on both Windows and Unix
+    Returns: (stdout_lines, stderr_lines, return_code)
+    """
+    stdout_lines = []
+    stderr_lines = []
+    
+    try:
+        # Use universal_newlines for cross-platform compatibility
+        process = subprocess.Popen(
+            cmd, 
+            env=env, 
+            cwd=working_dir,
+            stdout=subprocess.PIPE, 
+            stderr=subprocess.PIPE, 
+            text=True, 
+            universal_newlines=True,
+            bufsize=1  # Line buffered
+        )
+        
+        # Use threading to handle stdout and stderr simultaneously
+        stdout_queue = queue.Queue()
+        stderr_queue = queue.Queue()
+        
+        def read_stdout():
+            try:
+                for line in process.stdout:
+                    stdout_queue.put(line.rstrip())
+                stdout_queue.put(None)  # Signal end
+            except Exception as e:
+                stdout_queue.put(f"STDOUT_ERROR: {e}")
+                stdout_queue.put(None)
+        
+        def read_stderr():
+            try:
+                for line in process.stderr:
+                    stderr_queue.put(line.rstrip())
+                stderr_queue.put(None)  # Signal end
+            except Exception as e:
+                stderr_queue.put(f"STDERR_ERROR: {e}")
+                stderr_queue.put(None)
+        
+        stdout_thread = threading.Thread(target=read_stdout)
+        stderr_thread = threading.Thread(target=read_stderr)
+        
+        stdout_thread.start()
+        stderr_thread.start()
+        
+        stdout_done = False
+        stderr_done = False
+        
+        # Collect output with real-time logging
+        while not (stdout_done and stderr_done):
+            try:
+                # Check stdout
+                if not stdout_done:
+                    try:
+                        line = stdout_queue.get(timeout=0.1)
+                        if line is None:
+                            stdout_done = True
+                        else:
+                            stdout_lines.append(line)
+                            print(f"STDOUT: {line}")  # Real-time console output
+                            if emit_to_websocket:
+                                try:
+                                    socketio.emit('terminal_output', {'type': 'stdout', 'data': line})
+                                except Exception:
+                                    pass  # Ignore WebSocket errors
+                    except queue.Empty:
+                        pass
+                
+                # Check stderr
+                if not stderr_done:
+                    try:
+                        line = stderr_queue.get(timeout=0.1)
+                        if line is None:
+                            stderr_done = True
+                        else:
+                            stderr_lines.append(line)
+                            print(f"STDERR: {line}")  # Real-time console output
+                            if emit_to_websocket:
+                                try:
+                                    socketio.emit('terminal_output', {'type': 'stderr', 'data': line})
+                                except Exception:
+                                    pass  # Ignore WebSocket errors
+                    except queue.Empty:
+                        pass
+                        
+            except KeyboardInterrupt:
+                print("Execution interrupted by user")
+                process.terminate()
+                break
+        
+        # Wait for threads to complete
+        stdout_thread.join(timeout=5)
+        stderr_thread.join(timeout=5)
+        
+        # Wait for process to complete
+        return_code = process.wait()
+        
+        return stdout_lines, stderr_lines, return_code
+        
+    except Exception as e:
+        error_msg = f"Command execution failed: {e}"
+        print(error_msg)
+        return [error_msg], [], 1
+
+# WebSocket event handlers
+@socketio.on('connect')
+def handle_connect():
+    """Handle client connection"""
+    emit('status', {'msg': 'Connected to terminal stream'})
+    print("Client connected to terminal stream")
+
+@socketio.on('disconnect')
+def handle_disconnect():
+    """Handle client disconnection"""
+    print("Client disconnected from terminal stream")
+
+@socketio.on('start_execution')
+def handle_start_execution():
+    """Handle start of test execution"""
+    emit('terminal_output', {'type': 'info', 'data': '=== Test execution started ==='})
+
+@socketio.on('clear_terminal')
+def handle_clear_terminal():
+    """Handle terminal clear request"""
+    emit('terminal_clear', {})
 
 # # -------- Excel Comparison Helpers --------
 # def get_from_path(data: t.Any, path: str) -> t.Any:
@@ -120,6 +258,7 @@ HTML_TEMPLATE = """
 <html>
 <head>
     <title>Zinnia Live-Aura Dashboard</title>
+    <meta name="viewport" content="width=1200, initial-scale=1.0">
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
     <meta http-equiv="Pragma" content="no-cache" />
     <meta http-equiv="Expires" content="0" />
@@ -131,12 +270,20 @@ HTML_TEMPLATE = """
             --zinnia-shadow: 0 2px 8px rgba(0,0,0,0.1);
         }
         
+        html {
+            font-size: 16px;
+        }
+        
         body {
             margin: 0;
             padding: 0;
             font-family: 'Montserrat', sans-serif;
             background: #f0f2f5;
             display: flex;
+            transform: scale(2);
+            transform-origin: 0 0;
+            width: 50vw;
+            height: 50vh;
         }
 
         .sidebar {
@@ -154,7 +301,7 @@ HTML_TEMPLATE = """
 
         .sidebar-title {
             padding: 20px;
-            font-size: 1.2em;
+            font-size: 1rem;
             font-weight: 600;
             color: var(--zinnia-blue);
             border-bottom: 2px solid var(--zinnia-gold);
@@ -372,128 +519,99 @@ HTML_TEMPLATE = """
             background: #e8f0fe;
             border-color: var(--zinnia-blue);
         }
-        /* Tag styling */
-        .tags-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            gap: 10px;
-            margin-top: 10px;
-        }
-        .tag-card {
-            background: #f8fafc;
-            border: 2px solid #e0e7ef;
-            border-radius: 8px;
-            padding: 12px;
-            cursor: pointer;
-            transition: all 0.2s;
-            position: relative;
-        }
-        .tag-card:hover {
-            border-color: var(--zinnia-blue);
-            transform: translateY(-1px);
-            box-shadow: 0 2px 8px rgba(26,35,126,0.1);
-        }
-        .tag-card.selected {
-            background: #e8f0fe;
-            border-color: var(--zinnia-blue);
-            border-width: 2px;
-        }
-        .tag-name {
-            font-weight: 600;
-            color: var(--zinnia-blue);
-            margin-bottom: 5px;
-        }
-        .tag-description {
-            font-size: 0.85em;
-            color: #666;
-            line-height: 1.3;
-        }
-        .tag-checkbox {
-            position: absolute;
-            top: 8px;
-            right: 8px;
-        }
-        .tags-description {
-            background: #f0f8ff;
-            padding: 10px;
-            border-radius: 6px;
-            border-left: 4px solid var(--zinnia-blue);
-        }
-        .loading-spinner {
-            text-align: center;
-            color: #666;
-            font-style: italic;
-        }
-        
-        /* Dropdown styling */
-        .dropdown-container {
-            position: relative;
-            width: 100%;
-        }
-        .dropdown-button {
-            width: 100%;
-            padding: 10px;
-            border: 2px solid #e0e7ef;
-            border-radius: 6px;
-            background: white;
-            cursor: pointer;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            font-family: inherit;
-            font-size: inherit;
-            text-align: left;
-        }
-        .dropdown-button:hover {
-            border-color: var(--zinnia-blue);
-        }
-        .dropdown-arrow {
-            transition: transform 0.2s;
-        }
-        .dropdown-arrow.open {
-            transform: rotate(180deg);
-        }
-        .dropdown-content {
-            position: absolute;
-            top: 100%;
-            left: 0;
-            right: 0;
-            background: white;
-            border: 2px solid #e0e7ef;
-            border-top: none;
-            border-radius: 0 0 6px 6px;
-            max-height: 200px;
-            overflow-y: auto;
-            z-index: 1000;
-            display: none;
-        }
-        .dropdown-content.show {
-            display: block;
-        }
-        .dropdown-item {
-            display: flex;
-            align-items: center;
-            padding: 10px;
-            cursor: pointer;
-            transition: background-color 0.2s;
-            border-bottom: 1px solid #f0f0f0;
-        }
-        .dropdown-item:hover {
-            background-color: #f8fafc;
-        }
-        .dropdown-item:last-child {
-            border-bottom: none;
-        }
-        .dropdown-item input[type="checkbox"] {
-            margin-right: 5px;
-            width: auto;
-        }
-        .checkmark {
-            margin-left: auto;
-            color: var(--zinnia-blue);
-            font-weight: bold;
-        }
-        /* Include your existing styles here */
+                /* Terminal Display Styles */
+                .terminal-section {
+                    margin-top: 30px;
+                    background: white;
+                    border-radius: 12px;
+                    box-shadow: var(--zinnia-shadow);
+                    overflow: hidden;
+                }
+                
+                .terminal-header {
+                    background: var(--zinnia-blue);
+                    color: white;
+                    padding: 15px 20px;
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                }
+                
+                .terminal-title {
+                    font-weight: 600;
+                    display: flex;
+                    align-items: center;
+                    gap: 10px;
+                }
+                
+                .terminal-controls {
+                    display: flex;
+                    gap: 10px;
+                }
+                
+                .terminal-btn {
+                    background: rgba(255,255,255,0.2);
+                    border: none;
+                    color: white;
+                    padding: 5px 10px;
+                    border-radius: 4px;
+                    cursor: pointer;
+                    font-size: 0.8em;
+                }
+                
+                .terminal-btn:hover {
+                    background: rgba(255,255,255,0.3);
+                }
+                
+                .terminal-display {
+                    background: #1e1e1e;
+                    color: #f0f0f0;
+                    font-family: 'Consolas', 'Monaco', monospace;
+                    font-size: 13px;
+                    line-height: 1.4;
+                    padding: 20px;
+                    height: 400px;
+                    overflow-y: auto;
+                    border: none;
+                    white-space: pre-wrap;
+                    word-wrap: break-word;
+                }
+                
+                .terminal-line {
+                    margin-bottom: 2px;
+                }
+                
+                .terminal-stdout {
+                    color: #4CAF50;
+                }
+                
+                .terminal-stderr {
+                    color: #f44336;
+                }
+                
+                .terminal-info {
+                    color: #2196F3;
+                }
+                
+                .status-indicator {
+                    display: inline-block;
+                    width: 8px;
+                    height: 8px;
+                    border-radius: 50%;
+                    margin-right: 8px;
+                }
+                
+                .status-connected {
+                    background: #4CAF50;
+                }
+                
+                .status-disconnected {
+                    background: #f44336;
+                }
+                
+                .terminal-hidden {
+                    display: none;
+                }
     </style>
 </head>
 <body>
@@ -527,7 +645,8 @@ HTML_TEMPLATE = """
                         </select>
                     </div>
 
-                    <!--
+                    {#
+                    {#
                     <div class="api-section">
                         <h3>Available APIs</h3>
                         {% for api_type, apis in grouped_apis.items() %}
@@ -558,54 +677,36 @@ HTML_TEMPLATE = """
                         </div>
                         {% endfor %}
                     </div>
-                    -->
+                    #}
+                    
+                    
                     <div class="test-section">
                         <h3>Available Test Suites</h3>
-                        <div class="form-group">
-                            <label for="test_suites_dropdown">Select Test Suites:</label>
-                            <div class="dropdown-container">
-                                <button type="button" id="test_suites_dropdown" class="dropdown-button" onclick="toggleDropdown('testSuitesDropdown')">
-                                    <span id="selected_suites_text">Select test suites...</span>
-                                    <span class="dropdown-arrow">▼</span>
-                                </button>
-                                <div id="testSuitesDropdown" class="dropdown-content">
-                                    {% for test in api_tests %}
-                                    <label class="dropdown-item">
-                                        <input type="checkbox" 
-                                               name="selected_tests" 
-                                               value="{{ test.path }}"
-                                               onchange="updateSelectedSuites()">
-                                        <span class="checkmark"></span>
-                                        {{ test.name }}
-                                    </label>
-                                    {% endfor %}
-                                </div>
+                        <div class="test-grid">
+                            {% for test in api_tests %}
+                            <div class="test-card" onclick="toggleTest(this)">
+                                <div class="test-name">{{ test.name }}</div>
+                                <input type="checkbox" 
+                                       name="selected_tests" 
+                                       value="{{ test.path }}"
+                                       style="margin-top: 10px;">
                             </div>
+                            {% endfor %}
                         </div>
                     </div>
                     
 
+                    
+                    
+
                     <div class="form-group" style="margin-top: 20px;">
                         <label for="test_type">Test Type</label>
-                        <select id="test_type" name="test_type" required onchange="loadTags()">
-                            <option value="">Select Test Type</option>
+                        <select id="test_type" name="test_type" required>
                             <option value="smoke">Smoke Test</option>
                             <option value="regression">Regression Test</option>
                             <option value="api">API Test</option>
-                            <option value="ui">UI Test</option>
                         </select>
                     </div>
-
-
-                    <!--
-                    <div id="tags_section" class="form-group" style="margin-top: 20px; display: none;">
-                        <label for="test_tags">Available Tags</label>
-                        <div id="tags_description" class="tags-description" style="margin-bottom: 10px; font-style: italic; color: #666;"></div>
-                        <div id="tags_container" class="tags-grid">
-                            <!-- Tags will be loaded dynamically -->
-                        </div>
-                    </div>
-                    -->
 
 
                     <!--
@@ -621,160 +722,157 @@ HTML_TEMPLATE = """
                     <button type="submit">Run Selected Tests</button>
                 </form>
             </div>
+            
+            <!-- Real-time Terminal Output -->
+            <div class="terminal-section terminal-hidden" id="terminalSection">
+                <div class="terminal-header">
+                    <div class="terminal-title">
+                        <span class="status-indicator status-disconnected" id="statusIndicator"></span>
+                        Real-time Execution Output
+                    </div>
+                    <div class="terminal-controls">
+                        <button class="terminal-btn" onclick="clearTerminal()">Clear</button>
+                        <button class="terminal-btn" onclick="toggleTerminal()">Hide</button>
+                    </div>
+                </div>
+                <div class="terminal-display" id="terminalOutput">
+                    <div class="terminal-line terminal-info">Terminal ready. Start a test execution to see output...</div>
+                </div>
+            </div>
         </div>
     </div>
 
     <script>
+    let socket;
+    let terminalVisible = false;
+    
     function toggleTest(card) {
         const checkbox = card.querySelector('input[type="checkbox"]');
         checkbox.checked = !checkbox.checked;
         card.classList.toggle('selected', checkbox.checked);
     }
-
-    function toggleDropdown(dropdownId) {
-        const dropdown = document.getElementById(dropdownId);
-        const button = dropdown.previousElementSibling;
-        const arrow = button.querySelector('.dropdown-arrow');
+    
+    function showTerminal() {
+        const terminalSection = document.getElementById('terminalSection');
+        terminalSection.classList.remove('terminal-hidden');
+        terminalVisible = true;
+    }
+    
+    function hideTerminal() {
+        const terminalSection = document.getElementById('terminalSection');
+        terminalSection.classList.add('terminal-hidden');
+        terminalVisible = false;
+    }
+    
+    function toggleTerminal() {
+        if (terminalVisible) {
+            hideTerminal();
+        } else {
+            showTerminal();
+        }
+    }
+    
+    function clearTerminal() {
+        const terminalOutput = document.getElementById('terminalOutput');
+        terminalOutput.innerHTML = '<div class="terminal-line terminal-info">Terminal cleared...</div>';
+    }
+    
+    function addTerminalLine(type, text) {
+        const terminalOutput = document.getElementById('terminalOutput');
+        const line = document.createElement('div');
+        line.className = `terminal-line terminal-${type}`;
+        line.textContent = text;
+        terminalOutput.appendChild(line);
+        terminalOutput.scrollTop = terminalOutput.scrollHeight;
+    }
+    
+    function updateConnectionStatus(connected) {
+        const indicator = document.getElementById('statusIndicator');
+        if (connected) {
+            indicator.className = 'status-indicator status-connected';
+        } else {
+            indicator.className = 'status-indicator status-disconnected';
+        }
+    }
+    
+    // Initialize WebSocket connection
+    document.addEventListener('DOMContentLoaded', function() {
+        // Basic styling
+        document.documentElement.style.fontSize = "16px";
+        document.body.style.fontSize = "16px";
         
-        dropdown.classList.toggle('show');
-        arrow.classList.toggle('open');
+        // Initialize Socket.IO
+        socket = io();
         
-        // Close other dropdowns if any
-        document.querySelectorAll('.dropdown-content').forEach(content => {
-            if (content.id !== dropdownId) {
-                content.classList.remove('show');
-                const otherArrow = content.previousElementSibling.querySelector('.dropdown-arrow');
-                if (otherArrow) otherArrow.classList.remove('open');
+        socket.on('connect', function() {
+            console.log('Connected to terminal stream');
+            updateConnectionStatus(true);
+            addTerminalLine('info', '=== Connected to real-time terminal stream ===');
+        });
+        
+        socket.on('disconnect', function() {
+            console.log('Disconnected from terminal stream');
+            updateConnectionStatus(false);
+            addTerminalLine('info', '=== Disconnected from terminal stream ===');
+        });
+        
+        socket.on('terminal_output', function(data) {
+            addTerminalLine(data.type, data.data);
+            if (!terminalVisible) {
+                showTerminal(); // Auto-show terminal when output starts
             }
         });
-    }
-
-    function updateSelectedSuites() {
-        const checkboxes = document.querySelectorAll('input[name="selected_tests"]:checked');
-        const selectedText = document.getElementById('selected_suites_text');
         
-        if (checkboxes.length === 0) {
-            selectedText.textContent = 'Select test suites...';
-        } else if (checkboxes.length === 1) {
-            const suiteName = checkboxes[0].parentElement.textContent.trim();
-            selectedText.textContent = suiteName;
-        } else {
-            selectedText.textContent = `${checkboxes.length} suites selected`;
-        }
-    }
-
-    // Close dropdowns when clicking outside
-    document.addEventListener('click', function(event) {
-        if (!event.target.closest('.dropdown-container')) {
-            document.querySelectorAll('.dropdown-content').forEach(content => {
-                content.classList.remove('show');
-                const arrow = content.previousElementSibling.querySelector('.dropdown-arrow');
-                if (arrow) arrow.classList.remove('open');
+        socket.on('terminal_clear', function() {
+            clearTerminal();
+        });
+        
+        socket.on('status', function(data) {
+            addTerminalLine('info', data.msg);
+        });
+        
+        socket.on('execution_complete', function(data) {
+            console.log('Execution completed:', data);
+            addTerminalLine('info', '=== Execution completed ===');
+            
+            if (data.failures && data.failures.length > 0) {
+                addTerminalLine('stderr', `Critical failures: ${data.failures.join(', ')}`);
+            }
+            
+            if (data.report_generated) {
+                addTerminalLine('stdout', 'Allure report generated successfully');
+            }
+            
+            addTerminalLine('info', 'Results page will load automatically...');
+            
+            // Enable form submission again (if it was disabled)
+            const submitButton = document.querySelector('button[type="submit"]');
+            if (submitButton) {
+                submitButton.disabled = false;
+                submitButton.textContent = 'Run Selected Tests';
+            }
+        });
+        
+        // Intercept form submission to show terminal and disable form
+        const testForm = document.getElementById('testForm');
+        if (testForm) {
+            testForm.addEventListener('submit', function(e) {
+                showTerminal();
+                clearTerminal();
+                addTerminalLine('info', '=== Test execution starting... ===');
+                
+                // Disable submit button during execution
+                const submitButton = this.querySelector('button[type="submit"]');
+                if (submitButton) {
+                    submitButton.disabled = true;
+                    submitButton.textContent = 'Running Tests...';
+                }
+                
+                socket.emit('start_execution');
             });
         }
-    });
-
-    function toggleTag(card) {
-        const checkbox = card.querySelector('input[type="checkbox"]');
-        checkbox.checked = !checkbox.checked;
-        card.classList.toggle('selected', checkbox.checked);
-    }
-
-    function updateApiCard(checkbox) {
-        const card = checkbox.closest('.api-card');
-        if (card) {
-            card.classList.toggle('selected', checkbox.checked);
-        }
-    }
-
-    function validateForm() {
-        const testType = document.getElementById('test_type').value;
-        const selectedTests = document.querySelectorAll('input[name="selected_tests"]:checked');
-        const selectedApis = document.querySelectorAll('input[name="selected_apis"]:checked');
         
-        if (!testType) {
-            alert('Please select a test type');
-            return false;
-        }
-        
-        if (selectedTests.length === 0 && selectedApis.length === 0) {
-            alert('Please select at least one test suite or API');
-            return false;
-        }
-        
-        return true;
-    }
-
-    async function loadTags() {
-        const testType = document.getElementById('test_type').value;
-        const tagsSection = document.getElementById('tags_section');
-        const tagsContainer = document.getElementById('tags_container');
-        const tagsDescription = document.getElementById('tags_description');
-        
-        if (!testType) {
-            tagsSection.style.display = 'none';
-            return;
-        }
-        
-        try {
-            // Show loading
-            tagsContainer.innerHTML = '<div class="loading-spinner">Loading tags...</div>';
-            tagsSection.style.display = 'block';
-            
-            // Fetch tags for the selected test type
-            const response = await fetch(`/api/tags/${testType}`);
-            
-            if (!response.ok) {
-                throw new Error(`HTTP error! status: ${response.status}`);
-            }
-            
-            const data = await response.json();
-            
-            // Update description
-            tagsDescription.innerHTML = `<strong>${data.display_name}:</strong> ${data.description}`;
-            
-            // Clear container
-            tagsContainer.innerHTML = '';
-            
-            // Create tag cards
-            const tags = data.tags;
-            if (Object.keys(tags).length === 0) {
-                tagsContainer.innerHTML = '<div class="loading-spinner">No tags available for this test type</div>';
-                return;
-            }
-            
-            for (const [tagKey, tagDescription] of Object.entries(tags)) {
-                const tagCard = createTagCard(tagKey, tagDescription);
-                tagsContainer.appendChild(tagCard);
-            }
-            
-        } catch (error) {
-            console.error('Error loading tags:', error);
-            tagsContainer.innerHTML = '<div class="loading-spinner" style="color: #d32f2f;">Error loading tags. Please try again.</div>';
-        }
-    }
-
-    function createTagCard(tagKey, tagDescription) {
-        const card = document.createElement('div');
-        card.className = 'tag-card';
-        card.onclick = () => toggleTag(card);
-        
-        card.innerHTML = `
-            <input type="checkbox" 
-                   name="selected_tags" 
-                   value="${tagKey}"
-                   class="tag-checkbox">
-            <div class="tag-name">${tagKey.replace(/_/g, ' ').replace(/\\b\\w/g, l => l.toUpperCase())}</div>
-            <div class="tag-description">${tagDescription}</div>
-        `;
-        
-        return card;
-    }
-
-    // Initialize page
-    document.addEventListener('DOMContentLoaded', function() {
-        // Any initialization code can go here
-        console.log('Dashboard loaded');
+        console.log('Dashboard loaded with enhanced terminal integration');
     });
     </script>
 </body>
@@ -838,6 +936,7 @@ def view_reports():
     <html>
     <head>
         <title>Historical Allure Reports</title>
+        <meta name="viewport" content="width=1200, initial-scale=1.0">
         <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
         <meta http-equiv="Pragma" content="no-cache" />
         <meta http-equiv="Expires" content="0" />
@@ -854,6 +953,10 @@ def view_reports():
                 font-family: 'Montserrat', sans-serif;
                 background: #f0f2f5;
                 display: flex;
+                transform: scale(2);
+                transform-origin: 0 0;
+                width: 50vw;
+                height: 50vh;
             }
 
             .sidebar {
@@ -1103,7 +1206,7 @@ def view_reports():
             <ul class="sidebar-menu">
                 <li><a href="/">API Testing</a></li>
                 <li><a href="/performance">API Performance</a></li>
-                <li><a href="/reports" class="active">📊 All Reports</a></li>
+                <li><a href="/reports" class="active"> All Reports</a></li>
             </ul>
             <div class="sidebar-footer">&copy; 2025 Zinnia Dashboard</div>
         </div>
@@ -1117,7 +1220,7 @@ def view_reports():
             </div>
             <div class="container">
                 <div class="card">
-                    <h2>📊 Zinnia Live-Aura: Allure Test Reports</h2>
+                    <h2> Zinnia Live-Aura: Allure Test Reports</h2>
                     <p>Browse and download the results of every automated test run.</p>
                     
                     """ + ("""
@@ -1164,25 +1267,17 @@ def view_reports():
 
 @app.route('/')
 def index():
-    try:
-        # Get available tests
-        api_tests = get_api_tests()
-        
-        return render_template_string(
-            HTML_TEMPLATE,
-            regions=api_config['regions'],
-            grouped_apis=group_apis_by_type(),
-            api_tests=api_tests,
-            available_tags=get_tags_for_dashboard()
-        )
-    except Exception as e:
-        return f"Error loading dashboard: {str(e)}"
+    return render_template_string(
+        HTML_TEMPLATE,
+        regions=api_config['regions'],
+        grouped_apis=group_apis_by_type(),
+        api_tests=get_api_tests()
+    )
 
 @app.route('/run-tests', methods=['POST'])
 def run_tests():
     selected_tests = request.form.getlist('selected_tests')
     selected_apis = request.form.getlist('selected_apis')
-    selected_tags = request.form.getlist('selected_tags')
     region = request.form.get('region')
     test_type = request.form.get('test_type')
 
@@ -1200,30 +1295,6 @@ def run_tests():
         env = os.environ.copy()
         env['TEST_ENVIRONMENT'] = region
         env['SELECTED_APIS'] = ','.join(selected_apis)
-        env['SELECTED_TAGS'] = ','.join(selected_tags)
-        
-        # If pytest-based tests are selected and tags are specified, run them
-        if test_type in ['smoke', 'regression', 'api', 'ui'] and selected_tags:
-            try:
-                pytest_cmd = generate_pytest_command(test_type, selected_tags, region.lower(), 'chrome')
-                if pytest_cmd:
-                    output.append(f"Running {test_type} tests with tags: {', '.join(selected_tags)}")
-                    
-                    # Execute pytest command
-                    process = subprocess.run(
-                        pytest_cmd.split(), 
-                        env=env, 
-                        capture_output=True, 
-                        text=True,
-                        cwd=os.getcwd()
-                    )
-                    
-                    output.append(f"Pytest Command: {pytest_cmd}")
-                    output.append(process.stdout)
-                    if process.stderr:
-                        output.append(f"Pytest Errors: {process.stderr}")
-            except Exception as e:
-                output.append(f"Error running pytest command: {str(e)}")
         
         output = []
         comparison_table_html = ""
@@ -1312,44 +1383,193 @@ def run_tests():
         # If APIs are selected, run them through the API executor
         if selected_apis:
             api_executor_path = 'tests/api/api_config_executor.robot'
+            
+            # Enhanced Robot Framework command with better logging and console capture
             cmd = [
                 'robot',
                 '--outputdir', results_dir,
                 '--variable', f'ENVIRONMENT:{region}',
                 '--variable', f'SELECTED_APIS:{str(selected_apis)}',
-                '--listener', f'allure_robotframework;{results_dir}\\allure-results',
+                '--variable', f'TEST_TYPE:{test_type}',
+                '--listener', f'allure_robotframework;{os.path.join(results_dir, "allure-results")}',
+                '--listener', f'allure_console_listener.AllureConsoleListener:{os.path.join(results_dir, "allure-results")}',  # Custom console listener
+                '--listener', f'DebugLibrary',  # Add debug listener for enhanced logging
+                '--loglevel', 'INFO',  # Set log level to capture more details
+                '--report', os.path.join(results_dir, 'detailed_report.html'),
+                '--log', os.path.join(results_dir, 'detailed_log.html'),
+                '--consolecolors', 'auto',  # Enable colored console output
+                '--consolewidth', '100',  # Set console width for better formatting
                 api_executor_path
             ]
             
-            process = subprocess.run(cmd, env=env, capture_output=True, text=True)
-            output.append(f"Running API Execution Test")
-            output.append(process.stdout)
-            if process.stderr:
-                output.append(f"API Execution Errors: {process.stderr}")
+            # Execute with improved real-time output capture
+            stdout_lines, stderr_lines, return_code = execute_command_with_realtime_output(cmd, env=env)
+            
+            output.append(f"Running API Execution Test (Enhanced Logging)")
+            output.append("=== API Test Console Output ===")
+            output.extend(stdout_lines)
+            
+            if stderr_lines:
+                output.append("=== API Test Errors ===")
+                output.extend(stderr_lines)
+            
+            # Check API execution results
+            if return_code > 1:  # Robot Framework: 0=pass, 1=test failures (normal), >1=execution error
+                output.append(f"❌ API execution failed with critical error (exit code: {return_code})")
+                socketio.emit('terminal_output', {'type': 'stderr', 'data': f'API execution failed with exit code {return_code}'})
+                # Continue to generate report for analysis, but mark as failed
+            
+            # Create console log file for Allure attachment
+            console_log_path = os.path.join(results_dir, 'api_console_output.log')
+            with open(console_log_path, 'w', encoding='utf-8') as console_file:
+                console_file.write("API Test Console Output\n")
+                console_file.write("=" * 50 + "\n")
+                console_file.write(f"Environment: {region}\n")
+                console_file.write(f"Selected APIs: {selected_apis}\n")
+                console_file.write(f"Test Type: {test_type}\n")
+                console_file.write(f"Start Time: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}\n")
+                console_file.write("=" * 50 + "\n\n")
+                console_file.write("STDOUT:\n")
+                console_file.write('\n'.join(stdout_lines))
+                console_file.write("\n\nSTDERR:\n")
+                console_file.write('\n'.join(stderr_lines))
+                console_file.write(f"\n\nProcess Exit Code: {return_code}\n")
         
-        # Run selected test suites
+        # Run selected test suites with enhanced logging
+        execution_failures = []
         for test in selected_tests:
+            test_name = os.path.basename(test)
+            
+            # Enhanced Robot Framework command for test suites
             cmd = [
                 'robot',
                 '--outputdir', results_dir,
                 '--variable', f'ENVIRONMENT:{region}',
                 '--variable', f'SELECTED_APIS:{",".join(selected_apis)}',
-                '--listener', f'allure_robotframework;{results_dir}\\allure-results',
+                '--variable', f'TEST_TYPE:{test_type}',
+                '--listener', f'allure_robotframework;{os.path.join(results_dir, "allure-results")}',
+                '--listener', f'allure_console_listener.AllureConsoleListener:{os.path.join(results_dir, "allure-results")}',  # Custom console listener
+                '--listener', f'DebugLibrary',  # Add debug listener for enhanced logging
+                '--loglevel', 'INFO',  # Set log level to capture more details
+                '--report', os.path.join(results_dir, f'{test_name}_detailed_report.html'),
+                '--log', os.path.join(results_dir, f'{test_name}_detailed_log.html'),
+                '--consolecolors', 'auto',  # Enable colored console output
+                '--consolewidth', '100',  # Set console width for better formatting
+                '--metadata', f'Test_Suite:{test_name}',
+                '--metadata', f'Environment:{region}',
+                '--metadata', f'Test_Type:{test_type}',
                 test
             ]
             
-            process = subprocess.run(cmd, env=env, capture_output=True, text=True)
-            output.append(f"Running test suite: {os.path.basename(test)}")
-            output.append(process.stdout)
-            if process.stderr:
-                output.append(f"Test Suite Errors: {process.stderr}")
+            output.append(f"Running test suite: {test_name} (Enhanced Logging)")
+            output.append(f"=== {test_name} Console Output ===")
+            
+            # Execute with improved real-time output capture
+            stdout_lines, stderr_lines, return_code = execute_command_with_realtime_output(cmd, env=env)
+            
+            # Add outputs to main output list
+            output.extend(stdout_lines)
+            
+            if stderr_lines:
+                output.append(f"=== {test_name} Errors ===")
+                output.extend(stderr_lines)
+            
+            # Check test execution results
+            if return_code > 1:  # Robot Framework: 0=pass, 1=test failures (normal), >1=execution error
+                execution_failures.append(f"{test_name} (exit code: {return_code})")
+                output.append(f"❌ Test suite {test_name} failed with critical error (exit code: {return_code})")
+                socketio.emit('terminal_output', {'type': 'stderr', 'data': f'Test suite {test_name} failed with exit code {return_code}'})
+            elif return_code == 1:
+                output.append(f"⚠️ Test suite {test_name} completed with test failures (exit code: {return_code})")
+                socketio.emit('terminal_output', {'type': 'info', 'data': f'Test suite {test_name} completed with some test failures'})
+            else:
+                output.append(f"✅ Test suite {test_name} completed successfully (exit code: {return_code})")
+                socketio.emit('terminal_output', {'type': 'stdout', 'data': f'Test suite {test_name} completed successfully'})
+            
+            # Create console log file for this test suite
+            suite_console_log_path = os.path.join(results_dir, f'{test_name}_console_output.log')
+            with open(suite_console_log_path, 'w', encoding='utf-8') as console_file:
+                console_file.write(f"{test_name} Console Output\n")
+                console_file.write("=" * 50 + "\n")
+                console_file.write(f"Test Suite: {test_name}\n")
+                console_file.write(f"Environment: {region}\n")
+                console_file.write(f"Test Type: {test_type}\n")
+                console_file.write(f"Start Time: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}\n")
+                console_file.write("=" * 50 + "\n\n")
+                console_file.write("STDOUT:\n")
+                console_file.write('\n'.join(stdout_lines))
+                console_file.write("\n\nSTDERR:\n")
+                console_file.write('\n'.join(stderr_lines))
+                console_file.write(f"\n\nProcess Exit Code: {return_code}\n")
+            
+            output.append(f"Console log saved: {suite_console_log_path}")
+            output.append(f"Test suite {test_name} execution completed")
 
-        # Generate Allure report
+        # Check if we should continue with report generation
+        if execution_failures:
+            output.append(f"⚠️ Critical execution failures detected: {', '.join(execution_failures)}")
+            socketio.emit('terminal_output', {'type': 'stderr', 'data': f'Critical failures: {", ".join(execution_failures)}'})
+            
+            # For critical failures, we could provide early termination option
+            if len(execution_failures) > 2:  # If more than 2 critical failures
+                output.append("🛑 Multiple critical failures detected - proceeding with limited report generation")
+                socketio.emit('terminal_output', {'type': 'stderr', 'data': 'Multiple critical failures - limited report generation'})
+        
+        # Signal that main execution is complete
+        socketio.emit('terminal_output', {'type': 'info', 'data': '=== Test execution phase completed ==='})
+        
+        # Generate Enhanced Allure report with console integration (with timeout and error handling)
         allure_report_generated = False
         
         # Check if there are allure results to process
         if os.path.exists(allure_results_dir) and os.listdir(allure_results_dir):
             try:
+                output.append("Preparing enhanced Allure report with console integration...")
+                socketio.emit('terminal_output', {'type': 'info', 'data': 'Generating Allure report...'})
+                
+                # Create consolidated console log for Allure
+                consolidated_console_path = os.path.join(allure_results_dir, 'consolidated_console.txt')
+                with open(consolidated_console_path, 'w', encoding='utf-8') as consolidated_file:
+                    consolidated_file.write("Complete Test Execution Console Output\n")
+                    consolidated_file.write("=" * 60 + "\n")
+                    consolidated_file.write(f"Execution Time: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}\n")
+                    consolidated_file.write(f"Environment: {region}\n")
+                    consolidated_file.write(f"Test Type: {test_type}\n")
+                    consolidated_file.write(f"Selected APIs: {selected_apis}\n")
+                    consolidated_file.write(f"Selected Tests: {[os.path.basename(t) for t in selected_tests]}\n")
+                    if execution_failures:
+                        consolidated_file.write(f"Critical Failures: {execution_failures}\n")
+                    consolidated_file.write("=" * 60 + "\n\n")
+                    
+                    # Include all console logs from individual files
+                    for log_file in os.listdir(results_dir):
+                        if log_file.endswith('_console_output.log'):
+                            log_path = os.path.join(results_dir, log_file)
+                            try:
+                                with open(log_path, 'r', encoding='utf-8') as f:
+                                    consolidated_file.write(f"\n=== {log_file} ===\n")
+                                    consolidated_file.write(f.read())
+                                    consolidated_file.write(f"\n=== End of {log_file} ===\n\n")
+                            except Exception as e:
+                                consolidated_file.write(f"Error reading {log_file}: {e}\n")
+                
+                # Create execution metadata for Allure
+                metadata_path = os.path.join(allure_results_dir, 'execution_metadata.json')
+                metadata = {
+                    "execution_info": {
+                        "timestamp": datetime.now().isoformat(),
+                        "environment": region,
+                        "test_type": test_type,
+                        "selected_apis": selected_apis,
+                        "selected_tests": [os.path.basename(t) for t in selected_tests],
+                        "execution_failures": execution_failures,
+                        "console_integration": "enabled",
+                        "enhanced_logging": "enabled"
+                    }
+                }
+                with open(metadata_path, 'w', encoding='utf-8') as f:
+                    json.dump(metadata, f, indent=2)
+                
                 # Use the local allure installation
                 allure_cmd_path = os.path.join('allure-2.34.1', 'allure-2.34.1', 'bin', 'allure.bat')
                 
@@ -1359,11 +1579,37 @@ def run_tests():
                 else:
                     allure_cmd = ['allure', 'generate', allure_results_dir, '--clean', '--single-file', '-o', f'{results_dir}/allure-report']
                 
-                subprocess.run(allure_cmd, check=True, shell=True)
+                output.append(f"Generating Allure report with command: {' '.join(allure_cmd)}")
+                
+                # Add timeout to prevent hanging
+                try:
+                    result = subprocess.run(
+                        allure_cmd, 
+                        check=False,  # Don't raise exception on non-zero exit
+                        shell=True, 
+                        capture_output=True, 
+                        text=True, 
+                        timeout=120  # 2 minute timeout
+                    )
+                    
+                    if result.stdout:
+                        output.append(f"Allure generation output: {result.stdout}")
+                    if result.stderr:
+                        output.append(f"Allure generation warnings: {result.stderr}")
+                    
+                    if result.returncode != 0:
+                        output.append(f"⚠️ Allure generation returned exit code: {result.returncode}")
+                        socketio.emit('terminal_output', {'type': 'stderr', 'data': f'Allure generation issues (exit code: {result.returncode})'})
+                    
+                except subprocess.TimeoutExpired:
+                    output.append("❌ Allure report generation timed out after 2 minutes")
+                    socketio.emit('terminal_output', {'type': 'stderr', 'data': 'Allure report generation timed out'})
+                    # Continue without report
                 
                 # Check if the report was actually generated
                 if os.path.exists(f'{results_dir}/allure-report/index.html'):
-                    output.append("Allure report generated successfully")
+                    output.append("✅ Enhanced Allure report generated successfully with console integration")
+                    socketio.emit('terminal_output', {'type': 'stdout', 'data': 'Allure report generated successfully'})
                     
                     # Copy report to consolidated allure-report directory
                     try:
@@ -1376,27 +1622,40 @@ def run_tests():
                         
                         # Copy the generated report to the consolidated directory
                         shutil.copytree(f'{results_dir}/allure-report', serving_dir)
-                        output.append(f"Allure report saved to consolidated location: {serving_dir}")
+                        output.append(f"Enhanced Allure report saved to consolidated location: {serving_dir}")
+                        output.append(f"Console logs integrated and available in report attachments")
                         
                         allure_report_generated = True
                         
                     except Exception as copy_error:
-                        output.append(f"Warning: Report generated but failed to copy to serving location: {str(copy_error)}")
+                        output.append(f"⚠️ Warning: Report generated but failed to copy to serving location: {str(copy_error)}")
                         allure_report_generated = True  # Report still exists in original location
                 else:
-                    output.append("Allure report generation completed but index.html not found")
-            except subprocess.CalledProcessError as e:
-                output.append(f"Failed to generate Allure report: {str(e)}")
+                    output.append("⚠️ Allure report generation completed but index.html not found")
+                    socketio.emit('terminal_output', {'type': 'stderr', 'data': 'Allure report index.html not found'})
+                    
             except Exception as e:
-                output.append(f"Error generating Allure report: {str(e)}")
+                output.append(f"❌ Error generating Allure report: {str(e)}")
+                socketio.emit('terminal_output', {'type': 'stderr', 'data': f'Allure report error: {str(e)}'})
         else:
-            output.append("No Allure results found - skipping Allure report generation")
+            output.append("⚠️ No Allure results found - skipping Allure report generation")
+            socketio.emit('terminal_output', {'type': 'info', 'data': 'No Allure results found'})
+
+        # Signal completion to WebSocket clients
+        socketio.emit('terminal_output', {'type': 'info', 'data': '=== Execution completed - generating results page ==='})
+        socketio.emit('execution_complete', {
+            'status': 'completed',
+            'failures': execution_failures,
+            'report_generated': allure_report_generated,
+            'results_dir': results_dir
+        })
 
         return f"""
         <!DOCTYPE html>
         <html>
         <head>
             <title>Test Execution Results</title>
+            <meta name="viewport" content="width=1200, initial-scale=1.0">
             <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
             <style>
                 :root {{
@@ -1409,6 +1668,10 @@ def run_tests():
                     margin: 0;
                     padding: 20px;
                     background: #f0f2f5;
+                    transform: scale(2);
+                    transform-origin: 0 0;
+                    width: 50vw;
+                    height: 50vh;
                 }}
                 .container {{
                     max-width: 1200px;
@@ -1520,11 +1783,24 @@ def run_tests():
         """
 
     except Exception as e:
+        # Ensure WebSocket clients are notified of the error
+        try:
+            socketio.emit('terminal_output', {'type': 'stderr', 'data': f'Critical error: {str(e)}'})
+            socketio.emit('execution_complete', {
+                'status': 'error', 
+                'error': str(e),
+                'failures': [],
+                'report_generated': False
+            })
+        except:
+            pass  # Ignore WebSocket errors in error handler
+            
         return f"""
         <!DOCTYPE html>
         <html>
         <head>
             <title>Error - Test Execution</title>
+            <meta name="viewport" content="width=1200, initial-scale=1.0">
             <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
             <style>
                 :root {{
@@ -1537,6 +1813,10 @@ def run_tests():
                     margin: 0;
                     padding: 20px;
                     background: #f0f2f5;
+                    transform: scale(2);
+                    transform-origin: 0 0;
+                    width: 50vw;
+                    height: 50vh;
                 }}
                 .container {{
                     max-width: 800px;
@@ -1556,6 +1836,16 @@ def run_tests():
                     padding: 20px;
                     border-radius: 8px;
                     margin: 20px 0;
+                    word-wrap: break-word;
+                }}
+                .error-details {{
+                    font-family: 'Consolas', monospace;
+                    font-size: 0.9em;
+                    background: #f5f5f5;
+                    padding: 15px;
+                    border-radius: 4px;
+                    margin-top: 10px;
+                    overflow-x: auto;
                 }}
                 .button {{
                     display: inline-block;
@@ -1565,20 +1855,38 @@ def run_tests():
                     text-decoration: none;
                     border-radius: 6px;
                     transition: all 0.2s;
+                    margin-right: 10px;
                 }}
                 .button:hover {{
                     transform: translateY(-2px);
                     box-shadow: var(--zinnia-shadow);
                 }}
+                .retry-button {{
+                    background: #ff9800;
+                }}
             </style>
         </head>
         <body>
             <div class="container">
-                <h2>Error</h2>
+                <h2>❌ Test Execution Error</h2>
                 <div class="error-message">
-                    Error executing tests: {str(e)}
+                    <strong>An error occurred during test execution:</strong>
+                    <div class="error-details">{str(e)}</div>
                 </div>
-                <a href="/" class="button">Back to Dashboard</a>
+                <div style="margin-top: 20px;">
+                    <p><strong>Possible solutions:</strong></p>
+                    <ul>
+                        <li>Check if Robot Framework is properly installed</li>
+                        <li>Verify test files exist and are accessible</li>
+                        <li>Check Allure installation if report generation failed</li>
+                        <li>Review console output for detailed error information</li>
+                    </ul>
+                </div>
+                <div style="margin-top: 30px;">
+                    <a href="/" class="button">Back to Dashboard</a>
+                    <a href="/reports" class="button">View Previous Reports</a>
+                    <button onclick="window.location.reload()" class="button retry-button">Retry</button>
+                </div>
             </div>
         </body>
         </html>
@@ -1705,6 +2013,7 @@ def download_report(run_id):
 
 
 if __name__ == '__main__':
-    print("Starting dashboard server on http://localhost:5050")
+    print("Starting enhanced dashboard server with real-time terminal integration on http://localhost:5050")
+    print("Features: WebSocket support, real-time execution output, cross-platform subprocess handling")
     print("Press Ctrl+C to stop the server")
-    app.run(host='0.0.0.0', port=5050)
+    socketio.run(app, host='0.0.0.0', port=5050, debug=False)

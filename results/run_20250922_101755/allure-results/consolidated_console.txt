@@ -1,0 +1,78 @@
+Complete Test Execution Console Output
+============================================================
+Execution Time: 2025-09-22 10:18:11
+Environment: dev
+Test Type: smoke
+Selected APIs: []
+Selected Tests: ['transaction_onboarding_regression_suite.robot']
+============================================================
+
+
+=== transaction_onboarding_regression_suite.robot_console_output.log ===
+transaction_onboarding_regression_suite.robot Console Output
+==================================================
+Test Suite: transaction_onboarding_regression_suite.robot
+Environment: dev
+Test Type: smoke
+Start Time: 2025-09-22 10:18:11
+==================================================
+
+STDOUT:
+====================================================================================================
+Transaction Onboarding Regression Suite
+====================================================================================================
+Perform ${automation_flow} Process for client ${client_name} testID: ${TestId}              | FAIL |
+No keyword with name 'Perform Transaction Onboarding Automation Flow' found. Did you mean:
+ZinniaLive.Transaction Onboarding Automation Flow
+----------------------------------------------------------------------------------------------------
+Transaction Onboarding Regression Suite                                                     | FAIL |
+1 test, 0 passed, 1 failed
+====================================================================================================
+Output:  C:\Users\sharmash\automation-framwork\results\run_20250922_101755\output.xml
+Log:     C:\Users\sharmash\automation-framwork\results\run_20250922_101755\results\run_20250922_101755\transaction_onboarding_regression_suite.robot_detailed_log.html
+Report:  C:\Users\sharmash\automation-framwork\results\run_20250922_101755\results\run_20250922_101755\transaction_onboarding_regression_suite.robot_detailed_report.html
+
+STDERR:
+[ ERROR ] Taking listener 'allure_console_listener.AllureConsoleListener:results/run_20250922_101755\allure-results' into use failed: Importing listener 'allure_console_listener.AllureConsoleListener' failed: ModuleNotFoundError: No module named 'allure_console_listener'
+Traceback (most recent call last):
+None
+PYTHONPATH:
+C:\Program Files\Python312\Scripts\robot.exe
+c:\Users\sharmash\Downloads\QAS-ZinniaLive-AutomationTesting (1)\QAS-ZinniaLive-AutomationTesting
+C:\Users\sharmash\automation-framwork\%PYTHONPATH%
+C:\Program Files\Python312\python312.zip
+C:\Program Files\Python312\DLLs
+C:\Program Files\Python312\Lib
+C:\Program Files\Python312
+C:\Users\sharmash\AppData\Roaming\Python\Python312\site-packages
+C:\Users\sharmash\AppData\Roaming\Python\Python312\site-packages\win32
+C:\Users\sharmash\AppData\Roaming\Python\Python312\site-packages\win32\lib
+C:\Users\sharmash\AppData\Roaming\Python\Python312\site-packages\Pythonwin
+C:\Program Files\Python312\Lib\site-packages
+[ ERROR ] Taking listener 'DebugLibrary' into use failed: Importing listener 'DebugLibrary' failed: ModuleNotFoundError: No module named 'DebugLibrary'
+Traceback (most recent call last):
+None
+PYTHONPATH:
+C:\Program Files\Python312\Scripts\robot.exe
+c:\Users\sharmash\Downloads\QAS-ZinniaLive-AutomationTesting (1)\QAS-ZinniaLive-AutomationTesting
+C:\Users\sharmash\automation-framwork\%PYTHONPATH%
+C:\Program Files\Python312\python312.zip
+C:\Program Files\Python312\DLLs
+C:\Program Files\Python312\Lib
+  C:\Program Files\Python312
+  C:\Users\sharmash\AppData\Roaming\Python\Python312\site-packages
+  C:\Users\sharmash\AppData\Roaming\Python\Python312\site-packages\win32
+  C:\Users\sharmash\AppData\Roaming\Python\Python312\site-packages\win32\lib
+  C:\Users\sharmash\AppData\Roaming\Python\Python312\site-packages\Pythonwin
+  C:\Program Files\Python312\Lib\site-packages
+[ ERROR ] Error in file 'C:\Users\sharmash\automation-framwork\resources\zinnialive.resource' on line 3: Library 'keywords\data_creation_keywords\GenerateDTCC.py' does not exist.
+[ ERROR ] [ DataDriver ] Error in robot file:
+  File "C:\Users\sharmash\automation-framwork\tests\api\transaction_onboarding_regression_suite.robot", line 0
+[ ERROR ] In source file:
+  File "\\sbgcommon\SYS\DEPTS\SE2\Delivery Quality\Automation DQ\ZLCM\Data\Testdata\transaction_onboarding.xlsx", line 0
+[ ERROR ] Calling method '_start_suite' of listener 'DataDriver' failed: AttributeError: No "Test Template" keyword found for first test case.
+
+Process Exit Code: 1
+
+=== End of transaction_onboarding_regression_suite.robot_console_output.log ===
+

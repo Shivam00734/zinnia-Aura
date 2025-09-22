@@ -1,0 +1,13 @@
+{
+  "execution_info": {
+    "timestamp": "2025-09-22T10:46:46.355036",
+    "environment": "dev",
+    "test_type": "smoke",
+    "selected_apis": [],
+    "selected_tests": [
+      "fakerdata.robot"
+    ],
+    "console_integration": "enabled",
+    "enhanced_logging": "enabled"
+  }
+}

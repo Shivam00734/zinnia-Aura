@@ -1,0 +1,945 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.0.1 (Python 3.12.1 on win32)" generated="2025-09-22T10:47:24.585414" rpa="false" schemaversion="5">
+<suite id="s1" name="Fakerdata" source="C:\Users\sharmash\automation-framwork\tests\api\fakerdata.robot">
+<kw name="Setup Enhanced Allure Environment" owner="ReportingSetup" type="SETUP">
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-09-22T10:47:25.857536" level="INFO">${os_info} = Windows 10</msg>
+<var>${os_info}</var>
+<arg>platform.system() + " " + platform.release()</arg>
+<arg>platform</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-09-22T10:47:25.857536" elapsed="0.000000"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-09-22T10:47:25.861603" level="INFO">${python_version} = 3.12.1</msg>
+<var>${python_version}</var>
+<arg>sys.version.split()[0]</arg>
+<arg>sys</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-09-22T10:47:25.860537" elapsed="0.001066"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-09-22T10:47:25.867537" level="INFO">${hostname} = DS3XB94-ZINNIA</msg>
+<var>${hostname}</var>
+<arg>socket.gethostname()</arg>
+<arg>socket</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-09-22T10:47:25.866576" elapsed="0.000961"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-09-22T10:47:25.871536" level="INFO">Environment: QA</msg>
+<arg>Environment: ${environment}</arg>
+<arg>INFO</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-09-22T10:47:25.871536" elapsed="0.000000"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-09-22T10:47:25.876537" level="INFO">Test Type: Data_Generation</msg>
+<arg>Test Type: ${test_type}</arg>
+<arg>INFO</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-09-22T10:47:25.875536" elapsed="0.001001"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-09-22T10:47:25.880536" level="INFO">Operating System: Windows 10</msg>
+<arg>Operating System: ${os_info}</arg>
+<arg>INFO</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-09-22T10:47:25.880536" elapsed="0.000000"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-09-22T10:47:25.883536" level="INFO">Python Version: 3.12.1</msg>
+<arg>Python Version: ${python_version}</arg>
+<arg>INFO</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-09-22T10:47:25.883536" elapsed="0.000000"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-09-22T10:47:25.888542" level="INFO">Hostname: DS3XB94-ZINNIA</msg>
+<arg>Hostname: ${hostname}</arg>
+<arg>INFO</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-09-22T10:47:25.888542" elapsed="0.000995"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-09-22T10:47:25.892548" level="INFO">Console Logging: Enabled</msg>
+<arg>Console Logging: Enabled</arg>
+<arg>INFO</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-09-22T10:47:25.892548" elapsed="0.000000"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-09-22T10:47:25.896565" level="INFO">${allure_results_dir} = C:\Users\sharmash\automation-framwork\results\run_20250922_104723/allure-results</msg>
+<var>${allure_results_dir}</var>
+<arg>${OUTPUT_DIR}/allure-results</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-09-22T10:47:25.896565" elapsed="0.000000"/>
+</kw>
+<kw name="Create Directory" owner="OperatingSystem">
+<msg time="2025-09-22T10:47:25.899574" level="INFO" html="true">Directory '&lt;a href="file://C:\Users\sharmash\automation-framwork\results\run_20250922_104723\allure-results"&gt;C:\Users\sharmash\automation-framwork\results\run_20250922_104723\allure-results&lt;/a&gt;' already exists.</msg>
+<arg>${allure_results_dir}</arg>
+<doc>Creates the specified directory.</doc>
+<status status="PASS" start="2025-09-22T10:47:25.898606" elapsed="0.000968"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-09-22T10:47:25.902537" level="INFO">${env_file} = C:\Users\sharmash\automation-framwork\results\run_20250922_104723/allure-results/environment.properties</msg>
+<var>${env_file}</var>
+<arg>${allure_results_dir}/environment.properties</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-09-22T10:47:25.902537" elapsed="0.000000"/>
+</kw>
+<kw name="Catenate" owner="BuiltIn">
+<msg time="2025-09-22T10:47:25.905536" level="INFO">${env_content} = Environment=QA
+Test_Type=Data_Generation
+Operating_System=Windows 10
+Python_Version=3.12.1
+Hostname=DS3XB94-ZINNIA
+Console_Logging=Enabled</msg>
+<var>${env_content}</var>
+<arg>SEPARATOR=\n</arg>
+<arg>Environment=${environment}</arg>
+<arg>Test_Type=${test_type}</arg>
+<arg>Operating_System=${os_info}</arg>
+<arg>Python_Version=${python_version}</arg>
+<arg>Hostname=${hostname}</arg>
+<arg>Console_Logging=Enabled</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<status status="PASS" start="2025-09-22T10:47:25.904536" elapsed="0.001000"/>
+</kw>
+<kw name="Create File" owner="OperatingSystem">
+<msg time="2025-09-22T10:47:25.909536" level="INFO" html="true">Created file '&lt;a href="file://C:\Users\sharmash\automation-framwork\results\run_20250922_104723\allure-results\environment.properties"&gt;C:\Users\sharmash\automation-framwork\results\run_20250922_104723\allure-results\environment.properties&lt;/a&gt;'.</msg>
+<arg>${env_file}</arg>
+<arg>${env_content}</arg>
+<doc>Creates a file with the given content and encoding.</doc>
+<status status="PASS" start="2025-09-22T10:47:25.907536" elapsed="0.002000"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Allure environment setup completed</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-22T10:47:25.912581" elapsed="0.000995"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Environment: ${environment} | Type: ${test_type}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-22T10:47:25.913576" elapsed="0.001000"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>OS: ${os_info} | Python: ${python_version}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-22T10:47:25.914576" elapsed="0.000000"/>
+</kw>
+<arg>QA</arg>
+<arg>Data_Generation</arg>
+<doc>Setup enhanced Allure environment with detailed system info</doc>
+<status status="PASS" start="2025-09-22T10:47:25.856536" elapsed="0.059034"/>
+</kw>
+<test id="s1-t1" name="Creating Fake Data" line="13">
+<kw name="Setup Test With Console Logging" owner="ReportingSetup" type="SETUP">
+<kw name="Get Current Date" owner="DateTime">
+<msg time="2025-09-22T10:47:25.918579" level="INFO">${current_time} = 2025-09-22 10:47:25</msg>
+<var>${current_time}</var>
+<arg>result_format=%Y-%m-%d %H:%M:%S</arg>
+<doc>Returns current local or UTC time with an optional increment.</doc>
+<status status="PASS" start="2025-09-22T10:47:25.917569" elapsed="0.001010"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Starting test: ${test_name}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-22T10:47:25.921536" elapsed="0.001042"/>
+</kw>
+<kw name="Append To Console Log" owner="ReportingSetup">
+<kw name="Get Current Date" owner="DateTime">
+<msg time="2025-09-22T10:47:25.924537" level="INFO">${timestamp} = 2025-09-22 10:47:25</msg>
+<var>${timestamp}</var>
+<arg>result_format=%Y-%m-%d %H:%M:%S</arg>
+<doc>Returns current local or UTC time with an optional increment.</doc>
+<status status="PASS" start="2025-09-22T10:47:25.923537" elapsed="0.001000"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-09-22T10:47:25.928537" level="INFO">${log_entry} = [2025-09-22 10:47:25] ========================================</msg>
+<var>${log_entry}</var>
+<arg>[${timestamp}] ${message}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-09-22T10:47:25.927655" elapsed="0.000882"/>
+</kw>
+<kw name="Append To File" owner="OperatingSystem">
+<msg time="2025-09-22T10:47:25.933537" level="INFO" html="true">Appended to file '&lt;a href="file://C:\Users\sharmash\automation-framwork\results\run_20250922_104723\console_output.log"&gt;C:\Users\sharmash\automation-framwork\results\run_20250922_104723\console_output.log&lt;/a&gt;'.</msg>
+<arg>${CONSOLE_LOG_FILE}</arg>
+<arg>${log_entry}\n</arg>
+<doc>Appends the given content to the specified file.</doc>
+<status status="PASS" start="2025-09-22T10:47:25.930583" elapsed="0.003953"/>
+</kw>
+<arg>========================================</arg>
+<doc>Append message to console log file</doc>
+<status status="PASS" start="2025-09-22T10:47:25.923537" elapsed="0.012102"/>
+</kw>
+<kw name="Append To Console Log" owner="ReportingSetup">
+<kw name="Get Current Date" owner="DateTime">
+<msg time="2025-09-22T10:47:25.936544" level="INFO">${timestamp} = 2025-09-22 10:47:25</msg>
+<var>${timestamp}</var>
+<arg>result_format=%Y-%m-%d %H:%M:%S</arg>
+<doc>Returns current local or UTC time with an optional increment.</doc>
+<status status="PASS" start="2025-09-22T10:47:25.936544" elapsed="0.000000"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-09-22T10:47:25.939536" level="INFO">${log_entry} = [2025-09-22 10:47:25] Test: Creating Fake Data</msg>
+<var>${log_entry}</var>
+<arg>[${timestamp}] ${message}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-09-22T10:47:25.938577" elapsed="0.000959"/>
+</kw>
+<kw name="Append To File" owner="OperatingSystem">
+<msg time="2025-09-22T10:47:25.941543" level="INFO" html="true">Appended to file '&lt;a href="file://C:\Users\sharmash\automation-framwork\results\run_20250922_104723\console_output.log"&gt;C:\Users\sharmash\automation-framwork\results\run_20250922_104723\console_output.log&lt;/a&gt;'.</msg>
+<arg>${CONSOLE_LOG_FILE}</arg>
+<arg>${log_entry}\n</arg>
+<doc>Appends the given content to the specified file.</doc>
+<status status="PASS" start="2025-09-22T10:47:25.940617" elapsed="0.000926"/>
+</kw>
+<arg>Test: ${test_name}</arg>
+<doc>Append message to console log file</doc>
+<status status="PASS" start="2025-09-22T10:47:25.936544" elapsed="0.008052"/>
+</kw>
+<kw name="Append To Console Log" owner="ReportingSetup">
+<kw name="Get Current Date" owner="DateTime">
+<msg time="2025-09-22T10:47:25.946538" level="INFO">${timestamp} = 2025-09-22 10:47:25</msg>
+<var>${timestamp}</var>
+<arg>result_format=%Y-%m-%d %H:%M:%S</arg>
+<doc>Returns current local or UTC time with an optional increment.</doc>
+<status status="PASS" start="2025-09-22T10:47:25.945538" elapsed="0.001000"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-09-22T10:47:25.950572" level="INFO">${log_entry} = [2025-09-22 10:47:25] Started: 2025-09-22 10:47:25</msg>
+<var>${log_entry}</var>
+<arg>[${timestamp}] ${message}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-09-22T10:47:25.949614" elapsed="0.000958"/>
+</kw>
+<kw name="Append To File" owner="OperatingSystem">
+<msg time="2025-09-22T10:47:25.955570" level="INFO" html="true">Appended to file '&lt;a href="file://C:\Users\sharmash\automation-framwork\results\run_20250922_104723\console_output.log"&gt;C:\Users\sharmash\automation-framwork\results\run_20250922_104723\console_output.log&lt;/a&gt;'.</msg>
+<arg>${CONSOLE_LOG_FILE}</arg>
+<arg>${log_entry}\n</arg>
+<doc>Appends the given content to the specified file.</doc>
+<status status="PASS" start="2025-09-22T10:47:25.953581" elapsed="0.001989"/>
+</kw>
+<arg>Started: ${current_time}</arg>
+<doc>Append message to console log file</doc>
+<status status="PASS" start="2025-09-22T10:47:25.945538" elapsed="0.013039"/>
+</kw>
+<kw name="Append To Console Log" owner="ReportingSetup">
+<kw name="Get Current Date" owner="DateTime">
+<msg time="2025-09-22T10:47:25.959536" level="INFO">${timestamp} = 2025-09-22 10:47:25</msg>
+<var>${timestamp}</var>
+<arg>result_format=%Y-%m-%d %H:%M:%S</arg>
+<doc>Returns current local or UTC time with an optional increment.</doc>
+<status status="PASS" start="2025-09-22T10:47:25.959536" elapsed="0.000000"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-09-22T10:47:25.964537" level="INFO">${log_entry} = [2025-09-22 10:47:25] ========================================</msg>
+<var>${log_entry}</var>
+<arg>[${timestamp}] ${message}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-09-22T10:47:25.964537" elapsed="0.000000"/>
+</kw>
+<kw name="Append To File" owner="OperatingSystem">
+<msg time="2025-09-22T10:47:25.969585" level="INFO" html="true">Appended to file '&lt;a href="file://C:\Users\sharmash\automation-framwork\results\run_20250922_104723\console_output.log"&gt;C:\Users\sharmash\automation-framwork\results\run_20250922_104723\console_output.log&lt;/a&gt;'.</msg>
+<arg>${CONSOLE_LOG_FILE}</arg>
+<arg>${log_entry}\n</arg>
+<doc>Appends the given content to the specified file.</doc>
+<status status="PASS" start="2025-09-22T10:47:25.966585" elapsed="0.003000"/>
+</kw>
+<arg>========================================</arg>
+<doc>Append message to console log file</doc>
+<status status="PASS" start="2025-09-22T10:47:25.958577" elapsed="0.013997"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-09-22T10:47:25.973577" level="INFO">Enhanced test with console logging integration</msg>
+<arg>Enhanced test with console logging integration</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-09-22T10:47:25.973577" elapsed="0.000000"/>
+</kw>
+<doc>Setup individual test with enhanced console logging</doc>
+<status status="PASS" start="2025-09-22T10:47:25.916536" elapsed="0.061078"/>
+</kw>
+<kw name="Log Step To Console And Allure" owner="ReportingSetup">
+<kw name="Log To Console" owner="BuiltIn">
+<arg>STEP: ${step_description}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-22T10:47:25.978585" elapsed="0.000000"/>
+</kw>
+<kw name="Append To Console Log" owner="ReportingSetup">
+<kw name="Get Current Date" owner="DateTime">
+<msg time="2025-09-22T10:47:25.979581" level="INFO">${timestamp} = 2025-09-22 10:47:25</msg>
+<var>${timestamp}</var>
+<arg>result_format=%Y-%m-%d %H:%M:%S</arg>
+<doc>Returns current local or UTC time with an optional increment.</doc>
+<status status="PASS" start="2025-09-22T10:47:25.979581" elapsed="0.000000"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-09-22T10:47:25.983536" level="INFO">${log_entry} = [2025-09-22 10:47:25] STEP: Starting fake data generation process</msg>
+<var>${log_entry}</var>
+<arg>[${timestamp}] ${message}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-09-22T10:47:25.983536" elapsed="0.000000"/>
+</kw>
+<kw name="Append To File" owner="OperatingSystem">
+<msg time="2025-09-22T10:47:25.986599" level="INFO" html="true">Appended to file '&lt;a href="file://C:\Users\sharmash\automation-framwork\results\run_20250922_104723\console_output.log"&gt;C:\Users\sharmash\automation-framwork\results\run_20250922_104723\console_output.log&lt;/a&gt;'.</msg>
+<arg>${CONSOLE_LOG_FILE}</arg>
+<arg>${log_entry}\n</arg>
+<doc>Appends the given content to the specified file.</doc>
+<status status="PASS" start="2025-09-22T10:47:25.985586" elapsed="0.001013"/>
+</kw>
+<arg>STEP: ${step_description}</arg>
+<doc>Append message to console log file</doc>
+<status status="PASS" start="2025-09-22T10:47:25.978585" elapsed="0.009961"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<arg>"${details}" != "${EMPTY}"</arg>
+<arg>Append To Console Log</arg>
+<arg>DETAILS: ${details}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-09-22T10:47:25.988546" elapsed="0.000000"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-09-22T10:47:25.989575" level="INFO">STEP: Starting fake data generation process</msg>
+<arg>STEP: ${step_description}</arg>
+<arg>INFO</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-09-22T10:47:25.989575" elapsed="0.000000"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<arg>"${details}" != "${EMPTY}"</arg>
+<arg>Log</arg>
+<arg>STEP DETAILS: ${details}</arg>
+<arg>INFO</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-09-22T10:47:25.991590" elapsed="0.000991"/>
+</kw>
+<arg>Starting fake data generation process</arg>
+<doc>Log a step to both console and Allure report</doc>
+<status status="PASS" start="2025-09-22T10:47:25.977614" elapsed="0.014967"/>
+</kw>
+<kw name="Log Process To Console And Allure" owner="ReportingSetup">
+<kw name="Get Current Date" owner="DateTime">
+<msg time="2025-09-22T10:47:25.993591" level="INFO">${timestamp} = 10:47:25</msg>
+<var>${timestamp}</var>
+<arg>result_format=%H:%M:%S</arg>
+<doc>Returns current local or UTC time with an optional increment.</doc>
+<status status="PASS" start="2025-09-22T10:47:25.992581" elapsed="0.001010"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>[${timestamp}] PROCESS: ${process_name}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-22T10:47:25.997536" elapsed="0.000000"/>
+</kw>
+<kw name="Append To Console Log" owner="ReportingSetup">
+<kw name="Get Current Date" owner="DateTime">
+<msg time="2025-09-22T10:47:25.998539" level="INFO">${timestamp} = 2025-09-22 10:47:25</msg>
+<var>${timestamp}</var>
+<arg>result_format=%Y-%m-%d %H:%M:%S</arg>
+<doc>Returns current local or UTC time with an optional increment.</doc>
+<status status="PASS" start="2025-09-22T10:47:25.998539" elapsed="0.000000"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-09-22T10:47:26.001536" level="INFO">${log_entry} = [2025-09-22 10:47:25] [10:47:25] PROCESS: Generating user profile data</msg>
+<var>${log_entry}</var>
+<arg>[${timestamp}] ${message}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-09-22T10:47:26.001536" elapsed="0.000000"/>
+</kw>
+<kw name="Append To File" owner="OperatingSystem">
+<msg time="2025-09-22T10:47:26.007536" level="INFO" html="true">Appended to file '&lt;a href="file://C:\Users\sharmash\automation-framwork\results\run_20250922_104723\console_output.log"&gt;C:\Users\sharmash\automation-framwork\results\run_20250922_104723\console_output.log&lt;/a&gt;'.</msg>
+<arg>${CONSOLE_LOG_FILE}</arg>
+<arg>${log_entry}\n</arg>
+<doc>Appends the given content to the specified file.</doc>
+<status status="PASS" start="2025-09-22T10:47:26.004536" elapsed="0.003000"/>
+</kw>
+<arg>[${timestamp}] PROCESS: ${process_name}</arg>
+<doc>Append message to console log file</doc>
+<status status="PASS" start="2025-09-22T10:47:25.998539" elapsed="0.012039"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Append To Console Log" owner="ReportingSetup">
+<kw name="Get Current Date" owner="DateTime">
+<msg time="2025-09-22T10:47:26.013582" level="INFO">${timestamp} = 2025-09-22 10:47:26</msg>
+<var>${timestamp}</var>
+<arg>result_format=%Y-%m-%d %H:%M:%S</arg>
+<doc>Returns current local or UTC time with an optional increment.</doc>
+<status status="PASS" start="2025-09-22T10:47:26.013582" elapsed="0.000000"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-09-22T10:47:26.019591" level="INFO">${log_entry} = [2025-09-22 10:47:26] PROCESS DETAILS: Using FakerLibrary with seed=234</msg>
+<var>${log_entry}</var>
+<arg>[${timestamp}] ${message}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-09-22T10:47:26.018536" elapsed="0.001055"/>
+</kw>
+<kw name="Append To File" owner="OperatingSystem">
+<msg time="2025-09-22T10:47:26.023538" level="INFO" html="true">Appended to file '&lt;a href="file://C:\Users\sharmash\automation-framwork\results\run_20250922_104723\console_output.log"&gt;C:\Users\sharmash\automation-framwork\results\run_20250922_104723\console_output.log&lt;/a&gt;'.</msg>
+<arg>${CONSOLE_LOG_FILE}</arg>
+<arg>${log_entry}\n</arg>
+<doc>Appends the given content to the specified file.</doc>
+<status status="PASS" start="2025-09-22T10:47:26.021537" elapsed="0.002001"/>
+</kw>
+<arg>PROCESS DETAILS: ${process_details}</arg>
+<doc>Append message to console log file</doc>
+<status status="PASS" start="2025-09-22T10:47:26.012537" elapsed="0.013999"/>
+</kw>
+<arg>"${process_details}" != "${EMPTY}"</arg>
+<arg>Append To Console Log</arg>
+<arg>PROCESS DETAILS: ${process_details}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-09-22T10:47:26.010578" elapsed="0.016958"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-09-22T10:47:26.028537" level="INFO">PROCESS: Generating user profile data</msg>
+<arg>PROCESS: ${process_name}</arg>
+<arg>INFO</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-09-22T10:47:26.027536" elapsed="0.001001"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-09-22T10:47:26.032577" level="INFO">PROCESS DETAILS: Using FakerLibrary with seed=234</msg>
+<arg>PROCESS DETAILS: ${process_details}</arg>
+<arg>INFO</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-09-22T10:47:26.032577" elapsed="0.000000"/>
+</kw>
+<arg>"${process_details}" != "${EMPTY}"</arg>
+<arg>Log</arg>
+<arg>PROCESS DETAILS: ${process_details}</arg>
+<arg>INFO</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-09-22T10:47:26.031535" elapsed="0.007042"/>
+</kw>
+<arg>Generating user profile data</arg>
+<arg>Using FakerLibrary with seed=234</arg>
+<doc>Log a process/operation to both console and Allure</doc>
+<status status="PASS" start="2025-09-22T10:47:25.992581" elapsed="0.045996"/>
+</kw>
+<kw name="First Name" owner="FakerLibrary">
+<msg time="2025-09-22T10:47:26.039639" level="INFO">${first_name} = Abigail</msg>
+<var>${first_name}</var>
+<status status="PASS" start="2025-09-22T10:47:26.038577" elapsed="0.001062"/>
+</kw>
+<kw name="Last Name" owner="FakerLibrary">
+<msg time="2025-09-22T10:47:26.043590" level="INFO">${last_name} = Keller</msg>
+<var>${last_name}</var>
+<status status="PASS" start="2025-09-22T10:47:26.042644" elapsed="0.000946"/>
+</kw>
+<kw name="Email" owner="FakerLibrary">
+<msg time="2025-09-22T10:47:26.047568" level="INFO">${email} = fhayes@example.com</msg>
+<var>${email}</var>
+<status status="PASS" start="2025-09-22T10:47:26.046620" elapsed="0.000948"/>
+</kw>
+<kw name="Phone Number" owner="FakerLibrary">
+<msg time="2025-09-22T10:47:26.051574" level="INFO">${phonenumb} = (245)759-2606</msg>
+<var>${phonenumb}</var>
+<status status="PASS" start="2025-09-22T10:47:26.050650" elapsed="0.000924"/>
+</kw>
+<kw name="Address" owner="FakerLibrary">
+<msg time="2025-09-22T10:47:26.057536" level="INFO">${address} = 7256 Jones Groves Apt. 897
+Brendamouth, VA 56832</msg>
+<var>${address}</var>
+<doc>:example: '791 Crist Parks, Sashabury, IL 86039-9874'</doc>
+<status status="PASS" start="2025-09-22T10:47:26.056536" elapsed="0.001000"/>
+</kw>
+<kw name="Log Step To Console And Allure" owner="ReportingSetup">
+<kw name="Log To Console" owner="BuiltIn">
+<arg>STEP: ${step_description}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-22T10:47:26.062599" elapsed="0.000000"/>
+</kw>
+<kw name="Append To Console Log" owner="ReportingSetup">
+<kw name="Get Current Date" owner="DateTime">
+<msg time="2025-09-22T10:47:26.064574" level="INFO">${timestamp} = 2025-09-22 10:47:26</msg>
+<var>${timestamp}</var>
+<arg>result_format=%Y-%m-%d %H:%M:%S</arg>
+<doc>Returns current local or UTC time with an optional increment.</doc>
+<status status="PASS" start="2025-09-22T10:47:26.063577" elapsed="0.000997"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-09-22T10:47:26.068536" level="INFO">${log_entry} = [2025-09-22 10:47:26] STEP: Logging generated data to console and Allure</msg>
+<var>${log_entry}</var>
+<arg>[${timestamp}] ${message}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-09-22T10:47:26.067613" elapsed="0.000923"/>
+</kw>
+<kw name="Append To File" owner="OperatingSystem">
+<msg time="2025-09-22T10:47:26.075616" level="INFO" html="true">Appended to file '&lt;a href="file://C:\Users\sharmash\automation-framwork\results\run_20250922_104723\console_output.log"&gt;C:\Users\sharmash\automation-framwork\results\run_20250922_104723\console_output.log&lt;/a&gt;'.</msg>
+<arg>${CONSOLE_LOG_FILE}</arg>
+<arg>${log_entry}\n</arg>
+<doc>Appends the given content to the specified file.</doc>
+<status status="PASS" start="2025-09-22T10:47:26.071649" elapsed="0.003967"/>
+</kw>
+<arg>STEP: ${step_description}</arg>
+<doc>Append message to console log file</doc>
+<status status="PASS" start="2025-09-22T10:47:26.063577" elapsed="0.015959"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<arg>"${details}" != "${EMPTY}"</arg>
+<arg>Append To Console Log</arg>
+<arg>DETAILS: ${details}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-09-22T10:47:26.079536" elapsed="0.001001"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-09-22T10:47:26.081582" level="INFO">STEP: Logging generated data to console and Allure</msg>
+<arg>STEP: ${step_description}</arg>
+<arg>INFO</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-09-22T10:47:26.081582" elapsed="0.000000"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<arg>"${details}" != "${EMPTY}"</arg>
+<arg>Log</arg>
+<arg>STEP DETAILS: ${details}</arg>
+<arg>INFO</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-09-22T10:47:26.085575" elapsed="0.001069"/>
+</kw>
+<arg>Logging generated data to console and Allure</arg>
+<doc>Log a step to both console and Allure report</doc>
+<status status="PASS" start="2025-09-22T10:47:26.060576" elapsed="0.026068"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-09-22T10:47:26.087645" level="INFO">Name: Abigail</msg>
+<arg>Name: ${first_name}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-09-22T10:47:26.086644" elapsed="0.001001"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Last name: ${last_name}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-22T10:47:26.090595" elapsed="0.000988"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Email id: ${email}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-22T10:47:26.091583" elapsed="0.000953"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Phone number: ${phonenumb}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-22T10:47:26.092536" elapsed="0.001045"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Address: ${address}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-22T10:47:26.093581" elapsed="0.000000"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-09-22T10:47:26.094638" level="INFO">${user_data} = User Profile Generated:
+========================
+First Name: Abigail
+Last Name: Keller
+Email: fhayes@example.com
+Phone: (245)759-2606
+Address: 7256 Jones Groves Apt. 897
+Brendamouth, VA 56832
+========...</msg>
+<var>${user_data}</var>
+<arg>User Profile Generated:\n========================\nFirst Name: ${first_name}\nLast Name: ${last_name}\nEmail: ${email}\nPhone: ${phonenumb}\nAddress: ${address}\n========================</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-09-22T10:47:26.094638" elapsed="0.000000"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-09-22T10:47:26.098536" level="INFO">${data_file} = C:\Users\sharmash\automation-framwork\results\run_20250922_104723/generated_user_data.txt</msg>
+<var>${data_file}</var>
+<arg>${OUTPUT_DIR}/generated_user_data.txt</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-09-22T10:47:26.098536" elapsed="0.000000"/>
+</kw>
+<kw name="Create File" owner="OperatingSystem">
+<msg time="2025-09-22T10:47:26.107536" level="INFO" html="true">Created file '&lt;a href="file://C:\Users\sharmash\automation-framwork\results\run_20250922_104723\generated_user_data.txt"&gt;C:\Users\sharmash\automation-framwork\results\run_20250922_104723\generated_user_data.txt&lt;/a&gt;'.</msg>
+<arg>${data_file}</arg>
+<arg>${user_data}</arg>
+<doc>Creates a file with the given content and encoding.</doc>
+<status status="PASS" start="2025-09-22T10:47:26.104568" elapsed="0.002968"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-09-22T10:47:26.111536" level="INFO">Generated user data saved to: C:\Users\sharmash\automation-framwork\results\run_20250922_104723/generated_user_data.txt</msg>
+<arg>Generated user data saved to: ${data_file}</arg>
+<arg>INFO</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-09-22T10:47:26.111536" elapsed="0.000000"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>User data file created: ${data_file}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-22T10:47:26.114590" elapsed="0.000000"/>
+</kw>
+<kw name="Log Step To Console And Allure" owner="ReportingSetup">
+<kw name="Log To Console" owner="BuiltIn">
+<arg>STEP: ${step_description}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-22T10:47:26.115536" elapsed="0.000000"/>
+</kw>
+<kw name="Append To Console Log" owner="ReportingSetup">
+<kw name="Get Current Date" owner="DateTime">
+<msg time="2025-09-22T10:47:26.116536" level="INFO">${timestamp} = 2025-09-22 10:47:26</msg>
+<var>${timestamp}</var>
+<arg>result_format=%Y-%m-%d %H:%M:%S</arg>
+<doc>Returns current local or UTC time with an optional increment.</doc>
+<status status="PASS" start="2025-09-22T10:47:26.116536" elapsed="0.000000"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-09-22T10:47:26.122580" level="INFO">${log_entry} = [2025-09-22 10:47:26] STEP: Validating generated data format</msg>
+<var>${log_entry}</var>
+<arg>[${timestamp}] ${message}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-09-22T10:47:26.121536" elapsed="0.001044"/>
+</kw>
+<kw name="Append To File" owner="OperatingSystem">
+<msg time="2025-09-22T10:47:26.127575" level="INFO" html="true">Appended to file '&lt;a href="file://C:\Users\sharmash\automation-framwork\results\run_20250922_104723\console_output.log"&gt;C:\Users\sharmash\automation-framwork\results\run_20250922_104723\console_output.log&lt;/a&gt;'.</msg>
+<arg>${CONSOLE_LOG_FILE}</arg>
+<arg>${log_entry}\n</arg>
+<doc>Appends the given content to the specified file.</doc>
+<status status="PASS" start="2025-09-22T10:47:26.124536" elapsed="0.003039"/>
+</kw>
+<arg>STEP: ${step_description}</arg>
+<doc>Append message to console log file</doc>
+<status status="PASS" start="2025-09-22T10:47:26.116536" elapsed="0.015107"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<arg>"${details}" != "${EMPTY}"</arg>
+<arg>Append To Console Log</arg>
+<arg>DETAILS: ${details}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-09-22T10:47:26.131643" elapsed="0.000931"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-09-22T10:47:26.133578" level="INFO">STEP: Validating generated data format</msg>
+<arg>STEP: ${step_description}</arg>
+<arg>INFO</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-09-22T10:47:26.133578" elapsed="0.000000"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<arg>"${details}" != "${EMPTY}"</arg>
+<arg>Log</arg>
+<arg>STEP DETAILS: ${details}</arg>
+<arg>INFO</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-09-22T10:47:26.137551" elapsed="0.001041"/>
+</kw>
+<arg>Validating generated data format</arg>
+<doc>Log a step to both console and Allure report</doc>
+<status status="PASS" start="2025-09-22T10:47:26.115536" elapsed="0.024004"/>
+</kw>
+<kw name="Should Not Be Empty" owner="BuiltIn">
+<msg time="2025-09-22T10:47:26.139540" level="INFO">Length is 7.</msg>
+<arg>${first_name}</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<status status="PASS" start="2025-09-22T10:47:26.139540" elapsed="0.000000"/>
+</kw>
+<kw name="Should Not Be Empty" owner="BuiltIn">
+<msg time="2025-09-22T10:47:26.145537" level="INFO">Length is 6.</msg>
+<arg>${last_name}</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<status status="PASS" start="2025-09-22T10:47:26.145537" elapsed="0.000000"/>
+</kw>
+<kw name="Should Contain" owner="BuiltIn">
+<arg>${email}</arg>
+<arg>@</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" start="2025-09-22T10:47:26.148536" elapsed="0.001000"/>
+</kw>
+<kw name="Should Not Be Empty" owner="BuiltIn">
+<msg time="2025-09-22T10:47:26.150537" level="INFO">Length is 13.</msg>
+<arg>${phonenumb}</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<status status="PASS" start="2025-09-22T10:47:26.149536" elapsed="0.001001"/>
+</kw>
+<kw name="Should Not Be Empty" owner="BuiltIn">
+<msg time="2025-09-22T10:47:26.154536" level="INFO">Length is 48.</msg>
+<arg>${address}</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<status status="PASS" start="2025-09-22T10:47:26.153536" elapsed="0.001000"/>
+</kw>
+<kw name="Log Step To Console And Allure" owner="ReportingSetup">
+<kw name="Log To Console" owner="BuiltIn">
+<arg>STEP: ${step_description}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-22T10:47:26.159569" elapsed="0.000000"/>
+</kw>
+<kw name="Append To Console Log" owner="ReportingSetup">
+<kw name="Get Current Date" owner="DateTime">
+<msg time="2025-09-22T10:47:26.161536" level="INFO">${timestamp} = 2025-09-22 10:47:26</msg>
+<var>${timestamp}</var>
+<arg>result_format=%Y-%m-%d %H:%M:%S</arg>
+<doc>Returns current local or UTC time with an optional increment.</doc>
+<status status="PASS" start="2025-09-22T10:47:26.160582" elapsed="0.000954"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-09-22T10:47:26.167536" level="INFO">${log_entry} = [2025-09-22 10:47:26] STEP: Fake data generation completed successfully</msg>
+<var>${log_entry}</var>
+<arg>[${timestamp}] ${message}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-09-22T10:47:26.166536" elapsed="0.001000"/>
+</kw>
+<kw name="Append To File" owner="OperatingSystem">
+<msg time="2025-09-22T10:47:26.173535" level="INFO" html="true">Appended to file '&lt;a href="file://C:\Users\sharmash\automation-framwork\results\run_20250922_104723\console_output.log"&gt;C:\Users\sharmash\automation-framwork\results\run_20250922_104723\console_output.log&lt;/a&gt;'.</msg>
+<arg>${CONSOLE_LOG_FILE}</arg>
+<arg>${log_entry}\n</arg>
+<doc>Appends the given content to the specified file.</doc>
+<status status="PASS" start="2025-09-22T10:47:26.171535" elapsed="0.002000"/>
+</kw>
+<arg>STEP: ${step_description}</arg>
+<doc>Append message to console log file</doc>
+<status status="PASS" start="2025-09-22T10:47:26.160582" elapsed="0.015954"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<arg>"${details}" != "${EMPTY}"</arg>
+<arg>Append To Console Log</arg>
+<arg>DETAILS: ${details}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-09-22T10:47:26.177536" elapsed="0.001044"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-09-22T10:47:26.179585" level="INFO">STEP: Fake data generation completed successfully</msg>
+<arg>STEP: ${step_description}</arg>
+<arg>INFO</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-09-22T10:47:26.178580" elapsed="0.001005"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<arg>"${details}" != "${EMPTY}"</arg>
+<arg>Log</arg>
+<arg>STEP DETAILS: ${details}</arg>
+<arg>INFO</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-09-22T10:47:26.181563" elapsed="0.001017"/>
+</kw>
+<arg>Fake data generation completed successfully</arg>
+<doc>Log a step to both console and Allure report</doc>
+<status status="PASS" start="2025-09-22T10:47:26.158583" elapsed="0.024991"/>
+</kw>
+<kw name="Teardown Test With Console Logging" owner="ReportingSetup" type="TEARDOWN">
+<kw name="Get Current Date" owner="DateTime">
+<msg time="2025-09-22T10:47:26.185570" level="INFO">${current_time} = 2025-09-22 10:47:26</msg>
+<var>${current_time}</var>
+<arg>result_format=%Y-%m-%d %H:%M:%S</arg>
+<doc>Returns current local or UTC time with an optional increment.</doc>
+<status status="PASS" start="2025-09-22T10:47:26.184582" elapsed="0.000988"/>
+</kw>
+<kw name="Append To Console Log" owner="ReportingSetup">
+<kw name="Get Current Date" owner="DateTime">
+<msg time="2025-09-22T10:47:26.192578" level="INFO">${timestamp} = 2025-09-22 10:47:26</msg>
+<var>${timestamp}</var>
+<arg>result_format=%Y-%m-%d %H:%M:%S</arg>
+<doc>Returns current local or UTC time with an optional increment.</doc>
+<status status="PASS" start="2025-09-22T10:47:26.191575" elapsed="0.001003"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-09-22T10:47:26.196536" level="INFO">${log_entry} = [2025-09-22 10:47:26] Test completed at: 2025-09-22 10:47:26</msg>
+<var>${log_entry}</var>
+<arg>[${timestamp}] ${message}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-09-22T10:47:26.195549" elapsed="0.000987"/>
+</kw>
+<kw name="Append To File" owner="OperatingSystem">
+<msg time="2025-09-22T10:47:26.202536" level="INFO" html="true">Appended to file '&lt;a href="file://C:\Users\sharmash\automation-framwork\results\run_20250922_104723\console_output.log"&gt;C:\Users\sharmash\automation-framwork\results\run_20250922_104723\console_output.log&lt;/a&gt;'.</msg>
+<arg>${CONSOLE_LOG_FILE}</arg>
+<arg>${log_entry}\n</arg>
+<doc>Appends the given content to the specified file.</doc>
+<status status="PASS" start="2025-09-22T10:47:26.199536" elapsed="0.003000"/>
+</kw>
+<arg>Test completed at: ${current_time}</arg>
+<doc>Append message to console log file</doc>
+<status status="PASS" start="2025-09-22T10:47:26.191575" elapsed="0.014961"/>
+</kw>
+<kw name="Append To Console Log" owner="ReportingSetup">
+<kw name="Get Current Date" owner="DateTime">
+<msg time="2025-09-22T10:47:26.207645" level="INFO">${timestamp} = 2025-09-22 10:47:26</msg>
+<var>${timestamp}</var>
+<arg>result_format=%Y-%m-%d %H:%M:%S</arg>
+<doc>Returns current local or UTC time with an optional increment.</doc>
+<status status="PASS" start="2025-09-22T10:47:26.207645" elapsed="0.000000"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-09-22T10:47:26.213536" level="INFO">${log_entry} = [2025-09-22 10:47:26] ========================================</msg>
+<var>${log_entry}</var>
+<arg>[${timestamp}] ${message}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-09-22T10:47:26.213536" elapsed="0.000000"/>
+</kw>
+<kw name="Append To File" owner="OperatingSystem">
+<msg time="2025-09-22T10:47:26.219535" level="INFO" html="true">Appended to file '&lt;a href="file://C:\Users\sharmash\automation-framwork\results\run_20250922_104723\console_output.log"&gt;C:\Users\sharmash\automation-framwork\results\run_20250922_104723\console_output.log&lt;/a&gt;'.</msg>
+<arg>${CONSOLE_LOG_FILE}</arg>
+<arg>${log_entry}\n</arg>
+<doc>Appends the given content to the specified file.</doc>
+<status status="PASS" start="2025-09-22T10:47:26.217569" elapsed="0.002994"/>
+</kw>
+<arg>========================================</arg>
+<doc>Append message to console log file</doc>
+<status status="PASS" start="2025-09-22T10:47:26.206536" elapsed="0.017055"/>
+</kw>
+<kw name="Attach Console Log To Allure" owner="ReportingSetup">
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="File Should Exist" owner="OperatingSystem">
+<msg time="2025-09-22T10:47:26.225574" level="INFO" html="true">File '&lt;a href="file://C:\Users\sharmash\automation-framwork\results\run_20250922_104723\console_output.log"&gt;C:\Users\sharmash\automation-framwork\results\run_20250922_104723\console_output.log&lt;/a&gt;' exists.</msg>
+<arg>${CONSOLE_LOG_FILE}</arg>
+<doc>Fails unless the given ``path`` points to an existing file.</doc>
+<status status="PASS" start="2025-09-22T10:47:26.224583" elapsed="0.000991"/>
+</kw>
+<msg time="2025-09-22T10:47:26.228536" level="INFO">${log_exists} = True</msg>
+<var>${log_exists}</var>
+<arg>File Should Exist</arg>
+<arg>${CONSOLE_LOG_FILE}</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2025-09-22T10:47:26.224583" elapsed="0.003953"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-09-22T10:47:26.234576" level="INFO">Console log file available: C:\Users\sharmash\automation-framwork\results\run_20250922_104723/console_output.log</msg>
+<arg>Console log file available: ${CONSOLE_LOG_FILE}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-09-22T10:47:26.234576" elapsed="0.000000"/>
+</kw>
+<arg>${log_exists}</arg>
+<arg>Log</arg>
+<arg>Console log file available: ${CONSOLE_LOG_FILE}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-09-22T10:47:26.233627" elapsed="0.004960"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Console log attached: ${CONSOLE_LOG_FILE}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-22T10:47:26.239572" elapsed="0.000000"/>
+</kw>
+<arg>${log_exists}</arg>
+<arg>Log To Console</arg>
+<arg>Console log attached: ${CONSOLE_LOG_FILE}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-09-22T10:47:26.238587" elapsed="0.001969"/>
+</kw>
+<doc>Attach the console log file to Allure report</doc>
+<status status="PASS" start="2025-09-22T10:47:26.223591" elapsed="0.016965"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Test completed with console logs attached to Allure</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-22T10:47:26.240556" elapsed="0.001027"/>
+</kw>
+<doc>Teardown test and attach console logs to Allure</doc>
+<status status="PASS" start="2025-09-22T10:47:26.184582" elapsed="0.057001"/>
+</kw>
+<doc>Generate fake user data using FakerLibrary with console logging</doc>
+<tag>allure.severity:normal</tag>
+<tag>feature:Data_Generation</tag>
+<tag>Test Type: Smoke</tag>
+<status status="PASS" start="2025-09-22T10:47:25.915570" elapsed="0.326013"/>
+</test>
+<kw name="Create Test Execution Summary" owner="ReportingSetup" type="TEARDOWN">
+<kw name="Get Current Date" owner="DateTime">
+<msg time="2025-09-22T10:47:26.252588" level="INFO">${execution_time} = 2025-09-22 10:47:26</msg>
+<var>${execution_time}</var>
+<arg>result_format=%Y-%m-%d %H:%M:%S</arg>
+<doc>Returns current local or UTC time with an optional increment.</doc>
+<status status="PASS" start="2025-09-22T10:47:26.252588" elapsed="0.000000"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-09-22T10:47:26.256538" level="INFO">${summary} = Test Execution Summary
+========================
+Execution Time: 2025-09-22 10:47:26
+Total Tests: 1
+Passed: 1
+Failed: 0
+</msg>
+<var>${summary}</var>
+<arg>Test Execution Summary\n========================\nExecution Time: ${execution_time}\nTotal Tests: ${total_tests}\nPassed: ${passed_tests}\nFailed: ${failed_tests}\n</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-09-22T10:47:26.255536" elapsed="0.001002"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-09-22T10:47:26.261536" level="INFO">${summary_file} = C:\Users\sharmash\automation-framwork\results\run_20250922_104723/test_execution_summary.txt</msg>
+<var>${summary_file}</var>
+<arg>${OUTPUT_DIR}/test_execution_summary.txt</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-09-22T10:47:26.261536" elapsed="0.000000"/>
+</kw>
+<kw name="Create File" owner="OperatingSystem">
+<msg time="2025-09-22T10:47:26.267535" level="INFO" html="true">Created file '&lt;a href="file://C:\Users\sharmash\automation-framwork\results\run_20250922_104723\test_execution_summary.txt"&gt;C:\Users\sharmash\automation-framwork\results\run_20250922_104723\test_execution_summary.txt&lt;/a&gt;'.</msg>
+<arg>${summary_file}</arg>
+<arg>${summary}</arg>
+<doc>Creates a file with the given content and encoding.</doc>
+<status status="PASS" start="2025-09-22T10:47:26.264535" elapsed="0.003000"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-09-22T10:47:26.271574" level="INFO">Test execution summary saved to: C:\Users\sharmash\automation-framwork\results\run_20250922_104723/test_execution_summary.txt</msg>
+<arg>Test execution summary saved to: ${summary_file}</arg>
+<arg>INFO</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-09-22T10:47:26.271574" elapsed="0.000000"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Test execution summary created: ${summary_file}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-22T10:47:26.277536" elapsed="0.000000"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Test execution summary created and attached to Allure</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-22T10:47:26.277536" elapsed="0.001000"/>
+</kw>
+<arg>1</arg>
+<arg>1</arg>
+<arg>0</arg>
+<doc>Create a comprehensive test execution summary for Allure</doc>
+<status status="PASS" start="2025-09-22T10:47:26.252588" elapsed="0.025948"/>
+</kw>
+<meta name="Environment">dev</meta>
+<meta name="Test_Suite">fakerdata.robot</meta>
+<meta name="Test_Type">smoke</meta>
+<status status="PASS" start="2025-09-22T10:47:24.675450" elapsed="1.603086"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="1" fail="0" skip="0">allure.severity:normal</stat>
+<stat pass="1" fail="0" skip="0">feature:Data_Generation</stat>
+<stat pass="1" fail="0" skip="0">Test Type: Smoke</stat>
+</tag>
+<suite>
+<stat pass="1" fail="0" skip="0" id="s1" name="Fakerdata">Fakerdata</stat>
+</suite>
+</statistics>
+<errors>
+<msg time="2025-09-22T10:47:24.666518" level="ERROR">Taking listener 'allure_console_listener.AllureConsoleListener:results/run_20250922_104723\allure-results' into use failed: Importing listener 'allure_console_listener.AllureConsoleListener' failed: ModuleNotFoundError: No module named 'allure_console_listener'
+Traceback (most recent call last):
+  None
+PYTHONPATH:
+  C:\Program Files\Python312\Scripts\robot.exe
+  c:\Users\sharmash\Downloads\QAS-ZinniaLive-AutomationTesting (1)\QAS-ZinniaLive-AutomationTesting
+  C:\Users\sharmash\automation-framwork\%PYTHONPATH%
+  C:\Program Files\Python312\python312.zip
+  C:\Program Files\Python312\DLLs
+  C:\Program Files\Python312\Lib
+  C:\Program Files\Python312
+  C:\Users\sharmash\AppData\Roaming\Python\Python312\site-packages
+  C:\Users\sharmash\AppData\Roaming\Python\Python312\site-packages\win32
+  C:\Users\sharmash\AppData\Roaming\Python\Python312\site-packages\win32\lib
+  C:\Users\sharmash\AppData\Roaming\Python\Python312\site-packages\Pythonwin
+  C:\Program Files\Python312\Lib\site-packages</msg>
+<msg time="2025-09-22T10:47:24.669455" level="ERROR">Taking listener 'DebugLibrary' into use failed: Importing listener 'DebugLibrary' failed: ModuleNotFoundError: No module named 'DebugLibrary'
+Traceback (most recent call last):
+  None
+PYTHONPATH:
+  C:\Program Files\Python312\Scripts\robot.exe
+  c:\Users\sharmash\Downloads\QAS-ZinniaLive-AutomationTesting (1)\QAS-ZinniaLive-AutomationTesting
+  C:\Users\sharmash\automation-framwork\%PYTHONPATH%
+  C:\Program Files\Python312\python312.zip
+  C:\Program Files\Python312\DLLs
+  C:\Program Files\Python312\Lib
+  C:\Program Files\Python312
+  C:\Users\sharmash\AppData\Roaming\Python\Python312\site-packages
+  C:\Users\sharmash\AppData\Roaming\Python\Python312\site-packages\win32
+  C:\Users\sharmash\AppData\Roaming\Python\Python312\site-packages\win32\lib
+  C:\Users\sharmash\AppData\Roaming\Python\Python312\site-packages\Pythonwin
+  C:\Program Files\Python312\Lib\site-packages</msg>
+</errors>
+</robot>

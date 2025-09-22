@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.0.1 (Python 3.12.1 on win32)" generated="2025-09-22T11:56:03.813594" rpa="false" schemaversion="5">
+<suite id="s1" name="Fakerdata" source="C:\Users\sharmash\automation-framwork\tests\api\fakerdata.robot">
+<kw name="Setup Enhanced Allure Environment" owner="ReportingSetup" type="SETUP">
+<msg time="2025-09-22T11:56:04.865021" level="FAIL">Keyword 'ReportingSetup.Setup Enhanced Allure Environment' expected 0 arguments, got 2.</msg>
+<arg>QA</arg>
+<arg>Data_Generation</arg>
+<doc>Setup enhanced Allure environment with detailed system info (hard-coded values)</doc>
+<status status="FAIL" start="2025-09-22T11:56:04.865021" elapsed="0.000000">Keyword 'ReportingSetup.Setup Enhanced Allure Environment' expected 0 arguments, got 2.</status>
+</kw>
+<test id="s1-t1" name="Creating Fake Data" line="13">
+<doc>Generate fake user data using FakerLibrary with console logging</doc>
+<tag>allure.severity:normal</tag>
+<tag>feature:Data_Generation</tag>
+<tag>Test Type: Smoke</tag>
+<status status="FAIL" start="2025-09-22T11:56:04.867025" elapsed="0.000995">Parent suite setup failed:
+Keyword 'ReportingSetup.Setup Enhanced Allure Environment' expected 0 arguments, got 2.</status>
+</test>
+<kw name="Create Test Execution Summary" owner="ReportingSetup" type="TEARDOWN">
+<kw name="Get Current Date" owner="DateTime">
+<msg time="2025-09-22T11:56:04.872983" level="INFO">${execution_time} = 2025-09-22 11:56:04</msg>
+<var>${execution_time}</var>
+<arg>result_format=%Y-%m-%d %H:%M:%S</arg>
+<doc>Returns current local or UTC time with an optional increment.</doc>
+<status status="PASS" start="2025-09-22T11:56:04.872983" elapsed="0.000000"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-09-22T11:56:04.877983" level="INFO">${summary} = Test Execution Summary
+========================
+Execution Time: 2025-09-22 11:56:04
+Total Tests: 1
+Passed: 1
+Failed: 0
+</msg>
+<var>${summary}</var>
+<arg>Test Execution Summary\n========================\nExecution Time: ${execution_time}\nTotal Tests: ${total_tests}\nPassed: ${passed_tests}\nFailed: ${failed_tests}\n</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-09-22T11:56:04.877983" elapsed="0.000000"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-09-22T11:56:04.880984" level="INFO">${summary_file} = C:\Users\sharmash\automation-framwork\results\run_20250922_115603/test_execution_summary.txt</msg>
+<var>${summary_file}</var>
+<arg>${OUTPUT_DIR}/test_execution_summary.txt</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-09-22T11:56:04.879983" elapsed="0.001001"/>
+</kw>
+<kw name="Create File" owner="OperatingSystem">
+<msg time="2025-09-22T11:56:04.885985" level="INFO" html="true">Created file '&lt;a href="file://C:\Users\sharmash\automation-framwork\results\run_20250922_115603\test_execution_summary.txt"&gt;C:\Users\sharmash\automation-framwork\results\run_20250922_115603\test_execution_summary.txt&lt;/a&gt;'.</msg>
+<arg>${summary_file}</arg>
+<arg>${summary}</arg>
+<doc>Creates a file with the given content and encoding.</doc>
+<status status="PASS" start="2025-09-22T11:56:04.882983" elapsed="0.003002"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-09-22T11:56:04.888986" level="INFO">Test execution summary saved to: C:\Users\sharmash\automation-framwork\results\run_20250922_115603/test_execution_summary.txt</msg>
+<arg>Test execution summary saved to: ${summary_file}</arg>
+<arg>INFO</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-09-22T11:56:04.887985" elapsed="0.001001"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Test execution summary created: ${summary_file}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-22T11:56:04.890983" elapsed="0.001000"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Test execution summary created and attached to Allure</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-22T11:56:04.891983" elapsed="0.000000"/>
+</kw>
+<arg>1</arg>
+<arg>1</arg>
+<arg>0</arg>
+<doc>Create a comprehensive test execution summary for Allure</doc>
+<status status="PASS" start="2025-09-22T11:56:04.870985" elapsed="0.021998"/>
+</kw>
+<meta name="Environment">dev</meta>
+<meta name="Test_Suite">fakerdata.robot</meta>
+<meta name="Test_Type">smoke</meta>
+<status status="FAIL" start="2025-09-22T11:56:03.889548" elapsed="1.003435">Suite setup failed:
+Keyword 'ReportingSetup.Setup Enhanced Allure Environment' expected 0 arguments, got 2.</status>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="1" skip="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="0" fail="1" skip="0">allure.severity:normal</stat>
+<stat pass="0" fail="1" skip="0">feature:Data_Generation</stat>
+<stat pass="0" fail="1" skip="0">Test Type: Smoke</stat>
+</tag>
+<suite>
+<stat pass="0" fail="1" skip="0" id="s1" name="Fakerdata">Fakerdata</stat>
+</suite>
+</statistics>
+<errors>
+<msg time="2025-09-22T11:56:03.882593" level="ERROR">Taking listener 'allure_console_listener.AllureConsoleListener:results/run_20250922_115603\allure-results' into use failed: Importing listener 'allure_console_listener.AllureConsoleListener' failed: ModuleNotFoundError: No module named 'allure_console_listener'
+Traceback (most recent call last):
+  None
+PYTHONPATH:
+  C:\Program Files\Python312\Scripts\robot.exe
+  c:\Users\sharmash\Downloads\QAS-ZinniaLive-AutomationTesting (1)\QAS-ZinniaLive-AutomationTesting
+  C:\Users\sharmash\automation-framwork\%PYTHONPATH%
+  C:\Program Files\Python312\python312.zip
+  C:\Program Files\Python312\DLLs
+  C:\Program Files\Python312\Lib
+  C:\Program Files\Python312
+  C:\Users\sharmash\AppData\Roaming\Python\Python312\site-packages
+  C:\Users\sharmash\AppData\Roaming\Python\Python312\site-packages\win32
+  C:\Users\sharmash\AppData\Roaming\Python\Python312\site-packages\win32\lib
+  C:\Users\sharmash\AppData\Roaming\Python\Python312\site-packages\Pythonwin
+  C:\Program Files\Python312\Lib\site-packages</msg>
+<msg time="2025-09-22T11:56:03.885619" level="ERROR">Taking listener 'DebugLibrary' into use failed: Importing listener 'DebugLibrary' failed: ModuleNotFoundError: No module named 'DebugLibrary'
+Traceback (most recent call last):
+  None
+PYTHONPATH:
+  C:\Program Files\Python312\Scripts\robot.exe
+  c:\Users\sharmash\Downloads\QAS-ZinniaLive-AutomationTesting (1)\QAS-ZinniaLive-AutomationTesting
+  C:\Users\sharmash\automation-framwork\%PYTHONPATH%
+  C:\Program Files\Python312\python312.zip
+  C:\Program Files\Python312\DLLs
+  C:\Program Files\Python312\Lib
+  C:\Program Files\Python312
+  C:\Users\sharmash\AppData\Roaming\Python\Python312\site-packages
+  C:\Users\sharmash\AppData\Roaming\Python\Python312\site-packages\win32
+  C:\Users\sharmash\AppData\Roaming\Python\Python312\site-packages\win32\lib
+  C:\Users\sharmash\AppData\Roaming\Python\Python312\site-packages\Pythonwin
+  C:\Program Files\Python312\Lib\site-packages</msg>
+</errors>
+</robot>

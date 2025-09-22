@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.0.1 (Python 3.12.1 on win32)" generated="2025-09-22T10:17:56.571345" rpa="false" schemaversion="5">
+<suite id="s1" name="Transaction Onboarding Regression Suite" source="C:\Users\sharmash\automation-framwork\tests\api\transaction_onboarding_regression_suite.robot">
+<kw name="Filter Test Date By Execution Flag" owner="ExcelUtils" type="SETUP">
+<msg time="2025-09-22T10:18:10.815119" level="INFO">Filtered data (execution_flag == 'YES') written below existing headers in 'output'.</msg>
+<status status="PASS" start="2025-09-22T10:18:03.482019" elapsed="7.333100"/>
+</kw>
+<test id="s1-t1" name="Perform ${automation_flow} Process for client ${client_name} testID: ${TestId}" line="15">
+<kw name="Add Project Root To Python Path" type="SETUP">
+<kw name="Normalize Path" owner="OperatingSystem">
+<msg time="2025-09-22T10:18:10.825170" level="INFO">${project_root} = C:\Users\sharmash\automation-framwork</msg>
+<var>${project_root}</var>
+<arg>C:\\Users\\sharmash\\automation-framwork\\tests\\api/../../</arg>
+<doc>Normalizes the given path.</doc>
+<status status="PASS" start="2025-09-22T10:18:10.824118" elapsed="0.001052"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<arg>sys.path.insert(0, r'${project_root}')</arg>
+<arg>sys</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-09-22T10:18:10.831173" elapsed="0.000000"/>
+</kw>
+<status status="PASS" start="2025-09-22T10:18:10.823196" elapsed="0.009007"/>
+</kw>
+<kw name="Perform Transaction Onboarding Automation Flow">
+<msg time="2025-09-22T10:18:10.836205" level="FAIL">No keyword with name 'Perform Transaction Onboarding Automation Flow' found. Did you mean:
+    ZinniaLive.Transaction Onboarding Automation Flow</msg>
+<arg>default_testid</arg>
+<arg>default_flow</arg>
+<arg>default_client</arg>
+<arg>default_plan</arg>
+<arg>default_xml</arg>
+<arg>default_contract</arg>
+<arg>default_payee</arg>
+<arg>default_status</arg>
+<arg>default_loan</arg>
+<arg>default_repay</arg>
+<arg>default_autopay</arg>
+<arg>default_manage</arg>
+<arg>default_premium</arg>
+<arg>default_withdraw</arg>
+<arg>default_rmd</arg>
+<arg>default_freq1</arg>
+<arg>default_freq2</arg>
+<arg>default_mode</arg>
+<arg>default_fund</arg>
+<arg>default_account1</arg>
+<arg>default_account2</arg>
+<arg>default_fix</arg>
+<arg>default_cap</arg>
+<arg>default_participation</arg>
+<arg>default_transfer</arg>
+<arg>default_systematic</arg>
+<arg>default_communication</arg>
+<status status="FAIL" start="2025-09-22T10:18:10.835203" elapsed="0.001002">No keyword with name 'Perform Transaction Onboarding Automation Flow' found. Did you mean:
+    ZinniaLive.Transaction Onboarding Automation Flow</status>
+</kw>
+<status status="FAIL" start="2025-09-22T10:18:10.821201" elapsed="0.018965">No keyword with name 'Perform Transaction Onboarding Automation Flow' found. Did you mean:
+    ZinniaLive.Transaction Onboarding Automation Flow</status>
+</test>
+<meta name="Environment">dev</meta>
+<meta name="Test_Suite">transaction_onboarding_regression_suite.robot</meta>
+<meta name="Test_Type">smoke</meta>
+<status status="FAIL" start="2025-09-22T10:17:56.674343" elapsed="14.173863"/>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="1" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="0" fail="1" skip="0" id="s1" name="Transaction Onboarding Regression Suite">Transaction Onboarding Regression Suite</stat>
+</suite>
+</statistics>
+<errors>
+<msg time="2025-09-22T10:17:56.660344" level="ERROR">Taking listener 'allure_console_listener.AllureConsoleListener:results/run_20250922_101755\allure-results' into use failed: Importing listener 'allure_console_listener.AllureConsoleListener' failed: ModuleNotFoundError: No module named 'allure_console_listener'
+Traceback (most recent call last):
+  None
+PYTHONPATH:
+  C:\Program Files\Python312\Scripts\robot.exe
+  c:\Users\sharmash\Downloads\QAS-ZinniaLive-AutomationTesting (1)\QAS-ZinniaLive-AutomationTesting
+  C:\Users\sharmash\automation-framwork\%PYTHONPATH%
+  C:\Program Files\Python312\python312.zip
+  C:\Program Files\Python312\DLLs
+  C:\Program Files\Python312\Lib
+  C:\Program Files\Python312
+  C:\Users\sharmash\AppData\Roaming\Python\Python312\site-packages
+  C:\Users\sharmash\AppData\Roaming\Python\Python312\site-packages\win32
+  C:\Users\sharmash\AppData\Roaming\Python\Python312\site-packages\win32\lib
+  C:\Users\sharmash\AppData\Roaming\Python\Python312\site-packages\Pythonwin
+  C:\Program Files\Python312\Lib\site-packages</msg>
+<msg time="2025-09-22T10:17:56.667344" level="ERROR">Taking listener 'DebugLibrary' into use failed: Importing listener 'DebugLibrary' failed: ModuleNotFoundError: No module named 'DebugLibrary'
+Traceback (most recent call last):
+  None
+PYTHONPATH:
+  C:\Program Files\Python312\Scripts\robot.exe
+  c:\Users\sharmash\Downloads\QAS-ZinniaLive-AutomationTesting (1)\QAS-ZinniaLive-AutomationTesting
+  C:\Users\sharmash\automation-framwork\%PYTHONPATH%
+  C:\Program Files\Python312\python312.zip
+  C:\Program Files\Python312\DLLs
+  C:\Program Files\Python312\Lib
+  C:\Program Files\Python312
+  C:\Users\sharmash\AppData\Roaming\Python\Python312\site-packages
+  C:\Users\sharmash\AppData\Roaming\Python\Python312\site-packages\win32
+  C:\Users\sharmash\AppData\Roaming\Python\Python312\site-packages\win32\lib
+  C:\Users\sharmash\AppData\Roaming\Python\Python312\site-packages\Pythonwin
+  C:\Program Files\Python312\Lib\site-packages</msg>
+<msg time="2025-09-22T10:17:58.620752" level="ERROR">Error in file 'C:\Users\sharmash\automation-framwork\resources\zinnialive.resource' on line 3: Library 'keywords\data_creation_keywords\GenerateDTCC.py' does not exist.</msg>
+<msg time="2025-09-22T10:18:03.478987" level="ERROR">[ DataDriver ] Error in robot file:
+  File "C:\Users\sharmash\automation-framwork\tests\api\transaction_onboarding_regression_suite.robot", line 0</msg>
+<msg time="2025-09-22T10:18:03.478987" level="ERROR">In source file:
+  File "\\sbgcommon\SYS\DEPTS\SE2\Delivery Quality\Automation DQ\ZLCM\Data\Testdata\transaction_onboarding.xlsx", line 0</msg>
+<msg time="2025-09-22T10:18:03.480983" level="ERROR">Calling method '_start_suite' of listener 'DataDriver' failed: AttributeError: No "Test Template" keyword found for first test case.</msg>
+</errors>
+</robot>

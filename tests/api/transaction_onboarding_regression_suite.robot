@@ -3,13 +3,18 @@ Library    OperatingSystem
 Library    Collections
 Test Setup    Add Project Root To Python Path
 Library    SeleniumLibrary
-Resource   ../../resources/zinnialive.resource
+
 Library    BuiltIn
 Library    ../../resources/utilities/ExcelUtilities.py    WITH NAME    ExcelUtils
 Suite Setup    Filter Test Date By Execution Flag
 Library    DataDriver    file=\\\\sbgcommon\\SYS\\DEPTS\\SE2\\Delivery Quality\\Automation DQ\\ZLCM\\Data\\Testdata\\transaction_onboarding.xlsx    sheet_name=output
+Resource   ../../resources/Reporting/ReportingSetup.resource
+Resource    ../../resources/zinnialive.resource
 
 
+# Ensure browser always closes after each test case (even on failure)
+Test Teardown    Close Browser
+Suite Teardown    Close All Browsers
 
 *** Test Cases ***
 Perform ${automation_flow} Process for client ${client_name} testID: ${TestId}
@@ -26,6 +31,11 @@ Add Project Root To Python Path
 Perform Transaction Onboarding Automation Flow
     [Arguments]    ${TestId}    ${automation_flow}    ${client_name}    ${client_plan_code}    ${old_xml_file_name}    ${manage_autopay_contract_number}    ${payee_name}    ${expected_policy_status}    ${start_loan_amount}    ${loan_repayment_amount}    ${loan_autopay_amount}    ${loan_manage_autopay_amount}    ${systematic_premium_update_amount}    ${systematic_withdrawal_update_amount}    ${systematic_rmd_update_amount}    ${Payment_frequency}    ${Manage_payment_frequency}    ${payment_mode}    ${fund_allocation_type}    ${expected_account_name}    ${expected_account_number}    ${fix_fund_allocation_percent}    ${cap_account_allocation_percent}    ${participation_rate_allocation_percent}    ${transfer_amount}    ${systematic_withdrawal_and_rmd_amount}    ${preferred_communication}
     Transaction Onboarding Automation Process    ${automation_flow}    ${old_xml_file_name}    ${manage_autopay_contract_number}    ${payee_name}    ${expected_policy_status}    ${start_loan_amount}    ${loan_autopay_amount}    ${Payment_frequency}    ${loan_repayment_amount}    ${payment_mode}    ${fund_allocation_type}    ${expected_account_name}    ${expected_account_number}    ${loan_manage_autopay_amount}    ${Manage_payment_frequency}    ${fix_fund_allocation_percent}    ${cap_account_allocation_percent}    ${participation_rate_allocation_percent}    ${client_name}    ${client_plan_code}    ${transfer_amount}    ${systematic_withdrawal_and_rmd_amount}    ${systematic_premium_update_amount}    ${systematic_withdrawal_update_amount}    ${systematic_rmd_update_amount}    ${preferred_communication}
+
+
+Transaction Onboarding Automation Process
+    [Arguments]    ${automation_flow}    ${old_xml_file_name}    ${manage_autopay_contract_number}    ${payee_name}    ${expected_policy_status}    ${start_loan_amount}    ${loan_autopay_amount}    ${Payment_frequency}    ${loan_repayment_amount}    ${payment_mode}    ${fund_allocation_type}    ${expected_account_name}    ${expected_account_number}    ${loan_manage_autopay_amount}    ${Manage_payment_frequency}    ${fix_fund_allocation_percent}    ${cap_account_allocation_percent}    ${participation_rate_allocation_percent}    ${client_name}    ${client_plan_code}    ${transfer_amount}    ${systematic_withdrawal_and_rmd_amount}    ${systematic_premium_update_amount}    ${systematic_withdrawal_update_amount}    ${systematic_rmd_update_amount}    ${preferred_communication}
+    Transaction Onboarding Automation Flow Until Lifecycle Completion    ${automation_flow}    ${old_xml_file_name}    ${manage_autopay_contract_number}    ${payee_name}    ${expected_policy_status}    ${start_loan_amount}    ${loan_autopay_amount}    ${Payment_frequency}    ${loan_repayment_amount}    ${payment_mode}    ${fund_allocation_type}    ${expected_account_name}    ${expected_account_number}    ${loan_manage_autopay_amount}    ${Manage_payment_frequency}    ${fix_fund_allocation_percent}    ${cap_account_allocation_percent}    ${participation_rate_allocation_percent}    ${client_name}    ${client_plan_code}    ${transfer_amount}    ${systematic_withdrawal_and_rmd_amount}    ${systematic_premium_update_amount}    ${systematic_withdrawal_update_amount}    ${systematic_rmd_update_amount}    ${preferred_communication}
 
 
 

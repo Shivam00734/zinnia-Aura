@@ -1,0 +1,77 @@
+Complete Test Execution Console Output
+============================================================
+Execution Time: 2025-09-22 11:56:05
+Environment: dev
+Test Type: smoke
+Selected APIs: []
+Selected Tests: ['fakerdata.robot']
+============================================================
+
+
+=== fakerdata.robot_console_output.log ===
+fakerdata.robot Console Output
+==================================================
+Test Suite: fakerdata.robot
+Environment: dev
+Test Type: smoke
+Start Time: 2025-09-22 11:56:05
+==================================================
+
+STDOUT:
+====================================================================================================
+Fakerdata
+====================================================================================================
+Creating Fake Data :: Generate fake user data using FakerLibrary with console logging       | FAIL |
+Parent suite setup failed:
+Keyword 'ReportingSetup.Setup Enhanced Allure Environment' expected 0 arguments, got 2.
+----------------------------------------------------------------------------------------------------
+Test execution summary created: C:\Users\sharmash\automation-framwork\results\run_20250922_115603/test_execution_summary.txt
+Test execution summary created and attached to Allure
+Fakerdata                                                                                   | FAIL |
+Suite setup failed:
+Keyword 'ReportingSetup.Setup Enhanced Allure Environment' expected 0 arguments, got 2.
+
+1 test, 0 passed, 1 failed
+====================================================================================================
+Output:  C:\Users\sharmash\automation-framwork\results\run_20250922_115603\output.xml
+Log:     C:\Users\sharmash\automation-framwork\results\run_20250922_115603\results\run_20250922_115603\fakerdata.robot_detailed_log.html
+Report:  C:\Users\sharmash\automation-framwork\results\run_20250922_115603\results\run_20250922_115603\fakerdata.robot_detailed_report.html
+
+STDERR:
+[ ERROR ] Taking listener 'allure_console_listener.AllureConsoleListener:results/run_20250922_115603\allure-results' into use failed: Importing listener 'allure_console_listener.AllureConsoleListener' failed: ModuleNotFoundError: No module named 'allure_console_listener'
+Traceback (most recent call last):
+  None
+PYTHONPATH:
+  C:\Program Files\Python312\Scripts\robot.exe
+  c:\Users\sharmash\Downloads\QAS-ZinniaLive-AutomationTesting (1)\QAS-ZinniaLive-AutomationTesting
+  C:\Users\sharmash\automation-framwork\%PYTHONPATH%
+  C:\Program Files\Python312\python312.zip
+  C:\Program Files\Python312\DLLs
+  C:\Program Files\Python312\Lib
+  C:\Program Files\Python312
+  C:\Users\sharmash\AppData\Roaming\Python\Python312\site-packages
+  C:\Users\sharmash\AppData\Roaming\Python\Python312\site-packages\win32
+  C:\Users\sharmash\AppData\Roaming\Python\Python312\site-packages\win32\lib
+  C:\Users\sharmash\AppData\Roaming\Python\Python312\site-packages\Pythonwin
+  C:\Program Files\Python312\Lib\site-packages
+[ ERROR ] Taking listener 'DebugLibrary' into use failed: Importing listener 'DebugLibrary' failed: ModuleNotFoundError: No module named 'DebugLibrary'
+Traceback (most recent call last):
+  None
+PYTHONPATH:
+  C:\Program Files\Python312\Scripts\robot.exe
+  c:\Users\sharmash\Downloads\QAS-ZinniaLive-AutomationTesting (1)\QAS-ZinniaLive-AutomationTesting
+  C:\Users\sharmash\automation-framwork\%PYTHONPATH%
+  C:\Program Files\Python312\python312.zip
+  C:\Program Files\Python312\DLLs
+  C:\Program Files\Python312\Lib
+  C:\Program Files\Python312
+  C:\Users\sharmash\AppData\Roaming\Python\Python312\site-packages
+  C:\Users\sharmash\AppData\Roaming\Python\Python312\site-packages\win32
+  C:\Users\sharmash\AppData\Roaming\Python\Python312\site-packages\win32\lib
+  C:\Users\sharmash\AppData\Roaming\Python\Python312\site-packages\Pythonwin
+  C:\Program Files\Python312\Lib\site-packages
+
+Process Exit Code: 1
+
+=== End of fakerdata.robot_console_output.log ===
+

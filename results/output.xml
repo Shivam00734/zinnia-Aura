@@ -1,31 +1,73 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 7.3.2 (Python 3.12.1 on win32)" generated="2025-09-19T13:57:46.882066" rpa="false" schemaversion="5">
+<robot generator="Robot 7.3.2 (Python 3.12.1 on win32)" generated="2025-09-22T10:21:38.747466" rpa="false" schemaversion="5">
 <suite id="s1" name="Automation-Framwork" source="C:\Users\sharmash\automation-framwork">
-<suite id="s1-s1" name="Testsuite" source="C:\Users\sharmash\automation-framwork\testsuite">
-<suite id="s1-s1-s1" name="Zinnia Live Test Suite" source="C:\Users\sharmash\automation-framwork\testsuite\zinnia_live_test_suite">
-<suite id="s1-s1-s1-s1" name="Api" source="C:\Users\sharmash\automation-framwork\testsuite\zinnia_live_test_suite\api">
-<suite id="s1-s1-s1-s1-s1" name="Step 1 Generate DTCC and Upload" source="C:\Users\sharmash\automation-framwork\testsuite\zinnia_live_test_suite\api\Step_1_Generate_DTCC_and_Upload.robot">
-<test id="s1-s1-s1-s1-s1-t1" name="Generate DTCC File Upload To NSCC Folder And Prepare Test Data" line="9">
-<kw name="Generate DTCC File, Upload to NSCC Folder, and Prepare Test Data" owner="zinnialive">
-<kw name="Generate Dtcc File And Upload Dtcc" owner="GenerateDTCC">
-<msg time="2025-09-19T13:57:48.551126" level="FAIL">FileNotFoundError: [Errno 2] No such file or directory: 'C:/Users/suthark/Documents/ZL_Project/QAS-ZinniaLive-AutomationTesting/data/test_data/zinnia_live_test_data5.xlsx'</msg>
-<arg>${group_id}</arg>
-<status status="FAIL" start="2025-09-19T13:57:48.551126" elapsed="0.005969">FileNotFoundError: [Errno 2] No such file or directory: 'C:/Users/suthark/Documents/ZL_Project/QAS-ZinniaLive-AutomationTesting/data/test_data/zinnia_live_test_data5.xlsx'</status>
+<suite id="s1-s1" name="Tests" source="C:\Users\sharmash\automation-framwork\tests">
+<suite id="s1-s1-s1" name="Api" source="C:\Users\sharmash\automation-framwork\tests\api">
+<suite id="s1-s1-s1-s1" name="Transaction Onboarding Regression Suite" source="C:\Users\sharmash\automation-framwork\tests\api\transaction_onboarding_regression_suite.robot">
+<kw name="Filter Test Date By Execution Flag" owner="ExcelUtils" type="SETUP">
+<msg time="2025-09-22T10:21:52.958330" level="INFO">Filtered data (execution_flag == 'YES') written below existing headers in 'output'.</msg>
+<status status="PASS" start="2025-09-22T10:21:45.236093" elapsed="7.723286"/>
 </kw>
-<arg>${group_id}</arg>
-<status status="FAIL" start="2025-09-19T13:57:48.550167" elapsed="0.007927">FileNotFoundError: [Errno 2] No such file or directory: 'C:/Users/suthark/Documents/ZL_Project/QAS-ZinniaLive-AutomationTesting/data/test_data/zinnia_live_test_data5.xlsx'</status>
+<test id="s1-s1-s1-s1-t1" name="Perform ${automation_flow} Process for client ${client_name} testID: ${TestId}" line="15">
+<kw name="Add Project Root To Python Path" type="SETUP">
+<kw name="Normalize Path" owner="OperatingSystem">
+<msg time="2025-09-22T10:21:52.976371" level="INFO">${project_root} = C:\Users\sharmash\automation-framwork</msg>
+<var>${project_root}</var>
+<arg>C:\\Users\\sharmash\\automation-framwork\\tests\\api/../../</arg>
+<doc>Normalizes the given path.</doc>
+<status status="PASS" start="2025-09-22T10:21:52.975371" elapsed="0.001000"/>
 </kw>
-<status status="FAIL" start="2025-09-19T13:57:48.546143" elapsed="0.011951">FileNotFoundError: [Errno 2] No such file or directory: 'C:/Users/suthark/Documents/ZL_Project/QAS-ZinniaLive-AutomationTesting/data/test_data/zinnia_live_test_data5.xlsx'</status>
+<kw name="Evaluate" owner="BuiltIn">
+<arg>sys.path.insert(0, r'${project_root}')</arg>
+<arg>sys</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-09-22T10:21:52.977373" elapsed="0.001957"/>
+</kw>
+<status status="PASS" start="2025-09-22T10:21:52.974330" elapsed="0.006001"/>
+</kw>
+<kw name="Perform Transaction Onboarding Automation Flow">
+<msg time="2025-09-22T10:21:52.998334" level="FAIL">No keyword with name 'Perform Transaction Onboarding Automation Flow' found. Did you mean:
+    ZinniaLive.Transaction Onboarding Automation Flow</msg>
+<arg>default_testid</arg>
+<arg>default_flow</arg>
+<arg>default_client</arg>
+<arg>default_plan</arg>
+<arg>default_xml</arg>
+<arg>default_contract</arg>
+<arg>default_payee</arg>
+<arg>default_status</arg>
+<arg>default_loan</arg>
+<arg>default_repay</arg>
+<arg>default_autopay</arg>
+<arg>default_manage</arg>
+<arg>default_premium</arg>
+<arg>default_withdraw</arg>
+<arg>default_rmd</arg>
+<arg>default_freq1</arg>
+<arg>default_freq2</arg>
+<arg>default_mode</arg>
+<arg>default_fund</arg>
+<arg>default_account1</arg>
+<arg>default_account2</arg>
+<arg>default_fix</arg>
+<arg>default_cap</arg>
+<arg>default_participation</arg>
+<arg>default_transfer</arg>
+<arg>default_systematic</arg>
+<arg>default_communication</arg>
+<status status="FAIL" start="2025-09-22T10:21:52.986330" elapsed="0.025000">No keyword with name 'Perform Transaction Onboarding Automation Flow' found. Did you mean:
+    ZinniaLive.Transaction Onboarding Automation Flow</status>
+</kw>
+<status status="FAIL" start="2025-09-22T10:21:52.963331" elapsed="0.051103">No keyword with name 'Perform Transaction Onboarding Automation Flow' found. Did you mean:
+    ZinniaLive.Transaction Onboarding Automation Flow</status>
 </test>
-<status status="FAIL" start="2025-09-19T13:57:46.947089" elapsed="1.619008"/>
+<status status="FAIL" start="2025-09-22T10:21:38.951068" elapsed="14.092346"/>
 </suite>
-<status status="FAIL" start="2025-09-19T13:57:46.941090" elapsed="1.632005"/>
+<status status="FAIL" start="2025-09-22T10:21:38.929065" elapsed="14.130381"/>
 </suite>
-<status status="FAIL" start="2025-09-19T13:57:46.931134" elapsed="1.645960"/>
+<status status="FAIL" start="2025-09-22T10:21:38.898468" elapsed="14.172864"/>
 </suite>
-<status status="FAIL" start="2025-09-19T13:57:46.919034" elapsed="1.662085"/>
-</suite>
-<status status="FAIL" start="2025-09-19T13:57:46.892048" elapsed="1.698089"/>
+<status status="FAIL" start="2025-09-22T10:21:38.772467" elapsed="14.312863"/>
 </suite>
 <statistics>
 <total>
@@ -35,12 +77,16 @@
 </tag>
 <suite>
 <stat name="Automation-Framwork" id="s1" pass="0" fail="1" skip="0">Automation-Framwork</stat>
-<stat name="Testsuite" id="s1-s1" pass="0" fail="1" skip="0">Automation-Framwork.Testsuite</stat>
-<stat name="Zinnia Live Test Suite" id="s1-s1-s1" pass="0" fail="1" skip="0">Automation-Framwork.Testsuite.Zinnia Live Test Suite</stat>
-<stat name="Api" id="s1-s1-s1-s1" pass="0" fail="1" skip="0">Automation-Framwork.Testsuite.Zinnia Live Test Suite.Api</stat>
-<stat name="Step 1 Generate DTCC and Upload" id="s1-s1-s1-s1-s1" pass="0" fail="1" skip="0">Automation-Framwork.Testsuite.Zinnia Live Test Suite.Api.Step 1 Generate DTCC and Upload</stat>
+<stat name="Tests" id="s1-s1" pass="0" fail="1" skip="0">Automation-Framwork.Tests</stat>
+<stat name="Api" id="s1-s1-s1" pass="0" fail="1" skip="0">Automation-Framwork.Tests.Api</stat>
+<stat name="Transaction Onboarding Regression Suite" id="s1-s1-s1-s1" pass="0" fail="1" skip="0">Automation-Framwork.Tests.Api.Transaction Onboarding Regression Suite</stat>
 </suite>
 </statistics>
 <errors>
+<msg time="2025-09-22T10:21:45.168217" level="ERROR">[ DataDriver ] Error in robot file:
+  File "C:\Users\sharmash\automation-framwork\tests\api\transaction_onboarding_regression_suite.robot", line 0</msg>
+<msg time="2025-09-22T10:21:45.188848" level="ERROR">In source file:
+  File "\\sbgcommon\SYS\DEPTS\SE2\Delivery Quality\Automation DQ\ZLCM\Data\Testdata\transaction_onboarding.xlsx", line 0</msg>
+<msg time="2025-09-22T10:21:45.206849" level="ERROR">Calling method '_start_suite' of listener 'DataDriver' failed: AttributeError: No "Test Template" keyword found for first test case.</msg>
 </errors>
 </robot>

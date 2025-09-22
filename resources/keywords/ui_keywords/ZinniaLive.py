@@ -7,8 +7,9 @@ from resources.utilities.FileUtils import FileUtils
 from resources.utilities.ReadConfig import ReadConfig
 from resources.utilities.WebUtils import WebUtils
 from robot.libraries.BuiltIn import BuiltIn
-import re
 from resources.vo.FilePropertiesVo import FilePropertiesVo
+
+# from resources.Reporting.ReportingSetup import ReportingSetup
 
 
 @library

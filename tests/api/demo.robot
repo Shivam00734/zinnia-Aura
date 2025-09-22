@@ -71,6 +71,7 @@ getStatusCode
     ...    Log Failure To Console And Allure    Status code mismatch    Expected ${expected_status_code} but got ${actual_status_code}
     
     Should Be Equal As Integers    ${actual_status_code}    ${expected_status_code}
+<<<<<<< HEAD
     
     Log Step To Console And Allure    Status code validation completed successfully
 
@@ -92,3 +93,6 @@ Enhanced API Test With Error Handling
     
     Log Step To Console And Allure    Error handling test completed
     
+=======
+    #demo
+>>>>>>> 0cf56ad3845949a99f952ca7a33721626a7eec62

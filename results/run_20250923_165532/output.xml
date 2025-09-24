@@ -1,0 +1,860 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.0.1 (Python 3.12.1 on win32)" generated="2025-09-23T16:55:33.151976" rpa="false" schemaversion="5">
+<suite id="s1" name="Dynamic Api Tests" source="C:\Users\sharmash\automation-framwork\tests\api\dynamic_api_tests.robot">
+<kw name="Background OAuth Authentication" type="SETUP">
+<kw name="Setup Session">
+<kw name="Create Session" owner="RequestsLibrary">
+<msg time="2025-09-23T16:55:33.624310" level="INFO">Creating Session using : alias=api_session, url=https://login.qa.zinnia.com, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<arg>api_session</arg>
+<arg>https://login.qa.zinnia.com</arg>
+<arg>verify=False</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<status status="PASS" start="2025-09-23T16:55:33.623310" elapsed="0.001000"/>
+</kw>
+<kw name="Create Session" owner="RequestsLibrary">
+<msg time="2025-09-23T16:55:33.628310" level="INFO">Creating Session using : alias=api_session_case, url=https://qa.api.zinnia.io, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<arg>api_session_case</arg>
+<arg>https://qa.api.zinnia.io</arg>
+<arg>verify=False</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<status status="PASS" start="2025-09-23T16:55:33.628310" elapsed="0.000000"/>
+</kw>
+<kw name="Create Session" owner="RequestsLibrary">
+<msg time="2025-09-23T16:55:33.632310" level="INFO">Creating Session using : alias=api_session_bpm, url=https://qa-bpm.se2.com, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<arg>api_session_bpm</arg>
+<arg>https://qa-bpm.se2.com</arg>
+<arg>verify=False</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<status status="PASS" start="2025-09-23T16:55:33.631310" elapsed="0.001000"/>
+</kw>
+<status status="PASS" start="2025-09-23T16:55:33.622310" elapsed="0.012038"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-09-23T16:55:33.634348" level="INFO">${endpoint} = /oauth/token</msg>
+<var>${endpoint}</var>
+<arg>/oauth/token</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-09-23T16:55:33.634348" elapsed="0.000000"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-09-23T16:55:33.636351" level="INFO">${method} = POST</msg>
+<var>${method}</var>
+<arg>POST</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-09-23T16:55:33.636351" elapsed="0.000000"/>
+</kw>
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2025-09-23T16:55:33.638351" level="INFO">${headers} = {'Content-Type': 'application/x-www-form-urlencoded'}</msg>
+<var>${headers}</var>
+<arg>Content-Type=application/x-www-form-urlencoded</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2025-09-23T16:55:33.638351" elapsed="0.000000"/>
+</kw>
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2025-09-23T16:55:33.640351" level="INFO">${payload} = {'audience': 'https://qa.api.zinnia.io', 'grant_type': 'client_credentials', 'client_id': 'UuMribrP3e8zVhfHy6wPJ25lVYh1CWN3', 'client_secret': 'WQ4ZBFI0RaYnhlhrZBdw4ltrMk8IKT9bDm1DX_U28doSk4F4Au5KiAso...</msg>
+<var>${payload}</var>
+<arg>audience=https://qa.api.zinnia.io</arg>
+<arg>grant_type=client_credentials</arg>
+<arg>client_id=UuMribrP3e8zVhfHy6wPJ25lVYh1CWN3</arg>
+<arg>client_secret=WQ4ZBFI0RaYnhlhrZBdw4ltrMk8IKT9bDm1DX_U28doSk4F4Au5KiAsoBCSNYWix</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2025-09-23T16:55:33.640351" elapsed="0.000000"/>
+</kw>
+<kw name="Execute Token API">
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2025-09-23T16:55:33.643351" level="INFO">${form_data} = {}</msg>
+<var>${form_data}</var>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2025-09-23T16:55:33.642351" elapsed="0.001000"/>
+</kw>
+<for flavor="IN">
+<iter>
+<kw name="Set To Dictionary" owner="Collections">
+<arg>${form_data}</arg>
+<arg>${key}=${value}</arg>
+<doc>Adds the given ``key_value_pairs`` and/or ``items`` to the ``dictionary``.</doc>
+<status status="PASS" start="2025-09-23T16:55:33.645116" elapsed="0.000000"/>
+</kw>
+<var name="${key}">audience</var>
+<var name="${value}">https://qa.api.zinnia.io</var>
+<status status="PASS" start="2025-09-23T16:55:33.645116" elapsed="0.001002"/>
+</iter>
+<iter>
+<kw name="Set To Dictionary" owner="Collections">
+<arg>${form_data}</arg>
+<arg>${key}=${value}</arg>
+<doc>Adds the given ``key_value_pairs`` and/or ``items`` to the ``dictionary``.</doc>
+<status status="PASS" start="2025-09-23T16:55:33.646118" elapsed="0.000000"/>
+</kw>
+<var name="${key}">grant_type</var>
+<var name="${value}">client_credentials</var>
+<status status="PASS" start="2025-09-23T16:55:33.646118" elapsed="0.000000"/>
+</iter>
+<iter>
+<kw name="Set To Dictionary" owner="Collections">
+<arg>${form_data}</arg>
+<arg>${key}=${value}</arg>
+<doc>Adds the given ``key_value_pairs`` and/or ``items`` to the ``dictionary``.</doc>
+<status status="PASS" start="2025-09-23T16:55:33.646118" elapsed="0.001000"/>
+</kw>
+<var name="${key}">client_id</var>
+<var name="${value}">UuMribrP3e8zVhfHy6wPJ25lVYh1CWN3</var>
+<status status="PASS" start="2025-09-23T16:55:33.646118" elapsed="0.001000"/>
+</iter>
+<iter>
+<kw name="Set To Dictionary" owner="Collections">
+<arg>${form_data}</arg>
+<arg>${key}=${value}</arg>
+<doc>Adds the given ``key_value_pairs`` and/or ``items`` to the ``dictionary``.</doc>
+<status status="PASS" start="2025-09-23T16:55:33.647118" elapsed="0.000000"/>
+</kw>
+<var name="${key}">client_secret</var>
+<var name="${value}">WQ4ZBFI0RaYnhlhrZBdw4ltrMk8IKT9bDm1DX_U28doSk4F4Au5KiAsoBCSNYWix</var>
+<status status="PASS" start="2025-09-23T16:55:33.647118" elapsed="0.000000"/>
+</iter>
+<var>${key}</var>
+<var>${value}</var>
+<value>&amp;{payload}</value>
+<status status="PASS" start="2025-09-23T16:55:33.645116" elapsed="0.002002"/>
+</for>
+<kw name="POST On Session" owner="RequestsLibrary">
+<msg time="2025-09-23T16:55:34.598421" level="INFO">POST Request : url=https://login.qa.zinnia.com/oauth/token 
+ path_url=/oauth/token 
+ headers={'User-Agent': 'python-requests/2.32.3', 'Accept-Encoding': 'gzip, deflate, br', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/x-www-form-urlencoded', 'Content-Length': '191'} 
+ body=audience=https%3A%2F%2Fqa.api.zinnia.io&amp;grant_type=client_credentials&amp;client_id=UuMribrP3e8zVhfHy6wPJ25lVYh1CWN3&amp;client_secret=WQ4ZBFI0RaYnhlhrZBdw4ltrMk8IKT9bDm1DX_U28doSk4F4Au5KiAsoBCSNYWix 
+ </msg>
+<msg time="2025-09-23T16:55:34.599433" level="INFO">POST Response : url=https://login.qa.zinnia.com/oauth/token 
+ status=200, reason=OK 
+ headers={'Date': 'Tue, 23 Sep 2025 11:25:36 GMT', 'Content-Type': 'application/json', 'Transfer-Encoding': 'chunked', 'Connection': 'keep-alive', 'Content-Encoding': 'br', 'CF-Ray': '9839aea99cda5469-DEL', 'CF-Cache-Status': 'DYNAMIC', 'Cache-Control': 'no-store', 'Set-Cookie': 'did=s%3Av0%3A4e31fa8b-3343-47db-9338-9c6054606391.%2Blv7LnwbBu9XjqplqbSlo2yo8PZROT3242BwNACICp0; Path=/; Expires=Wed, 23 Sep 2026 17:25:36 GMT; HttpOnly; Secure; SameSite=None, did_compat=s%3Av0%3A4e31fa8b-3343-47db-9338-9c6054606391.%2Blv7LnwbBu9XjqplqbSlo2yo8PZROT3242BwNACICp0; Path=/; Expires=Wed, 23 Sep 2026 17:25:36 GMT; HttpOnly; Secure', 'Strict-Transport-Security': 'max-age=31536000; includeSubDomains', 'Vary': 'Accept-Encoding, Origin', 'Pragma': 'no-cache', 'X-Auth0-L': '0.337', 'X-Auth0-RequestId': '6cbc1c1f8d57f8701cd4', 'X-Content-Type-Options': 'nosniff', 'X-RateLimit-Limit': '300', 'X-RateLimit-Remaining': '299', 'X-RateLimit-Reset': '1758626737', 'Server': 'cloudflare', 'alt-svc': 'h3=":443"; ma=86400'} 
+ body={"access_token":"eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IlU1SWNUOEQ4LTNWdl80NDFIdnlzbyJ9.eyJodHRwczovL3FhLmFwaS56aW5uaWEuaW8vY2xpZW50SWRzIjpbImV2ZXJseSIsImVsaWMiLCJzYnVsIl0sImh0dHBzOi8vcWEuYXBpLnppbm5pYS5pby9wZXJtaXNzaW9ucyI6WyJyZWFkOnBvbGljeSIsIndyaXRlOnBvbGljeSIsIndyaXRlOmNhc2UiLCJyZWFkOmNhc2UiLCJyZWFkOmRvY3VtZW50Iiwid3JpdGU6ZG9jdW1lbnQiLCJ3cml0ZTp0YXNrIiwicmVhZDp0YXNrIl0sInBhcnR5SWQiOiJjNmE3YWI5ZjdkZDg0MDE1YTY1NTJiZmM1YjM2NmI3NyIsInNvdXJjZSI6IkJ1c2luZXNzIFByb2Nlc3MgTWFuYWdlbWVudCIsImlzcyI6Imh0dHBzOi8vbG9naW4ucWEuemlubmlhLmNvbS8iLCJzdWIiOiJVdU1yaWJyUDNlOHpWaGZIeTZ3UEoyNWxWWWgxQ1dOM0BjbGllbnRzIiwiYXVkIjoiaHR0cHM6Ly9xYS5hcGkuemlubmlhLmlvIiwiaWF0IjoxNzU4NjI2NzM2LCJleHAiOjE3NTg3MTMxMzYsInNjb3BlIjoib3BlbmlkIiwiZ3R5IjoiY2xpZW50LWNyZWRlbnRpYWxzIiwiYXpwIjoiVXVNcmliclAzZTh6VmhmSHk2d1BKMjVsVlloMUNXTjMifQ.Vt2WweG4lY6lNdA31PAvyzQ17BNp3Pvj4GF2qPd8-z5A4aSHht5BVJ0ZPDa9Niv7YBrnggmnZ-egKPEgMfZgvzndN5znI-a13yQNSB4x8dPiPsca363KfxoNFiK3MwbE--1r0oCLQ8IjXHa0hfiutLh7T4n-m8wuCFr5chbHCr6dBMHHDH3ZwTEZol4M5AE5HDXV6hoZ5UmMwdGYyg4260s-Ch6571TXK9W9E_Kcy4I8wu20Ob4e3bwVacnNXtB4Db3tzwwfhjiM8ABnV-D6YwDeDq_rBbhLIp0MB-ALOTw4_LanMdj0FgfAf0_YX3ObIyvCZrz4Rcc9FXLasu_GsA","scope":"openid","expires_in":86400,"token_type":"Bearer"} 
+ </msg>
+<msg time="2025-09-23T16:55:34.599433" level="INFO">C:\Users\sharmash\AppData\Roaming\Python\Python312\site-packages\urllib3\connectionpool.py:1103: InsecureRequestWarning: Unverified HTTPS request is being made to host 'login.qa.zinnia.com'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(</msg>
+<msg time="2025-09-23T16:55:34.600430" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<var>${response}</var>
+<arg>api_session</arg>
+<arg>${endpoint}</arg>
+<arg>data=${form_data}</arg>
+<arg>headers=${headers}</arg>
+<doc>Sends a POST request on a previously created HTTP Session.</doc>
+<status status="PASS" start="2025-09-23T16:55:33.647118" elapsed="0.953312"/>
+</kw>
+<kw name="Get From Dictionary" owner="Collections">
+<msg time="2025-09-23T16:55:34.609477" level="INFO">${token} = eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IlU1SWNUOEQ4LTNWdl80NDFIdnlzbyJ9.eyJodHRwczovL3FhLmFwaS56aW5uaWEuaW8vY2xpZW50SWRzIjpbImV2ZXJseSIsImVsaWMiLCJzYnVsIl0sImh0dHBzOi8vcWEuYXBpLnppbm5pYS5pby9wZXJ...</msg>
+<var>${token}</var>
+<arg>${response.json()}</arg>
+<arg>access_token</arg>
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<status status="PASS" start="2025-09-23T16:55:34.607431" elapsed="0.002046"/>
+</kw>
+<kw name="Set Global Variable" owner="BuiltIn">
+<msg time="2025-09-23T16:55:34.616792" level="INFO">${TOKEN} = eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IlU1SWNUOEQ4LTNWdl80NDFIdnlzbyJ9.eyJodHRwczovL3FhLmFwaS56aW5uaWEuaW8vY2xpZW50SWRzIjpbImV2ZXJseSIsImVsaWMiLCJzYnVsIl0sImh0dHBzOi8vcWEuYXBpLnppbm5pYS5pby9wZXJ...</msg>
+<arg>${TOKEN}</arg>
+<arg>${token}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<status status="PASS" start="2025-09-23T16:55:34.615792" elapsed="0.001000"/>
+</kw>
+<kw name="Set Suite Variable" owner="BuiltIn">
+<msg time="2025-09-23T16:55:34.621856" level="INFO">${OAUTH_TOKEN_DISPLAY} = eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IlU1SWNUOEQ4LTNWdl80NDFIdnlzbyJ9.eyJodHRwczovL3FhLmFwaS56aW5uaWEuaW8vY2xpZW50SWRzIjpbImV2ZXJseSIsImVsaWMiLCJzYnVsIl0sImh0dHBzOi8vcWEuYXBpLnppbm5pYS5pby9wZXJ...</msg>
+<arg>${OAUTH_TOKEN_DISPLAY}</arg>
+<arg>${token}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<status status="PASS" start="2025-09-23T16:55:34.620833" elapsed="0.001996"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-09-23T16:55:34.628794" level="INFO">Token received: eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IlU1SWNUOEQ4LTNWdl80NDFIdnlzbyJ9.eyJodHRwczovL3FhLmFwaS56aW5uaWEuaW8vY2xpZW50SWRzIjpbImV2ZXJseSIsImVsaWMiLCJzYnVsIl0sImh0dHBzOi8vcWEuYXBpLnppbm5pYS5pby9wZXJtaXNzaW9ucyI6WyJyZWFkOnBvbGljeSIsIndyaXRlOnBvbGljeSIsIndyaXRlOmNhc2UiLCJyZWFkOmNhc2UiLCJyZWFkOmRvY3VtZW50Iiwid3JpdGU6ZG9jdW1lbnQiLCJ3cml0ZTp0YXNrIiwicmVhZDp0YXNrIl0sInBhcnR5SWQiOiJjNmE3YWI5ZjdkZDg0MDE1YTY1NTJiZmM1YjM2NmI3NyIsInNvdXJjZSI6IkJ1c2luZXNzIFByb2Nlc3MgTWFuYWdlbWVudCIsImlzcyI6Imh0dHBzOi8vbG9naW4ucWEuemlubmlhLmNvbS8iLCJzdWIiOiJVdU1yaWJyUDNlOHpWaGZIeTZ3UEoyNWxWWWgxQ1dOM0BjbGllbnRzIiwiYXVkIjoiaHR0cHM6Ly9xYS5hcGkuemlubmlhLmlvIiwiaWF0IjoxNzU4NjI2NzM2LCJleHAiOjE3NTg3MTMxMzYsInNjb3BlIjoib3BlbmlkIiwiZ3R5IjoiY2xpZW50LWNyZWRlbnRpYWxzIiwiYXpwIjoiVXVNcmliclAzZTh6VmhmSHk2d1BKMjVsVlloMUNXTjMifQ.Vt2WweG4lY6lNdA31PAvyzQ17BNp3Pvj4GF2qPd8-z5A4aSHht5BVJ0ZPDa9Niv7YBrnggmnZ-egKPEgMfZgvzndN5znI-a13yQNSB4x8dPiPsca363KfxoNFiK3MwbE--1r0oCLQ8IjXHa0hfiutLh7T4n-m8wuCFr5chbHCr6dBMHHDH3ZwTEZol4M5AE5HDXV6hoZ5UmMwdGYyg4260s-Ch6571TXK9W9E_Kcy4I8wu20Ob4e3bwVacnNXtB4Db3tzwwfhjiM8ABnV-D6YwDeDq_rBbhLIp0MB-ALOTw4_LanMdj0FgfAf0_YX3ObIyvCZrz4Rcc9FXLasu_GsA</msg>
+<arg>Token received: ${token}</arg>
+<arg>INFO</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-09-23T16:55:34.627793" elapsed="0.001001"/>
+</kw>
+<arg>${endpoint}</arg>
+<arg>${method}</arg>
+<arg>${headers}</arg>
+<arg>${payload}</arg>
+<status status="PASS" start="2025-09-23T16:55:33.642351" elapsed="0.992533"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-09-23T16:55:34.636896" level="INFO">Background OAuth authentication completed</msg>
+<arg>Background OAuth authentication completed</arg>
+<arg>INFO</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-09-23T16:55:34.635792" elapsed="0.001104"/>
+</kw>
+<doc>Silently authenticate with OAuth for API access</doc>
+<status status="PASS" start="2025-09-23T16:55:33.622310" elapsed="1.021077"/>
+</kw>
+<test id="s1-t1" name="Test_01_Post_Task_Message" line="142">
+<kw name="Setup Session" type="SETUP">
+<kw name="Create Session" owner="RequestsLibrary">
+<msg time="2025-09-23T16:55:34.646387" level="INFO">Creating Session using : alias=api_session, url=https://login.qa.zinnia.com, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<arg>api_session</arg>
+<arg>https://login.qa.zinnia.com</arg>
+<arg>verify=False</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<status status="PASS" start="2025-09-23T16:55:34.645387" elapsed="0.001000"/>
+</kw>
+<kw name="Create Session" owner="RequestsLibrary">
+<msg time="2025-09-23T16:55:34.650386" level="INFO">Creating Session using : alias=api_session_case, url=https://qa.api.zinnia.io, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<arg>api_session_case</arg>
+<arg>https://qa.api.zinnia.io</arg>
+<arg>verify=False</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<status status="PASS" start="2025-09-23T16:55:34.650386" elapsed="0.001000"/>
+</kw>
+<kw name="Create Session" owner="RequestsLibrary">
+<msg time="2025-09-23T16:55:34.657518" level="INFO">Creating Session using : alias=api_session_bpm, url=https://qa-bpm.se2.com, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<arg>api_session_bpm</arg>
+<arg>https://qa-bpm.se2.com</arg>
+<arg>verify=False</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<status status="PASS" start="2025-09-23T16:55:34.656466" elapsed="0.002041"/>
+</kw>
+<status status="PASS" start="2025-09-23T16:55:34.645387" elapsed="0.016798"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-09-23T16:55:34.663145" level="INFO">${endpoint} = /case/v1/tasks/message</msg>
+<var>${endpoint}</var>
+<arg>/case/v1/tasks/message</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-09-23T16:55:34.663145" elapsed="0.000000"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-09-23T16:55:34.666116" level="INFO">${method} = POST</msg>
+<var>${method}</var>
+<arg>POST</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-09-23T16:55:34.666116" elapsed="0.000000"/>
+</kw>
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2025-09-23T16:55:34.670163" level="INFO">${headers} = {'Content-Type': 'application/json'}</msg>
+<var>${headers}</var>
+<arg>Content-Type=application/json</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2025-09-23T16:55:34.669116" elapsed="0.001047"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-09-23T16:55:34.674792" level="INFO">${base_url} = https://qa.api.zinnia.io</msg>
+<var>${base_url}</var>
+<arg>https://qa.api.zinnia.io</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-09-23T16:55:34.673758" elapsed="0.001034"/>
+</kw>
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2025-09-23T16:55:34.677758" level="INFO">${payload} = {'taskType': 'SUITABILITY_REVI', 'carrier': 'MASS', 'category': 'SCHEDULED_REASON', 'messageId': 'DOCUMENT_MISSING', 'message': 'Document is missing for SUITABILITY_REVIEW for MASS'}</msg>
+<var>${payload}</var>
+<arg>taskType=SUITABILITY_REVI</arg>
+<arg>carrier=MASS</arg>
+<arg>category=SCHEDULED_REASON</arg>
+<arg>messageId=DOCUMENT_MISSING</arg>
+<arg>message=Document is missing for SUITABILITY_REVIEW for MASS</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2025-09-23T16:55:34.677758" elapsed="0.000000"/>
+</kw>
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2025-09-23T16:55:34.680802" level="INFO">${api_dict} = {'name': 'Post Task Message', 'endpoint': '/case/v1/tasks/message', 'method': 'POST', 'headers': {'Content-Type': 'application/json'}}</msg>
+<var>${api_dict}</var>
+<arg>name=Post Task Message</arg>
+<arg>endpoint=${endpoint}</arg>
+<arg>method=${method}</arg>
+<arg>headers=${headers}</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2025-09-23T16:55:34.679780" elapsed="0.001022"/>
+</kw>
+<kw name="Step: Executing API">
+<kw name="Log To Console" owner="BuiltIn">
+<arg>\n=== Executing: ${api_name} ===</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-23T16:55:34.682804" elapsed="0.001023"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-09-23T16:55:34.683827" level="INFO">=== Executing: Post Task Message ===</msg>
+<arg>=== Executing: ${api_name} ===</arg>
+<arg>INFO</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-09-23T16:55:34.683827" elapsed="0.000000"/>
+</kw>
+<arg>Post Task Message</arg>
+<doc>=== Executing: ${api_name} ===</doc>
+<status status="PASS" start="2025-09-23T16:55:34.682804" elapsed="0.002990"/>
+</kw>
+<kw name="Step: Using Session">
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Using session: api_session_bpm for base URL: ${base_url}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-23T16:55:34.686802" elapsed="0.001043"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-09-23T16:55:34.687845" level="INFO">Using session: api_session_bpm for base URL: https://qa.api.zinnia.io</msg>
+<arg>Using session: api_session_bpm for base URL: ${base_url}</arg>
+<arg>INFO</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-09-23T16:55:34.687845" elapsed="0.000000"/>
+</kw>
+<arg>${base_url}</arg>
+<doc>Using session: api_session_bpm for base URL: https://qa.api.zinnia.io</doc>
+<status status="PASS" start="2025-09-23T16:55:34.686802" elapsed="0.002954"/>
+</kw>
+<kw name="Execute Normal API">
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Set To Dictionary" owner="Collections">
+<arg>${headers}</arg>
+<arg>Authorization=Bearer ${TOKEN}</arg>
+<doc>Adds the given ``key_value_pairs`` and/or ``items`` to the ``dictionary``.</doc>
+<status status="PASS" start="2025-09-23T16:55:34.691758" elapsed="0.000000"/>
+</kw>
+<arg>'${TOKEN}' != 'None'</arg>
+<arg>Set To Dictionary</arg>
+<arg>${headers}</arg>
+<arg>Authorization=Bearer ${TOKEN}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-09-23T16:55:34.690757" elapsed="0.002040"/>
+</kw>
+<kw name="Get From Dictionary" owner="Collections">
+<msg time="2025-09-23T16:55:34.692797" level="INFO">${default_case_id} = CA0000370039</msg>
+<var>${default_case_id}</var>
+<arg>${api}</arg>
+<arg>default_case_id</arg>
+<arg>default=CA0000370039</arg>
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<status status="PASS" start="2025-09-23T16:55:34.692797" elapsed="0.000000"/>
+</kw>
+<kw name="Get Environment Variable" owner="OperatingSystem">
+<msg time="2025-09-23T16:55:34.695935" level="INFO">${caseID} = CA0000370039</msg>
+<var>${caseID}</var>
+<arg>CASE_ID</arg>
+<arg>default=${default_case_id}</arg>
+<doc>Returns the value of an environment variable with the given name.</doc>
+<status status="PASS" start="2025-09-23T16:55:34.695935" elapsed="0.000000"/>
+</kw>
+<kw name="Replace String" owner="String">
+<msg time="2025-09-23T16:55:34.698284" level="INFO">${endpoint} = /case/v1/tasks/message</msg>
+<var>${endpoint}</var>
+<arg>${endpoint}</arg>
+<arg>{caseID}</arg>
+<arg>${caseID}</arg>
+<doc>Replaces ``search_for`` in the given ``string`` with ``replace_with``.</doc>
+<status status="PASS" start="2025-09-23T16:55:34.698284" elapsed="0.000000"/>
+</kw>
+<kw name="Set Variable If" owner="BuiltIn">
+<msg time="2025-09-23T16:55:34.700284" level="INFO">${session_name} = api_session_case</msg>
+<var>${session_name}</var>
+<arg>'${base_url}' == 'https://qa-bpm.se2.com'</arg>
+<arg>api_session_bpm</arg>
+<arg>'${base_url}' == 'https://qa.api.zinnia.io'</arg>
+<arg>api_session_case</arg>
+<arg>api_session_case</arg>
+<doc>Sets variable based on the given condition.</doc>
+<status status="PASS" start="2025-09-23T16:55:34.700284" elapsed="0.000000"/>
+</kw>
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2025-09-23T16:55:34.702088" level="INFO">${kwargs} = {'headers': {'Content-Type': 'application/json', 'Authorization': 'Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IlU1SWNUOEQ4LTNWdl80NDFIdnlzbyJ9.eyJodHRwczovL3FhLmFwaS56aW5uaWEuaW8vY2xpZW50SWRzI...</msg>
+<var>${kwargs}</var>
+<arg>headers=${headers}</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2025-09-23T16:55:34.702088" elapsed="0.000000"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-09-23T16:55:34.704138" level="INFO">${payload_exists} = True</msg>
+<var>${payload_exists}</var>
+<arg>$payload is not None</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-09-23T16:55:34.704138" elapsed="0.000000"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Set To Dictionary" owner="Collections">
+<arg>${kwargs}</arg>
+<arg>json=${payload}</arg>
+<doc>Adds the given ``key_value_pairs`` and/or ``items`` to the ``dictionary``.</doc>
+<status status="PASS" start="2025-09-23T16:55:34.706189" elapsed="0.000907"/>
+</kw>
+<arg>${payload_exists}</arg>
+<arg>Set To Dictionary</arg>
+<arg>${kwargs}</arg>
+<arg>json=${payload}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-09-23T16:55:34.706189" elapsed="0.000907"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="POST On Session" owner="RequestsLibrary">
+<msg time="2025-09-23T16:55:35.840708" level="INFO">POST Request : url=https://qa.api.zinnia.io/case/v1/tasks/message 
+ path_url=/case/v1/tasks/message 
+ headers={'User-Agent': 'python-requests/2.32.3', 'Accept-Encoding': 'gzip, deflate, br', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/json', 'Authorization': 'Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IlU1SWNUOEQ4LTNWdl80NDFIdnlzbyJ9.eyJodHRwczovL3FhLmFwaS56aW5uaWEuaW8vY2xpZW50SWRzIjpbImV2ZXJseSIsImVsaWMiLCJzYnVsIl0sImh0dHBzOi8vcWEuYXBpLnppbm5pYS5pby9wZXJtaXNzaW9ucyI6WyJyZWFkOnBvbGljeSIsIndyaXRlOnBvbGljeSIsIndyaXRlOmNhc2UiLCJyZWFkOmNhc2UiLCJyZWFkOmRvY3VtZW50Iiwid3JpdGU6ZG9jdW1lbnQiLCJ3cml0ZTp0YXNrIiwicmVhZDp0YXNrIl0sInBhcnR5SWQiOiJjNmE3YWI5ZjdkZDg0MDE1YTY1NTJiZmM1YjM2NmI3NyIsInNvdXJjZSI6IkJ1c2luZXNzIFByb2Nlc3MgTWFuYWdlbWVudCIsImlzcyI6Imh0dHBzOi8vbG9naW4ucWEuemlubmlhLmNvbS8iLCJzdWIiOiJVdU1yaWJyUDNlOHpWaGZIeTZ3UEoyNWxWWWgxQ1dOM0BjbGllbnRzIiwiYXVkIjoiaHR0cHM6Ly9xYS5hcGkuemlubmlhLmlvIiwiaWF0IjoxNzU4NjI2NzM2LCJleHAiOjE3NTg3MTMxMzYsInNjb3BlIjoib3BlbmlkIiwiZ3R5IjoiY2xpZW50LWNyZWRlbnRpYWxzIiwiYXpwIjoiVXVNcmliclAzZTh6VmhmSHk2d1BKMjVsVlloMUNXTjMifQ.Vt2WweG4lY6lNdA31PAvyzQ17BNp3Pvj4GF2qPd8-z5A4aSHht5BVJ0ZPDa9Niv7YBrnggmnZ-egKPEgMfZgvzndN5znI-a13yQNSB4x8dPiPsca363KfxoNFiK3MwbE--1r0oCLQ8IjXHa0hfiutLh7T4n-m8wuCFr5chbHCr6dBMHHDH3ZwTEZol4M5AE5HDXV6hoZ5UmMwdGYyg4260s-Ch6571TXK9W9E_Kcy4I8wu20Ob4e3bwVacnNXtB4Db3tzwwfhjiM8ABnV-D6YwDeDq_rBbhLIp0MB-ALOTw4_LanMdj0FgfAf0_YX3ObIyvCZrz4Rcc9FXLasu_GsA', 'Content-Length': '182'} 
+ body=b'{"taskType": "SUITABILITY_REVI", "carrier": "MASS", "category": "SCHEDULED_REASON", "messageId": "DOCUMENT_MISSING", "message": "Document is missing for SUITABILITY_REVIEW for MASS"}' 
+ </msg>
+<msg time="2025-09-23T16:55:35.841744" level="INFO">POST Response : url=https://qa.api.zinnia.io/case/v1/tasks/message 
+ status=400, reason=Bad Request 
+ headers={'Content-Type': 'application/json', 'Connection': 'keep-alive', 'x-correlation-id': '7ae97f21-2701-4548-8613-6374cedba4ab', 'Set-Cookie': 'AWSALBTG=c6dJOjpR2/HJAad9XBIx1YFdvvQeg2YIcYfJwFNUVwzxHLS6yWWpcE9FUTRIcx33Rnejj+pmOKSBXjFwq2i1X1ugC5Dh2B8+Wio5H9RwoD5rZN2072rb+g+3PUOwCqhIFbBRc9xmxOFLeHQagUt2DVqY9sy9Po6/nWu4FhWgtp3Y; Expires=Tue, 30 Sep 2025 11:25:37 GMT; Path=/, AWSALBTGCORS=c6dJOjpR2/HJAad9XBIx1YFdvvQeg2YIcYfJwFNUVwzxHLS6yWWpcE9FUTRIcx33Rnejj+pmOKSBXjFwq2i1X1ugC5Dh2B8+Wio5H9RwoD5rZN2072rb+g+3PUOwCqhIFbBRc9xmxOFLeHQagUt2DVqY9sy9Po6/nWu4FhWgtp3Y; Expires=Tue, 30 Sep 2025 11:25:37 GMT; Path=/; SameSite=None; Secure, AWSALB=etygBqbMTrjxy+iUivphhyuggFkKZ0LvFazsRROvxcLxsPK60YkgM0qQ1xckMpo39vFyRur1aBbCeLPLJ2BOpD4SzX+ZXFQRkmn/MkMeKYjOwNl/4EDoqZ0niOoY; Expires=Tue, 30 Sep 2025 11:25:37 GMT; Path=/, AWSALBCORS=etygBqbMTrjxy+iUivphhyuggFkKZ0LvFazsRROvxcLxsPK60YkgM0qQ1xckMpo39vFyRur1aBbCeLPLJ2BOpD4SzX+ZXFQRkmn/MkMeKYjOwNl/4EDoqZ0niOoY; Expires=Tue, 30 Sep 2025 11:25:37 GMT; Path=/; SameSite=None; Secure', 'X-Content-Type-Options': 'nosniff', 'Vary': 'Origin, Access-Control-Request-Method, Access-Control-Request-Headers', 'X-XSS-Protection': '1; mode=block', 'Expires': '0', 'X-Frame-Options': 'DENY', 'Content-Length': '206', 'Date': 'Tue, 23 Sep 2025 11:25:37 GMT', 'Pragma': 'no-cache', 'Cache-Control': 'no-cache, no-store, max-age=0, must-revalidate', 'Access-Control-Allow-Origin': '*', 'Access-Control-Expose-Headers': 'Host', 'X-Kong-Upstream-Latency': '14', 'X-Kong-Proxy-Latency': '45', 'Via': 'kong/3.6.1.6-enterprise-edition', 'X-Kong-Request-Id': '908c8c19c464cf58b7738e2ca680b778'} 
+ body={"statusCode":400,"timestamp":"2025-09-23T11:25:37.548Z","errorId":"0e752338-cf22-44ea-8267-30414c1b8989","message":"A task message with the same taskType, carrier, category, and messageId already exists."} 
+ </msg>
+<msg time="2025-09-23T16:55:35.841744" level="INFO">C:\Users\sharmash\AppData\Roaming\Python\Python312\site-packages\urllib3\connectionpool.py:1103: InsecureRequestWarning: Unverified HTTPS request is being made to host 'qa.api.zinnia.io'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(</msg>
+<msg time="2025-09-23T16:55:35.842761" level="FAIL">HTTPError: 400 Client Error: Bad Request for url: https://qa.api.zinnia.io/case/v1/tasks/message</msg>
+<arg>${session_name}</arg>
+<arg>${endpoint}</arg>
+<arg>&amp;{kwargs}</arg>
+<doc>Sends a POST request on a previously created HTTP Session.</doc>
+<status status="FAIL" start="2025-09-23T16:55:34.708176" elapsed="1.143599">HTTPError: 400 Client Error: Bad Request for url: https://qa.api.zinnia.io/case/v1/tasks/message</status>
+</kw>
+<var>${response}</var>
+<arg>'${method}' == 'GET'</arg>
+<arg>GET On Session</arg>
+<arg>${session_name}</arg>
+<arg>${endpoint}</arg>
+<arg>&amp;{kwargs}</arg>
+<arg>ELSE IF</arg>
+<arg>'${method}' == 'POST'</arg>
+<arg>POST On Session</arg>
+<arg>${session_name}</arg>
+<arg>${endpoint}</arg>
+<arg>&amp;{kwargs}</arg>
+<arg>ELSE IF</arg>
+<arg>'${method}' == 'PUT'</arg>
+<arg>PUT On Session</arg>
+<arg>${session_name}</arg>
+<arg>${endpoint}</arg>
+<arg>&amp;{kwargs}</arg>
+<arg>ELSE IF</arg>
+<arg>'${method}' == 'DELETE'</arg>
+<arg>DELETE On Session</arg>
+<arg>${session_name}</arg>
+<arg>${endpoint}</arg>
+<arg>&amp;{kwargs}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="FAIL" start="2025-09-23T16:55:34.707096" elapsed="1.149606">HTTPError: 400 Client Error: Bad Request for url: https://qa.api.zinnia.io/case/v1/tasks/message</status>
+</kw>
+<kw name="Set Suite Variable" owner="BuiltIn">
+<arg>${API_ENDPOINT_DISPLAY}</arg>
+<arg>${endpoint}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<status status="NOT RUN" start="2025-09-23T16:55:35.856702" elapsed="0.000000"/>
+</kw>
+<kw name="Set Suite Variable" owner="BuiltIn">
+<arg>${API_SESSION_DISPLAY}</arg>
+<arg>${session_name}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<status status="NOT RUN" start="2025-09-23T16:55:35.857740" elapsed="0.000000"/>
+</kw>
+<kw name="Set Suite Variable" owner="BuiltIn">
+<arg>${API_STATUS_DISPLAY}</arg>
+<arg>${response.status_code}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<status status="NOT RUN" start="2025-09-23T16:55:35.857740" elapsed="0.000000"/>
+</kw>
+<kw name="Set Suite Variable" owner="BuiltIn">
+<arg>${API_RESPONSE_DISPLAY}</arg>
+<arg>${response.text}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<status status="NOT RUN" start="2025-09-23T16:55:35.857740" elapsed="0.000000"/>
+</kw>
+<kw name="Set Suite Variable" owner="BuiltIn">
+<arg>${BASE_URL_DISPLAY}</arg>
+<arg>${base_url}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<status status="NOT RUN" start="2025-09-23T16:55:35.858746" elapsed="0.000000"/>
+</kw>
+<arg>${api_dict}</arg>
+<arg>${endpoint}</arg>
+<arg>${method}</arg>
+<arg>${headers}</arg>
+<arg>${payload}</arg>
+<arg>${base_url}</arg>
+<status status="FAIL" start="2025-09-23T16:55:34.690757" elapsed="1.167989">HTTPError: 400 Client Error: Bad Request for url: https://qa.api.zinnia.io/case/v1/tasks/message</status>
+</kw>
+<kw name="Step: API Endpoint">
+<doc>API: ${API_ENDPOINT_DISPLAY}</doc>
+<status status="NOT RUN" start="2025-09-23T16:55:35.860773" elapsed="0.000000"/>
+</kw>
+<kw name="Step: Session Used">
+<doc>Session: ${API_SESSION_DISPLAY}</doc>
+<status status="NOT RUN" start="2025-09-23T16:55:35.861772" elapsed="0.000000"/>
+</kw>
+<kw name="Step: Status Code">
+<doc>Status: ${API_STATUS_DISPLAY}</doc>
+<status status="NOT RUN" start="2025-09-23T16:55:35.862773" elapsed="0.000000"/>
+</kw>
+<kw name="Step: Response Data">
+<doc>Response: ${API_RESPONSE_DISPLAY}</doc>
+<status status="NOT RUN" start="2025-09-23T16:55:35.863776" elapsed="0.000000"/>
+</kw>
+<kw name="Step: Completed API">
+<arg>Post Task Message</arg>
+<doc>=== Completed: ${api_name} ===</doc>
+<status status="NOT RUN" start="2025-09-23T16:55:35.864773" elapsed="0.000000"/>
+</kw>
+<doc>Execute Post Task Message</doc>
+<status status="FAIL" start="2025-09-23T16:55:34.643387" elapsed="1.222385">HTTPError: 400 Client Error: Bad Request for url: https://qa.api.zinnia.io/case/v1/tasks/message</status>
+</test>
+<test id="s1-t2" name="Test_02_Get_Case_Tasks_Assignee_Summary" line="168">
+<kw name="Setup Session" type="SETUP">
+<kw name="Create Session" owner="RequestsLibrary">
+<msg time="2025-09-23T16:55:35.873708" level="INFO">Creating Session using : alias=api_session, url=https://login.qa.zinnia.com, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<arg>api_session</arg>
+<arg>https://login.qa.zinnia.com</arg>
+<arg>verify=False</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<status status="PASS" start="2025-09-23T16:55:35.872771" elapsed="0.000937"/>
+</kw>
+<kw name="Create Session" owner="RequestsLibrary">
+<msg time="2025-09-23T16:55:35.876751" level="INFO">Creating Session using : alias=api_session_case, url=https://qa.api.zinnia.io, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<arg>api_session_case</arg>
+<arg>https://qa.api.zinnia.io</arg>
+<arg>verify=False</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<status status="PASS" start="2025-09-23T16:55:35.876751" elapsed="0.001032"/>
+</kw>
+<kw name="Create Session" owner="RequestsLibrary">
+<msg time="2025-09-23T16:55:35.881713" level="INFO">Creating Session using : alias=api_session_bpm, url=https://qa-bpm.se2.com, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<arg>api_session_bpm</arg>
+<arg>https://qa-bpm.se2.com</arg>
+<arg>verify=False</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<status status="PASS" start="2025-09-23T16:55:35.881713" elapsed="0.000000"/>
+</kw>
+<status status="PASS" start="2025-09-23T16:55:35.871701" elapsed="0.014011"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-09-23T16:55:35.885712" level="INFO">${endpoint} = /case/v1/cases/{caseID}/tasks/assignee-summary</msg>
+<var>${endpoint}</var>
+<arg>/case/v1/cases/{caseID}/tasks/assignee-summary</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-09-23T16:55:35.885712" elapsed="0.000000"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-09-23T16:55:35.889712" level="INFO">${method} = GET</msg>
+<var>${method}</var>
+<arg>GET</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-09-23T16:55:35.888714" elapsed="0.000998"/>
+</kw>
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2025-09-23T16:55:35.892284" level="INFO">${headers} = {'Content-Type': 'application/json'}</msg>
+<var>${headers}</var>
+<arg>Content-Type=application/json</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2025-09-23T16:55:35.892284" elapsed="0.000000"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-09-23T16:55:35.894337" level="INFO">${base_url} = https://qa.api.zinnia.io</msg>
+<var>${base_url}</var>
+<arg>https://qa.api.zinnia.io</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-09-23T16:55:35.894337" elapsed="0.000000"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-09-23T16:55:35.896908" level="INFO">${payload} = None</msg>
+<var>${payload}</var>
+<arg>${None}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-09-23T16:55:35.896908" elapsed="0.000000"/>
+</kw>
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2025-09-23T16:55:35.899361" level="INFO">${api_dict} = {'name': 'Get Case Tasks Assignee Summary', 'endpoint': '/case/v1/cases/{caseID}/tasks/assignee-summary', 'method': 'GET', 'headers': {'Content-Type': 'application/json'}, 'default_case_id': 'CA000042...</msg>
+<var>${api_dict}</var>
+<arg>name=Get Case Tasks Assignee Summary</arg>
+<arg>endpoint=${endpoint}</arg>
+<arg>method=${method}</arg>
+<arg>headers=${headers}</arg>
+<arg>default_case_id=CA0000425395</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2025-09-23T16:55:35.898359" elapsed="0.001002"/>
+</kw>
+<kw name="Step: Executing API">
+<kw name="Log To Console" owner="BuiltIn">
+<arg>\n=== Executing: ${api_name} ===</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-23T16:55:35.901361" elapsed="0.001001"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-09-23T16:55:35.902362" level="INFO">=== Executing: Get Case Tasks Assignee Summary ===</msg>
+<arg>=== Executing: ${api_name} ===</arg>
+<arg>INFO</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-09-23T16:55:35.902362" elapsed="0.000000"/>
+</kw>
+<arg>Get Case Tasks Assignee Summary</arg>
+<doc>=== Executing: ${api_name} ===</doc>
+<status status="PASS" start="2025-09-23T16:55:35.901361" elapsed="0.003001"/>
+</kw>
+<kw name="Step: Using Session">
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Using session: api_session_bpm for base URL: ${base_url}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-23T16:55:35.904362" elapsed="0.000000"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-09-23T16:55:35.904362" level="INFO">Using session: api_session_bpm for base URL: https://qa.api.zinnia.io</msg>
+<arg>Using session: api_session_bpm for base URL: ${base_url}</arg>
+<arg>INFO</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-09-23T16:55:35.904362" elapsed="0.000000"/>
+</kw>
+<arg>${base_url}</arg>
+<doc>Using session: api_session_bpm for base URL: https://qa.api.zinnia.io</doc>
+<status status="PASS" start="2025-09-23T16:55:35.904362" elapsed="0.003999"/>
+</kw>
+<kw name="Execute Normal API">
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Set To Dictionary" owner="Collections">
+<arg>${headers}</arg>
+<arg>Authorization=Bearer ${TOKEN}</arg>
+<doc>Adds the given ``key_value_pairs`` and/or ``items`` to the ``dictionary``.</doc>
+<status status="PASS" start="2025-09-23T16:55:35.909361" elapsed="0.000000"/>
+</kw>
+<arg>'${TOKEN}' != 'None'</arg>
+<arg>Set To Dictionary</arg>
+<arg>${headers}</arg>
+<arg>Authorization=Bearer ${TOKEN}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-09-23T16:55:35.908361" elapsed="0.001000"/>
+</kw>
+<kw name="Get From Dictionary" owner="Collections">
+<msg time="2025-09-23T16:55:35.909361" level="INFO">${default_case_id} = CA0000425395</msg>
+<var>${default_case_id}</var>
+<arg>${api}</arg>
+<arg>default_case_id</arg>
+<arg>default=CA0000370039</arg>
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<status status="PASS" start="2025-09-23T16:55:35.909361" elapsed="0.000000"/>
+</kw>
+<kw name="Get Environment Variable" owner="OperatingSystem">
+<msg time="2025-09-23T16:55:35.911363" level="INFO">${caseID} = CA0000425395</msg>
+<var>${caseID}</var>
+<arg>CASE_ID</arg>
+<arg>default=${default_case_id}</arg>
+<doc>Returns the value of an environment variable with the given name.</doc>
+<status status="PASS" start="2025-09-23T16:55:35.911363" elapsed="0.000000"/>
+</kw>
+<kw name="Replace String" owner="String">
+<msg time="2025-09-23T16:55:35.912595" level="INFO">${endpoint} = /case/v1/cases/CA0000425395/tasks/assignee-summary</msg>
+<var>${endpoint}</var>
+<arg>${endpoint}</arg>
+<arg>{caseID}</arg>
+<arg>${caseID}</arg>
+<doc>Replaces ``search_for`` in the given ``string`` with ``replace_with``.</doc>
+<status status="PASS" start="2025-09-23T16:55:35.912595" elapsed="0.000000"/>
+</kw>
+<kw name="Set Variable If" owner="BuiltIn">
+<msg time="2025-09-23T16:55:35.914776" level="INFO">${session_name} = api_session_case</msg>
+<var>${session_name}</var>
+<arg>'${base_url}' == 'https://qa-bpm.se2.com'</arg>
+<arg>api_session_bpm</arg>
+<arg>'${base_url}' == 'https://qa.api.zinnia.io'</arg>
+<arg>api_session_case</arg>
+<arg>api_session_case</arg>
+<doc>Sets variable based on the given condition.</doc>
+<status status="PASS" start="2025-09-23T16:55:35.914776" elapsed="0.000000"/>
+</kw>
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2025-09-23T16:55:35.916776" level="INFO">${kwargs} = {'headers': {'Content-Type': 'application/json', 'Authorization': 'Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IlU1SWNUOEQ4LTNWdl80NDFIdnlzbyJ9.eyJodHRwczovL3FhLmFwaS56aW5uaWEuaW8vY2xpZW50SWRzI...</msg>
+<var>${kwargs}</var>
+<arg>headers=${headers}</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2025-09-23T16:55:35.916776" elapsed="0.000000"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-09-23T16:55:35.919138" level="INFO">${payload_exists} = False</msg>
+<var>${payload_exists}</var>
+<arg>$payload is not None</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-09-23T16:55:35.918135" elapsed="0.001003"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<arg>${payload_exists}</arg>
+<arg>Set To Dictionary</arg>
+<arg>${kwargs}</arg>
+<arg>json=${payload}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-09-23T16:55:35.920112" elapsed="0.000000"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="GET On Session" owner="RequestsLibrary">
+<msg time="2025-09-23T16:55:36.901134" level="INFO">GET Request : url=https://qa.api.zinnia.io/case/v1/cases/CA0000425395/tasks/assignee-summary 
+ path_url=/case/v1/cases/CA0000425395/tasks/assignee-summary 
+ headers={'User-Agent': 'python-requests/2.32.3', 'Accept-Encoding': 'gzip, deflate, br', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/json', 'Authorization': 'Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IlU1SWNUOEQ4LTNWdl80NDFIdnlzbyJ9.eyJodHRwczovL3FhLmFwaS56aW5uaWEuaW8vY2xpZW50SWRzIjpbImV2ZXJseSIsImVsaWMiLCJzYnVsIl0sImh0dHBzOi8vcWEuYXBpLnppbm5pYS5pby9wZXJtaXNzaW9ucyI6WyJyZWFkOnBvbGljeSIsIndyaXRlOnBvbGljeSIsIndyaXRlOmNhc2UiLCJyZWFkOmNhc2UiLCJyZWFkOmRvY3VtZW50Iiwid3JpdGU6ZG9jdW1lbnQiLCJ3cml0ZTp0YXNrIiwicmVhZDp0YXNrIl0sInBhcnR5SWQiOiJjNmE3YWI5ZjdkZDg0MDE1YTY1NTJiZmM1YjM2NmI3NyIsInNvdXJjZSI6IkJ1c2luZXNzIFByb2Nlc3MgTWFuYWdlbWVudCIsImlzcyI6Imh0dHBzOi8vbG9naW4ucWEuemlubmlhLmNvbS8iLCJzdWIiOiJVdU1yaWJyUDNlOHpWaGZIeTZ3UEoyNWxWWWgxQ1dOM0BjbGllbnRzIiwiYXVkIjoiaHR0cHM6Ly9xYS5hcGkuemlubmlhLmlvIiwiaWF0IjoxNzU4NjI2NzM2LCJleHAiOjE3NTg3MTMxMzYsInNjb3BlIjoib3BlbmlkIiwiZ3R5IjoiY2xpZW50LWNyZWRlbnRpYWxzIiwiYXpwIjoiVXVNcmliclAzZTh6VmhmSHk2d1BKMjVsVlloMUNXTjMifQ.Vt2WweG4lY6lNdA31PAvyzQ17BNp3Pvj4GF2qPd8-z5A4aSHht5BVJ0ZPDa9Niv7YBrnggmnZ-egKPEgMfZgvzndN5znI-a13yQNSB4x8dPiPsca363KfxoNFiK3MwbE--1r0oCLQ8IjXHa0hfiutLh7T4n-m8wuCFr5chbHCr6dBMHHDH3ZwTEZol4M5AE5HDXV6hoZ5UmMwdGYyg4260s-Ch6571TXK9W9E_Kcy4I8wu20Ob4e3bwVacnNXtB4Db3tzwwfhjiM8ABnV-D6YwDeDq_rBbhLIp0MB-ALOTw4_LanMdj0FgfAf0_YX3ObIyvCZrz4Rcc9FXLasu_GsA'} 
+ body=None 
+ </msg>
+<msg time="2025-09-23T16:55:36.901134" level="INFO">GET Response : url=https://qa.api.zinnia.io/case/v1/cases/CA0000425395/tasks/assignee-summary 
+ status=200, reason=OK 
+ headers={'Content-Type': 'application/json', 'Connection': 'keep-alive', 'x-correlation-id': '318d0dd8-2847-45b0-95c8-0793a28d4439', 'Set-Cookie': 'AWSALBTG=aK5cUXuwAbRT3ZpeQ2X34HNaH0M/I2ojPVVe0Qop3YY+sYpb+4gA2YL4fc7fdAN7M43BDcpGenaf0B9+Xwb3mX+3vSP3OB7TVKYIDABGcXhJAmJhmhEv6qZpeqYkZFzBAXJwXGGyEXl0tjfwllXGL7DLLCDBNnwIdD2EeKey+qcC; Expires=Tue, 30 Sep 2025 11:25:38 GMT; Path=/, AWSALBTGCORS=aK5cUXuwAbRT3ZpeQ2X34HNaH0M/I2ojPVVe0Qop3YY+sYpb+4gA2YL4fc7fdAN7M43BDcpGenaf0B9+Xwb3mX+3vSP3OB7TVKYIDABGcXhJAmJhmhEv6qZpeqYkZFzBAXJwXGGyEXl0tjfwllXGL7DLLCDBNnwIdD2EeKey+qcC; Expires=Tue, 30 Sep 2025 11:25:38 GMT; Path=/; SameSite=None; Secure, AWSALB=k4Gd835jxIhGRwmz1QOwgugHi0SlR/+IObMkqHQAqX30WzDXBL5IIaAIa1BtYZLeZL5EgyyCiVPxGrzC7XGm4iJ/DDkTcYcqovTNVF/MXxLzxMHukFwrPFpt8Zfe; Expires=Tue, 30 Sep 2025 11:25:38 GMT; Path=/, AWSALBCORS=k4Gd835jxIhGRwmz1QOwgugHi0SlR/+IObMkqHQAqX30WzDXBL5IIaAIa1BtYZLeZL5EgyyCiVPxGrzC7XGm4iJ/DDkTcYcqovTNVF/MXxLzxMHukFwrPFpt8Zfe; Expires=Tue, 30 Sep 2025 11:25:38 GMT; Path=/; SameSite=None; Secure', 'X-Content-Type-Options': 'nosniff', 'Vary': 'Origin, Access-Control-Request-Method, Access-Control-Request-Headers', 'X-XSS-Protection': '1; mode=block', 'Expires': '0', 'X-Frame-Options': 'DENY', 'Content-Length': '410', 'Date': 'Tue, 23 Sep 2025 11:25:38 GMT', 'Pragma': 'no-cache', 'Cache-Control': 'no-cache, no-store, max-age=0, must-revalidate', 'Access-Control-Allow-Origin': '*', 'Access-Control-Expose-Headers': 'Host', 'X-Kong-Upstream-Latency': '19', 'X-Kong-Proxy-Latency': '43', 'Via': 'kong/3.6.1.6-enterprise-edition', 'X-Kong-Request-Id': 'f6f94179c5845072420d4c125d527649'} 
+ body={"caseId":"CA0000425395","tasks":[{"taskId":"TA000000030389","uniqueAssigneePartyIds":["5109870f56204f59aefcab83a046a00e"]},{"taskId":"TA000000030416","uniqueAssigneePartyIds":["5109870f56204f59aefcab83a046a00e"]},{"taskId":"TA000000030417","uniqueAssigneePartyIds":["fa49a69c3939412d87b315cb39459497","16c400819fa14b26a6fd89aab0684e48","03c6e78745c84aa892e4dbd85d45c1b9","11d3a19a40e94f1c94aced244e914b05"]}]} 
+ </msg>
+<msg time="2025-09-23T16:55:36.901134" level="INFO">C:\Users\sharmash\AppData\Roaming\Python\Python312\site-packages\urllib3\connectionpool.py:1103: InsecureRequestWarning: Unverified HTTPS request is being made to host 'qa.api.zinnia.io'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(</msg>
+<arg>${session_name}</arg>
+<arg>${endpoint}</arg>
+<arg>&amp;{kwargs}</arg>
+<doc>Sends a GET request on a previously created HTTP Session.</doc>
+<status status="PASS" start="2025-09-23T16:55:35.920112" elapsed="0.981022"/>
+</kw>
+<msg time="2025-09-23T16:55:36.906125" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<var>${response}</var>
+<arg>'${method}' == 'GET'</arg>
+<arg>GET On Session</arg>
+<arg>${session_name}</arg>
+<arg>${endpoint}</arg>
+<arg>&amp;{kwargs}</arg>
+<arg>ELSE IF</arg>
+<arg>'${method}' == 'POST'</arg>
+<arg>POST On Session</arg>
+<arg>${session_name}</arg>
+<arg>${endpoint}</arg>
+<arg>&amp;{kwargs}</arg>
+<arg>ELSE IF</arg>
+<arg>'${method}' == 'PUT'</arg>
+<arg>PUT On Session</arg>
+<arg>${session_name}</arg>
+<arg>${endpoint}</arg>
+<arg>&amp;{kwargs}</arg>
+<arg>ELSE IF</arg>
+<arg>'${method}' == 'DELETE'</arg>
+<arg>DELETE On Session</arg>
+<arg>${session_name}</arg>
+<arg>${endpoint}</arg>
+<arg>&amp;{kwargs}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-09-23T16:55:35.920112" elapsed="0.986013"/>
+</kw>
+<kw name="Set Suite Variable" owner="BuiltIn">
+<msg time="2025-09-23T16:55:36.913128" level="INFO">${API_ENDPOINT_DISPLAY} = /case/v1/cases/CA0000425395/tasks/assignee-summary</msg>
+<arg>${API_ENDPOINT_DISPLAY}</arg>
+<arg>${endpoint}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<status status="PASS" start="2025-09-23T16:55:36.911175" elapsed="0.001953"/>
+</kw>
+<kw name="Set Suite Variable" owner="BuiltIn">
+<msg time="2025-09-23T16:55:36.918226" level="INFO">${API_SESSION_DISPLAY} = api_session_case</msg>
+<arg>${API_SESSION_DISPLAY}</arg>
+<arg>${session_name}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<status status="PASS" start="2025-09-23T16:55:36.916159" elapsed="0.002067"/>
+</kw>
+<kw name="Set Suite Variable" owner="BuiltIn">
+<msg time="2025-09-23T16:55:36.923137" level="INFO">${API_STATUS_DISPLAY} = 200</msg>
+<arg>${API_STATUS_DISPLAY}</arg>
+<arg>${response.status_code}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<status status="PASS" start="2025-09-23T16:55:36.921162" elapsed="0.001975"/>
+</kw>
+<kw name="Set Suite Variable" owner="BuiltIn">
+<msg time="2025-09-23T16:55:36.930125" level="INFO">${API_RESPONSE_DISPLAY} = {"caseId":"CA0000425395","tasks":[{"taskId":"TA000000030389","uniqueAssigneePartyIds":["5109870f56204f59aefcab83a046a00e"]},{"taskId":"TA000000030416","uniqueAssigneePartyIds":["5109870f56204f59aefcab...</msg>
+<arg>${API_RESPONSE_DISPLAY}</arg>
+<arg>${response.text}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<status status="PASS" start="2025-09-23T16:55:36.928178" elapsed="0.001947"/>
+</kw>
+<kw name="Set Suite Variable" owner="BuiltIn">
+<msg time="2025-09-23T16:55:36.934210" level="INFO">${BASE_URL_DISPLAY} = https://qa.api.zinnia.io</msg>
+<arg>${BASE_URL_DISPLAY}</arg>
+<arg>${base_url}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<status status="PASS" start="2025-09-23T16:55:36.932134" elapsed="0.002076"/>
+</kw>
+<arg>${api_dict}</arg>
+<arg>${endpoint}</arg>
+<arg>${method}</arg>
+<arg>${headers}</arg>
+<arg>${payload}</arg>
+<arg>${base_url}</arg>
+<status status="PASS" start="2025-09-23T16:55:35.908361" elapsed="1.026800"/>
+</kw>
+<kw name="Step: API Endpoint">
+<kw name="Log To Console" owner="BuiltIn">
+<arg>API: ${API_ENDPOINT_DISPLAY}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-23T16:55:36.936179" elapsed="0.000000"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-09-23T16:55:36.937215" level="INFO">API: /case/v1/cases/CA0000425395/tasks/assignee-summary</msg>
+<arg>API: ${API_ENDPOINT_DISPLAY}</arg>
+<arg>INFO</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-09-23T16:55:36.936179" elapsed="0.001036"/>
+</kw>
+<doc>API: /case/v1/cases/CA0000425395/tasks/assignee-summary</doc>
+<status status="PASS" start="2025-09-23T16:55:36.936179" elapsed="0.001961"/>
+</kw>
+<kw name="Step: Session Used">
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Session: ${API_SESSION_DISPLAY}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-23T16:55:36.940141" elapsed="0.000000"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-09-23T16:55:36.941126" level="INFO">Session: api_session_case</msg>
+<arg>Session: ${API_SESSION_DISPLAY}</arg>
+<arg>INFO</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-09-23T16:55:36.941126" elapsed="0.000000"/>
+</kw>
+<doc>Session: api_session_case</doc>
+<status status="PASS" start="2025-09-23T16:55:36.939125" elapsed="0.007001"/>
+</kw>
+<kw name="Step: Status Code">
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Status: ${API_STATUS_DISPLAY}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-23T16:55:36.947167" elapsed="0.000000"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-09-23T16:55:36.947167" level="INFO">Status: 200</msg>
+<arg>Status: ${API_STATUS_DISPLAY}</arg>
+<arg>INFO</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-09-23T16:55:36.947167" elapsed="0.000000"/>
+</kw>
+<doc>Status: 200</doc>
+<status status="PASS" start="2025-09-23T16:55:36.946126" elapsed="0.003061"/>
+</kw>
+<kw name="Step: Response Data">
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Response: ${API_RESPONSE_DISPLAY}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-23T16:55:36.950165" elapsed="0.000000"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-09-23T16:55:36.950165" level="INFO">Response: {"caseId":"CA0000425395","tasks":[{"taskId":"TA000000030389","uniqueAssigneePartyIds":["5109870f56204f59aefcab83a046a00e"]},{"taskId":"TA000000030416","uniqueAssigneePartyIds":["5109870f56204f59aefcab83a046a00e"]},{"taskId":"TA000000030417","uniqueAssigneePartyIds":["fa49a69c3939412d87b315cb39459497","16c400819fa14b26a6fd89aab0684e48","03c6e78745c84aa892e4dbd85d45c1b9","11d3a19a40e94f1c94aced244e914b05"]}]}</msg>
+<arg>Response: ${API_RESPONSE_DISPLAY}</arg>
+<arg>INFO</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-09-23T16:55:36.950165" elapsed="0.000000"/>
+</kw>
+<doc>Response: {"caseId":"CA0000425395","tasks":[{"taskId":"TA000000030389","uniqueAssigneePartyIds":["5109870f56204f59aefcab83a046a00e"]},{"taskId":"TA000000030416","uniqueAssigneePartyIds":["5109870f56204f59aefcab83a046a00e"]},{"taskId":"TA000000030417","uniqueAssigneePartyIds":["fa49a69c3939412d87b315cb39459497","16c400819fa14b26a6fd89aab0684e48","03c6e78745c84aa892e4dbd85d45c1b9","11d3a19a40e94f1c94aced244e914b05"]}]}</doc>
+<status status="PASS" start="2025-09-23T16:55:36.950165" elapsed="0.002014"/>
+</kw>
+<kw name="Step: Completed API">
+<kw name="Log To Console" owner="BuiltIn">
+<arg>=== Completed: ${api_name} ===</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-23T16:55:36.953203" elapsed="0.000000"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-09-23T16:55:36.953203" level="INFO">=== Completed: Get Case Tasks Assignee Summary ===</msg>
+<arg>=== Completed: ${api_name} ===</arg>
+<arg>INFO</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-09-23T16:55:36.953203" elapsed="0.000000"/>
+</kw>
+<arg>Get Case Tasks Assignee Summary</arg>
+<doc>=== Completed: ${api_name} ===</doc>
+<status status="PASS" start="2025-09-23T16:55:36.953203" elapsed="0.001961"/>
+</kw>
+<doc>Execute Get Case Tasks Assignee Summary</doc>
+<status status="PASS" start="2025-09-23T16:55:35.871701" elapsed="1.083463"/>
+</test>
+<doc>Dynamic API Tests - Auto-generated for selected APIs</doc>
+<status status="FAIL" start="2025-09-23T16:55:33.239257" elapsed="3.720907"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="1" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="1" fail="1" skip="0" id="s1" name="Dynamic Api Tests">Dynamic Api Tests</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

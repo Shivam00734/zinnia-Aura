@@ -1,0 +1,1035 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.0.1 (Python 3.12.1 on win32)" generated="2025-09-22T17:32:09.306379" rpa="false" schemaversion="5">
+<suite id="s1" name="Dynamic Api Tests" source="C:\Users\sharmash\automation-framwork\tests\api\dynamic_api_tests.robot">
+<test id="s1-t1" name="Test_01_Get_OAuth_Token" line="122">
+<kw name="Setup Session" type="SETUP">
+<kw name="Create Session" owner="RequestsLibrary">
+<msg time="2025-09-22T17:32:09.939274" level="INFO">Creating Session using : alias=api_session, url=https://login.qa.zinnia.com, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<arg>api_session</arg>
+<arg>https://login.qa.zinnia.com</arg>
+<arg>verify=False</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<status status="PASS" start="2025-09-22T17:32:09.938270" elapsed="0.002002"/>
+</kw>
+<kw name="Create Session" owner="RequestsLibrary">
+<msg time="2025-09-22T17:32:09.948273" level="INFO">Creating Session using : alias=api_session_case, url=https://qa.api.zinnia.io, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<arg>api_session_case</arg>
+<arg>https://qa.api.zinnia.io</arg>
+<arg>verify=False</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<status status="PASS" start="2025-09-22T17:32:09.947272" elapsed="0.002997"/>
+</kw>
+<kw name="Create Session" owner="RequestsLibrary">
+<msg time="2025-09-22T17:32:09.963320" level="INFO">Creating Session using : alias=api_session_bpm, url=https://qa-bpm.se2.com, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<arg>api_session_bpm</arg>
+<arg>https://qa-bpm.se2.com</arg>
+<arg>verify=False</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<status status="PASS" start="2025-09-22T17:32:09.962321" elapsed="0.001950"/>
+</kw>
+<status status="PASS" start="2025-09-22T17:32:09.935318" elapsed="0.035955"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-09-22T17:32:09.974271" level="INFO">${endpoint} = /oauth/token</msg>
+<var>${endpoint}</var>
+<arg>/oauth/token</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-09-22T17:32:09.972386" elapsed="0.001885"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-09-22T17:32:09.983273" level="INFO">${method} = POST</msg>
+<var>${method}</var>
+<arg>POST</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-09-22T17:32:09.982276" elapsed="0.000997"/>
+</kw>
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2025-09-22T17:32:09.993276" level="INFO">${headers} = {'Content-Type': 'application/x-www-form-urlencoded'}</msg>
+<var>${headers}</var>
+<arg>Content-Type=application/x-www-form-urlencoded</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2025-09-22T17:32:09.992277" elapsed="0.001999"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-09-22T17:32:10.005282" level="INFO">${base_url} = None</msg>
+<var>${base_url}</var>
+<arg>None</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-09-22T17:32:10.004284" elapsed="0.000998"/>
+</kw>
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2025-09-22T17:32:10.016279" level="INFO">${payload} = {'audience': 'https://qa.api.zinnia.io', 'grant_type': 'client_credentials', 'client_id': 'UuMribrP3e8zVhfHy6wPJ25lVYh1CWN3', 'client_secret': 'WQ4ZBFI0RaYnhlhrZBdw4ltrMk8IKT9bDm1DX_U28doSk4F4Au5KiAso...</msg>
+<var>${payload}</var>
+<arg>audience=https://qa.api.zinnia.io</arg>
+<arg>grant_type=client_credentials</arg>
+<arg>client_id=UuMribrP3e8zVhfHy6wPJ25lVYh1CWN3</arg>
+<arg>client_secret=WQ4ZBFI0RaYnhlhrZBdw4ltrMk8IKT9bDm1DX_U28doSk4F4Au5KiAsoBCSNYWix</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2025-09-22T17:32:10.015282" elapsed="0.000997"/>
+</kw>
+<kw name="Console Step: Start Execution">
+<kw name="Log To Console" owner="BuiltIn">
+<arg>\n=== Executing: ${api_name} ===</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-22T17:32:10.024390" elapsed="0.000000"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-09-22T17:32:10.025386" level="INFO">=== Executing: Get OAuth Token ===</msg>
+<arg>=== Executing: ${api_name} ===</arg>
+<arg>INFO</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-09-22T17:32:10.025386" elapsed="0.000000"/>
+</kw>
+<arg>Get OAuth Token</arg>
+<doc>=== Executing: ${api_name} ===</doc>
+<status status="PASS" start="2025-09-22T17:32:10.023281" elapsed="0.006040"/>
+</kw>
+<kw name="Execute Token API">
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2025-09-22T17:32:10.033281" level="INFO">${form_data} = {}</msg>
+<var>${form_data}</var>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2025-09-22T17:32:10.032283" elapsed="0.000998"/>
+</kw>
+<for flavor="IN">
+<iter>
+<kw name="Set To Dictionary" owner="Collections">
+<arg>${form_data}</arg>
+<arg>${key}=${value}</arg>
+<doc>Adds the given ``key_value_pairs`` and/or ``items`` to the ``dictionary``.</doc>
+<status status="PASS" start="2025-09-22T17:32:10.041283" elapsed="0.001000"/>
+</kw>
+<var name="${key}">audience</var>
+<var name="${value}">https://qa.api.zinnia.io</var>
+<status status="PASS" start="2025-09-22T17:32:10.041283" elapsed="0.001000"/>
+</iter>
+<iter>
+<kw name="Set To Dictionary" owner="Collections">
+<arg>${form_data}</arg>
+<arg>${key}=${value}</arg>
+<doc>Adds the given ``key_value_pairs`` and/or ``items`` to the ``dictionary``.</doc>
+<status status="PASS" start="2025-09-22T17:32:10.043283" elapsed="0.000000"/>
+</kw>
+<var name="${key}">grant_type</var>
+<var name="${value}">client_credentials</var>
+<status status="PASS" start="2025-09-22T17:32:10.042283" elapsed="0.002000"/>
+</iter>
+<iter>
+<kw name="Set To Dictionary" owner="Collections">
+<arg>${form_data}</arg>
+<arg>${key}=${value}</arg>
+<doc>Adds the given ``key_value_pairs`` and/or ``items`` to the ``dictionary``.</doc>
+<status status="PASS" start="2025-09-22T17:32:10.045284" elapsed="0.000000"/>
+</kw>
+<var name="${key}">client_id</var>
+<var name="${value}">UuMribrP3e8zVhfHy6wPJ25lVYh1CWN3</var>
+<status status="PASS" start="2025-09-22T17:32:10.044283" elapsed="0.002001"/>
+</iter>
+<iter>
+<kw name="Set To Dictionary" owner="Collections">
+<arg>${form_data}</arg>
+<arg>${key}=${value}</arg>
+<doc>Adds the given ``key_value_pairs`` and/or ``items`` to the ``dictionary``.</doc>
+<status status="PASS" start="2025-09-22T17:32:10.047283" elapsed="0.001001"/>
+</kw>
+<var name="${key}">client_secret</var>
+<var name="${value}">WQ4ZBFI0RaYnhlhrZBdw4ltrMk8IKT9bDm1DX_U28doSk4F4Au5KiAsoBCSNYWix</var>
+<status status="PASS" start="2025-09-22T17:32:10.046284" elapsed="0.002000"/>
+</iter>
+<var>${key}</var>
+<var>${value}</var>
+<value>&amp;{payload}</value>
+<status status="PASS" start="2025-09-22T17:32:10.040283" elapsed="0.009000"/>
+</for>
+<kw name="POST On Session" owner="RequestsLibrary">
+<msg time="2025-09-22T17:32:10.845028" level="INFO">POST Request : url=https://login.qa.zinnia.com/oauth/token 
+ path_url=/oauth/token 
+ headers={'User-Agent': 'python-requests/2.32.3', 'Accept-Encoding': 'gzip, deflate, br', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/x-www-form-urlencoded', 'Content-Length': '191'} 
+ body=audience=https%3A%2F%2Fqa.api.zinnia.io&amp;grant_type=client_credentials&amp;client_id=UuMribrP3e8zVhfHy6wPJ25lVYh1CWN3&amp;client_secret=WQ4ZBFI0RaYnhlhrZBdw4ltrMk8IKT9bDm1DX_U28doSk4F4Au5KiAsoBCSNYWix 
+ </msg>
+<msg time="2025-09-22T17:32:10.846030" level="INFO">POST Response : url=https://login.qa.zinnia.com/oauth/token 
+ status=200, reason=OK 
+ headers={'Date': 'Mon, 22 Sep 2025 12:02:11 GMT', 'Content-Type': 'application/json', 'Transfer-Encoding': 'chunked', 'Connection': 'keep-alive', 'Content-Encoding': 'br', 'CF-Ray': '9831a6e11f35df7b-DEL', 'CF-Cache-Status': 'DYNAMIC', 'Cache-Control': 'no-store', 'Set-Cookie': 'did=s%3Av0%3Af8375ef4-6a59-4381-812c-f6fdf6abd941.NPbqAsNoeJ3rwEqSA%2BMsoEGlf9g%2FQL%2B3ROEVsoGl9GQ; Path=/; Expires=Tue, 22 Sep 2026 18:02:11 GMT; HttpOnly; Secure; SameSite=None, did_compat=s%3Av0%3Af8375ef4-6a59-4381-812c-f6fdf6abd941.NPbqAsNoeJ3rwEqSA%2BMsoEGlf9g%2FQL%2B3ROEVsoGl9GQ; Path=/; Expires=Tue, 22 Sep 2026 18:02:11 GMT; HttpOnly; Secure', 'Strict-Transport-Security': 'max-age=31536000; includeSubDomains', 'Vary': 'Accept-Encoding, Origin', 'Pragma': 'no-cache', 'X-Auth0-L': '0.287', 'X-Auth0-RequestId': 'fd8be8fcfc8bac222348', 'X-Content-Type-Options': 'nosniff', 'X-RateLimit-Limit': '300', 'X-RateLimit-Remaining': '299', 'X-RateLimit-Reset': '1758542532', 'Server': 'cloudflare', 'alt-svc': 'h3=":443"; ma=86400'} 
+ body={"access_token":"eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IlU1SWNUOEQ4LTNWdl80NDFIdnlzbyJ9.eyJodHRwczovL3FhLmFwaS56aW5uaWEuaW8vY2xpZW50SWRzIjpbImV2ZXJseSIsImVsaWMiLCJzYnVsIl0sImh0dHBzOi8vcWEuYXBpLnppbm5pYS5pby9wZXJtaXNzaW9ucyI6WyJyZWFkOnBvbGljeSIsIndyaXRlOnBvbGljeSIsIndyaXRlOmNhc2UiLCJyZWFkOmNhc2UiLCJyZWFkOmRvY3VtZW50Iiwid3JpdGU6ZG9jdW1lbnQiLCJ3cml0ZTp0YXNrIiwicmVhZDp0YXNrIl0sInBhcnR5SWQiOiJjNmE3YWI5ZjdkZDg0MDE1YTY1NTJiZmM1YjM2NmI3NyIsInNvdXJjZSI6IkJ1c2luZXNzIFByb2Nlc3MgTWFuYWdlbWVudCIsImlzcyI6Imh0dHBzOi8vbG9naW4ucWEuemlubmlhLmNvbS8iLCJzdWIiOiJVdU1yaWJyUDNlOHpWaGZIeTZ3UEoyNWxWWWgxQ1dOM0BjbGllbnRzIiwiYXVkIjoiaHR0cHM6Ly9xYS5hcGkuemlubmlhLmlvIiwiaWF0IjoxNzU4NTQyNTMxLCJleHAiOjE3NTg2Mjg5MzEsInNjb3BlIjoib3BlbmlkIiwiZ3R5IjoiY2xpZW50LWNyZWRlbnRpYWxzIiwiYXpwIjoiVXVNcmliclAzZTh6VmhmSHk2d1BKMjVsVlloMUNXTjMifQ.eCOVXUTSJL13YBolDZB8O1vwvRkjs9hOi46H6nHQycCSbbeb0YR5S36rNKLXKvQ30gGHXVNfdrMHwc06bIltxk0oXwxJewT2DNSLgz0T2r1ngjg3H6kSgmyJTZb99qZosxPAY84brJy3idB1PKlQnZ0gZ19HV_xTr0KxX_IBRmRf1dcZbZm3vC3hcRRyFm4MzaVmUhh-tR7xMxMDittkuupx7nncmoqJhT6Kn9Iv_lS4cdu-iryXIoQnZ9cxWdToEIld2uLoTzbO86tiDaJMy8Lz6P2mEL5APLdPJ29Jg7RiNY-R2AEcivkc_AKnDd2slpm7evgGslB92PFIWPiXFw","scope":"openid","expires_in":86400,"token_type":"Bearer"} 
+ </msg>
+<msg time="2025-09-22T17:32:10.846030" level="INFO">C:\Users\sharmash\AppData\Roaming\Python\Python312\site-packages\urllib3\connectionpool.py:1103: InsecureRequestWarning: Unverified HTTPS request is being made to host 'login.qa.zinnia.com'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(</msg>
+<msg time="2025-09-22T17:32:10.847029" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<var>${response}</var>
+<arg>api_session</arg>
+<arg>${endpoint}</arg>
+<arg>data=${form_data}</arg>
+<arg>headers=${headers}</arg>
+<doc>Sends a POST request on a previously created HTTP Session.</doc>
+<status status="PASS" start="2025-09-22T17:32:10.049283" elapsed="0.797746"/>
+</kw>
+<kw name="Get From Dictionary" owner="Collections">
+<msg time="2025-09-22T17:32:10.857030" level="INFO">${token} = eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IlU1SWNUOEQ4LTNWdl80NDFIdnlzbyJ9.eyJodHRwczovL3FhLmFwaS56aW5uaWEuaW8vY2xpZW50SWRzIjpbImV2ZXJseSIsImVsaWMiLCJzYnVsIl0sImh0dHBzOi8vcWEuYXBpLnppbm5pYS5pby9wZXJ...</msg>
+<var>${token}</var>
+<arg>${response.json()}</arg>
+<arg>access_token</arg>
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<status status="PASS" start="2025-09-22T17:32:10.855032" elapsed="0.001998"/>
+</kw>
+<kw name="Set Global Variable" owner="BuiltIn">
+<msg time="2025-09-22T17:32:10.865033" level="INFO">${TOKEN} = eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IlU1SWNUOEQ4LTNWdl80NDFIdnlzbyJ9.eyJodHRwczovL3FhLmFwaS56aW5uaWEuaW8vY2xpZW50SWRzIjpbImV2ZXJseSIsImVsaWMiLCJzYnVsIl0sImh0dHBzOi8vcWEuYXBpLnppbm5pYS5pby9wZXJ...</msg>
+<arg>${TOKEN}</arg>
+<arg>${token}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<status status="PASS" start="2025-09-22T17:32:10.864031" elapsed="0.001002"/>
+</kw>
+<kw name="Set Suite Variable" owner="BuiltIn">
+<msg time="2025-09-22T17:32:10.875032" level="INFO">${OAUTH_TOKEN_DISPLAY} = eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IlU1SWNUOEQ4LTNWdl80NDFIdnlzbyJ9.eyJodHRwczovL3FhLmFwaS56aW5uaWEuaW8vY2xpZW50SWRzIjpbImV2ZXJseSIsImVsaWMiLCJzYnVsIl0sImh0dHBzOi8vcWEuYXBpLnppbm5pYS5pby9wZXJ...</msg>
+<arg>${OAUTH_TOKEN_DISPLAY}</arg>
+<arg>${token}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<status status="PASS" start="2025-09-22T17:32:10.872033" elapsed="0.003999"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-09-22T17:32:10.889035" level="INFO">Token received: eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IlU1SWNUOEQ4LTNWdl80NDFIdnlzbyJ9.eyJodHRwczovL3FhLmFwaS56aW5uaWEuaW8vY2xpZW50SWRzIjpbImV2ZXJseSIsImVsaWMiLCJzYnVsIl0sImh0dHBzOi8vcWEuYXBpLnppbm5pYS5pby9wZXJtaXNzaW9ucyI6WyJyZWFkOnBvbGljeSIsIndyaXRlOnBvbGljeSIsIndyaXRlOmNhc2UiLCJyZWFkOmNhc2UiLCJyZWFkOmRvY3VtZW50Iiwid3JpdGU6ZG9jdW1lbnQiLCJ3cml0ZTp0YXNrIiwicmVhZDp0YXNrIl0sInBhcnR5SWQiOiJjNmE3YWI5ZjdkZDg0MDE1YTY1NTJiZmM1YjM2NmI3NyIsInNvdXJjZSI6IkJ1c2luZXNzIFByb2Nlc3MgTWFuYWdlbWVudCIsImlzcyI6Imh0dHBzOi8vbG9naW4ucWEuemlubmlhLmNvbS8iLCJzdWIiOiJVdU1yaWJyUDNlOHpWaGZIeTZ3UEoyNWxWWWgxQ1dOM0BjbGllbnRzIiwiYXVkIjoiaHR0cHM6Ly9xYS5hcGkuemlubmlhLmlvIiwiaWF0IjoxNzU4NTQyNTMxLCJleHAiOjE3NTg2Mjg5MzEsInNjb3BlIjoib3BlbmlkIiwiZ3R5IjoiY2xpZW50LWNyZWRlbnRpYWxzIiwiYXpwIjoiVXVNcmliclAzZTh6VmhmSHk2d1BKMjVsVlloMUNXTjMifQ.eCOVXUTSJL13YBolDZB8O1vwvRkjs9hOi46H6nHQycCSbbeb0YR5S36rNKLXKvQ30gGHXVNfdrMHwc06bIltxk0oXwxJewT2DNSLgz0T2r1ngjg3H6kSgmyJTZb99qZosxPAY84brJy3idB1PKlQnZ0gZ19HV_xTr0KxX_IBRmRf1dcZbZm3vC3hcRRyFm4MzaVmUhh-tR7xMxMDittkuupx7nncmoqJhT6Kn9Iv_lS4cdu-iryXIoQnZ9cxWdToEIld2uLoTzbO86tiDaJMy8Lz6P2mEL5APLdPJ29Jg7RiNY-R2AEcivkc_AKnDd2slpm7evgGslB92PFIWPiXFw</msg>
+<arg>Token received: ${token}</arg>
+<arg>INFO</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-09-22T17:32:10.888035" elapsed="0.001000"/>
+</kw>
+<arg>${endpoint}</arg>
+<arg>${method}</arg>
+<arg>${headers}</arg>
+<arg>${payload}</arg>
+<status status="PASS" start="2025-09-22T17:32:10.031281" elapsed="0.867753"/>
+</kw>
+<kw name="Console Step: Show OAuth Token">
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Token received: ${OAUTH_TOKEN_DISPLAY}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-22T17:32:10.901035" elapsed="0.000999"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-09-22T17:32:10.903035" level="INFO">Token received: eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IlU1SWNUOEQ4LTNWdl80NDFIdnlzbyJ9.eyJodHRwczovL3FhLmFwaS56aW5uaWEuaW8vY2xpZW50SWRzIjpbImV2ZXJseSIsImVsaWMiLCJzYnVsIl0sImh0dHBzOi8vcWEuYXBpLnppbm5pYS5pby9wZXJtaXNzaW9ucyI6WyJyZWFkOnBvbGljeSIsIndyaXRlOnBvbGljeSIsIndyaXRlOmNhc2UiLCJyZWFkOmNhc2UiLCJyZWFkOmRvY3VtZW50Iiwid3JpdGU6ZG9jdW1lbnQiLCJ3cml0ZTp0YXNrIiwicmVhZDp0YXNrIl0sInBhcnR5SWQiOiJjNmE3YWI5ZjdkZDg0MDE1YTY1NTJiZmM1YjM2NmI3NyIsInNvdXJjZSI6IkJ1c2luZXNzIFByb2Nlc3MgTWFuYWdlbWVudCIsImlzcyI6Imh0dHBzOi8vbG9naW4ucWEuemlubmlhLmNvbS8iLCJzdWIiOiJVdU1yaWJyUDNlOHpWaGZIeTZ3UEoyNWxWWWgxQ1dOM0BjbGllbnRzIiwiYXVkIjoiaHR0cHM6Ly9xYS5hcGkuemlubmlhLmlvIiwiaWF0IjoxNzU4NTQyNTMxLCJleHAiOjE3NTg2Mjg5MzEsInNjb3BlIjoib3BlbmlkIiwiZ3R5IjoiY2xpZW50LWNyZWRlbnRpYWxzIiwiYXpwIjoiVXVNcmliclAzZTh6VmhmSHk2d1BKMjVsVlloMUNXTjMifQ.eCOVXUTSJL13YBolDZB8O1vwvRkjs9hOi46H6nHQycCSbbeb0YR5S36rNKLXKvQ30gGHXVNfdrMHwc06bIltxk0oXwxJewT2DNSLgz0T2r1ngjg3H6kSgmyJTZb99qZosxPAY84brJy3idB1PKlQnZ0gZ19HV_xTr0KxX_IBRmRf1dcZbZm3vC3hcRRyFm4MzaVmUhh-tR7xMxMDittkuupx7nncmoqJhT6Kn9Iv_lS4cdu-iryXIoQnZ9cxWdToEIld2uLoTzbO86tiDaJMy8Lz6P2mEL5APLdPJ29Jg7RiNY-R2AEcivkc_AKnDd2slpm7evgGslB92PFIWPiXFw</msg>
+<arg>Token received: ${OAUTH_TOKEN_DISPLAY}</arg>
+<arg>INFO</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-09-22T17:32:10.902034" elapsed="0.001001"/>
+</kw>
+<doc>Token received: [token]</doc>
+<status status="PASS" start="2025-09-22T17:32:10.900034" elapsed="0.015003"/>
+</kw>
+<kw name="Console Step: Complete Execution">
+<kw name="Log To Console" owner="BuiltIn">
+<arg>=== Completed: ${api_name} ===</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-22T17:32:10.921037" elapsed="0.001002"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-09-22T17:32:10.923039" level="INFO">=== Completed: Get OAuth Token ===</msg>
+<arg>=== Completed: ${api_name} ===</arg>
+<arg>INFO</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-09-22T17:32:10.922039" elapsed="0.001000"/>
+</kw>
+<arg>Get OAuth Token</arg>
+<doc>=== Completed: ${api_name} ===</doc>
+<status status="PASS" start="2025-09-22T17:32:10.920038" elapsed="0.006001"/>
+</kw>
+<doc>Execute Get OAuth Token</doc>
+<status status="PASS" start="2025-09-22T17:32:09.932266" elapsed="0.994776"/>
+</test>
+<test id="s1-t2" name="Test_02_Get_Case_Details" line="141">
+<kw name="Setup Session" type="SETUP">
+<kw name="Create Session" owner="RequestsLibrary">
+<msg time="2025-09-22T17:32:10.935040" level="INFO">Creating Session using : alias=api_session, url=https://login.qa.zinnia.com, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<arg>api_session</arg>
+<arg>https://login.qa.zinnia.com</arg>
+<arg>verify=False</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<status status="PASS" start="2025-09-22T17:32:10.935040" elapsed="0.000999"/>
+</kw>
+<kw name="Create Session" owner="RequestsLibrary">
+<msg time="2025-09-22T17:32:10.940040" level="INFO">Creating Session using : alias=api_session_case, url=https://qa.api.zinnia.io, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<arg>api_session_case</arg>
+<arg>https://qa.api.zinnia.io</arg>
+<arg>verify=False</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<status status="PASS" start="2025-09-22T17:32:10.939042" elapsed="0.000998"/>
+</kw>
+<kw name="Create Session" owner="RequestsLibrary">
+<msg time="2025-09-22T17:32:10.942040" level="INFO">Creating Session using : alias=api_session_bpm, url=https://qa-bpm.se2.com, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<arg>api_session_bpm</arg>
+<arg>https://qa-bpm.se2.com</arg>
+<arg>verify=False</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<status status="PASS" start="2025-09-22T17:32:10.942040" elapsed="0.001005"/>
+</kw>
+<status status="PASS" start="2025-09-22T17:32:10.935040" elapsed="0.010001"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-09-22T17:32:10.945041" level="INFO">${endpoint} = /case/v1/cases/{caseID}</msg>
+<var>${endpoint}</var>
+<arg>/case/v1/cases/{caseID}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-09-22T17:32:10.945041" elapsed="0.001001"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-09-22T17:32:10.952046" level="INFO">${method} = GET</msg>
+<var>${method}</var>
+<arg>GET</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-09-22T17:32:10.951044" elapsed="0.001002"/>
+</kw>
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2025-09-22T17:32:10.958044" level="INFO">${headers} = {'Content-Type': 'application/json'}</msg>
+<var>${headers}</var>
+<arg>Content-Type=application/json</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2025-09-22T17:32:10.957046" elapsed="0.000998"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-09-22T17:32:10.963048" level="INFO">${base_url} = https://qa-bpm.se2.com</msg>
+<var>${base_url}</var>
+<arg>https://qa-bpm.se2.com</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-09-22T17:32:10.962044" elapsed="0.001004"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-09-22T17:32:10.968045" level="INFO">${payload} = None</msg>
+<var>${payload}</var>
+<arg>${None}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-09-22T17:32:10.967045" elapsed="0.002002"/>
+</kw>
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2025-09-22T17:32:10.982047" level="INFO">${api_dict} = {'name': 'Get Case Details', 'endpoint': '/case/v1/cases/{caseID}', 'method': 'GET', 'headers': {'Content-Type': 'application/json'}, 'default_case_id': 'CA0000370039'}</msg>
+<var>${api_dict}</var>
+<arg>name=Get Case Details</arg>
+<arg>endpoint=${endpoint}</arg>
+<arg>method=${method}</arg>
+<arg>headers=${headers}</arg>
+<arg>default_case_id=CA0000370039</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2025-09-22T17:32:10.979059" elapsed="0.002988"/>
+</kw>
+<kw name="Console Step: Start Execution">
+<kw name="Log To Console" owner="BuiltIn">
+<arg>\n=== Executing: ${api_name} ===</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-22T17:32:10.995048" elapsed="0.001000"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-09-22T17:32:10.998053" level="INFO">=== Executing: Get Case Details ===</msg>
+<arg>=== Executing: ${api_name} ===</arg>
+<arg>INFO</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-09-22T17:32:10.997049" elapsed="0.001004"/>
+</kw>
+<arg>Get Case Details</arg>
+<doc>=== Executing: ${api_name} ===</doc>
+<status status="PASS" start="2025-09-22T17:32:10.994048" elapsed="0.012006"/>
+</kw>
+<kw name="Console Step: Display Session Info">
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Using session: api_session_bpm for base URL: ${base_url}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-22T17:32:11.007050" elapsed="0.000999"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-09-22T17:32:11.009055" level="INFO">Using session: api_session_bpm for base URL: https://qa-bpm.se2.com</msg>
+<arg>Using session: api_session_bpm for base URL: ${base_url}</arg>
+<arg>INFO</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-09-22T17:32:11.008049" elapsed="0.001006"/>
+</kw>
+<arg>${base_url}</arg>
+<doc>Using session: api_session_bpm for base URL</doc>
+<status status="PASS" start="2025-09-22T17:32:11.006054" elapsed="0.011002"/>
+</kw>
+<kw name="Execute Normal API">
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Set To Dictionary" owner="Collections">
+<arg>${headers}</arg>
+<arg>Authorization=Bearer ${TOKEN}</arg>
+<doc>Adds the given ``key_value_pairs`` and/or ``items`` to the ``dictionary``.</doc>
+<status status="PASS" start="2025-09-22T17:32:11.020052" elapsed="0.001002"/>
+</kw>
+<arg>'${TOKEN}' != 'None'</arg>
+<arg>Set To Dictionary</arg>
+<arg>${headers}</arg>
+<arg>Authorization=Bearer ${TOKEN}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-09-22T17:32:11.019052" elapsed="0.002002"/>
+</kw>
+<kw name="Get From Dictionary" owner="Collections">
+<msg time="2025-09-22T17:32:11.022053" level="INFO">${default_case_id} = CA0000370039</msg>
+<var>${default_case_id}</var>
+<arg>${api}</arg>
+<arg>default_case_id</arg>
+<arg>default=CA0000370039</arg>
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<status status="PASS" start="2025-09-22T17:32:11.022053" elapsed="0.001000"/>
+</kw>
+<kw name="Get Environment Variable" owner="OperatingSystem">
+<msg time="2025-09-22T17:32:11.028052" level="INFO">${caseID} = CA0000370039</msg>
+<var>${caseID}</var>
+<arg>CASE_ID</arg>
+<arg>default=${default_case_id}</arg>
+<doc>Returns the value of an environment variable with the given name.</doc>
+<status status="PASS" start="2025-09-22T17:32:11.028052" elapsed="0.000000"/>
+</kw>
+<kw name="Replace String" owner="String">
+<msg time="2025-09-22T17:32:11.033056" level="INFO">${endpoint} = /case/v1/cases/CA0000370039</msg>
+<var>${endpoint}</var>
+<arg>${endpoint}</arg>
+<arg>{caseID}</arg>
+<arg>${caseID}</arg>
+<doc>Replaces ``search_for`` in the given ``string`` with ``replace_with``.</doc>
+<status status="PASS" start="2025-09-22T17:32:11.032055" elapsed="0.001001"/>
+</kw>
+<kw name="Set Variable If" owner="BuiltIn">
+<msg time="2025-09-22T17:32:11.035053" level="INFO">${session_name} = api_session_bpm</msg>
+<var>${session_name}</var>
+<arg>'${base_url}' == 'https://qa-bpm.se2.com'</arg>
+<arg>api_session_bpm</arg>
+<arg>'${base_url}' == 'https://qa.api.zinnia.io'</arg>
+<arg>api_session_case</arg>
+<arg>api_session_case</arg>
+<doc>Sets variable based on the given condition.</doc>
+<status status="PASS" start="2025-09-22T17:32:11.035053" elapsed="0.000000"/>
+</kw>
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2025-09-22T17:32:11.038053" level="INFO">${kwargs} = {'headers': {'Content-Type': 'application/json', 'Authorization': 'Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IlU1SWNUOEQ4LTNWdl80NDFIdnlzbyJ9.eyJodHRwczovL3FhLmFwaS56aW5uaWEuaW8vY2xpZW50SWRzI...</msg>
+<var>${kwargs}</var>
+<arg>headers=${headers}</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2025-09-22T17:32:11.038053" elapsed="0.000000"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-09-22T17:32:11.042055" level="INFO">${payload_exists} = False</msg>
+<var>${payload_exists}</var>
+<arg>$payload is not None</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-09-22T17:32:11.041054" elapsed="0.001001"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<arg>${payload_exists}</arg>
+<arg>Set To Dictionary</arg>
+<arg>${kwargs}</arg>
+<arg>json=${payload}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-09-22T17:32:11.045055" elapsed="0.000000"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="GET On Session" owner="RequestsLibrary">
+<msg time="2025-09-22T17:32:12.531957" level="INFO">GET Request : url=https://qa-bpm.se2.com/case/v1/cases/CA0000370039 
+ path_url=/case/v1/cases/CA0000370039 
+ headers={'User-Agent': 'python-requests/2.32.3', 'Accept-Encoding': 'gzip, deflate, br', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/json', 'Authorization': 'Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IlU1SWNUOEQ4LTNWdl80NDFIdnlzbyJ9.eyJodHRwczovL3FhLmFwaS56aW5uaWEuaW8vY2xpZW50SWRzIjpbImV2ZXJseSIsImVsaWMiLCJzYnVsIl0sImh0dHBzOi8vcWEuYXBpLnppbm5pYS5pby9wZXJtaXNzaW9ucyI6WyJyZWFkOnBvbGljeSIsIndyaXRlOnBvbGljeSIsIndyaXRlOmNhc2UiLCJyZWFkOmNhc2UiLCJyZWFkOmRvY3VtZW50Iiwid3JpdGU6ZG9jdW1lbnQiLCJ3cml0ZTp0YXNrIiwicmVhZDp0YXNrIl0sInBhcnR5SWQiOiJjNmE3YWI5ZjdkZDg0MDE1YTY1NTJiZmM1YjM2NmI3NyIsInNvdXJjZSI6IkJ1c2luZXNzIFByb2Nlc3MgTWFuYWdlbWVudCIsImlzcyI6Imh0dHBzOi8vbG9naW4ucWEuemlubmlhLmNvbS8iLCJzdWIiOiJVdU1yaWJyUDNlOHpWaGZIeTZ3UEoyNWxWWWgxQ1dOM0BjbGllbnRzIiwiYXVkIjoiaHR0cHM6Ly9xYS5hcGkuemlubmlhLmlvIiwiaWF0IjoxNzU4NTQyNTMxLCJleHAiOjE3NTg2Mjg5MzEsInNjb3BlIjoib3BlbmlkIiwiZ3R5IjoiY2xpZW50LWNyZWRlbnRpYWxzIiwiYXpwIjoiVXVNcmliclAzZTh6VmhmSHk2d1BKMjVsVlloMUNXTjMifQ.eCOVXUTSJL13YBolDZB8O1vwvRkjs9hOi46H6nHQycCSbbeb0YR5S36rNKLXKvQ30gGHXVNfdrMHwc06bIltxk0oXwxJewT2DNSLgz0T2r1ngjg3H6kSgmyJTZb99qZosxPAY84brJy3idB1PKlQnZ0gZ19HV_xTr0KxX_IBRmRf1dcZbZm3vC3hcRRyFm4MzaVmUhh-tR7xMxMDittkuupx7nncmoqJhT6Kn9Iv_lS4cdu-iryXIoQnZ9cxWdToEIld2uLoTzbO86tiDaJMy8Lz6P2mEL5APLdPJ29Jg7RiNY-R2AEcivkc_AKnDd2slpm7evgGslB92PFIWPiXFw'} 
+ body=None 
+ </msg>
+<msg time="2025-09-22T17:32:12.532957" level="INFO">GET Response : url=https://qa-bpm.se2.com/case/v1/cases/CA0000370039 
+ status=200, reason= 
+ headers={'Date': 'Mon, 22 Sep 2025 12:02:12 GMT', 'Content-Type': 'application/json', 'Content-Length': '5651', 'Connection': 'keep-alive', 'Set-Cookie': 'AWSALBTG=keBtPqMJkHPPUXcvnOjt1AVQByosJGluR2Z8yrbHC9EocqSnJEYMT5ZZc0RhAjHymy+DWzYkTM222mvLUScZs0ZJjk/BrS4dIvJIeoZz/EgPV7iRvx/2le7fty1uxk+ZUxDtx0ojxTWj6Vhrm5iNFUN9jFLYhsllquxTveHIKGFD; Expires=Mon, 29 Sep 2025 12:02:12 GMT; Path=/, AWSALBTGCORS=keBtPqMJkHPPUXcvnOjt1AVQByosJGluR2Z8yrbHC9EocqSnJEYMT5ZZc0RhAjHymy+DWzYkTM222mvLUScZs0ZJjk/BrS4dIvJIeoZz/EgPV7iRvx/2le7fty1uxk+ZUxDtx0ojxTWj6Vhrm5iNFUN9jFLYhsllquxTveHIKGFD; Expires=Mon, 29 Sep 2025 12:02:12 GMT; Path=/; SameSite=None; Secure, AWSALB=91O5yMTjVg0PaidkNXLVPMehtQs3mgwnlVr27Hpp+zj7QNolub8PTcrlPzsLiyzqxTHel0r9tv1gWkfl/1I1F+9IJp0mfR6t/DABaf+x+D7negaIoy91HtzE0DG9; Expires=Mon, 29 Sep 2025 12:02:12 GMT; Path=/, AWSALBCORS=91O5yMTjVg0PaidkNXLVPMehtQs3mgwnlVr27Hpp+zj7QNolub8PTcrlPzsLiyzqxTHel0r9tv1gWkfl/1I1F+9IJp0mfR6t/DABaf+x+D7negaIoy91HtzE0DG9; Expires=Mon, 29 Sep 2025 12:02:12 GMT; Path=/; SameSite=None; Secure', 'Vary': 'Origin, Access-Control-Request-Method, Access-Control-Request-Headers', 'x-correlation-id': 'd15b8002-352a-4344-807c-abc594f0a1df', 'X-Content-Type-Options': 'nosniff', 'X-XSS-Protection': '1; mode=block', 'Cache-Control': 'no-cache, no-store, max-age=0, must-revalidate', 'Pragma': 'no-cache', 'Expires': '0', 'X-Frame-Options': 'DENY'} 
+ body={"id":"CA0000370039","templateId":"681dfd14-b563-4342-acd2-c8a44d8ed09f","carrier":"MASS","process":"Correspondence","parentInstanceId":null,"linkedCases":null,"correlationId":"a9e90cf1-edf3-483a-880a-500f71437036","caseStatus":"IN_PROGRESS","caseResult":null,"caseResultDetail":null,"primary":true,"escalated":false,"linkDetails":{"linkedCaseInstanceId":null,"linkedReason":"Identified by case management"},"processSubType":"Service Form","caseGroup":null,"policyNumber":"5810002532","planCode":"900","productName":"MassMutual Stable Voyage Plus","caseProcessingDetails":[],"documents":[],"exceptions":[],"notes":[],"tasks":[],"mappedTasks":[],"mappedExceptions":[],"mappedDocuments":[],"mappedNotes":null,"identifiers":[{"identifier":"policyNumber","value":"5810002532"},{"identifier":"transactionId","value":"a9e90cf1-edf3-483a-880a-500f71437036"},{"identifier":"zlCaseId","value":"CA0000370039"},{"identifier":"contractNumber","value":"5810002532"}],"additionalData":{"contractStatus":"Active","requestSubType":"Redemption","policyNumber":"5810002532","owners":[{"firstName":"MENACHEM","middleName":"N","lastName":"GARNETTE","ssn":"337020845","fullName":"MENACHEM N GARNETTE"}],"brokerDealerName":"JP MORGAN SECURITIES LLC","productName":"MassMutual Stable Voyage Plus"},"stages":[{"id":"requestAck","label":"Prepare Process Form Request for processing","stageStatus":"COMPLETED","mappedNotes":[],"steps":[{"id":"requestAck.processFormRequestReceived","label":"Received Process Form Request","stepStatus":"COMPLETED","stepResult":null,"eventRef":["62fb7964-3d3e-44fb-a6f3-7c544d932b37"],"updatedAt":"2024-09-30T13:06:50.000Z","tasks":null,"mappedTasks":null,"mappedExceptions":[],"mappedDocuments":null,"mappedNotes":[],"mappedCases":null,"additionalData":{"mailDetails_city":{"label":"City","value":"CONCORD","type":"string"},"mailDetails_addressLine1":{"label":"Address Line1","value":"24 THOMPSON ST","type":"string"},"deliveryMethod":{"label":"Delivery Method","value":"MAIL","type":"string"},"mailDetails_type":{"label":"Mail Type","value":"owner","type":"string"},"transactionType":{"label":"Transaction Type","value":"Redemption","type":"string"},"transactionSubType":{"label":"Transaction SubType","value":"Full Surrender","type":"string"},"mailDetails_lastName":{"label":"Last Name","value":"GARNETTE","type":"string"},"processName":{"label":"Requested Process Name","value":"Service Request Form","type":"string"},"formName":{"label":"Requested Form name","value":"Annuity Full Surrender Request","type":"string"},"mailDetails_state":{"label":"State","value":"NH","type":"string"},"deliveryDate":{"label":"Delivery Date","value":"2024-09-30T13:06:50.391567","type":"string"},"deliveryStatus":{"label":"Delivery Status","value":"Initiated","type":"string"},"mailDetails_firstName":{"label":"First Name","value":"MENACHEM","type":"string"},"mailDetails_zipCode":{"label":"ZIP Code","value":"03301","type":"string"}},"stepAdditionalData":[],"multiInstance":false,"instanceInfo":null,"createdAt":"2024-09-30T13:06:50.000Z"},{"id":"requestAck.processFormRequestProcessing","label":"Processing Form Request","stepStatus":"COMPLETED","stepResult":null,"eventRef":["62fb7964-3d3e-44fb-a6f3-7c544d932b37","d63996f1-4098-41d8-a260-347bbf252107"],"updatedAt":"2024-09-30T13:06:56.000Z","tasks":null,"mappedTasks":null,"mappedExceptions":[],"mappedDocuments":null,"mappedNotes":[],"mappedCases":null,"additionalData":{},"stepAdditionalData":[],"multiInstance":false,"instanceInfo":null,"createdAt":"2024-09-30T13:06:50.000Z"}],"tasks":null,"mappedTasks":null,"createdAt":"2024-09-30T13:06:50.000Z","updatedAt":"2024-09-30T13:06:56.000Z"},{"id":"requestCompletion","label":"Deliver Process Form","stageStatus":"IN_PROGRESS","mappedNotes":[],"steps":[{"id":"RequestCompletion.completeRequest","label":"Create &amp; Send Requested Form","stepStatus":"IN_PROGRESS","stepResult":null,"eventRef":["d63996f1-4098-41d8-a260-347bbf252107"],"updatedAt":"2024-09-30T13:06:56.000Z","tasks":null,"mappedTasks":null,"mappedExceptions":[],"mappedDocuments":null,"mappedNotes":[],"mappedCases":null,"additionalData":{},"stepAdditionalData":[],"multiInstance":false,"instanceInfo":null,"createdAt":"2024-09-30T13:06:56.000Z"},{"id":"RequestCompletion.deliverLetter","label":"Deliver Requested Form","stepStatus":"NOT_STARTED","stepResult":null,"eventRef":[],"updatedAt":"2024-09-30T13:06:50.000Z","tasks":null,"mappedTasks":null,"mappedExceptions":[],"mappedDocuments":null,"mappedNotes":[],"mappedCases":null,"additionalData":{},"stepAdditionalData":[],"multiInstance":false,"instanceInfo":null,"createdAt":"2024-09-30T13:06:50.000Z"}],"tasks":null,"mappedTasks":null,"createdAt":"2024-09-30T13:06:56.000Z","updatedAt":"2024-09-30T13:06:56.000Z"}],"parties":[{"partyRole":"Servicing Agent","partyType":"Individual","firstName":"LAURA","lastName":"HANSON VIRGINIA","fullName":"LAURA  HANSON VIRGINIA","gender":"M","ssn":"047447214","percent":"100","externalId":"JPM0307670"},{"partyRole":"Owner,Primary","partyType":"Individual","firstName":"MENACHEM","middleName":"N","lastName":"GARNETTE","fullName":"MENACHEM N GARNETTE","prefix":"Ms.","gender":"F","ssn":"337020845","percent":"100"},{"partyRole":"Agent,Agent of Record","partyType":"Individual","firstName":"LAURA","lastName":"HANSON VIRGINIA","fullName":"LAURA  HANSON VIRGINIA","gender":"M","ssn":"047447214","percent":"100","externalId":"JPM0307670"}],"createdAt":"2024-09-30T13:06:50.000Z","updatedAt":"2024-09-30T13:06:56.000Z","systemCreatedDate":null,"systemCreatedDt":null,"systemUpdatedDt":1744623301491,"slaStartDate":null,"etcDate":null,"applicationType":"Digital","caseAdditionalData":[],"deleted":false} 
+ </msg>
+<msg time="2025-09-22T17:32:12.532957" level="INFO">C:\Users\sharmash\AppData\Roaming\Python\Python312\site-packages\urllib3\connectionpool.py:1103: InsecureRequestWarning: Unverified HTTPS request is being made to host 'qa-bpm.se2.com'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(</msg>
+<arg>${session_name}</arg>
+<arg>${endpoint}</arg>
+<arg>&amp;{kwargs}</arg>
+<doc>Sends a GET request on a previously created HTTP Session.</doc>
+<status status="PASS" start="2025-09-22T17:32:11.047055" elapsed="1.486901"/>
+</kw>
+<msg time="2025-09-22T17:32:12.542013" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<var>${response}</var>
+<arg>'${method}' == 'GET'</arg>
+<arg>GET On Session</arg>
+<arg>${session_name}</arg>
+<arg>${endpoint}</arg>
+<arg>&amp;{kwargs}</arg>
+<arg>ELSE IF</arg>
+<arg>'${method}' == 'POST'</arg>
+<arg>POST On Session</arg>
+<arg>${session_name}</arg>
+<arg>${endpoint}</arg>
+<arg>&amp;{kwargs}</arg>
+<arg>ELSE IF</arg>
+<arg>'${method}' == 'PUT'</arg>
+<arg>PUT On Session</arg>
+<arg>${session_name}</arg>
+<arg>${endpoint}</arg>
+<arg>&amp;{kwargs}</arg>
+<arg>ELSE IF</arg>
+<arg>'${method}' == 'DELETE'</arg>
+<arg>DELETE On Session</arg>
+<arg>${session_name}</arg>
+<arg>${endpoint}</arg>
+<arg>&amp;{kwargs}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-09-22T17:32:11.046058" elapsed="1.495955"/>
+</kw>
+<kw name="Set Suite Variable" owner="BuiltIn">
+<msg time="2025-09-22T17:32:12.551009" level="INFO">${API_ENDPOINT_DISPLAY} = /case/v1/cases/CA0000370039</msg>
+<arg>${API_ENDPOINT_DISPLAY}</arg>
+<arg>${endpoint}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<status status="PASS" start="2025-09-22T17:32:12.547960" elapsed="0.003049"/>
+</kw>
+<kw name="Set Suite Variable" owner="BuiltIn">
+<msg time="2025-09-22T17:32:12.557961" level="INFO">${API_SESSION_DISPLAY} = api_session_bpm</msg>
+<arg>${API_SESSION_DISPLAY}</arg>
+<arg>${session_name}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<status status="PASS" start="2025-09-22T17:32:12.556002" elapsed="0.001959"/>
+</kw>
+<kw name="Set Suite Variable" owner="BuiltIn">
+<msg time="2025-09-22T17:32:12.565013" level="INFO">${API_STATUS_DISPLAY} = 200</msg>
+<arg>${API_STATUS_DISPLAY}</arg>
+<arg>${response.status_code}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<status status="PASS" start="2025-09-22T17:32:12.563004" elapsed="0.002009"/>
+</kw>
+<kw name="Set Suite Variable" owner="BuiltIn">
+<msg time="2025-09-22T17:32:12.572012" level="INFO">${API_RESPONSE_DISPLAY} = {"id":"CA0000370039","templateId":"681dfd14-b563-4342-acd2-c8a44d8ed09f","carrier":"MASS","process":"Correspondence","parentInstanceId":null,"linkedCases":null,"correlationId":"a9e90cf1-edf3-483a-880a...</msg>
+<arg>${API_RESPONSE_DISPLAY}</arg>
+<arg>${response.text}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<status status="PASS" start="2025-09-22T17:32:12.570026" elapsed="0.001986"/>
+</kw>
+<kw name="Set Suite Variable" owner="BuiltIn">
+<msg time="2025-09-22T17:32:12.576014" level="INFO">${BASE_URL_DISPLAY} = https://qa-bpm.se2.com</msg>
+<arg>${BASE_URL_DISPLAY}</arg>
+<arg>${base_url}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<status status="PASS" start="2025-09-22T17:32:12.574998" elapsed="0.001016"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-09-22T17:32:12.578961" level="INFO">API: /case/v1/cases/CA0000370039</msg>
+<arg>API: ${endpoint}</arg>
+<arg>INFO</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-09-22T17:32:12.577961" elapsed="0.001000"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-09-22T17:32:12.585003" level="INFO">Session: api_session_bpm</msg>
+<arg>Session: ${session_name}</arg>
+<arg>INFO</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-09-22T17:32:12.584076" elapsed="0.000927"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-09-22T17:32:12.589042" level="INFO">Status: 200</msg>
+<arg>Status: ${response.status_code}</arg>
+<arg>INFO</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-09-22T17:32:12.588008" elapsed="0.001034"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-09-22T17:32:12.593001" level="INFO">Response: {"id":"CA0000370039","templateId":"681dfd14-b563-4342-acd2-c8a44d8ed09f","carrier":"MASS","process":"Correspondence","parentInstanceId":null,"linkedCases":null,"correlationId":"a9e90cf1-edf3-483a-880a-500f71437036","caseStatus":"IN_PROGRESS","caseResult":null,"caseResultDetail":null,"primary":true,"escalated":false,"linkDetails":{"linkedCaseInstanceId":null,"linkedReason":"Identified by case management"},"processSubType":"Service Form","caseGroup":null,"policyNumber":"5810002532","planCode":"900","productName":"MassMutual Stable Voyage Plus","caseProcessingDetails":[],"documents":[],"exceptions":[],"notes":[],"tasks":[],"mappedTasks":[],"mappedExceptions":[],"mappedDocuments":[],"mappedNotes":null,"identifiers":[{"identifier":"policyNumber","value":"5810002532"},{"identifier":"transactionId","value":"a9e90cf1-edf3-483a-880a-500f71437036"},{"identifier":"zlCaseId","value":"CA0000370039"},{"identifier":"contractNumber","value":"5810002532"}],"additionalData":{"contractStatus":"Active","requestSubType":"Redemption","policyNumber":"5810002532","owners":[{"firstName":"MENACHEM","middleName":"N","lastName":"GARNETTE","ssn":"337020845","fullName":"MENACHEM N GARNETTE"}],"brokerDealerName":"JP MORGAN SECURITIES LLC","productName":"MassMutual Stable Voyage Plus"},"stages":[{"id":"requestAck","label":"Prepare Process Form Request for processing","stageStatus":"COMPLETED","mappedNotes":[],"steps":[{"id":"requestAck.processFormRequestReceived","label":"Received Process Form Request","stepStatus":"COMPLETED","stepResult":null,"eventRef":["62fb7964-3d3e-44fb-a6f3-7c544d932b37"],"updatedAt":"2024-09-30T13:06:50.000Z","tasks":null,"mappedTasks":null,"mappedExceptions":[],"mappedDocuments":null,"mappedNotes":[],"mappedCases":null,"additionalData":{"mailDetails_city":{"label":"City","value":"CONCORD","type":"string"},"mailDetails_addressLine1":{"label":"Address Line1","value":"24 THOMPSON ST","type":"string"},"deliveryMethod":{"label":"Delivery Method","value":"MAIL","type":"string"},"mailDetails_type":{"label":"Mail Type","value":"owner","type":"string"},"transactionType":{"label":"Transaction Type","value":"Redemption","type":"string"},"transactionSubType":{"label":"Transaction SubType","value":"Full Surrender","type":"string"},"mailDetails_lastName":{"label":"Last Name","value":"GARNETTE","type":"string"},"processName":{"label":"Requested Process Name","value":"Service Request Form","type":"string"},"formName":{"label":"Requested Form name","value":"Annuity Full Surrender Request","type":"string"},"mailDetails_state":{"label":"State","value":"NH","type":"string"},"deliveryDate":{"label":"Delivery Date","value":"2024-09-30T13:06:50.391567","type":"string"},"deliveryStatus":{"label":"Delivery Status","value":"Initiated","type":"string"},"mailDetails_firstName":{"label":"First Name","value":"MENACHEM","type":"string"},"mailDetails_zipCode":{"label":"ZIP Code","value":"03301","type":"string"}},"stepAdditionalData":[],"multiInstance":false,"instanceInfo":null,"createdAt":"2024-09-30T13:06:50.000Z"},{"id":"requestAck.processFormRequestProcessing","label":"Processing Form Request","stepStatus":"COMPLETED","stepResult":null,"eventRef":["62fb7964-3d3e-44fb-a6f3-7c544d932b37","d63996f1-4098-41d8-a260-347bbf252107"],"updatedAt":"2024-09-30T13:06:56.000Z","tasks":null,"mappedTasks":null,"mappedExceptions":[],"mappedDocuments":null,"mappedNotes":[],"mappedCases":null,"additionalData":{},"stepAdditionalData":[],"multiInstance":false,"instanceInfo":null,"createdAt":"2024-09-30T13:06:50.000Z"}],"tasks":null,"mappedTasks":null,"createdAt":"2024-09-30T13:06:50.000Z","updatedAt":"2024-09-30T13:06:56.000Z"},{"id":"requestCompletion","label":"Deliver Process Form","stageStatus":"IN_PROGRESS","mappedNotes":[],"steps":[{"id":"RequestCompletion.completeRequest","label":"Create &amp; Send Requested Form","stepStatus":"IN_PROGRESS","stepResult":null,"eventRef":["d63996f1-4098-41d8-a260-347bbf252107"],"updatedAt":"2024-09-30T13:06:56.000Z","tasks":null,"mappedTasks":null,"mappedExceptions":[],"mappedDocuments":null,"mappedNotes":[],"mappedCases":null,"additionalData":{},"stepAdditionalData":[],"multiInstance":false,"instanceInfo":null,"createdAt":"2024-09-30T13:06:56.000Z"},{"id":"RequestCompletion.deliverLetter","label":"Deliver Requested Form","stepStatus":"NOT_STARTED","stepResult":null,"eventRef":[],"updatedAt":"2024-09-30T13:06:50.000Z","tasks":null,"mappedTasks":null,"mappedExceptions":[],"mappedDocuments":null,"mappedNotes":[],"mappedCases":null,"additionalData":{},"stepAdditionalData":[],"multiInstance":false,"instanceInfo":null,"createdAt":"2024-09-30T13:06:50.000Z"}],"tasks":null,"mappedTasks":null,"createdAt":"2024-09-30T13:06:56.000Z","updatedAt":"2024-09-30T13:06:56.000Z"}],"parties":[{"partyRole":"Servicing Agent","partyType":"Individual","firstName":"LAURA","lastName":"HANSON VIRGINIA","fullName":"LAURA  HANSON VIRGINIA","gender":"M","ssn":"047447214","percent":"100","externalId":"JPM0307670"},{"partyRole":"Owner,Primary","partyType":"Individual","firstName":"MENACHEM","middleName":"N","lastName":"GARNETTE","fullName":"MENACHEM N GARNETTE","prefix":"Ms.","gender":"F","ssn":"337020845","percent":"100"},{"partyRole":"Agent,Agent of Record","partyType":"Individual","firstName":"LAURA","lastName":"HANSON VIRGINIA","fullName":"LAURA  HANSON VIRGINIA","gender":"M","ssn":"047447214","percent":"100","externalId":"JPM0307670"}],"createdAt":"2024-09-30T13:06:50.000Z","updatedAt":"2024-09-30T13:06:56.000Z","systemCreatedDate":null,"systemCreatedDt":null,"systemUpdatedDt":1744623301491,"slaStartDate":null,"etcDate":null,"applicationType":"Digital","caseAdditionalData":[],"deleted":false}</msg>
+<arg>Response: ${response.text}</arg>
+<arg>INFO</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-09-22T17:32:12.592033" elapsed="0.000968"/>
+</kw>
+<arg>${api_dict}</arg>
+<arg>${endpoint}</arg>
+<arg>${method}</arg>
+<arg>${headers}</arg>
+<arg>${payload}</arg>
+<arg>${base_url}</arg>
+<status status="PASS" start="2025-09-22T17:32:11.018052" elapsed="1.577920"/>
+</kw>
+<kw name="Console Step: Show API Details">
+<kw name="Log To Console" owner="BuiltIn">
+<arg>API: ${API_ENDPOINT_DISPLAY}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-22T17:32:12.595972" elapsed="0.001061"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Session: ${API_SESSION_DISPLAY}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-22T17:32:12.597033" elapsed="0.000000"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Status: ${API_STATUS_DISPLAY}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-22T17:32:12.597033" elapsed="0.000000"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Response: ${API_RESPONSE_DISPLAY}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-22T17:32:12.598011" elapsed="0.000000"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-09-22T17:32:12.598011" level="INFO">API: /case/v1/cases/CA0000370039</msg>
+<arg>API: ${API_ENDPOINT_DISPLAY}</arg>
+<arg>INFO</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-09-22T17:32:12.598011" elapsed="0.001000"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-09-22T17:32:12.602965" level="INFO">Session: api_session_bpm</msg>
+<arg>Session: ${API_SESSION_DISPLAY}</arg>
+<arg>INFO</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-09-22T17:32:12.602038" elapsed="0.000927"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-09-22T17:32:12.610005" level="INFO">Status: 200</msg>
+<arg>Status: ${API_STATUS_DISPLAY}</arg>
+<arg>INFO</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-09-22T17:32:12.608966" elapsed="0.001039"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-09-22T17:32:12.612965" level="INFO">Response: {"id":"CA0000370039","templateId":"681dfd14-b563-4342-acd2-c8a44d8ed09f","carrier":"MASS","process":"Correspondence","parentInstanceId":null,"linkedCases":null,"correlationId":"a9e90cf1-edf3-483a-880a-500f71437036","caseStatus":"IN_PROGRESS","caseResult":null,"caseResultDetail":null,"primary":true,"escalated":false,"linkDetails":{"linkedCaseInstanceId":null,"linkedReason":"Identified by case management"},"processSubType":"Service Form","caseGroup":null,"policyNumber":"5810002532","planCode":"900","productName":"MassMutual Stable Voyage Plus","caseProcessingDetails":[],"documents":[],"exceptions":[],"notes":[],"tasks":[],"mappedTasks":[],"mappedExceptions":[],"mappedDocuments":[],"mappedNotes":null,"identifiers":[{"identifier":"policyNumber","value":"5810002532"},{"identifier":"transactionId","value":"a9e90cf1-edf3-483a-880a-500f71437036"},{"identifier":"zlCaseId","value":"CA0000370039"},{"identifier":"contractNumber","value":"5810002532"}],"additionalData":{"contractStatus":"Active","requestSubType":"Redemption","policyNumber":"5810002532","owners":[{"firstName":"MENACHEM","middleName":"N","lastName":"GARNETTE","ssn":"337020845","fullName":"MENACHEM N GARNETTE"}],"brokerDealerName":"JP MORGAN SECURITIES LLC","productName":"MassMutual Stable Voyage Plus"},"stages":[{"id":"requestAck","label":"Prepare Process Form Request for processing","stageStatus":"COMPLETED","mappedNotes":[],"steps":[{"id":"requestAck.processFormRequestReceived","label":"Received Process Form Request","stepStatus":"COMPLETED","stepResult":null,"eventRef":["62fb7964-3d3e-44fb-a6f3-7c544d932b37"],"updatedAt":"2024-09-30T13:06:50.000Z","tasks":null,"mappedTasks":null,"mappedExceptions":[],"mappedDocuments":null,"mappedNotes":[],"mappedCases":null,"additionalData":{"mailDetails_city":{"label":"City","value":"CONCORD","type":"string"},"mailDetails_addressLine1":{"label":"Address Line1","value":"24 THOMPSON ST","type":"string"},"deliveryMethod":{"label":"Delivery Method","value":"MAIL","type":"string"},"mailDetails_type":{"label":"Mail Type","value":"owner","type":"string"},"transactionType":{"label":"Transaction Type","value":"Redemption","type":"string"},"transactionSubType":{"label":"Transaction SubType","value":"Full Surrender","type":"string"},"mailDetails_lastName":{"label":"Last Name","value":"GARNETTE","type":"string"},"processName":{"label":"Requested Process Name","value":"Service Request Form","type":"string"},"formName":{"label":"Requested Form name","value":"Annuity Full Surrender Request","type":"string"},"mailDetails_state":{"label":"State","value":"NH","type":"string"},"deliveryDate":{"label":"Delivery Date","value":"2024-09-30T13:06:50.391567","type":"string"},"deliveryStatus":{"label":"Delivery Status","value":"Initiated","type":"string"},"mailDetails_firstName":{"label":"First Name","value":"MENACHEM","type":"string"},"mailDetails_zipCode":{"label":"ZIP Code","value":"03301","type":"string"}},"stepAdditionalData":[],"multiInstance":false,"instanceInfo":null,"createdAt":"2024-09-30T13:06:50.000Z"},{"id":"requestAck.processFormRequestProcessing","label":"Processing Form Request","stepStatus":"COMPLETED","stepResult":null,"eventRef":["62fb7964-3d3e-44fb-a6f3-7c544d932b37","d63996f1-4098-41d8-a260-347bbf252107"],"updatedAt":"2024-09-30T13:06:56.000Z","tasks":null,"mappedTasks":null,"mappedExceptions":[],"mappedDocuments":null,"mappedNotes":[],"mappedCases":null,"additionalData":{},"stepAdditionalData":[],"multiInstance":false,"instanceInfo":null,"createdAt":"2024-09-30T13:06:50.000Z"}],"tasks":null,"mappedTasks":null,"createdAt":"2024-09-30T13:06:50.000Z","updatedAt":"2024-09-30T13:06:56.000Z"},{"id":"requestCompletion","label":"Deliver Process Form","stageStatus":"IN_PROGRESS","mappedNotes":[],"steps":[{"id":"RequestCompletion.completeRequest","label":"Create &amp; Send Requested Form","stepStatus":"IN_PROGRESS","stepResult":null,"eventRef":["d63996f1-4098-41d8-a260-347bbf252107"],"updatedAt":"2024-09-30T13:06:56.000Z","tasks":null,"mappedTasks":null,"mappedExceptions":[],"mappedDocuments":null,"mappedNotes":[],"mappedCases":null,"additionalData":{},"stepAdditionalData":[],"multiInstance":false,"instanceInfo":null,"createdAt":"2024-09-30T13:06:56.000Z"},{"id":"RequestCompletion.deliverLetter","label":"Deliver Requested Form","stepStatus":"NOT_STARTED","stepResult":null,"eventRef":[],"updatedAt":"2024-09-30T13:06:50.000Z","tasks":null,"mappedTasks":null,"mappedExceptions":[],"mappedDocuments":null,"mappedNotes":[],"mappedCases":null,"additionalData":{},"stepAdditionalData":[],"multiInstance":false,"instanceInfo":null,"createdAt":"2024-09-30T13:06:50.000Z"}],"tasks":null,"mappedTasks":null,"createdAt":"2024-09-30T13:06:56.000Z","updatedAt":"2024-09-30T13:06:56.000Z"}],"parties":[{"partyRole":"Servicing Agent","partyType":"Individual","firstName":"LAURA","lastName":"HANSON VIRGINIA","fullName":"LAURA  HANSON VIRGINIA","gender":"M","ssn":"047447214","percent":"100","externalId":"JPM0307670"},{"partyRole":"Owner,Primary","partyType":"Individual","firstName":"MENACHEM","middleName":"N","lastName":"GARNETTE","fullName":"MENACHEM N GARNETTE","prefix":"Ms.","gender":"F","ssn":"337020845","percent":"100"},{"partyRole":"Agent,Agent of Record","partyType":"Individual","firstName":"LAURA","lastName":"HANSON VIRGINIA","fullName":"LAURA  HANSON VIRGINIA","gender":"M","ssn":"047447214","percent":"100","externalId":"JPM0307670"}],"createdAt":"2024-09-30T13:06:50.000Z","updatedAt":"2024-09-30T13:06:56.000Z","systemCreatedDate":null,"systemCreatedDt":null,"systemUpdatedDt":1744623301491,"slaStartDate":null,"etcDate":null,"applicationType":"Digital","caseAdditionalData":[],"deleted":false}</msg>
+<arg>Response: ${API_RESPONSE_DISPLAY}</arg>
+<arg>INFO</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-09-22T17:32:12.612965" elapsed="0.000000"/>
+</kw>
+<doc>API endpoint, session, status and response details</doc>
+<status status="PASS" start="2025-09-22T17:32:12.595972" elapsed="0.022038"/>
+</kw>
+<kw name="Console Step: Complete Execution">
+<kw name="Log To Console" owner="BuiltIn">
+<arg>=== Completed: ${api_name} ===</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-22T17:32:12.620006" elapsed="0.001072"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-09-22T17:32:12.621078" level="INFO">=== Completed: Get Case Details ===</msg>
+<arg>=== Completed: ${api_name} ===</arg>
+<arg>INFO</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-09-22T17:32:12.621078" elapsed="0.000000"/>
+</kw>
+<arg>Get Case Details</arg>
+<doc>=== Completed: ${api_name} ===</doc>
+<status status="PASS" start="2025-09-22T17:32:12.620006" elapsed="0.005030"/>
+</kw>
+<doc>Execute Get Case Details</doc>
+<status status="PASS" start="2025-09-22T17:32:10.934041" elapsed="1.691974"/>
+</test>
+<test id="s1-t3" name="Test_03_Search_Cases_by_Policy_Number" line="164">
+<kw name="Setup Session" type="SETUP">
+<kw name="Create Session" owner="RequestsLibrary">
+<msg time="2025-09-22T17:32:12.634029" level="INFO">Creating Session using : alias=api_session, url=https://login.qa.zinnia.com, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<arg>api_session</arg>
+<arg>https://login.qa.zinnia.com</arg>
+<arg>verify=False</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<status status="PASS" start="2025-09-22T17:32:12.632970" elapsed="0.001059"/>
+</kw>
+<kw name="Create Session" owner="RequestsLibrary">
+<msg time="2025-09-22T17:32:12.639020" level="INFO">Creating Session using : alias=api_session_case, url=https://qa.api.zinnia.io, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<arg>api_session_case</arg>
+<arg>https://qa.api.zinnia.io</arg>
+<arg>verify=False</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<status status="PASS" start="2025-09-22T17:32:12.638077" elapsed="0.000943"/>
+</kw>
+<kw name="Create Session" owner="RequestsLibrary">
+<msg time="2025-09-22T17:32:12.643024" level="INFO">Creating Session using : alias=api_session_bpm, url=https://qa-bpm.se2.com, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<arg>api_session_bpm</arg>
+<arg>https://qa-bpm.se2.com</arg>
+<arg>verify=False</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<status status="PASS" start="2025-09-22T17:32:12.641971" elapsed="0.001053"/>
+</kw>
+<status status="PASS" start="2025-09-22T17:32:12.632970" elapsed="0.013046"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-09-22T17:32:12.647010" level="INFO">${endpoint} = /case/v1/cases/search</msg>
+<var>${endpoint}</var>
+<arg>/case/v1/cases/search</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-09-22T17:32:12.647010" elapsed="0.000000"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-09-22T17:32:12.650007" level="INFO">${method} = POST</msg>
+<var>${method}</var>
+<arg>POST</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-09-22T17:32:12.650007" elapsed="0.000000"/>
+</kw>
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2025-09-22T17:32:12.652971" level="INFO">${headers} = {'Content-Type': 'application/json'}</msg>
+<var>${headers}</var>
+<arg>Content-Type=application/json</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2025-09-22T17:32:12.652971" elapsed="0.000000"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-09-22T17:32:12.656972" level="INFO">${base_url} = https://qa-bpm.se2.com</msg>
+<var>${base_url}</var>
+<arg>https://qa-bpm.se2.com</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-09-22T17:32:12.656972" elapsed="0.001000"/>
+</kw>
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2025-09-22T17:32:12.662016" level="INFO">${payload} = {'policyNumber': '571025434'}</msg>
+<var>${payload}</var>
+<arg>policyNumber=571025434</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2025-09-22T17:32:12.661020" elapsed="0.000996"/>
+</kw>
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2025-09-22T17:32:12.666975" level="INFO">${api_dict} = {'name': 'Search Cases by Policy Number', 'endpoint': '/case/v1/cases/search', 'method': 'POST', 'headers': {'Content-Type': 'application/json'}}</msg>
+<var>${api_dict}</var>
+<arg>name=Search Cases by Policy Number</arg>
+<arg>endpoint=${endpoint}</arg>
+<arg>method=${method}</arg>
+<arg>headers=${headers}</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2025-09-22T17:32:12.665974" elapsed="0.001001"/>
+</kw>
+<kw name="Console Step: Start Execution">
+<kw name="Log To Console" owner="BuiltIn">
+<arg>\n=== Executing: ${api_name} ===</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-22T17:32:12.672976" elapsed="0.000000"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-09-22T17:32:12.673974" level="INFO">=== Executing: Search Cases by Policy Number ===</msg>
+<arg>=== Executing: ${api_name} ===</arg>
+<arg>INFO</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-09-22T17:32:12.673974" elapsed="0.000000"/>
+</kw>
+<arg>Search Cases by Policy Number</arg>
+<doc>=== Executing: ${api_name} ===</doc>
+<status status="PASS" start="2025-09-22T17:32:12.671973" elapsed="0.004051"/>
+</kw>
+<kw name="Console Step: Display Session Info">
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Using session: api_session_bpm for base URL: ${base_url}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-22T17:32:12.677010" elapsed="0.000000"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-09-22T17:32:12.678012" level="INFO">Using session: api_session_bpm for base URL: https://qa-bpm.se2.com</msg>
+<arg>Using session: api_session_bpm for base URL: ${base_url}</arg>
+<arg>INFO</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-09-22T17:32:12.677010" elapsed="0.001002"/>
+</kw>
+<arg>${base_url}</arg>
+<doc>Using session: api_session_bpm for base URL</doc>
+<status status="PASS" start="2025-09-22T17:32:12.677010" elapsed="0.003014"/>
+</kw>
+<kw name="Execute Normal API">
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Set To Dictionary" owner="Collections">
+<arg>${headers}</arg>
+<arg>Authorization=Bearer ${TOKEN}</arg>
+<doc>Adds the given ``key_value_pairs`` and/or ``items`` to the ``dictionary``.</doc>
+<status status="PASS" start="2025-09-22T17:32:12.681019" elapsed="0.000000"/>
+</kw>
+<arg>'${TOKEN}' != 'None'</arg>
+<arg>Set To Dictionary</arg>
+<arg>${headers}</arg>
+<arg>Authorization=Bearer ${TOKEN}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-09-22T17:32:12.681019" elapsed="0.000000"/>
+</kw>
+<kw name="Get From Dictionary" owner="Collections">
+<msg time="2025-09-22T17:32:12.682027" level="INFO">${default_case_id} = CA0000370039</msg>
+<var>${default_case_id}</var>
+<arg>${api}</arg>
+<arg>default_case_id</arg>
+<arg>default=CA0000370039</arg>
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<status status="PASS" start="2025-09-22T17:32:12.682027" elapsed="0.000000"/>
+</kw>
+<kw name="Get Environment Variable" owner="OperatingSystem">
+<msg time="2025-09-22T17:32:12.684011" level="INFO">${caseID} = CA0000370039</msg>
+<var>${caseID}</var>
+<arg>CASE_ID</arg>
+<arg>default=${default_case_id}</arg>
+<doc>Returns the value of an environment variable with the given name.</doc>
+<status status="PASS" start="2025-09-22T17:32:12.684011" elapsed="0.000000"/>
+</kw>
+<kw name="Replace String" owner="String">
+<msg time="2025-09-22T17:32:12.685976" level="INFO">${endpoint} = /case/v1/cases/search</msg>
+<var>${endpoint}</var>
+<arg>${endpoint}</arg>
+<arg>{caseID}</arg>
+<arg>${caseID}</arg>
+<doc>Replaces ``search_for`` in the given ``string`` with ``replace_with``.</doc>
+<status status="PASS" start="2025-09-22T17:32:12.685976" elapsed="0.000000"/>
+</kw>
+<kw name="Set Variable If" owner="BuiltIn">
+<msg time="2025-09-22T17:32:12.689026" level="INFO">${session_name} = api_session_bpm</msg>
+<var>${session_name}</var>
+<arg>'${base_url}' == 'https://qa-bpm.se2.com'</arg>
+<arg>api_session_bpm</arg>
+<arg>'${base_url}' == 'https://qa.api.zinnia.io'</arg>
+<arg>api_session_case</arg>
+<arg>api_session_case</arg>
+<doc>Sets variable based on the given condition.</doc>
+<status status="PASS" start="2025-09-22T17:32:12.688016" elapsed="0.001010"/>
+</kw>
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2025-09-22T17:32:12.692854" level="INFO">${kwargs} = {'headers': {'Content-Type': 'application/json', 'Authorization': 'Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IlU1SWNUOEQ4LTNWdl80NDFIdnlzbyJ9.eyJodHRwczovL3FhLmFwaS56aW5uaWEuaW8vY2xpZW50SWRzI...</msg>
+<var>${kwargs}</var>
+<arg>headers=${headers}</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2025-09-22T17:32:12.691855" elapsed="0.000999"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-09-22T17:32:12.694874" level="INFO">${payload_exists} = True</msg>
+<var>${payload_exists}</var>
+<arg>$payload is not None</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-09-22T17:32:12.694874" elapsed="0.000981"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Set To Dictionary" owner="Collections">
+<arg>${kwargs}</arg>
+<arg>json=${payload}</arg>
+<doc>Adds the given ``key_value_pairs`` and/or ``items`` to the ``dictionary``.</doc>
+<status status="PASS" start="2025-09-22T17:32:12.697854" elapsed="0.000000"/>
+</kw>
+<arg>${payload_exists}</arg>
+<arg>Set To Dictionary</arg>
+<arg>${kwargs}</arg>
+<arg>json=${payload}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-09-22T17:32:12.697854" elapsed="0.000000"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="POST On Session" owner="RequestsLibrary">
+<msg time="2025-09-22T17:32:14.095274" level="INFO">POST Request : url=https://qa-bpm.se2.com/case/v1/cases/search 
+ path_url=/case/v1/cases/search 
+ headers={'User-Agent': 'python-requests/2.32.3', 'Accept-Encoding': 'gzip, deflate, br', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/json', 'Authorization': 'Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IlU1SWNUOEQ4LTNWdl80NDFIdnlzbyJ9.eyJodHRwczovL3FhLmFwaS56aW5uaWEuaW8vY2xpZW50SWRzIjpbImV2ZXJseSIsImVsaWMiLCJzYnVsIl0sImh0dHBzOi8vcWEuYXBpLnppbm5pYS5pby9wZXJtaXNzaW9ucyI6WyJyZWFkOnBvbGljeSIsIndyaXRlOnBvbGljeSIsIndyaXRlOmNhc2UiLCJyZWFkOmNhc2UiLCJyZWFkOmRvY3VtZW50Iiwid3JpdGU6ZG9jdW1lbnQiLCJ3cml0ZTp0YXNrIiwicmVhZDp0YXNrIl0sInBhcnR5SWQiOiJjNmE3YWI5ZjdkZDg0MDE1YTY1NTJiZmM1YjM2NmI3NyIsInNvdXJjZSI6IkJ1c2luZXNzIFByb2Nlc3MgTWFuYWdlbWVudCIsImlzcyI6Imh0dHBzOi8vbG9naW4ucWEuemlubmlhLmNvbS8iLCJzdWIiOiJVdU1yaWJyUDNlOHpWaGZIeTZ3UEoyNWxWWWgxQ1dOM0BjbGllbnRzIiwiYXVkIjoiaHR0cHM6Ly9xYS5hcGkuemlubmlhLmlvIiwiaWF0IjoxNzU4NTQyNTMxLCJleHAiOjE3NTg2Mjg5MzEsInNjb3BlIjoib3BlbmlkIiwiZ3R5IjoiY2xpZW50LWNyZWRlbnRpYWxzIiwiYXpwIjoiVXVNcmliclAzZTh6VmhmSHk2d1BKMjVsVlloMUNXTjMifQ.eCOVXUTSJL13YBolDZB8O1vwvRkjs9hOi46H6nHQycCSbbeb0YR5S36rNKLXKvQ30gGHXVNfdrMHwc06bIltxk0oXwxJewT2DNSLgz0T2r1ngjg3H6kSgmyJTZb99qZosxPAY84brJy3idB1PKlQnZ0gZ19HV_xTr0KxX_IBRmRf1dcZbZm3vC3hcRRyFm4MzaVmUhh-tR7xMxMDittkuupx7nncmoqJhT6Kn9Iv_lS4cdu-iryXIoQnZ9cxWdToEIld2uLoTzbO86tiDaJMy8Lz6P2mEL5APLdPJ29Jg7RiNY-R2AEcivkc_AKnDd2slpm7evgGslB92PFIWPiXFw', 'Content-Length': '29'} 
+ body=b'{"policyNumber": "571025434"}' 
+ </msg>
+<msg time="2025-09-22T17:32:14.095274" level="INFO">POST Response : url=https://qa-bpm.se2.com/case/v1/cases/search 
+ status=200, reason= 
+ headers={'Date': 'Mon, 22 Sep 2025 12:02:14 GMT', 'Content-Type': 'application/json', 'Content-Length': '1645', 'Connection': 'keep-alive', 'Set-Cookie': 'AWSALBTG=gl94W+qXfWF8U4eoqKSKoUkUYigCRDkW113acHlHiSdz8dY7Y3MqkoG26RJ+pcIVAFFLh1mBuMyh8AN510h9nxpeTCxa4BW/DzdJw7mjmGFO3lO6beAv753V1WYome28jMhwOBZorcxDmRq36uiOdI/vApUM815fNtwpdo4YQkfL; Expires=Mon, 29 Sep 2025 12:02:14 GMT; Path=/, AWSALBTGCORS=gl94W+qXfWF8U4eoqKSKoUkUYigCRDkW113acHlHiSdz8dY7Y3MqkoG26RJ+pcIVAFFLh1mBuMyh8AN510h9nxpeTCxa4BW/DzdJw7mjmGFO3lO6beAv753V1WYome28jMhwOBZorcxDmRq36uiOdI/vApUM815fNtwpdo4YQkfL; Expires=Mon, 29 Sep 2025 12:02:14 GMT; Path=/; SameSite=None; Secure, AWSALB=CzS+QiZSxeQQmbHKNayibyfr6GpqZI/KAhQQuFiCx0WEd7lrxKxfqmULDXJgibN/BN5L0s80Yq4Fur/55SmWjA+1qs07SWYgFI7UV5frRmcd6OQWY9vpBDk616IB; Expires=Mon, 29 Sep 2025 12:02:14 GMT; Path=/, AWSALBCORS=CzS+QiZSxeQQmbHKNayibyfr6GpqZI/KAhQQuFiCx0WEd7lrxKxfqmULDXJgibN/BN5L0s80Yq4Fur/55SmWjA+1qs07SWYgFI7UV5frRmcd6OQWY9vpBDk616IB; Expires=Mon, 29 Sep 2025 12:02:14 GMT; Path=/; SameSite=None; Secure', 'Vary': 'Origin, Access-Control-Request-Method, Access-Control-Request-Headers', 'x-correlation-id': 'd13b4355-8e2d-4611-9776-5469c5af7ad5', 'X-Content-Type-Options': 'nosniff', 'X-XSS-Protection': '1; mode=block', 'Cache-Control': 'no-cache, no-store, max-age=0, must-revalidate', 'Pragma': 'no-cache', 'Expires': '0', 'X-Frame-Options': 'DENY'} 
+ body={"message":"Successfully retrieved data!","data":[{"id":"CA0000358626","templateId":"6203bb7a-0517-4394-88fb-404dffc7d296","carrier":"MASS","process":"New Business","parentInstanceId":null,"correlationId":"7815fb00-fea3-41b7-a346-ea98546de115","caseStatus":"EXCEPTION","processSubType":"Nb Purchase W App","caseGroup":null,"policyNumber":"571025434","productName":null,"primary":true,"deleted":false,"stages":[{"id":"requestAck","label":"Request Acknowledgement","stageStatus":"COMPLETED"},{"id":"agentValidation","label":"Agent Validation","stageStatus":"IN_PROGRESS"},{"id":"policyValidation","label":"Policy Validation","stageStatus":"EXCEPTION"},{"id":"suitabilityReview","label":"Suitability Review","stageStatus":"COMPLETED"},{"id":"premiumProcessing","label":"Premium Processing","stageStatus":"IN_PROGRESS"},{"id":"requestCompletion","label":"Request Completion","stageStatus":"IN_PROGRESS"}],"additionalData":{"policyNumber":"571025434","businessKey":"20240701-M-164533","requestSubType":"NB PURCHASE W APP"},"identifiers":[{"identifier":"txliferequestid","value":"385839"},{"identifier":"transrefguid","value":"0450S660314000450S66"},{"identifier":"documentNumber","value":"20240701-M-164533"},{"identifier":"contractnumber","value":"571025434"},{"identifier":"caseID","value":"9922745"},{"identifier":"businessKey","value":"20240701-M-164533"},{"identifier":"contractNumber","value":"571025434"}],"createdAt":"2024-07-01T10:36:39.000Z","updatedAt":"2024-08-31T05:02:36.000Z","parties":[],"exceptions":[],"applicationType":"Electronic","caseResult":null,"caseResultDetail":null}],"count":1,"offset":0,"limit":10,"total":1,"status":200} 
+ </msg>
+<msg time="2025-09-22T17:32:14.096274" level="INFO">C:\Users\sharmash\AppData\Roaming\Python\Python312\site-packages\urllib3\connectionpool.py:1103: InsecureRequestWarning: Unverified HTTPS request is being made to host 'qa-bpm.se2.com'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(</msg>
+<arg>${session_name}</arg>
+<arg>${endpoint}</arg>
+<arg>&amp;{kwargs}</arg>
+<doc>Sends a POST request on a previously created HTTP Session.</doc>
+<status status="PASS" start="2025-09-22T17:32:12.698854" elapsed="1.397420"/>
+</kw>
+<msg time="2025-09-22T17:32:14.106278" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<var>${response}</var>
+<arg>'${method}' == 'GET'</arg>
+<arg>GET On Session</arg>
+<arg>${session_name}</arg>
+<arg>${endpoint}</arg>
+<arg>&amp;{kwargs}</arg>
+<arg>ELSE IF</arg>
+<arg>'${method}' == 'POST'</arg>
+<arg>POST On Session</arg>
+<arg>${session_name}</arg>
+<arg>${endpoint}</arg>
+<arg>&amp;{kwargs}</arg>
+<arg>ELSE IF</arg>
+<arg>'${method}' == 'PUT'</arg>
+<arg>PUT On Session</arg>
+<arg>${session_name}</arg>
+<arg>${endpoint}</arg>
+<arg>&amp;{kwargs}</arg>
+<arg>ELSE IF</arg>
+<arg>'${method}' == 'DELETE'</arg>
+<arg>DELETE On Session</arg>
+<arg>${session_name}</arg>
+<arg>${endpoint}</arg>
+<arg>&amp;{kwargs}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-09-22T17:32:12.698854" elapsed="1.407424"/>
+</kw>
+<kw name="Set Suite Variable" owner="BuiltIn">
+<msg time="2025-09-22T17:32:14.112277" level="INFO">${API_ENDPOINT_DISPLAY} = /case/v1/cases/search</msg>
+<arg>${API_ENDPOINT_DISPLAY}</arg>
+<arg>${endpoint}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<status status="PASS" start="2025-09-22T17:32:14.111276" elapsed="0.001001"/>
+</kw>
+<kw name="Set Suite Variable" owner="BuiltIn">
+<msg time="2025-09-22T17:32:14.118277" level="INFO">${API_SESSION_DISPLAY} = api_session_bpm</msg>
+<arg>${API_SESSION_DISPLAY}</arg>
+<arg>${session_name}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<status status="PASS" start="2025-09-22T17:32:14.118277" elapsed="0.000000"/>
+</kw>
+<kw name="Set Suite Variable" owner="BuiltIn">
+<msg time="2025-09-22T17:32:14.123279" level="INFO">${API_STATUS_DISPLAY} = 200</msg>
+<arg>${API_STATUS_DISPLAY}</arg>
+<arg>${response.status_code}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<status status="PASS" start="2025-09-22T17:32:14.121277" elapsed="0.002002"/>
+</kw>
+<kw name="Set Suite Variable" owner="BuiltIn">
+<msg time="2025-09-22T17:32:14.127278" level="INFO">${API_RESPONSE_DISPLAY} = {"message":"Successfully retrieved data!","data":[{"id":"CA0000358626","templateId":"6203bb7a-0517-4394-88fb-404dffc7d296","carrier":"MASS","process":"New Business","parentInstanceId":null,"correlatio...</msg>
+<arg>${API_RESPONSE_DISPLAY}</arg>
+<arg>${response.text}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<status status="PASS" start="2025-09-22T17:32:14.126278" elapsed="0.001000"/>
+</kw>
+<kw name="Set Suite Variable" owner="BuiltIn">
+<msg time="2025-09-22T17:32:14.129278" level="INFO">${BASE_URL_DISPLAY} = https://qa-bpm.se2.com</msg>
+<arg>${BASE_URL_DISPLAY}</arg>
+<arg>${base_url}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<status status="PASS" start="2025-09-22T17:32:14.129278" elapsed="0.000000"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-09-22T17:32:14.132281" level="INFO">API: /case/v1/cases/search</msg>
+<arg>API: ${endpoint}</arg>
+<arg>INFO</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-09-22T17:32:14.131279" elapsed="0.001002"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-09-22T17:32:14.135279" level="INFO">Session: api_session_bpm</msg>
+<arg>Session: ${session_name}</arg>
+<arg>INFO</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-09-22T17:32:14.135279" elapsed="0.000000"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-09-22T17:32:14.138283" level="INFO">Status: 200</msg>
+<arg>Status: ${response.status_code}</arg>
+<arg>INFO</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-09-22T17:32:14.137279" elapsed="0.001004"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-09-22T17:32:14.140279" level="INFO">Response: {"message":"Successfully retrieved data!","data":[{"id":"CA0000358626","templateId":"6203bb7a-0517-4394-88fb-404dffc7d296","carrier":"MASS","process":"New Business","parentInstanceId":null,"correlationId":"7815fb00-fea3-41b7-a346-ea98546de115","caseStatus":"EXCEPTION","processSubType":"Nb Purchase W App","caseGroup":null,"policyNumber":"571025434","productName":null,"primary":true,"deleted":false,"stages":[{"id":"requestAck","label":"Request Acknowledgement","stageStatus":"COMPLETED"},{"id":"agentValidation","label":"Agent Validation","stageStatus":"IN_PROGRESS"},{"id":"policyValidation","label":"Policy Validation","stageStatus":"EXCEPTION"},{"id":"suitabilityReview","label":"Suitability Review","stageStatus":"COMPLETED"},{"id":"premiumProcessing","label":"Premium Processing","stageStatus":"IN_PROGRESS"},{"id":"requestCompletion","label":"Request Completion","stageStatus":"IN_PROGRESS"}],"additionalData":{"policyNumber":"571025434","businessKey":"20240701-M-164533","requestSubType":"NB PURCHASE W APP"},"identifiers":[{"identifier":"txliferequestid","value":"385839"},{"identifier":"transrefguid","value":"0450S660314000450S66"},{"identifier":"documentNumber","value":"20240701-M-164533"},{"identifier":"contractnumber","value":"571025434"},{"identifier":"caseID","value":"9922745"},{"identifier":"businessKey","value":"20240701-M-164533"},{"identifier":"contractNumber","value":"571025434"}],"createdAt":"2024-07-01T10:36:39.000Z","updatedAt":"2024-08-31T05:02:36.000Z","parties":[],"exceptions":[],"applicationType":"Electronic","caseResult":null,"caseResultDetail":null}],"count":1,"offset":0,"limit":10,"total":1,"status":200}</msg>
+<arg>Response: ${response.text}</arg>
+<arg>INFO</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-09-22T17:32:14.140279" elapsed="0.001001"/>
+</kw>
+<arg>${api_dict}</arg>
+<arg>${endpoint}</arg>
+<arg>${method}</arg>
+<arg>${headers}</arg>
+<arg>${payload}</arg>
+<arg>${base_url}</arg>
+<status status="PASS" start="2025-09-22T17:32:12.680024" elapsed="1.463255"/>
+</kw>
+<kw name="Console Step: Show API Details">
+<kw name="Log To Console" owner="BuiltIn">
+<arg>API: ${API_ENDPOINT_DISPLAY}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-22T17:32:14.143279" elapsed="0.000000"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Session: ${API_SESSION_DISPLAY}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-22T17:32:14.143279" elapsed="0.001001"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Status: ${API_STATUS_DISPLAY}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-22T17:32:14.144280" elapsed="0.000000"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Response: ${API_RESPONSE_DISPLAY}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-22T17:32:14.144280" elapsed="0.000000"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-09-22T17:32:14.145280" level="INFO">API: /case/v1/cases/search</msg>
+<arg>API: ${API_ENDPOINT_DISPLAY}</arg>
+<arg>INFO</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-09-22T17:32:14.144280" elapsed="0.001000"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-09-22T17:32:14.147280" level="INFO">Session: api_session_bpm</msg>
+<arg>Session: ${API_SESSION_DISPLAY}</arg>
+<arg>INFO</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-09-22T17:32:14.146282" elapsed="0.000998"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-09-22T17:32:14.150280" level="INFO">Status: 200</msg>
+<arg>Status: ${API_STATUS_DISPLAY}</arg>
+<arg>INFO</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-09-22T17:32:14.149285" elapsed="0.000995"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-09-22T17:32:14.152284" level="INFO">Response: {"message":"Successfully retrieved data!","data":[{"id":"CA0000358626","templateId":"6203bb7a-0517-4394-88fb-404dffc7d296","carrier":"MASS","process":"New Business","parentInstanceId":null,"correlationId":"7815fb00-fea3-41b7-a346-ea98546de115","caseStatus":"EXCEPTION","processSubType":"Nb Purchase W App","caseGroup":null,"policyNumber":"571025434","productName":null,"primary":true,"deleted":false,"stages":[{"id":"requestAck","label":"Request Acknowledgement","stageStatus":"COMPLETED"},{"id":"agentValidation","label":"Agent Validation","stageStatus":"IN_PROGRESS"},{"id":"policyValidation","label":"Policy Validation","stageStatus":"EXCEPTION"},{"id":"suitabilityReview","label":"Suitability Review","stageStatus":"COMPLETED"},{"id":"premiumProcessing","label":"Premium Processing","stageStatus":"IN_PROGRESS"},{"id":"requestCompletion","label":"Request Completion","stageStatus":"IN_PROGRESS"}],"additionalData":{"policyNumber":"571025434","businessKey":"20240701-M-164533","requestSubType":"NB PURCHASE W APP"},"identifiers":[{"identifier":"txliferequestid","value":"385839"},{"identifier":"transrefguid","value":"0450S660314000450S66"},{"identifier":"documentNumber","value":"20240701-M-164533"},{"identifier":"contractnumber","value":"571025434"},{"identifier":"caseID","value":"9922745"},{"identifier":"businessKey","value":"20240701-M-164533"},{"identifier":"contractNumber","value":"571025434"}],"createdAt":"2024-07-01T10:36:39.000Z","updatedAt":"2024-08-31T05:02:36.000Z","parties":[],"exceptions":[],"applicationType":"Electronic","caseResult":null,"caseResultDetail":null}],"count":1,"offset":0,"limit":10,"total":1,"status":200}</msg>
+<arg>Response: ${API_RESPONSE_DISPLAY}</arg>
+<arg>INFO</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-09-22T17:32:14.152284" elapsed="0.001063"/>
+</kw>
+<doc>API endpoint, session, status and response details</doc>
+<status status="PASS" start="2025-09-22T17:32:14.143279" elapsed="0.012004"/>
+</kw>
+<kw name="Console Step: Complete Execution">
+<kw name="Log To Console" owner="BuiltIn">
+<arg>=== Completed: ${api_name} ===</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-22T17:32:14.156282" elapsed="0.000000"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-09-22T17:32:14.156282" level="INFO">=== Completed: Search Cases by Policy Number ===</msg>
+<arg>=== Completed: ${api_name} ===</arg>
+<arg>INFO</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-09-22T17:32:14.156282" elapsed="0.000000"/>
+</kw>
+<arg>Search Cases by Policy Number</arg>
+<doc>=== Completed: ${api_name} ===</doc>
+<status status="PASS" start="2025-09-22T17:32:14.156282" elapsed="0.002016"/>
+</kw>
+<doc>Execute Search Cases by Policy Number</doc>
+<status status="PASS" start="2025-09-22T17:32:12.632970" elapsed="1.525328"/>
+</test>
+<doc>Dynamic API Tests - Auto-generated for selected APIs</doc>
+<status status="PASS" start="2025-09-22T17:32:09.403444" elapsed="4.761861"/>
+</suite>
+<statistics>
+<total>
+<stat pass="3" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="3" fail="0" skip="0" id="s1" name="Dynamic Api Tests">Dynamic Api Tests</stat>
+</suite>
+</statistics>
+<errors>
+<msg time="2025-09-22T17:32:09.387495" level="ERROR">Taking listener 'allure_console_listener.AllureConsoleListener:results/run_20250922_173208\allure-results' into use failed: Importing listener 'allure_console_listener.AllureConsoleListener' failed: ModuleNotFoundError: No module named 'allure_console_listener'
+Traceback (most recent call last):
+  None
+PYTHONPATH:
+  C:\Program Files\Python312\Scripts\robot.exe
+  c:\Users\sharmash\Downloads\QAS-ZinniaLive-AutomationTesting (1)\QAS-ZinniaLive-AutomationTesting
+  C:\Users\sharmash\automation-framwork\%PYTHONPATH%
+  C:\Program Files\Python312\python312.zip
+  C:\Program Files\Python312\DLLs
+  C:\Program Files\Python312\Lib
+  C:\Program Files\Python312
+  C:\Users\sharmash\AppData\Roaming\Python\Python312\site-packages
+  C:\Users\sharmash\AppData\Roaming\Python\Python312\site-packages\win32
+  C:\Users\sharmash\AppData\Roaming\Python\Python312\site-packages\win32\lib
+  C:\Users\sharmash\AppData\Roaming\Python\Python312\site-packages\Pythonwin
+  C:\Program Files\Python312\Lib\site-packages</msg>
+<msg time="2025-09-22T17:32:09.393441" level="ERROR">Taking listener 'DebugLibrary' into use failed: Importing listener 'DebugLibrary' failed: ModuleNotFoundError: No module named 'DebugLibrary'
+Traceback (most recent call last):
+  None
+PYTHONPATH:
+  C:\Program Files\Python312\Scripts\robot.exe
+  c:\Users\sharmash\Downloads\QAS-ZinniaLive-AutomationTesting (1)\QAS-ZinniaLive-AutomationTesting
+  C:\Users\sharmash\automation-framwork\%PYTHONPATH%
+  C:\Program Files\Python312\python312.zip
+  C:\Program Files\Python312\DLLs
+  C:\Program Files\Python312\Lib
+  C:\Program Files\Python312
+  C:\Users\sharmash\AppData\Roaming\Python\Python312\site-packages
+  C:\Users\sharmash\AppData\Roaming\Python\Python312\site-packages\win32
+  C:\Users\sharmash\AppData\Roaming\Python\Python312\site-packages\win32\lib
+  C:\Users\sharmash\AppData\Roaming\Python\Python312\site-packages\Pythonwin
+  C:\Program Files\Python312\Lib\site-packages</msg>
+</errors>
+</robot>

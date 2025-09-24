@@ -1,0 +1,88 @@
+{
+    "regions": {
+      "dev": "https://login.qa.zinnia.com/",
+      "QA": "https://login.qa.zinnia.com/",
+      "prod": "https://login.qa.zinnia.com/"
+    },
+    "base_urls": {
+      "auth": "https://login.qa.zinnia.com",
+      "api": "https://qa.api.zinnia.io",
+      "case_management": "https://qa.open.zinnia.com",
+      "lifecad": "https://qa-lcapi.se2.com"
+    },
+    "apis": [
+      {
+        "name": "Get OAuth Token",
+        "endpoint": "/oauth/token",
+        "method": "POST",
+        "api_type": "Authentication",
+        "base_url_key": "auth",
+        "payload": {
+          "audience": "https://qa.api.zinnia.io",
+          "grant_type": "client_credentials",
+          "client_id": "UuMribrP3e8zVhfHy6wPJ25lVYh1CWN3",
+          "client_secret": "WQ4ZBFI0RaYnhlhrZBdw4ltrMk8IKT9bDm1DX_U28doSk4F4Au5KiAsoBCSNYWix"
+        },
+        "headers": {
+          "Content-Type": "application/x-www-form-urlencoded"
+        }
+      },
+      {
+        "name": "Search Cases",
+        "endpoint": "/case/v1/cases/search",
+        "method": "POST",
+        "api_type": "Case Management",
+        "base_url_key": "case_management",
+        "payload": {
+          "filters": {
+            "limit": 10
+          }
+        },
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "description": "Real endpoint from api_config.properties - CaseIDEndPoint"
+      },
+      {
+        "name": "Get Case Details",
+        "endpoint": "/case/v1/cases/{caseID}",
+        "method": "GET",
+        "api_type": "Case Management", 
+        "base_url_key": "case_management",
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "description": "Real endpoint from api_config.properties - ResponseEndPoint"
+      },
+      {
+        "name": "Withdrawal Transaction",
+        "endpoint": "/lcapigateway/integration/api/transaction/withdrawalTransactionSubmit",
+        "method": "POST",
+        "api_type": "LifeCAD",
+        "base_url_key": "lifecad",
+        "payload": {
+          "testPayload": "example"
+        },
+        "headers": {
+          "Content-Type": "application/json",
+          "Accept": "application/json"
+        },
+        "description": "Real endpoint from api_config_PostAPITest.json"
+      },
+      {
+        "name": "Add Role",
+        "endpoint": "/lcapigateway/integration/api/policy/roleAdd",
+        "method": "POST",
+        "api_type": "LifeCAD",
+        "base_url_key": "lifecad",
+        "payload": {
+          "testPayload": "example"
+        },
+        "headers": {
+          "Content-Type": "application/json",
+          "Accept": "application/json"
+        },
+        "description": "Real endpoint from api_config_PostAPITest.json"
+      }
+    ]
+  }

@@ -1,0 +1,571 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.0.1 (Python 3.12.1 on win32)" generated="2025-09-22T15:42:59.440268" rpa="false" schemaversion="5">
+<suite id="s1" name="Api Config Executor" source="C:\Users\sharmash\automation-framwork\tests\api\api_config_executor.robot">
+<kw name="Setup Session" type="SETUP">
+<kw name="Create Session" owner="RequestsLibrary">
+<msg time="2025-09-22T15:42:59.757481" level="INFO">Creating Session using : alias=api_session, url=https://login.qa.zinnia.com, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<arg>api_session</arg>
+<arg>https://login.qa.zinnia.com</arg>
+<arg>verify=False</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<status status="PASS" start="2025-09-22T15:42:59.757481" elapsed="0.000000"/>
+</kw>
+<kw name="Create Session" owner="RequestsLibrary">
+<msg time="2025-09-22T15:42:59.759479" level="INFO">Creating Session using : alias=api_session_case, url=https://qa.api.zinnia.io, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<arg>api_session_case</arg>
+<arg>https://qa.api.zinnia.io</arg>
+<arg>verify=False</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<status status="PASS" start="2025-09-22T15:42:59.759479" elapsed="0.000000"/>
+</kw>
+<status status="PASS" start="2025-09-22T15:42:59.756481" elapsed="0.005998"/>
+</kw>
+<test id="s1-t1" name="Run Token And Case API" line="98">
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-09-22T15:42:59.763479" level="INFO">${config_file} = C:\Users\sharmash\automation-framwork\tests\api\..\api_config.json</msg>
+<var>${config_file}</var>
+<arg>C:\\Users\\sharmash\\automation-framwork\\tests\\api${/}..${/}api_config.json</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-09-22T15:42:59.763479" elapsed="0.000000"/>
+</kw>
+<kw name="File Should Exist" owner="OperatingSystem">
+<msg time="2025-09-22T15:42:59.765479" level="INFO" html="true">File '&lt;a href="file://C:\Users\sharmash\automation-framwork\tests\api_config.json"&gt;C:\Users\sharmash\automation-framwork\tests\api_config.json&lt;/a&gt;' exists.</msg>
+<arg>${config_file}</arg>
+<arg>msg=API config file not found: ${config_file}</arg>
+<doc>Fails unless the given ``path`` points to an existing file.</doc>
+<status status="PASS" start="2025-09-22T15:42:59.764492" elapsed="0.000987"/>
+</kw>
+<kw name="Get File" owner="OperatingSystem">
+<msg time="2025-09-22T15:42:59.766479" level="INFO" html="true">Getting file '&lt;a href="file://C:\Users\sharmash\automation-framwork\tests\api_config.json"&gt;C:\Users\sharmash\automation-framwork\tests\api_config.json&lt;/a&gt;'.</msg>
+<msg time="2025-09-22T15:42:59.767480" level="INFO">${file_content} = {
+    "regions": {
+      "dev": "https://login.qa.zinnia.com/",
+      "QA": "https://login.qa.zinnia.com/",
+      "prod": "https://login.qa.zinnia.com/"
+    },
+    "apis": [
+      {
+        "name": "G...</msg>
+<var>${file_content}</var>
+<arg>${config_file}</arg>
+<doc>Returns the contents of a specified file.</doc>
+<status status="PASS" start="2025-09-22T15:42:59.766479" elapsed="0.001001"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-09-22T15:42:59.769481" level="INFO">${config} = {'regions': {'dev': 'https://login.qa.zinnia.com/', 'QA': 'https://login.qa.zinnia.com/', 'prod': 'https://login.qa.zinnia.com/'}, 'apis': [{'name': 'Get OAuth Token', 'endpoint': '/oauth/token', 'met...</msg>
+<var>${config}</var>
+<arg>json.loads('''${file_content}''')</arg>
+<arg>json</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-09-22T15:42:59.769481" elapsed="0.000000"/>
+</kw>
+<kw name="Dictionary Should Contain Key" owner="Collections">
+<arg>${config}</arg>
+<arg>apis</arg>
+<arg>msg=Config file must contain 'apis' key</arg>
+<doc>Fails if ``key`` is not found from ``dictionary``.</doc>
+<status status="PASS" start="2025-09-22T15:42:59.771480" elapsed="0.001045"/>
+</kw>
+<kw name="Run All Configured APIs">
+<for flavor="IN">
+<iter>
+<kw name="Execute API">
+<kw name="Get From Dictionary" owner="Collections">
+<msg time="2025-09-22T15:42:59.772525" level="INFO">${name} = Get OAuth Token</msg>
+<var>${name}</var>
+<arg>${api}</arg>
+<arg>name</arg>
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<status status="PASS" start="2025-09-22T15:42:59.772525" elapsed="0.000000"/>
+</kw>
+<kw name="Get From Dictionary" owner="Collections">
+<msg time="2025-09-22T15:42:59.774480" level="INFO">${endpoint} = /oauth/token</msg>
+<var>${endpoint}</var>
+<arg>${api}</arg>
+<arg>endpoint</arg>
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<status status="PASS" start="2025-09-22T15:42:59.774480" elapsed="0.000000"/>
+</kw>
+<kw name="Get From Dictionary" owner="Collections">
+<msg time="2025-09-22T15:42:59.775481" level="INFO">${method} = POST</msg>
+<var>${method}</var>
+<arg>${api}</arg>
+<arg>method</arg>
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<status status="PASS" start="2025-09-22T15:42:59.775481" elapsed="0.000000"/>
+</kw>
+<kw name="Get From Dictionary" owner="Collections">
+<msg time="2025-09-22T15:42:59.777479" level="INFO">${headers} = {'Content-Type': 'application/x-www-form-urlencoded'}</msg>
+<var>${headers}</var>
+<arg>${api}</arg>
+<arg>headers</arg>
+<arg>default={}</arg>
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<status status="PASS" start="2025-09-22T15:42:59.777479" elapsed="0.000000"/>
+</kw>
+<kw name="Get From Dictionary" owner="Collections">
+<msg time="2025-09-22T15:42:59.779479" level="INFO">${payload} = {'audience': 'https://qa.api.zinnia.io', 'grant_type': 'client_credentials', 'client_id': 'UuMribrP3e8zVhfHy6wPJ25lVYh1CWN3', 'client_secret': 'WQ4ZBFI0RaYnhlhrZBdw4ltrMk8IKT9bDm1DX_U28doSk4F4Au5KiAso...</msg>
+<var>${payload}</var>
+<arg>${api}</arg>
+<arg>payload</arg>
+<arg>default=None</arg>
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<status status="PASS" start="2025-09-22T15:42:59.778480" elapsed="0.000999"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Executing API: ${name}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-22T15:42:59.780480" elapsed="0.000000"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Execute Token API">
+<kw name="Convert Dict To Form Data">
+<kw name="Create List" owner="BuiltIn">
+<msg time="2025-09-22T15:42:59.781480" level="INFO">${list} = []</msg>
+<var>${list}</var>
+<doc>Returns a list containing given items.</doc>
+<status status="PASS" start="2025-09-22T15:42:59.781480" elapsed="0.000000"/>
+</kw>
+<for flavor="IN">
+<iter>
+<kw name="Catenate" owner="BuiltIn">
+<msg time="2025-09-22T15:42:59.782481" level="INFO">${item} = audience=https://qa.api.zinnia.io</msg>
+<var>${item}</var>
+<arg>SEPARATOR==</arg>
+<arg>${key}</arg>
+<arg>${value}</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<status status="PASS" start="2025-09-22T15:42:59.782481" elapsed="0.000000"/>
+</kw>
+<kw name="Append To List" owner="Collections">
+<arg>${list}</arg>
+<arg>${item}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" start="2025-09-22T15:42:59.785480" elapsed="0.000000"/>
+</kw>
+<var name="${key}">audience</var>
+<var name="${value}">https://qa.api.zinnia.io</var>
+<status status="PASS" start="2025-09-22T15:42:59.782481" elapsed="0.002999"/>
+</iter>
+<iter>
+<kw name="Catenate" owner="BuiltIn">
+<msg time="2025-09-22T15:42:59.785480" level="INFO">${item} = grant_type=client_credentials</msg>
+<var>${item}</var>
+<arg>SEPARATOR==</arg>
+<arg>${key}</arg>
+<arg>${value}</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<status status="PASS" start="2025-09-22T15:42:59.785480" elapsed="0.000000"/>
+</kw>
+<kw name="Append To List" owner="Collections">
+<arg>${list}</arg>
+<arg>${item}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" start="2025-09-22T15:42:59.788481" elapsed="0.000000"/>
+</kw>
+<var name="${key}">grant_type</var>
+<var name="${value}">client_credentials</var>
+<status status="PASS" start="2025-09-22T15:42:59.785480" elapsed="0.003001"/>
+</iter>
+<iter>
+<kw name="Catenate" owner="BuiltIn">
+<msg time="2025-09-22T15:42:59.789482" level="INFO">${item} = client_id=UuMribrP3e8zVhfHy6wPJ25lVYh1CWN3</msg>
+<var>${item}</var>
+<arg>SEPARATOR==</arg>
+<arg>${key}</arg>
+<arg>${value}</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<status status="PASS" start="2025-09-22T15:42:59.789482" elapsed="0.000000"/>
+</kw>
+<kw name="Append To List" owner="Collections">
+<arg>${list}</arg>
+<arg>${item}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" start="2025-09-22T15:42:59.790487" elapsed="0.000994"/>
+</kw>
+<var name="${key}">client_id</var>
+<var name="${value}">UuMribrP3e8zVhfHy6wPJ25lVYh1CWN3</var>
+<status status="PASS" start="2025-09-22T15:42:59.789482" elapsed="0.001999"/>
+</iter>
+<iter>
+<kw name="Catenate" owner="BuiltIn">
+<msg time="2025-09-22T15:42:59.791481" level="INFO">${item} = client_secret=WQ4ZBFI0RaYnhlhrZBdw4ltrMk8IKT9bDm1DX_U28doSk4F4Au5KiAsoBCSNYWix</msg>
+<var>${item}</var>
+<arg>SEPARATOR==</arg>
+<arg>${key}</arg>
+<arg>${value}</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<status status="PASS" start="2025-09-22T15:42:59.791481" elapsed="0.000000"/>
+</kw>
+<kw name="Append To List" owner="Collections">
+<arg>${list}</arg>
+<arg>${item}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" start="2025-09-22T15:42:59.793483" elapsed="0.000000"/>
+</kw>
+<var name="${key}">client_secret</var>
+<var name="${value}">WQ4ZBFI0RaYnhlhrZBdw4ltrMk8IKT9bDm1DX_U28doSk4F4Au5KiAsoBCSNYWix</var>
+<status status="PASS" start="2025-09-22T15:42:59.791481" elapsed="0.002002"/>
+</iter>
+<var>${key}</var>
+<var>${value}</var>
+<value>&amp;{dict_payload}</value>
+<status status="PASS" start="2025-09-22T15:42:59.782481" elapsed="0.011002"/>
+</for>
+<kw name="Catenate" owner="BuiltIn">
+<msg time="2025-09-22T15:42:59.793483" level="INFO">${form_data} = audience=https://qa.api.zinnia.io&amp;grant_type=client_credentials&amp;client_id=UuMribrP3e8zVhfHy6wPJ25lVYh1CWN3&amp;client_secret=WQ4ZBFI0RaYnhlhrZBdw4ltrMk8IKT9bDm1DX_U28doSk4F4Au5KiAsoBCSNYWix</msg>
+<var>${form_data}</var>
+<arg>SEPARATOR=&amp;</arg>
+<arg>@{list}</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<status status="PASS" start="2025-09-22T15:42:59.793483" elapsed="0.000000"/>
+</kw>
+<return>
+<value>${form_data}</value>
+<status status="PASS" start="2025-09-22T15:42:59.794480" elapsed="0.000000"/>
+</return>
+<msg time="2025-09-22T15:42:59.794480" level="INFO">${form_data} = audience=https://qa.api.zinnia.io&amp;grant_type=client_credentials&amp;client_id=UuMribrP3e8zVhfHy6wPJ25lVYh1CWN3&amp;client_secret=WQ4ZBFI0RaYnhlhrZBdw4ltrMk8IKT9bDm1DX_U28doSk4F4Au5KiAsoBCSNYWix</msg>
+<var>${form_data}</var>
+<arg>${payload}</arg>
+<status status="PASS" start="2025-09-22T15:42:59.781480" elapsed="0.013000"/>
+</kw>
+<kw name="POST On Session" owner="RequestsLibrary">
+<msg time="2025-09-22T15:43:00.624133" level="INFO">POST Request : url=https://login.qa.zinnia.com/oauth/token 
+ path_url=/oauth/token 
+ headers={'User-Agent': 'python-requests/2.32.3', 'Accept-Encoding': 'gzip, deflate, br', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/x-www-form-urlencoded', 'Content-Length': '185'} 
+ body=audience=https://qa.api.zinnia.io&amp;grant_type=client_credentials&amp;client_id=UuMribrP3e8zVhfHy6wPJ25lVYh1CWN3&amp;client_secret=WQ4ZBFI0RaYnhlhrZBdw4ltrMk8IKT9bDm1DX_U28doSk4F4Au5KiAsoBCSNYWix 
+ </msg>
+<msg time="2025-09-22T15:43:00.624133" level="INFO">POST Response : url=https://login.qa.zinnia.com/oauth/token 
+ status=200, reason=OK 
+ headers={'Date': 'Mon, 22 Sep 2025 10:13:01 GMT', 'Content-Type': 'application/json', 'Transfer-Encoding': 'chunked', 'Connection': 'keep-alive', 'Content-Encoding': 'br', 'CF-Ray': '983106f63834b232-DEL', 'CF-Cache-Status': 'DYNAMIC', 'Cache-Control': 'no-store', 'Set-Cookie': 'did=s%3Av0%3Ab2e15d35-5f3b-4476-ae52-3ae695a58c84.%2B0bvLWBtAXlxGd%2Bsf1MwZNvXWUF%2F%2Bj%2FzvWCZz0%2Bybew; Path=/; Expires=Tue, 22 Sep 2026 16:13:01 GMT; HttpOnly; Secure; SameSite=None, did_compat=s%3Av0%3Ab2e15d35-5f3b-4476-ae52-3ae695a58c84.%2B0bvLWBtAXlxGd%2Bsf1MwZNvXWUF%2F%2Bj%2FzvWCZz0%2Bybew; Path=/; Expires=Tue, 22 Sep 2026 16:13:01 GMT; HttpOnly; Secure', 'Strict-Transport-Security': 'max-age=31536000; includeSubDomains', 'Vary': 'Accept-Encoding, Origin', 'Pragma': 'no-cache', 'X-Auth0-L': '0.477', 'X-Auth0-RequestId': 'e925ec9b27c43cc9cec0', 'X-Content-Type-Options': 'nosniff', 'X-RateLimit-Limit': '300', 'X-RateLimit-Remaining': '296', 'X-RateLimit-Reset': '1758535982', 'Server': 'cloudflare', 'alt-svc': 'h3=":443"; ma=86400'} 
+ body={"access_token":"eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IlU1SWNUOEQ4LTNWdl80NDFIdnlzbyJ9.eyJodHRwczovL3FhLmFwaS56aW5uaWEuaW8vY2xpZW50SWRzIjpbImV2ZXJseSIsImVsaWMiLCJzYnVsIl0sImh0dHBzOi8vcWEuYXBpLnppbm5pYS5pby9wZXJtaXNzaW9ucyI6WyJyZWFkOnBvbGljeSIsIndyaXRlOnBvbGljeSIsIndyaXRlOmNhc2UiLCJyZWFkOmNhc2UiLCJyZWFkOmRvY3VtZW50Iiwid3JpdGU6ZG9jdW1lbnQiLCJ3cml0ZTp0YXNrIiwicmVhZDp0YXNrIl0sInBhcnR5SWQiOiJjNmE3YWI5ZjdkZDg0MDE1YTY1NTJiZmM1YjM2NmI3NyIsInNvdXJjZSI6IkJ1c2luZXNzIFByb2Nlc3MgTWFuYWdlbWVudCIsImlzcyI6Imh0dHBzOi8vbG9naW4ucWEuemlubmlhLmNvbS8iLCJzdWIiOiJVdU1yaWJyUDNlOHpWaGZIeTZ3UEoyNWxWWWgxQ1dOM0BjbGllbnRzIiwiYXVkIjoiaHR0cHM6Ly9xYS5hcGkuemlubmlhLmlvIiwiaWF0IjoxNzU4NTM1OTgxLCJleHAiOjE3NTg2MjIzODEsInNjb3BlIjoib3BlbmlkIiwiZ3R5IjoiY2xpZW50LWNyZWRlbnRpYWxzIiwiYXpwIjoiVXVNcmliclAzZTh6VmhmSHk2d1BKMjVsVlloMUNXTjMifQ.dffnNRhTb6btCxLA_8sBGJxxynfiRd7FWjeFv2VXZw_2iYzUGM4Ufz5j929KGcUf_OZtOCH7BuWrAnfKP3JXlWn5OsvMzBeUwmh0mFlAVl7xYTdEOFXZWu6MEwqyhIcd_NlX-fxuGphrN_94x_bZdX5ffhIwYHUScpK1BEK19_jvNxFXK941vy0PaA_sHEiybkFZJeHeP4IF1BROok0GsCJaUvy_QMj_QeWgle0Vp8WqdHLD9CvLSMKge0nZbHd1Ntb11unZmPB2Y7fB4FZbrzOOKCQX07qMHgfI9b1PzbluGHd3Jt_uoZR8d9ssMoEW6nOTu04ldn1eT-gu_-5TzQ","scope":"openid","expires_in":86400,"token_type":"Bearer"} 
+ </msg>
+<msg time="2025-09-22T15:43:00.624133" level="INFO">C:\Users\sharmash\AppData\Roaming\Python\Python312\site-packages\urllib3\connectionpool.py:1103: InsecureRequestWarning: Unverified HTTPS request is being made to host 'login.qa.zinnia.com'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(</msg>
+<msg time="2025-09-22T15:43:00.625133" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<var>${response}</var>
+<arg>api_session</arg>
+<arg>${endpoint}</arg>
+<arg>data=${form_data}</arg>
+<arg>headers=${headers}</arg>
+<doc>Sends a POST request on a previously created HTTP Session.</doc>
+<status status="PASS" start="2025-09-22T15:42:59.796480" elapsed="0.828653"/>
+</kw>
+<kw name="Should Be Equal As Integers" owner="BuiltIn">
+<msg time="2025-09-22T15:43:00.629133" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${response.status_code}</arg>
+<arg>200</arg>
+<arg>msg=Failed to get token!</arg>
+<doc>Fails if objects are unequal after converting them to integers.</doc>
+<status status="PASS" start="2025-09-22T15:43:00.628139" elapsed="0.000994"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-09-22T15:43:00.634132" level="INFO">${json} = {'access_token': 'eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IlU1SWNUOEQ4LTNWdl80NDFIdnlzbyJ9.eyJodHRwczovL3FhLmFwaS56aW5uaWEuaW8vY2xpZW50SWRzIjpbImV2ZXJseSIsImVsaWMiLCJzYnVsIl0sImh0dHBzOi8vcWEuYXBpL...</msg>
+<var>${json}</var>
+<arg>${response.json()}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-09-22T15:43:00.633162" elapsed="0.000970"/>
+</kw>
+<kw name="Get From Dictionary" owner="Collections">
+<msg time="2025-09-22T15:43:00.636165" level="INFO">${token} = eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IlU1SWNUOEQ4LTNWdl80NDFIdnlzbyJ9.eyJodHRwczovL3FhLmFwaS56aW5uaWEuaW8vY2xpZW50SWRzIjpbImV2ZXJseSIsImVsaWMiLCJzYnVsIl0sImh0dHBzOi8vcWEuYXBpLnppbm5pYS5pby9wZXJ...</msg>
+<var>${token}</var>
+<arg>${json}</arg>
+<arg>access_token</arg>
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<status status="PASS" start="2025-09-22T15:43:00.636165" elapsed="0.001030"/>
+</kw>
+<kw name="Set Suite Variable" owner="BuiltIn">
+<msg time="2025-09-22T15:43:00.641244" level="INFO">${TOKEN} = eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IlU1SWNUOEQ4LTNWdl80NDFIdnlzbyJ9.eyJodHRwczovL3FhLmFwaS56aW5uaWEuaW8vY2xpZW50SWRzIjpbImV2ZXJseSIsImVsaWMiLCJzYnVsIl0sImh0dHBzOi8vcWEuYXBpLnppbm5pYS5pby9wZXJ...</msg>
+<arg>${TOKEN}</arg>
+<arg>${token}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<status status="PASS" start="2025-09-22T15:43:00.641244" elapsed="0.000000"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Token received: ${token}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-22T15:43:00.645172" elapsed="0.000000"/>
+</kw>
+<arg>${endpoint}</arg>
+<arg>${method}</arg>
+<arg>${headers}</arg>
+<arg>${payload}</arg>
+<status status="PASS" start="2025-09-22T15:42:59.780480" elapsed="0.864692"/>
+</kw>
+<arg>'${name}' == 'Get OAuth Token'</arg>
+<arg>Execute Token API</arg>
+<arg>${endpoint}</arg>
+<arg>${method}</arg>
+<arg>${headers}</arg>
+<arg>${payload}</arg>
+<arg>ELSE</arg>
+<arg>Execute Normal API</arg>
+<arg>${endpoint}</arg>
+<arg>${method}</arg>
+<arg>${headers}</arg>
+<arg>${payload}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-09-22T15:42:59.780480" elapsed="0.864692"/>
+</kw>
+<arg>${api}</arg>
+<status status="PASS" start="2025-09-22T15:42:59.772525" elapsed="0.872647"/>
+</kw>
+<var name="${api}">{'name': 'Get OAuth Token', 'endpoint': '/oauth/token', 'method': 'POST', 'api_type': 'Authentication', 'payload': {'audience': 'https://qa.api.zinnia.io', 'grant_type': 'client_credentials', 'client_...</var>
+<status status="PASS" start="2025-09-22T15:42:59.772525" elapsed="0.872647"/>
+</iter>
+<iter>
+<kw name="Execute API">
+<kw name="Get From Dictionary" owner="Collections">
+<msg time="2025-09-22T15:43:00.646168" level="INFO">${name} = Get Case Details</msg>
+<var>${name}</var>
+<arg>${api}</arg>
+<arg>name</arg>
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<status status="PASS" start="2025-09-22T15:43:00.646168" elapsed="0.000000"/>
+</kw>
+<kw name="Get From Dictionary" owner="Collections">
+<msg time="2025-09-22T15:43:00.647210" level="INFO">${endpoint} = /case/v1/cases/{caseID}</msg>
+<var>${endpoint}</var>
+<arg>${api}</arg>
+<arg>endpoint</arg>
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<status status="PASS" start="2025-09-22T15:43:00.647210" elapsed="0.000000"/>
+</kw>
+<kw name="Get From Dictionary" owner="Collections">
+<msg time="2025-09-22T15:43:00.649201" level="INFO">${method} = GET</msg>
+<var>${method}</var>
+<arg>${api}</arg>
+<arg>method</arg>
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<status status="PASS" start="2025-09-22T15:43:00.649201" elapsed="0.000000"/>
+</kw>
+<kw name="Get From Dictionary" owner="Collections">
+<msg time="2025-09-22T15:43:00.650207" level="INFO">${headers} = {'Content-Type': 'application/json'}</msg>
+<var>${headers}</var>
+<arg>${api}</arg>
+<arg>headers</arg>
+<arg>default={}</arg>
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<status status="PASS" start="2025-09-22T15:43:00.650207" elapsed="0.000000"/>
+</kw>
+<kw name="Get From Dictionary" owner="Collections">
+<msg time="2025-09-22T15:43:00.652204" level="INFO">${payload} = None</msg>
+<var>${payload}</var>
+<arg>${api}</arg>
+<arg>payload</arg>
+<arg>default=None</arg>
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<status status="PASS" start="2025-09-22T15:43:00.652204" elapsed="0.000000"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Executing API: ${name}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-22T15:43:00.654185" elapsed="0.000000"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Execute Normal API">
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Set To Dictionary" owner="Collections">
+<arg>${headers}</arg>
+<arg>Authorization=Bearer ${TOKEN}</arg>
+<doc>Adds the given ``key_value_pairs`` and/or ``items`` to the ``dictionary``.</doc>
+<status status="PASS" start="2025-09-22T15:43:00.655187" elapsed="0.000000"/>
+</kw>
+<arg>'${TOKEN}' != 'None'</arg>
+<arg>Set To Dictionary</arg>
+<arg>${headers}</arg>
+<arg>Authorization=Bearer ${TOKEN}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-09-22T15:43:00.655187" elapsed="0.000000"/>
+</kw>
+<kw name="Get Environment Variable" owner="OperatingSystem">
+<msg time="2025-09-22T15:43:00.655187" level="INFO">${caseID} = 12345</msg>
+<var>${caseID}</var>
+<arg>CASE_ID</arg>
+<arg>default=12345</arg>
+<doc>Returns the value of an environment variable with the given name.</doc>
+<status status="PASS" start="2025-09-22T15:43:00.655187" elapsed="0.000000"/>
+</kw>
+<kw name="Replace String" owner="String">
+<msg time="2025-09-22T15:43:00.656200" level="INFO">${endpoint} = /case/v1/cases/12345</msg>
+<var>${endpoint}</var>
+<arg>${endpoint}</arg>
+<arg>{caseID}</arg>
+<arg>${caseID}</arg>
+<doc>Replaces ``search_for`` in the given ``string`` with ``replace_with``.</doc>
+<status status="PASS" start="2025-09-22T15:43:00.656200" elapsed="0.000000"/>
+</kw>
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2025-09-22T15:43:00.658192" level="INFO">${kwargs} = {'headers': {'Content-Type': 'application/json', 'Authorization': 'Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IlU1SWNUOEQ4LTNWdl80NDFIdnlzbyJ9.eyJodHRwczovL3FhLmFwaS56aW5uaWEuaW8vY2xpZW50SWRzI...</msg>
+<var>${kwargs}</var>
+<arg>headers=${headers}</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2025-09-22T15:43:00.658192" elapsed="0.000000"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<arg>'${payload}' != 'None'</arg>
+<arg>Set To Dictionary</arg>
+<arg>${kwargs}</arg>
+<arg>json=${payload}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-09-22T15:43:00.659157" elapsed="0.000000"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="GET On Session" owner="RequestsLibrary">
+<msg time="2025-09-22T15:43:01.835683" level="INFO">GET Request : url=https://qa.api.zinnia.io/case/v1/cases/12345 
+ path_url=/case/v1/cases/12345 
+ headers={'User-Agent': 'python-requests/2.32.3', 'Accept-Encoding': 'gzip, deflate, br', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/json', 'Authorization': 'Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IlU1SWNUOEQ4LTNWdl80NDFIdnlzbyJ9.eyJodHRwczovL3FhLmFwaS56aW5uaWEuaW8vY2xpZW50SWRzIjpbImV2ZXJseSIsImVsaWMiLCJzYnVsIl0sImh0dHBzOi8vcWEuYXBpLnppbm5pYS5pby9wZXJtaXNzaW9ucyI6WyJyZWFkOnBvbGljeSIsIndyaXRlOnBvbGljeSIsIndyaXRlOmNhc2UiLCJyZWFkOmNhc2UiLCJyZWFkOmRvY3VtZW50Iiwid3JpdGU6ZG9jdW1lbnQiLCJ3cml0ZTp0YXNrIiwicmVhZDp0YXNrIl0sInBhcnR5SWQiOiJjNmE3YWI5ZjdkZDg0MDE1YTY1NTJiZmM1YjM2NmI3NyIsInNvdXJjZSI6IkJ1c2luZXNzIFByb2Nlc3MgTWFuYWdlbWVudCIsImlzcyI6Imh0dHBzOi8vbG9naW4ucWEuemlubmlhLmNvbS8iLCJzdWIiOiJVdU1yaWJyUDNlOHpWaGZIeTZ3UEoyNWxWWWgxQ1dOM0BjbGllbnRzIiwiYXVkIjoiaHR0cHM6Ly9xYS5hcGkuemlubmlhLmlvIiwiaWF0IjoxNzU4NTM1OTgxLCJleHAiOjE3NTg2MjIzODEsInNjb3BlIjoib3BlbmlkIiwiZ3R5IjoiY2xpZW50LWNyZWRlbnRpYWxzIiwiYXpwIjoiVXVNcmliclAzZTh6VmhmSHk2d1BKMjVsVlloMUNXTjMifQ.dffnNRhTb6btCxLA_8sBGJxxynfiRd7FWjeFv2VXZw_2iYzUGM4Ufz5j929KGcUf_OZtOCH7BuWrAnfKP3JXlWn5OsvMzBeUwmh0mFlAVl7xYTdEOFXZWu6MEwqyhIcd_NlX-fxuGphrN_94x_bZdX5ffhIwYHUScpK1BEK19_jvNxFXK941vy0PaA_sHEiybkFZJeHeP4IF1BROok0GsCJaUvy_QMj_QeWgle0Vp8WqdHLD9CvLSMKge0nZbHd1Ntb11unZmPB2Y7fB4FZbrzOOKCQX07qMHgfI9b1PzbluGHd3Jt_uoZR8d9ssMoEW6nOTu04ldn1eT-gu_-5TzQ'} 
+ body=None 
+ </msg>
+<msg time="2025-09-22T15:43:01.836682" level="INFO">GET Response : url=https://qa.api.zinnia.io/case/v1/cases/12345 
+ status=403, reason=Forbidden 
+ headers={'Content-Type': 'application/json', 'Connection': 'keep-alive', 'Vary': 'Origin, Access-Control-Request-Method, Access-Control-Request-Headers', 'X-Content-Type-Options': 'nosniff', 'X-XSS-Protection': '1; mode=block', 'Expires': '0', 'X-Frame-Options': 'DENY', 'x-correlation-id': '623a27d5-77dd-47c4-8917-8e49b77bbe80', 'Pragma': 'no-cache', 'Cache-Control': 'no-cache, no-store, max-age=0, must-revalidate', 'Date': 'Mon, 22 Sep 2025 10:13:02 GMT', 'Content-Length': '126', 'Set-Cookie': 'AWSALBTG=o6mx3X1eixhuw5YY9+gwc399lY4R2q4YS5/iYYeQXV2fPUySJ53thMwHLBSy+rqcOn6JjyBY6ENj3mVjDbxvWCYTk5Ea2dOg0HMxSikhLePvbD5RZvaTrpSW8qR/i9mpKo2sUW9P5R/sNQPMsXdJKBx2XpPYR9dvmr3crRS9G2J/; Expires=Mon, 29 Sep 2025 10:13:02 GMT; Path=/, AWSALBTGCORS=o6mx3X1eixhuw5YY9+gwc399lY4R2q4YS5/iYYeQXV2fPUySJ53thMwHLBSy+rqcOn6JjyBY6ENj3mVjDbxvWCYTk5Ea2dOg0HMxSikhLePvbD5RZvaTrpSW8qR/i9mpKo2sUW9P5R/sNQPMsXdJKBx2XpPYR9dvmr3crRS9G2J/; Expires=Mon, 29 Sep 2025 10:13:02 GMT; Path=/; SameSite=None; Secure, AWSALB=C4CD26P98/cg9yNAZJf+G9E5nKDu0tR9pwNnHUU609TTOWHWDv967aLhpRQM47/71V5oxvuIm7WSheJjh0B5lPY3Sbg0HMIRwspxKT6q3p9EF4pTuOnfY+yHZBlu; Expires=Mon, 29 Sep 2025 10:13:02 GMT; Path=/, AWSALBCORS=C4CD26P98/cg9yNAZJf+G9E5nKDu0tR9pwNnHUU609TTOWHWDv967aLhpRQM47/71V5oxvuIm7WSheJjh0B5lPY3Sbg0HMIRwspxKT6q3p9EF4pTuOnfY+yHZBlu; Expires=Mon, 29 Sep 2025 10:13:02 GMT; Path=/; SameSite=None; Secure', 'Access-Control-Allow-Origin': '*', 'Access-Control-Expose-Headers': 'Host', 'X-Kong-Upstream-Latency': '266', 'X-Kong-Proxy-Latency': '18', 'Via': 'kong/3.6.1.6-enterprise-edition', 'X-Kong-Request-Id': '29178431b1fc6d312535606e5973f735'} 
+ body={"message":"Forbidden","traceId":"6aa31e6c-c941-4f89-a6f4-04706b90d8e2","detail":"Access is denied","timestamp":1758535982349} 
+ </msg>
+<msg time="2025-09-22T15:43:01.836682" level="INFO">C:\Users\sharmash\AppData\Roaming\Python\Python312\site-packages\urllib3\connectionpool.py:1103: InsecureRequestWarning: Unverified HTTPS request is being made to host 'qa.api.zinnia.io'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(</msg>
+<msg time="2025-09-22T15:43:01.836682" level="FAIL">HTTPError: 403 Client Error: Forbidden for url: https://qa.api.zinnia.io/case/v1/cases/12345</msg>
+<arg>api_session_case</arg>
+<arg>${endpoint}</arg>
+<arg>&amp;{kwargs}</arg>
+<doc>Sends a GET request on a previously created HTTP Session.</doc>
+<status status="FAIL" start="2025-09-22T15:43:00.659157" elapsed="1.182567">HTTPError: 403 Client Error: Forbidden for url: https://qa.api.zinnia.io/case/v1/cases/12345</status>
+</kw>
+<var>${response}</var>
+<arg>'${method}' == 'GET'</arg>
+<arg>GET On Session</arg>
+<arg>api_session_case</arg>
+<arg>${endpoint}</arg>
+<arg>&amp;{kwargs}</arg>
+<arg>ELSE IF</arg>
+<arg>'${method}' == 'POST'</arg>
+<arg>POST On Session</arg>
+<arg>api_session_case</arg>
+<arg>${endpoint}</arg>
+<arg>&amp;{kwargs}</arg>
+<arg>ELSE IF</arg>
+<arg>'${method}' == 'PUT'</arg>
+<arg>PUT On Session</arg>
+<arg>api_session_case</arg>
+<arg>${endpoint}</arg>
+<arg>&amp;{kwargs}</arg>
+<arg>ELSE IF</arg>
+<arg>'${method}' == 'DELETE'</arg>
+<arg>DELETE On Session</arg>
+<arg>api_session_case</arg>
+<arg>${endpoint}</arg>
+<arg>&amp;{kwargs}</arg>
+<arg>ELSE</arg>
+<arg>Fail</arg>
+<arg>Unsupported method: ${method}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="FAIL" start="2025-09-22T15:43:00.659157" elapsed="1.189561">HTTPError: 403 Client Error: Forbidden for url: https://qa.api.zinnia.io/case/v1/cases/12345</status>
+</kw>
+<kw name="Should Be True" owner="BuiltIn">
+<arg>${response.status_code} &gt;= 200 and ${response.status_code} &lt; 300</arg>
+<arg>msg=API call failed with status ${response.status_code}: ${response.text}</arg>
+<doc>Fails if the given condition is not true.</doc>
+<status status="NOT RUN" start="2025-09-22T15:43:01.848718" elapsed="0.000000"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>\nAPI: ${endpoint}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="NOT RUN" start="2025-09-22T15:43:01.848718" elapsed="0.000000"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Status: ${response.status_code}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="NOT RUN" start="2025-09-22T15:43:01.849792" elapsed="0.000000"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Response: ${response.text}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="NOT RUN" start="2025-09-22T15:43:01.849792" elapsed="0.000000"/>
+</kw>
+<arg>${endpoint}</arg>
+<arg>${method}</arg>
+<arg>${headers}</arg>
+<arg>${payload}</arg>
+<status status="FAIL" start="2025-09-22T15:43:00.654185" elapsed="1.195607">HTTPError: 403 Client Error: Forbidden for url: https://qa.api.zinnia.io/case/v1/cases/12345</status>
+</kw>
+<arg>'${name}' == 'Get OAuth Token'</arg>
+<arg>Execute Token API</arg>
+<arg>${endpoint}</arg>
+<arg>${method}</arg>
+<arg>${headers}</arg>
+<arg>${payload}</arg>
+<arg>ELSE</arg>
+<arg>Execute Normal API</arg>
+<arg>${endpoint}</arg>
+<arg>${method}</arg>
+<arg>${headers}</arg>
+<arg>${payload}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="FAIL" start="2025-09-22T15:43:00.654185" elapsed="1.195607">HTTPError: 403 Client Error: Forbidden for url: https://qa.api.zinnia.io/case/v1/cases/12345</status>
+</kw>
+<arg>${api}</arg>
+<status status="FAIL" start="2025-09-22T15:43:00.645172" elapsed="1.205631">HTTPError: 403 Client Error: Forbidden for url: https://qa.api.zinnia.io/case/v1/cases/12345</status>
+</kw>
+<var name="${api}">{'name': 'Get Case Details', 'endpoint': '/case/v1/cases/{caseID}', 'method': 'GET', 'api_type': 'Case Management', 'headers': {'Content-Type': 'application/json'}}</var>
+<status status="FAIL" start="2025-09-22T15:43:00.645172" elapsed="1.205631">HTTPError: 403 Client Error: Forbidden for url: https://qa.api.zinnia.io/case/v1/cases/12345</status>
+</iter>
+<var>${api}</var>
+<value>@{apis}</value>
+<status status="FAIL" start="2025-09-22T15:42:59.772525" elapsed="2.078278">HTTPError: 403 Client Error: Forbidden for url: https://qa.api.zinnia.io/case/v1/cases/12345</status>
+</for>
+<arg>@{config}[apis]</arg>
+<status status="FAIL" start="2025-09-22T15:42:59.772525" elapsed="2.079189">HTTPError: 403 Client Error: Forbidden for url: https://qa.api.zinnia.io/case/v1/cases/12345</status>
+</kw>
+<doc>Execute configured APIs from the config file</doc>
+<status status="FAIL" start="2025-09-22T15:42:59.763479" elapsed="2.088235">HTTPError: 403 Client Error: Forbidden for url: https://qa.api.zinnia.io/case/v1/cases/12345</status>
+</test>
+<doc>API Configuration Executor for handling token and case APIs</doc>
+<status status="FAIL" start="2025-09-22T15:42:59.486176" elapsed="2.368615"/>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="1" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="0" fail="1" skip="0" id="s1" name="Api Config Executor">Api Config Executor</stat>
+</suite>
+</statistics>
+<errors>
+<msg time="2025-09-22T15:42:59.481176" level="ERROR">Taking listener 'allure_console_listener.AllureConsoleListener:results/run_20250922_154259\allure-results' into use failed: Importing listener 'allure_console_listener.AllureConsoleListener' failed: ModuleNotFoundError: No module named 'allure_console_listener'
+Traceback (most recent call last):
+  None
+PYTHONPATH:
+  C:\Program Files\Python312\Scripts\robot.exe
+  c:\Users\sharmash\Downloads\QAS-ZinniaLive-AutomationTesting (1)\QAS-ZinniaLive-AutomationTesting
+  C:\Users\sharmash\automation-framwork\%PYTHONPATH%
+  C:\Program Files\Python312\python312.zip
+  C:\Program Files\Python312\DLLs
+  C:\Program Files\Python312\Lib
+  C:\Program Files\Python312
+  C:\Users\sharmash\AppData\Roaming\Python\Python312\site-packages
+  C:\Users\sharmash\AppData\Roaming\Python\Python312\site-packages\win32
+  C:\Users\sharmash\AppData\Roaming\Python\Python312\site-packages\win32\lib
+  C:\Users\sharmash\AppData\Roaming\Python\Python312\site-packages\Pythonwin
+  C:\Program Files\Python312\Lib\site-packages</msg>
+<msg time="2025-09-22T15:42:59.483176" level="ERROR">Taking listener 'DebugLibrary' into use failed: Importing listener 'DebugLibrary' failed: ModuleNotFoundError: No module named 'DebugLibrary'
+Traceback (most recent call last):
+  None
+PYTHONPATH:
+  C:\Program Files\Python312\Scripts\robot.exe
+  c:\Users\sharmash\Downloads\QAS-ZinniaLive-AutomationTesting (1)\QAS-ZinniaLive-AutomationTesting
+  C:\Users\sharmash\automation-framwork\%PYTHONPATH%
+  C:\Program Files\Python312\python312.zip
+  C:\Program Files\Python312\DLLs
+  C:\Program Files\Python312\Lib
+  C:\Program Files\Python312
+  C:\Users\sharmash\AppData\Roaming\Python\Python312\site-packages
+  C:\Users\sharmash\AppData\Roaming\Python\Python312\site-packages\win32
+  C:\Users\sharmash\AppData\Roaming\Python\Python312\site-packages\win32\lib
+  C:\Users\sharmash\AppData\Roaming\Python\Python312\site-packages\Pythonwin
+  C:\Program Files\Python312\Lib\site-packages</msg>
+</errors>
+</robot>

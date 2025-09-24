@@ -1,0 +1,100 @@
+# Docker ignore file for Automation Framework
+
+# Git and version control
+.git/
+.gitignore
+*.git*
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Python cache and compiled files
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Virtual environments
+venv/
+env/
+ENV/
+.venv/
+.env
+
+# Test results and reports (exclude from image)
+results/
+allure-results/
+allure-report/
+output/
+*.html
+*.xml
+*.log
+*.png
+*.txt
+
+# Temporary files
+tmp/
+temp/
+*.tmp
+*.bak
+*.backup
+
+# Docker files (don't need these in the container)
+Dockerfile*
+docker-compose*.yml
+.dockerignore
+
+# Documentation
+*.md
+docs/
+
+# Large binary files
+*.zip
+*.tar
+*.tar.gz
+*.rar
+
+# Allure installation (will be installed fresh in container)
+allure-2.*/
+
+# Windows specific
+*.bat
+
+# Node modules (if any)
+node_modules/
+
+# Coverage reports
+htmlcov/
+.coverage
+.coverage.*
+coverage.xml
+

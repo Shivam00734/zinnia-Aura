@@ -1,0 +1,81 @@
+Complete Test Execution Console Output
+============================================================
+Execution Time: 2025-09-22 16:24:08
+Environment: dev
+Test Type: smoke
+Selected APIs: ['Get OAuth Token']
+Selected Tests: []
+============================================================
+
+
+=== api_console_output.log ===
+API Test Console Output
+==================================================
+Environment: dev
+Selected APIs: ['Get OAuth Token']
+Test Type: smoke
+Start Time: 2025-09-22 16:24:08
+==================================================
+
+STDOUT:
+====================================================================================================
+Api Config Executor :: API Configuration Executor for handling token and case APIs
+====================================================================================================
+Execute Selected APIs :: Execute only the APIs selected from dashboard                      Total APIs to execute: 1
+
+? Preparing to execute 1 selected APIs...
+
+=== Executing: Get OAuth Token ===
+Token received: eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IlU1SWNUOEQ4LTNWdl80NDFIdnlzbyJ9.eyJodHRwczovL3FhLmFwaS56aW5uaWEuaW8vY2xpZW50SWRzIjpbImV2ZXJseSIsImVsaWMiLCJzYnVsIl0sImh0dHBzOi8vcWEuYXBpLnppbm5pYS5pby9wZXJtaXNzaW9ucyI6WyJyZWFkOnBvbGljeSIsIndyaXRlOnBvbGljeSIsIndyaXRlOmNhc2UiLCJyZWFkOmNhc2UiLCJyZWFkOmRvY3VtZW50Iiwid3JpdGU6ZG9jdW1lbnQiLCJ3cml0ZTp0YXNrIiwicmVhZDp0YXNrIl0sInBhcnR5SWQiOiJjNmE3YWI5ZjdkZDg0MDE1YTY1NTJiZmM1YjM2NmI3NyIsInNvdXJjZSI6IkJ1c2luZXNzIFByb2Nlc3MgTWFuYWdlbWVudCIsImlzcyI6Imh0dHBzOi8vbG9naW4ucWEuemlubmlhLmNvbS8iLCJzdWIiOiJVdU1yaWJyUDNlOHpWaGZIeTZ3UEoyNWxWWWgxQ1dOM0BjbGllbnRzIiwiYXVkIjoiaHR0cHM6Ly9xYS5hcGkuemlubmlhLmlvIiwiaWF0IjoxNzU4NTM4NDQ5LCJleHAiOjE3NTg2MjQ4NDksInNjb3BlIjoib3BlbmlkIiwiZ3R5IjoiY2xpZW50LWNyZWRlbnRpYWxzIiwiYXpwIjoiVXVNcmliclAzZTh6VmhmSHk2d1BKMjVsVlloMUNXTjMifQ.MP8hj7nzN2YCZFy4Jwh2IpGzxDpI7jNI2NkmYlgEt72iBs7dTy_DQlM6DcGnrZ6VnB6_cCnIn9Rn5JpHIwjykW1JtPTrwZR3cv9Oe3UKBmhh2dwXv_pUw3d1xfEE5xKA64Ika7qxpFw0-ND294kljWAy50APjXbbh78KbciBkuLDCCca4P15qsBEYDSgN7xonM4d6qPAnDifBi1T1qctOn-OnSxnyUgnxT6-j8Z7pazSdVQM9yuLktKpwTEi7C_hiLRHirOQXd6OV4j0eNjv7qIzBBHMhHaj2tIe4Ewt-tUtJbzCi34ZzvyGDTzN3VKeflEToWSHrIPHX0H4RqUfQg
+=== Completed: Get OAuth Token ===
+
+? All selected APIs executed successfully!
+| PASS |
+----------------------------------------------------------------------------------------------------
+Api Config Executor :: API Configuration Executor for handling token and case APIs          | PASS |
+1 test, 1 passed, 0 failed
+====================================================================================================
+Output:  C:\Users\sharmash\automation-framwork\results\run_20250922_162406\output.xml
+Log:     C:\Users\sharmash\automation-framwork\results\run_20250922_162406\results\run_20250922_162406\detailed_log.html
+Report:  C:\Users\sharmash\automation-framwork\results\run_20250922_162406\results\run_20250922_162406\detailed_report.html
+
+STDERR:
+[ ERROR ] Taking listener 'allure_console_listener.AllureConsoleListener:results/run_20250922_162406\allure-results' into use failed: Importing listener 'allure_console_listener.AllureConsoleListener' failed: ModuleNotFoundError: No module named 'allure_console_listener'
+Traceback (most recent call last):
+  None
+PYTHONPATH:
+  C:\Program Files\Python312\Scripts\robot.exe
+  c:\Users\sharmash\Downloads\QAS-ZinniaLive-AutomationTesting (1)\QAS-ZinniaLive-AutomationTesting
+  C:\Users\sharmash\automation-framwork\%PYTHONPATH%
+  C:\Program Files\Python312\python312.zip
+  C:\Program Files\Python312\DLLs
+  C:\Program Files\Python312\Lib
+  C:\Program Files\Python312
+  C:\Users\sharmash\AppData\Roaming\Python\Python312\site-packages
+  C:\Users\sharmash\AppData\Roaming\Python\Python312\site-packages\win32
+  C:\Users\sharmash\AppData\Roaming\Python\Python312\site-packages\win32\lib
+  C:\Users\sharmash\AppData\Roaming\Python\Python312\site-packages\Pythonwin
+  C:\Program Files\Python312\Lib\site-packages
+[ ERROR ] Taking listener 'DebugLibrary' into use failed: Importing listener 'DebugLibrary' failed: ModuleNotFoundError: No module named 'DebugLibrary'
+Traceback (most recent call last):
+  None
+PYTHONPATH:
+  C:\Program Files\Python312\Scripts\robot.exe
+  c:\Users\sharmash\Downloads\QAS-ZinniaLive-AutomationTesting (1)\QAS-ZinniaLive-AutomationTesting
+  C:\Users\sharmash\automation-framwork\%PYTHONPATH%
+  C:\Program Files\Python312\python312.zip
+  C:\Program Files\Python312\DLLs
+  C:\Program Files\Python312\Lib
+  C:\Program Files\Python312
+  C:\Users\sharmash\AppData\Roaming\Python\Python312\site-packages
+  C:\Users\sharmash\AppData\Roaming\Python\Python312\site-packages\win32
+  C:\Users\sharmash\AppData\Roaming\Python\Python312\site-packages\win32\lib
+  C:\Users\sharmash\AppData\Roaming\Python\Python312\site-packages\Pythonwin
+  C:\Program Files\Python312\Lib\site-packages
+C:\Users\sharmash\AppData\Roaming\Python\Python312\site-packages\urllib3\connectionpool.py:1103: InsecureRequestWarning: Unverified HTTPS request is being made to host 'login.qa.zinnia.com'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(
+
+Process Exit Code: 0
+
+=== End of api_console_output.log ===
+

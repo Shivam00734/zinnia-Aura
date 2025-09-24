@@ -1,4 +1,5 @@
 {
+  "base_urls": "https://qa-bpm.se2.com",
     "regions": {
       "dev": "https://login.qa.zinnia.com/",
       "QA": "https://login.qa.zinnia.com/",
@@ -10,6 +11,8 @@
         "endpoint": "/oauth/token",
         "method": "POST",
         "api_type": "Authentication",
+        "test_type": ["smoke", "regression"],
+        "environments": ["dev", "QA", "prod"],
         "payload": {
           "audience": "https://qa.api.zinnia.io",
           "grant_type": "client_credentials",
@@ -21,62 +24,107 @@
         }
       },
       {
-        "name": "User Login",
-        "endpoint": "/api/login",
+        "name": "Get Case Details",
+        "endpoint": "/case/v1/cases/{caseID}",
+        "method": "GET",
+        "api_type": "Case Management",
+        "test_type": ["smoke"],
+        "environments": ["dev"],
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "default_case_id": "CA0000370039"
+      }, 
+      {
+        "name": "Search Cases by Policy Number",
+        "endpoint": "/case/v1/cases/search",
         "method": "POST",
-        "api_type": "Authentication",
+        "api_type": "Case Management",
+        "test_type": ["smoke"],
+        "environments": ["QA", "prod"],
+        "base_url": "https://qa-bpm.se2.com",
         "payload": {
-          "username": "testuser",
-          "password": "testpass"
+          "policyNumber": "571025434"
         },
         "headers": {
           "Content-Type": "application/json"
         }
       },
       {
-        "name": "Create Transaction",
-        "endpoint": "/api/transactions",
+        "name": "Search Cases by Agent Name",
+        "endpoint": "/case/v1/cases/search",
         "method": "POST",
-        "api_type": "Transaction",
+        "api_type": "Case Management",
+        "test_type": ["smoke"],
+        "environments": ["QA", "prod"],
+        "base_url": "https://qa-bpm.se2.com",
         "payload": {
-          "amount": 1000,
-          "currency": "USD",
-          "type": "deposit"
-        },
-        "headers": {
-          "Content-Type": "application/json",
-          "Authorization": "Bearer {token}"
-        }
-      },
-      {
-        "name": "Get Transaction History",
-        "endpoint": "/api/transactions/history",
-        "method": "GET",
-        "api_type": "Transaction",
-        "headers": {
-          "Authorization": "Bearer {token}"
-        }
-      },
-      {
-        "name": "User Onboarding",
-        "endpoint": "/api/onboarding/user",
-        "method": "POST",
-        "api_type": "Onboarding",
-        "payload": {
-          "firstName": "John",
-          "lastName": "Doe",
-          "email": "john.doe@example.com"
+          "agentFirstName": "ROBERT",
+          "limit": 1000,
+          "offset": 0,
+          "sortDirection": "desc",
+          "sortBy": "createdAt"
         },
         "headers": {
           "Content-Type": "application/json"
         }
       },
       {
-        "name": "Health Check",
-        "endpoint": "/api/health",
+        "name": "Get Assigned Tasks",
+        "endpoint": "/case/v1/tasks/assigned",
         "method": "GET",
-        "api_type": "Basic",
-        "headers": {}
+        "api_type": "Case Management",
+        "test_type": ["smoke", "regression"],
+        "environments": ["dev", "QA"],
+        "base_url": "https://qa.api.zinnia.io",
+        "headers": {
+          "Content-Type": "application/json"
+        }
+      },
+      {
+        "name": "Post Task Message",
+        "endpoint": "/case/v1/tasks/message",
+        "method": "POST",
+        "api_type": "Case Management",
+        "test_type": ["smoke"],
+        "environments": ["QA"],
+        "base_url": "https://qa.api.zinnia.io",
+        "payload": {
+          "taskType": "SUITABILITY_REVI",
+          "carrier": "MASS",
+          "category": "SCHEDULED_REASON",
+          "messageId": "DOCUMENT_MISSING",
+          "message": "Document is missing for SUITABILITY_REVIEW for MASS"
+        },
+        "headers": {
+          "Content-Type": "application/json"
+        }
+      },
+      {
+        "name": "Get Assignee Summary",
+        "endpoint": "/case/v1/cases/{caseID}/tasks/assignee-summary",
+        "method": "GET",
+        "api_type": "Case Management",
+        "test_type": ["smoke"],
+        "environments": ["QA"],
+        "base_url": "https://qa.api.zinnia.io",
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "default_case_id": "CA0000425395"
+      },
+      {
+        "name": "Get Case Exceptions",
+        "endpoint": "/case/v1/exceptions/cases/{caseID}",
+        "method": "GET",
+        "api_type": "Case Management",
+        "test_type": ["smoke"],
+        "environments": ["QA"],
+        "base_url": "https://qa.api.zinnia.io",
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "default_case_id": "CA0000006344"
       }
     ]
   }

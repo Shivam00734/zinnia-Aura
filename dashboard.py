@@ -8,6 +8,12 @@ from jsonschema import validate as jsonschema_validate, ValidationError
 import requests
 import pandas as pd
 import typing as t
+import urllib3
+import warnings
+
+# Suppress urllib3 InsecureRequestWarning
+urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
+warnings.filterwarnings("ignore", category=urllib3.exceptions.InsecureRequestWarning)
 import re as _re_for_paths
 import io as _io_for_excel
 import shutil
@@ -258,7 +264,7 @@ HTML_TEMPLATE = """
 <html>
 <head>
     <title>Zinnia Live-Aura Dashboard</title>
-    <meta name="viewport" content="width=1200, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
     <meta http-equiv="Pragma" content="no-cache" />
     <meta http-equiv="Expires" content="0" />
@@ -271,7 +277,34 @@ HTML_TEMPLATE = """
         }
         
         html {
-            font-size: 16px;
+            font-size: 24px;
+        }
+        
+        @media (max-width: 1160px) {
+            .sidebar {
+                transform: translateX(-100%);
+                transition: transform 0.3s ease;
+            }
+            
+            .main-content {
+                margin-left: 0;
+                width: 100%;
+                padding: 24px;
+                padding-top: 120px;
+            }
+            
+            .header {
+                left: 0;
+                width: 100%;
+            }
+            
+            .api-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .container {
+                padding: 24px;
+            }
         }
         
         body {
@@ -279,16 +312,12 @@ HTML_TEMPLATE = """
             padding: 0;
             font-family: 'Montserrat', sans-serif;
             background: #f0f2f5;
-            display: flex;
-            transform: scale(2);
-            transform-origin: 0 0;
-            width: 50vw;
-            height: 50vh;
+            min-height: 100vh;
         }
 
         .sidebar {
-            width: 250px;
-            height: 100vh;
+            width: 420px;
+            min-height: 100vh;
             background: white;
             position: fixed;
             left: 0;
@@ -300,8 +329,8 @@ HTML_TEMPLATE = """
         }
 
         .sidebar-title {
-            padding: 20px;
-            font-size: 1rem;
+            padding: 36px;
+            font-size: 1.68rem;
             font-weight: 600;
             color: var(--zinnia-blue);
             border-bottom: 2px solid var(--zinnia-gold);
@@ -320,10 +349,11 @@ HTML_TEMPLATE = """
 
         .sidebar-menu a {
             display: block;
-            padding: 15px 20px;
+            padding: 26px 36px;
             color: #333;
             text-decoration: none;
             transition: all 0.2s;
+            font-size: 1.32rem;
         }
 
         .sidebar-menu a:hover {
@@ -338,39 +368,48 @@ HTML_TEMPLATE = """
         }
 
         .sidebar-footer {
-            padding: 20px;
+            padding: 25px;
             text-align: center;
-            font-size: 0.8em;
+            font-size: 0.9em;
             color: #666;
             border-top: 1px solid #eee;
         }
 
         .main-content {
-            margin-left: 250px;
-            padding: 20px;
-            width: calc(100% - 250px);
+            margin-left: 420px;
+            padding: 36px;
+            padding-top: 120px;
+            min-height: 100vh;
+            width: calc(100% - 420px);
+            box-sizing: border-box;
         }
 
         .container {
-            max-width: 1200px;
+            max-width: 1560px;
             margin: 0 auto;
-            padding: 20px;
+            padding: 30px 30px 60px 30px;
         }
 
         .header {
             background: white;
-            padding: 20px;
-            margin-bottom: 30px;
+            padding: 25px;
             box-shadow: var(--zinnia-shadow);
+            position: fixed;
+            top: 0;
+            left: 420px;
+            right: 0;
+            z-index: 1000;
+            width: calc(100% - 420px);
+            box-sizing: border-box;
         }
 
         .header-inner {
-            max-width: 1200px;
+            max-width: 1560px;
             margin: 0 auto;
         }
 
         .project-title {
-            font-size: 1.5em;
+            font-size: 2.4em;
             font-weight: 600;
             color: var(--zinnia-blue);
         }
@@ -384,7 +423,7 @@ HTML_TEMPLATE = """
         .card {
             background: white;
             border-radius: 12px;
-            padding: 30px;
+            padding: 35px;
             box-shadow: var(--zinnia-shadow);
         }
 
@@ -394,32 +433,35 @@ HTML_TEMPLATE = """
         }
 
         .form-group {
-            margin-bottom: 20px;
+            margin-bottom: 25px;
         }
 
         label {
             display: block;
-            margin-bottom: 8px;
+            margin-bottom: 14px;
             font-weight: 500;
             color: #333;
+            font-size: 1.44rem;
         }
 
         select, input {
             width: 100%;
-            padding: 10px;
+            padding: 19px;
             border: 2px solid #e0e7ef;
-            border-radius: 6px;
+            border-radius: 10px;
             font-family: inherit;
+            font-size: 1.32rem;
         }
 
         button {
             background: var(--zinnia-blue);
             color: white;
             border: none;
-            padding: 12px 24px;
-            border-radius: 6px;
+            padding: 22px 43px;
+            border-radius: 10px;
             cursor: pointer;
             font-weight: 600;
+            font-size: 1.44rem;
             transition: all 0.2s;
         }
 
@@ -427,10 +469,38 @@ HTML_TEMPLATE = """
             background: #283593;
             transform: translateY(-2px);
         }
+        
+        button:disabled {
+            background: #9e9e9e;
+            cursor: not-allowed;
+            transform: none;
+        }
+        
+        .spinner {
+            display: inline-block;
+            width: 18px;
+            height: 18px;
+            border: 2px solid #ffffff30;
+            border-top: 2px solid #ffffff;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin-right: 10px;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        .loading-text {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
         .api-section {
-            margin-bottom: 30px;
+            margin-bottom: 35px;
             background: white;
-            padding: 20px;
+            padding: 25px;
             border-radius: 12px;
             box-shadow: var(--zinnia-shadow);
         }
@@ -447,26 +517,44 @@ HTML_TEMPLATE = """
         }
         .api-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 15px;
+            grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+            gap: 18px;
         }
         .api-card {
             background: #f8fafc;
             border: 2px solid #e0e7ef;
-            border-radius: 8px;
-            padding: 15px;
+            border-radius: 10px;
+            padding: 30px;
             transition: all 0.2s;
+            position: relative;
+            cursor: pointer;
         }
         .api-card:hover {
             border-color: var(--zinnia-blue);
             transform: translateY(-2px);
             box-shadow: 0 4px 12px rgba(26,35,126,0.1);
         }
+        .api-card.selected {
+            background: #e8f0fe;
+            border-color: var(--zinnia-blue);
+            box-shadow: 0 4px 12px rgba(26,35,126,0.15);
+        }
+        .api-checkbox {
+            position: absolute;
+            top: 24px;
+            left: 24px;
+            width: 31px;
+            height: 31px;
+            cursor: pointer;
+            z-index: 10;
+            accent-color: var(--zinnia-blue);
+        }
         .api-header {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 10px;
+            margin-bottom: 17px;
+            margin-left: 66px;
         }
         .api-name {
             font-weight: 600;
@@ -480,20 +568,44 @@ HTML_TEMPLATE = """
             background: #e0e7ef;
             color: var(--zinnia-blue);
         }
-        .api-details {
-            font-size: 0.9em;
-            color: #666;
-            margin-top: 8px;
-        }
-        .api-endpoint {
-            font-family: monospace;
-            background: #f1f5f9;
-            padding: 8px;
-            border-radius: 4px;
-            font-size: 0.85em;
-            margin: 8px 0;
-            word-break: break-all;
-        }
+            .api-details {
+                font-size: 0.9em;
+                color: #666;
+                margin-top: 8px;
+            }
+            .api-endpoint {
+                font-family: monospace;
+                background: #f1f5f9;
+                padding: 14px;
+                border-radius: 8px;
+                font-size: 1.14em;
+                margin: 14px 0 14px 66px;
+                word-break: break-all;
+            }
+            .api-test-types {
+                font-size: 1.08em;
+                color: #888;
+                margin: 10px 0 10px 66px;
+            }
+            .api-environments {
+                font-size: 1.08em;
+                color: #666;
+                margin: 10px 0 10px 66px;
+            }
+            .no-apis-message {
+                text-align: center;
+                color: #666;
+                font-style: italic;
+                padding: 40px;
+                background: #f8fafc;
+                border-radius: 8px;
+                border: 2px dashed #e0e7ef;
+            }
+            .no-test-types-message {
+                margin-top: 10px;
+                color: #888;
+                font-style: italic;
+            }
         .test-section {
             margin-top: 30px;
         }
@@ -638,28 +750,53 @@ HTML_TEMPLATE = """
                 <form id="testForm" method="post" action="/run-tests" onsubmit="return validateForm()" enctype="multipart/form-data">
                     <div class="form-group">
                         <label for="region">Environment</label>
-                        <select id="region" name="region" required>
+                        <select id="region" name="region" required onchange="filterTestTypesByEnvironment()">
+                            <option value="">Select Environment</option>
                             {% for region, url in regions.items() %}
                                 <option value="{{ region }}">{{ region }} ({{ url }})</option>
                             {% endfor %}
                         </select>
                     </div>
 
-                    {#
-                    {#
-                    <div class="api-section">
+                    <div class="form-group" id="testTypeSection" style="margin-top: 20px; display: none;">
+                        <label for="test_type">Test Type</label>
+                        <select id="test_type" name="test_type" required onchange="filterAPIsByTestType()">
+                            <option value="">Select Test Type</option>
+                            <option value="smoke" data-environments="dev|QA|prod">Smoke Test</option>
+                            <option value="regression" data-environments="dev|QA">Regression Test</option>
+                            <option value="api" data-environments="">API Test</option>
+                        </select>
+                        <div id="noTestTypesMessage" class="no-test-types-message" style="display: none;">
+                            <small>No test types available for the selected environment.</small>
+                        </div>
+                    </div>
+                    
+                    <div class="api-section" id="apiSection" style="display: none;">
                         <h3>Available APIs</h3>
+                        <div id="noApisMessage" class="no-apis-message" style="display: none;">
+                            <p>No APIs available for the selected test type. Please select a different test type.</p>
+                        </div>
                         {% for api_type, apis in grouped_apis.items() %}
                         <div class="api-type-section" data-api-type="{{ api_type }}">
-                            
+                            <div class="api-type-title">{{ api_type }}</div>
                             <div class="api-grid">
                                 {% for api in apis %}
-                                <div class="api-card">
+                                <div class="api-card" 
+                                     data-test-types="{{ '|'.join(api.get('test_type', [])) }}" 
+                                     data-environments="{{ '|'.join(api.get('environments', [])) }}"
+                                     data-api-name="{{ api.name }}"
+                                     onclick="toggleApiCard(this)">
                                     <div class="api-header">
                                         <span class="api-name">{{ api.name }}</span>
                                         <span class="api-method-badge">{{ api.method }}</span>
                                     </div>
                                     <div class="api-endpoint">{{ api.endpoint }}</div>
+                                    <div class="api-test-types">
+                                        <small>Test Types: {{ ', '.join(api.get('test_type', [])) }}</small>
+                                    </div>
+                                    <div class="api-environments">
+                                        <small>Environments: {{ ', '.join(api.get('environments', [])) }}</small>
+                                    </div>
                                     <div class="api-details">
                                         <div>
                                             <input type="checkbox" 
@@ -667,8 +804,9 @@ HTML_TEMPLATE = """
                                                    value="{{ api.name }}"
                                                    id="api_{{ api_type }}_{{ loop.index }}"
                                                    class="api-checkbox"
-                                                   onchange="updateApiCard(this)">
-                                            <label for="api_{{ api_type }}_{{ loop.index }}">Include in Test</label>
+                                                   onchange="updateApiCard(this)"
+                                                   onclick="event.stopPropagation()">
+                                           <!-- <label for="api_{{ api_type }}_{{ loop.index }}">Include in Test</label> -->
                                         </div>
                                     </div>
                                 </div>
@@ -676,10 +814,8 @@ HTML_TEMPLATE = """
                             </div>
                         </div>
                         {% endfor %}
-                    </div>
-                    #}
-                    
-                    
+                    </div>                   
+                   <!--
                     <div class="test-section">
                         <h3>Available Test Suites</h3>
                         <div class="test-grid">
@@ -694,20 +830,7 @@ HTML_TEMPLATE = """
                             {% endfor %}
                         </div>
                     </div>
-                    
-
-                    
-                    
-
-                    <div class="form-group" style="margin-top: 20px;">
-                        <label for="test_type">Test Type</label>
-                        <select id="test_type" name="test_type" required>
-                            <option value="smoke">Smoke Test</option>
-                            <option value="regression">Regression Test</option>
-                            <option value="api">API Test</option>
-                        </select>
-                    </div>
-
+                    -->
 
                     <!--
                     <div class="form-group" style="margin-top: 20px;">
@@ -719,7 +842,11 @@ HTML_TEMPLATE = """
                     </div>
                     -->
 
-                    <button type="submit">Run Selected Tests</button>
+                    <button type="submit" id="runTestsBtn">
+                        <span class="loading-text">
+                            <span class="button-text">Run Selected Tests</span>
+                        </span>
+                    </button>
                 </form>
             </div>
             
@@ -747,6 +874,137 @@ HTML_TEMPLATE = """
     let terminalVisible = false;
     
     function toggleTest(card) {
+        const checkbox = card.querySelector('input[type="checkbox"]');
+        checkbox.checked = !checkbox.checked;
+        card.classList.toggle('selected', checkbox.checked);
+    }
+    
+    function filterTestTypesByEnvironment() {
+        const selectedEnvironment = document.getElementById('region').value;
+        const testTypeSection = document.getElementById('testTypeSection');
+        const testTypeSelect = document.getElementById('test_type');
+        const noTestTypesMessage = document.getElementById('noTestTypesMessage');
+        const apiSection = document.getElementById('apiSection');
+        
+        // If no environment selected, hide test type section
+        if (!selectedEnvironment) {
+            testTypeSection.style.display = 'none';
+            apiSection.style.display = 'none';
+            return;
+        }
+        
+        // Show test type section
+        testTypeSection.style.display = 'block';
+        
+        // Reset test type selection
+        testTypeSelect.value = '';
+        apiSection.style.display = 'none';
+        
+        // Filter test type options based on environment
+        const testTypeOptions = testTypeSelect.querySelectorAll('option[data-environments]');
+        let availableTestTypes = 0;
+        
+        testTypeOptions.forEach(option => {
+            const environments = option.getAttribute('data-environments');
+            const isAvailable = environments && environments.split('|').includes(selectedEnvironment);
+            
+            if (isAvailable) {
+                option.style.display = 'block';
+                option.disabled = false;
+                availableTestTypes++;
+            } else {
+                option.style.display = 'none';
+                option.disabled = true;
+            }
+        });
+        
+        // Show/hide no test types message
+        if (availableTestTypes === 0) {
+            noTestTypesMessage.style.display = 'block';
+            testTypeSelect.disabled = true;
+        } else {
+            noTestTypesMessage.style.display = 'none';
+            testTypeSelect.disabled = false;
+        }
+        
+        console.log(`Filtered test types for environment: ${selectedEnvironment}, available count: ${availableTestTypes}`);
+    }
+    
+    function filterAPIsByTestType() {
+        const selectedEnvironment = document.getElementById('region').value;
+        const selectedTestType = document.getElementById('test_type').value;
+        const apiSection = document.getElementById('apiSection');
+        const noApisMessage = document.getElementById('noApisMessage');
+        const apiCards = document.querySelectorAll('.api-card');
+        const apiTypeSections = document.querySelectorAll('.api-type-section');
+        
+        // If no test type selected, hide the entire API section
+        if (!selectedTestType || !selectedEnvironment) {
+            apiSection.style.display = 'none';
+            return;
+        }
+        
+        // Show the API section
+        apiSection.style.display = 'block';
+        
+        let visibleApisCount = 0;
+        
+        // Filter API cards based on both environment and test type
+        apiCards.forEach(card => {
+            const testTypes = card.getAttribute('data-test-types');
+            const environments = card.getAttribute('data-environments');
+            
+            const matchesTestType = testTypes && testTypes.split('|').includes(selectedTestType);
+            const matchesEnvironment = environments && environments.split('|').includes(selectedEnvironment);
+            const isVisible = matchesTestType && matchesEnvironment;
+            
+            if (isVisible) {
+                card.style.display = 'block';
+                visibleApisCount++;
+                // Uncheck if previously checked when switching filters
+                const checkbox = card.querySelector('input[type="checkbox"]');
+                if (checkbox) {
+                    checkbox.checked = false;
+                    card.classList.remove('selected');
+                }
+            } else {
+                card.style.display = 'none';
+            }
+        });
+        
+        // Hide/show API type sections that have no visible cards
+        apiTypeSections.forEach(section => {
+            const hasVisibleCards = Array.from(section.querySelectorAll('.api-card')).some(card => {
+                const testTypes = card.getAttribute('data-test-types');
+                const environments = card.getAttribute('data-environments');
+                const matchesTestType = testTypes && testTypes.split('|').includes(selectedTestType);
+                const matchesEnvironment = environments && environments.split('|').includes(selectedEnvironment);
+                return matchesTestType && matchesEnvironment;
+            });
+            
+            if (hasVisibleCards) {
+                section.style.display = 'block';
+            } else {
+                section.style.display = 'none';
+            }
+        });
+        
+        // Show/hide no APIs message
+        if (visibleApisCount === 0) {
+            noApisMessage.style.display = 'block';
+        } else {
+            noApisMessage.style.display = 'none';
+        }
+        
+        console.log(`Filtered APIs for environment: ${selectedEnvironment}, test type: ${selectedTestType}, visible count: ${visibleApisCount}`);
+    }
+    
+    function updateApiCard(checkbox) {
+        const card = checkbox.closest('.api-card');
+        card.classList.toggle('selected', checkbox.checked);
+    }
+    
+    function toggleApiCard(card) {
         const checkbox = card.querySelector('input[type="checkbox"]');
         checkbox.checked = !checkbox.checked;
         card.classList.toggle('selected', checkbox.checked);
@@ -795,11 +1053,59 @@ HTML_TEMPLATE = """
         }
     }
     
+    function setButtonLoadingState(isLoading) {
+        const submitButton = document.getElementById('runTestsBtn');
+        const buttonText = submitButton?.querySelector('.button-text');
+        const loadingContainer = submitButton?.querySelector('.loading-text');
+        
+        if (submitButton && buttonText && loadingContainer) {
+            if (isLoading) {
+                // Add spinner and update text
+                submitButton.disabled = true;
+                loadingContainer.innerHTML = '<span class="spinner"></span><span class="button-text">Running Tests...</span>';
+                submitButton.style.pointerEvents = 'none';
+            } else {
+                // Remove spinner and restore original text
+                submitButton.disabled = false;
+                loadingContainer.innerHTML = '<span class="button-text">Run Selected Tests</span>';
+                submitButton.style.pointerEvents = 'auto';
+            }
+        }
+    }
+    
+    function validateForm() {
+        const region = document.getElementById('region').value;
+        const testType = document.getElementById('test_type').value;
+        const selectedApis = document.querySelectorAll('input[name="selected_apis"]:checked');
+        
+        if (!region) {
+            alert('Please select an environment.');
+            setButtonLoadingState(false);
+            return false;
+        }
+        
+        if (!testType) {
+            alert('Please select a test type.');
+            setButtonLoadingState(false);
+            return false;
+        }
+        
+        if (selectedApis.length === 0) {
+            alert('Please select at least one API to test.');
+            setButtonLoadingState(false);
+            return false;
+        }
+        
+        // Show immediate visual feedback
+        setButtonLoadingState(true);
+        return true;
+    }
+    
     // Initialize WebSocket connection
     document.addEventListener('DOMContentLoaded', function() {
         // Basic styling
-        document.documentElement.style.fontSize = "16px";
-        document.body.style.fontSize = "16px";
+        document.documentElement.style.fontSize = "24px";
+        document.body.style.fontSize = "24px";
         
         // Initialize Socket.IO
         socket = io();
@@ -845,12 +1151,8 @@ HTML_TEMPLATE = """
             
             addTerminalLine('info', 'Results page will load automatically...');
             
-            // Enable form submission again (if it was disabled)
-            const submitButton = document.querySelector('button[type="submit"]');
-            if (submitButton) {
-                submitButton.disabled = false;
-                submitButton.textContent = 'Run Selected Tests';
-            }
+            // Reset button to normal state
+            setButtonLoadingState(false);
         });
         
         // Intercept form submission to show terminal and disable form
@@ -861,14 +1163,19 @@ HTML_TEMPLATE = """
                 clearTerminal();
                 addTerminalLine('info', '=== Test execution starting... ===');
                 
-                // Disable submit button during execution
-                const submitButton = this.querySelector('button[type="submit"]');
-                if (submitButton) {
-                    submitButton.disabled = true;
-                    submitButton.textContent = 'Running Tests...';
+                // Enable loading state on submit button (already set by validateForm)
+                if (!document.getElementById('runTestsBtn').disabled) {
+                    setButtonLoadingState(true);
                 }
                 
                 socket.emit('start_execution');
+                
+                // Add timeout fallback to reset button state if something goes wrong
+                setTimeout(() => {
+                    if (document.getElementById('runTestsBtn').disabled) {
+                        addTerminalLine('info', 'Checking execution status...');
+                    }
+                }, 30000); // 30 second timeout
             });
         }
         
@@ -936,7 +1243,7 @@ def view_reports():
     <html>
     <head>
         <title>Historical Allure Reports</title>
-        <meta name="viewport" content="width=1200, initial-scale=1.0">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
         <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
         <meta http-equiv="Pragma" content="no-cache" />
         <meta http-equiv="Expires" content="0" />
@@ -952,16 +1259,12 @@ def view_reports():
                 padding: 0;
                 font-family: 'Montserrat', sans-serif;
                 background: #f0f2f5;
-                display: flex;
-                transform: scale(2);
-                transform-origin: 0 0;
-                width: 50vw;
-                height: 50vh;
+                min-height: 100vh;
             }
 
             .sidebar {
-                width: 250px;
-                height: 100vh;
+                width: 420px;
+                min-height: 100vh;
                 background: white;
                 position: fixed;
                 left: 0;
@@ -973,8 +1276,8 @@ def view_reports():
             }
 
             .sidebar-title {
-                padding: 20px;
-                font-size: 1.2em;
+                padding: 36px;
+                font-size: 1.68em;
                 font-weight: 600;
                 color: var(--zinnia-blue);
                 border-bottom: 2px solid var(--zinnia-gold);
@@ -993,10 +1296,11 @@ def view_reports():
 
             .sidebar-menu a {
                 display: block;
-                padding: 15px 20px;
+                padding: 26px 36px;
                 color: #333;
                 text-decoration: none;
                 transition: all 0.2s;
+                font-size: 1.32rem;
             }
 
             .sidebar-menu a:hover {
@@ -1019,20 +1323,29 @@ def view_reports():
             }
 
             .main-content {
-                margin-left: 250px;
-                padding: 20px;
-                width: calc(100% - 250px);
+                margin-left: 420px;
+                padding: 36px;
+                padding-top: 120px;
+                min-height: 100vh;
+                width: calc(100% - 420px);
+                box-sizing: border-box;
             }
 
             .header {
                 background: white;
                 padding: 20px;
-                margin-bottom: 30px;
                 box-shadow: var(--zinnia-shadow);
+                position: fixed;
+                top: 0;
+                left: 420px;
+                right: 0;
+                z-index: 1000;
+                width: calc(100% - 420px);
+                box-sizing: border-box;
             }
 
             .header-inner {
-                max-width: 1200px;
+                max-width: 1560px;
                 margin: 0 auto;
             }
 
@@ -1049,9 +1362,9 @@ def view_reports():
             }
 
             .container {
-                max-width: 1200px;
+                max-width: 1560px;
                 margin: 0 auto;
-                padding: 20px;
+                padding: 20px 20px 40px 20px;
             }
 
             .card {
@@ -1380,9 +1693,41 @@ def run_tests():
             comparison_table_html = f"<div class='card' style='margin-top:20px'><h3>Expected vs Actual</h3><div style='color:#d32f2f'>Comparison init error: {_compare_outer_err}</div></div>"
 
         
-        # If APIs are selected, run them through the API executor
+        # If APIs are selected, run them through the dynamic API executor
         if selected_apis:
-            api_executor_path = 'tests/api/api_config_executor.robot'
+            # Generate dynamic Robot Framework file for selected APIs only
+            import subprocess
+            import sys
+            
+            # Step 1: Generate dynamic robot file
+            try:
+                # Change to tests/api directory
+                original_cwd = os.getcwd()
+                api_dir = os.path.join(os.getcwd(), 'tests', 'api')
+                os.chdir(api_dir)
+                
+                # Generate dynamic robot file
+                output.append(f"[INFO] Generating dynamic tests for APIs: {', '.join(selected_apis)}")
+                generator_result = subprocess.run([sys.executable, 'dynamic_api_executor.py'], 
+                                                capture_output=True, text=True, env=env)
+                
+                if generator_result.returncode != 0:
+                    output.append(f"[ERROR] Failed to generate dynamic tests: {generator_result.stderr}")
+                    os.chdir(original_cwd)
+                    return render_template('results.html', output=output, comparison_table=comparison_table_html)
+                
+                # Log generation success
+                if generator_result.stdout:
+                    output.append(f"[SUCCESS] {generator_result.stdout.strip()}")
+                
+                # Use the generated dynamic robot file
+                api_executor_path = os.path.join(api_dir, 'dynamic_api_tests.robot')
+                
+            except Exception as e:
+                output.append(f"[ERROR] Dynamic test generation failed: {str(e)}")
+                return render_template('results.html', output=output, comparison_table=comparison_table_html)
+            finally:
+                os.chdir(original_cwd)
             
             # Enhanced Robot Framework command with better logging and console capture
             cmd = [
@@ -1392,8 +1737,6 @@ def run_tests():
                 '--variable', f'SELECTED_APIS:{str(selected_apis)}',
                 '--variable', f'TEST_TYPE:{test_type}',
                 '--listener', f'allure_robotframework;{os.path.join(results_dir, "allure-results")}',
-                '--listener', f'allure_console_listener.AllureConsoleListener:{os.path.join(results_dir, "allure-results")}',  # Custom console listener
-                '--listener', f'DebugLibrary',  # Add debug listener for enhanced logging
                 '--loglevel', 'INFO',  # Set log level to capture more details
                 '--report', os.path.join(results_dir, 'detailed_report.html'),
                 '--log', os.path.join(results_dir, 'detailed_log.html'),
@@ -1405,13 +1748,45 @@ def run_tests():
             # Execute with improved real-time output capture
             stdout_lines, stderr_lines, return_code = execute_command_with_realtime_output(cmd, env=env)
             
-            output.append(f"Running API Execution Test (Enhanced Logging)")
+            # Cleanup: Remove the generated dynamic robot file
+            try:
+                if os.path.exists(api_executor_path):
+                    os.remove(api_executor_path)
+            except Exception as cleanup_error:
+                output.append(f"[WARNING] Could not cleanup dynamic test file: {cleanup_error}")
+            
+            output.append(f"Running Dynamic API Tests (Selected: {', '.join(selected_apis)})")
             output.append("=== API Test Console Output ===")
             output.extend(stdout_lines)
             
             if stderr_lines:
-                output.append("=== API Test Errors ===")
-                output.extend(stderr_lines)
+                # Filter out unwanted error messages
+                filtered_stderr = []
+                for line in stderr_lines:
+                    # Skip module not found errors for listeners
+                    if "allure_console_listener" in line:
+                        continue
+                    if "DebugLibrary" in line:
+                        continue
+                    # Skip PYTHONPATH output
+                    if line.strip().startswith("PYTHONPATH:") or "PYTHONPATH" in line:
+                        continue
+                    # Skip urllib3 warnings and warnings.warn lines
+                    if ("InsecureRequestWarning" in line or "urllib3" in line or 
+                        "warnings.warn(" in line or line.strip().startswith("warnings.warn(") or
+                        "connectionpool.py" in line):
+                        continue
+                    # Skip traceback lines for known issues
+                    if "Traceback (most recent call last):" in line:
+                        continue
+                    if line.strip() == "None":
+                        continue
+                    filtered_stderr.append(line)
+                
+                # Only show errors section if there are actual errors to display
+                if filtered_stderr:
+                    output.append("=== API Test Errors ===")
+                    output.extend(filtered_stderr)
             
             # Check API execution results
             if return_code > 1:  # Robot Framework: 0=pass, 1=test failures (normal), >1=execution error
@@ -1448,8 +1823,6 @@ def run_tests():
                 '--variable', f'SELECTED_APIS:{",".join(selected_apis)}',
                 '--variable', f'TEST_TYPE:{test_type}',
                 '--listener', f'allure_robotframework;{os.path.join(results_dir, "allure-results")}',
-                '--listener', f'allure_console_listener.AllureConsoleListener:{os.path.join(results_dir, "allure-results")}',  # Custom console listener
-                '--listener', f'DebugLibrary',  # Add debug listener for enhanced logging
                 '--loglevel', 'INFO',  # Set log level to capture more details
                 '--report', os.path.join(results_dir, f'{test_name}_detailed_report.html'),
                 '--log', os.path.join(results_dir, f'{test_name}_detailed_log.html'),
@@ -1471,8 +1844,33 @@ def run_tests():
             output.extend(stdout_lines)
             
             if stderr_lines:
-                output.append(f"=== {test_name} Errors ===")
-                output.extend(stderr_lines)
+                # Filter out unwanted error messages
+                filtered_stderr = []
+                for line in stderr_lines:
+                    # Skip module not found errors for listeners
+                    if "allure_console_listener" in line:
+                        continue
+                    if "DebugLibrary" in line:
+                        continue
+                    # Skip PYTHONPATH output
+                    if line.strip().startswith("PYTHONPATH:") or "PYTHONPATH" in line:
+                        continue
+                    # Skip urllib3 warnings and warnings.warn lines
+                    if ("InsecureRequestWarning" in line or "urllib3" in line or 
+                        "warnings.warn(" in line or line.strip().startswith("warnings.warn(") or
+                        "connectionpool.py" in line):
+                        continue
+                    # Skip traceback lines for known issues
+                    if "Traceback (most recent call last):" in line:
+                        continue
+                    if line.strip() == "None":
+                        continue
+                    filtered_stderr.append(line)
+                
+                # Only show errors section if there are actual errors to display
+                if filtered_stderr:
+                    output.append(f"=== {test_name} Errors ===")
+                    output.extend(filtered_stderr)
             
             # Check test execution results
             if return_code > 1:  # Robot Framework: 0=pass, 1=test failures (normal), >1=execution error
@@ -1655,7 +2053,7 @@ def run_tests():
         <html>
         <head>
             <title>Test Execution Results</title>
-            <meta name="viewport" content="width=1200, initial-scale=1.0">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
             <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
             <style>
                 :root {{
@@ -1668,13 +2066,10 @@ def run_tests():
                     margin: 0;
                     padding: 20px;
                     background: #f0f2f5;
-                    transform: scale(2);
-                    transform-origin: 0 0;
-                    width: 50vw;
-                    height: 50vh;
+                    min-height: 100vh;
                 }}
                 .container {{
-                    max-width: 1200px;
+                    max-width: 1560px;
                     margin: 0 auto;
                     background: white;
                     padding: 30px;
@@ -1800,7 +2195,7 @@ def run_tests():
         <html>
         <head>
             <title>Error - Test Execution</title>
-            <meta name="viewport" content="width=1200, initial-scale=1.0">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
             <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
             <style>
                 :root {{
@@ -1813,10 +2208,7 @@ def run_tests():
                     margin: 0;
                     padding: 20px;
                     background: #f0f2f5;
-                    transform: scale(2);
-                    transform-origin: 0 0;
-                    width: 50vw;
-                    height: 50vh;
+                    min-height: 100vh;
                 }}
                 .container {{
                     max-width: 800px;

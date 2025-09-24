@@ -1,0 +1,61 @@
+transaction_onboarding_regression_suite.robot Console Output
+==================================================
+Test Suite: transaction_onboarding_regression_suite.robot
+Environment: dev
+Test Type: smoke
+Start Time: 2025-09-22 13:43:03
+==================================================
+
+STDOUT:
+====================================================================================================
+Transaction Onboarding Regression Suite
+====================================================================================================
+Perform Systematic Premium Setup Process for client Everly testID: TC_015                   Executing Systematic Premium Setup until lifecycle completion only
+Perform Policy Creation Process
+-----------------------------------------------------------
+Policy has been uploaded successfully on Zahara
+| FAIL |
+Element '//div[contains(text(),'ZLC1969235')]' not visible after 1 minute.
+----------------------------------------------------------------------------------------------------
+Transaction Onboarding Regression Suite                                                     | FAIL |
+1 test, 0 passed, 1 failed
+====================================================================================================
+Output:  C:\Users\sharmash\automation-framwork\results\run_20250922_134035\output.xml
+Log:     C:\Users\sharmash\automation-framwork\results\run_20250922_134035\results\run_20250922_134035\transaction_onboarding_regression_suite.robot_detailed_log.html
+Report:  C:\Users\sharmash\automation-framwork\results\run_20250922_134035\results\run_20250922_134035\transaction_onboarding_regression_suite.robot_detailed_report.html
+
+STDERR:
+[ ERROR ] Taking listener 'allure_console_listener.AllureConsoleListener:results/run_20250922_134035\allure-results' into use failed: Importing listener 'allure_console_listener.AllureConsoleListener' failed: ModuleNotFoundError: No module named 'allure_console_listener'
+Traceback (most recent call last):
+  None
+PYTHONPATH:
+  C:\Program Files\Python312\Scripts\robot.exe
+  c:\Users\sharmash\Downloads\QAS-ZinniaLive-AutomationTesting (1)\QAS-ZinniaLive-AutomationTesting
+  C:\Users\sharmash\automation-framwork\%PYTHONPATH%
+  C:\Program Files\Python312\python312.zip
+  C:\Program Files\Python312\DLLs
+  C:\Program Files\Python312\Lib
+  C:\Program Files\Python312
+  C:\Users\sharmash\AppData\Roaming\Python\Python312\site-packages
+  C:\Users\sharmash\AppData\Roaming\Python\Python312\site-packages\win32
+  C:\Users\sharmash\AppData\Roaming\Python\Python312\site-packages\win32\lib
+  C:\Users\sharmash\AppData\Roaming\Python\Python312\site-packages\Pythonwin
+  C:\Program Files\Python312\Lib\site-packages
+[ ERROR ] Taking listener 'DebugLibrary' into use failed: Importing listener 'DebugLibrary' failed: ModuleNotFoundError: No module named 'DebugLibrary'
+Traceback (most recent call last):
+  None
+PYTHONPATH:
+  C:\Program Files\Python312\Scripts\robot.exe
+  c:\Users\sharmash\Downloads\QAS-ZinniaLive-AutomationTesting (1)\QAS-ZinniaLive-AutomationTesting
+  C:\Users\sharmash\automation-framwork\%PYTHONPATH%
+  C:\Program Files\Python312\python312.zip
+  C:\Program Files\Python312\DLLs
+  C:\Program Files\Python312\Lib
+  C:\Program Files\Python312
+  C:\Users\sharmash\AppData\Roaming\Python\Python312\site-packages
+  C:\Users\sharmash\AppData\Roaming\Python\Python312\site-packages\win32
+  C:\Users\sharmash\AppData\Roaming\Python\Python312\site-packages\win32\lib
+  C:\Users\sharmash\AppData\Roaming\Python\Python312\site-packages\Pythonwin
+  C:\Program Files\Python312\Lib\site-packages
+
+Process Exit Code: 1

@@ -1,0 +1,16 @@
+{
+  "execution_info": {
+    "timestamp": "2025-09-23T17:04:06.858022",
+    "environment": "QA",
+    "test_type": "smoke",
+    "selected_apis": [
+      "Search Cases by Agent Name",
+      "Post Task Message",
+      "Get Case Tasks Assignee Summary"
+    ],
+    "selected_tests": [],
+    "execution_failures": [],
+    "console_integration": "enabled",
+    "enhanced_logging": "enabled"
+  }
+}

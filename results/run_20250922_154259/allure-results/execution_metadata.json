@@ -1,0 +1,14 @@
+{
+  "execution_info": {
+    "timestamp": "2025-09-22T15:43:01.933718",
+    "environment": "dev",
+    "test_type": "smoke",
+    "selected_apis": [
+      "Get OAuth Token"
+    ],
+    "selected_tests": [],
+    "execution_failures": [],
+    "console_integration": "enabled",
+    "enhanced_logging": "enabled"
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "execution_info": {
+    "timestamp": "2025-09-22T16:38:40.541821",
+    "environment": "dev",
+    "test_type": "smoke",
+    "selected_apis": [
+      "Get Case Details",
+      "Search Cases by Policy Number"
+    ],
+    "selected_tests": [],
+    "execution_failures": [],
+    "console_integration": "enabled",
+    "enhanced_logging": "enabled"
+  }
+}

@@ -1,0 +1,64 @@
+API Test Console Output
+==================================================
+Environment: dev
+Selected APIs: ['Get OAuth Token']
+Test Type: smoke
+Start Time: 2025-09-22 15:43:01
+==================================================
+
+STDOUT:
+====================================================================================================
+Api Config Executor :: API Configuration Executor for handling token and case APIs
+====================================================================================================
+Run Token And Case API :: Execute configured APIs from the config file                      Executing API: Get OAuth Token
+Token received: eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IlU1SWNUOEQ4LTNWdl80NDFIdnlzbyJ9.eyJodHRwczovL3FhLmFwaS56aW5uaWEuaW8vY2xpZW50SWRzIjpbImV2ZXJseSIsImVsaWMiLCJzYnVsIl0sImh0dHBzOi8vcWEuYXBpLnppbm5pYS5pby9wZXJtaXNzaW9ucyI6WyJyZWFkOnBvbGljeSIsIndyaXRlOnBvbGljeSIsIndyaXRlOmNhc2UiLCJyZWFkOmNhc2UiLCJyZWFkOmRvY3VtZW50Iiwid3JpdGU6ZG9jdW1lbnQiLCJ3cml0ZTp0YXNrIiwicmVhZDp0YXNrIl0sInBhcnR5SWQiOiJjNmE3YWI5ZjdkZDg0MDE1YTY1NTJiZmM1YjM2NmI3NyIsInNvdXJjZSI6IkJ1c2luZXNzIFByb2Nlc3MgTWFuYWdlbWVudCIsImlzcyI6Imh0dHBzOi8vbG9naW4ucWEuemlubmlhLmNvbS8iLCJzdWIiOiJVdU1yaWJyUDNlOHpWaGZIeTZ3UEoyNWxWWWgxQ1dOM0BjbGllbnRzIiwiYXVkIjoiaHR0cHM6Ly9xYS5hcGkuemlubmlhLmlvIiwiaWF0IjoxNzU4NTM1OTgxLCJleHAiOjE3NTg2MjIzODEsInNjb3BlIjoib3BlbmlkIiwiZ3R5IjoiY2xpZW50LWNyZWRlbnRpYWxzIiwiYXpwIjoiVXVNcmliclAzZTh6VmhmSHk2d1BKMjVsVlloMUNXTjMifQ.dffnNRhTb6btCxLA_8sBGJxxynfiRd7FWjeFv2VXZw_2iYzUGM4Ufz5j929KGcUf_OZtOCH7BuWrAnfKP3JXlWn5OsvMzBeUwmh0mFlAVl7xYTdEOFXZWu6MEwqyhIcd_NlX-fxuGphrN_94x_bZdX5ffhIwYHUScpK1BEK19_jvNxFXK941vy0PaA_sHEiybkFZJeHeP4IF1BROok0GsCJaUvy_QMj_QeWgle0Vp8WqdHLD9CvLSMKge0nZbHd1Ntb11unZmPB2Y7fB4FZbrzOOKCQX07qMHgfI9b1PzbluGHd3Jt_uoZR8d9ssMoEW6nOTu04ldn1eT-gu_-5TzQ
+Executing API: Get Case Details
+| FAIL |
+HTTPError: 403 Client Error: Forbidden for url: https://qa.api.zinnia.io/case/v1/cases/12345
+----------------------------------------------------------------------------------------------------
+Api Config Executor :: API Configuration Executor for handling token and case APIs          | FAIL |
+1 test, 0 passed, 1 failed
+====================================================================================================
+Output:  C:\Users\sharmash\automation-framwork\results\run_20250922_154259\output.xml
+Log:     C:\Users\sharmash\automation-framwork\results\run_20250922_154259\results\run_20250922_154259\detailed_log.html
+Report:  C:\Users\sharmash\automation-framwork\results\run_20250922_154259\results\run_20250922_154259\detailed_report.html
+
+STDERR:
+[ ERROR ] Taking listener 'allure_console_listener.AllureConsoleListener:results/run_20250922_154259\allure-results' into use failed: Importing listener 'allure_console_listener.AllureConsoleListener' failed: ModuleNotFoundError: No module named 'allure_console_listener'
+Traceback (most recent call last):
+  None
+PYTHONPATH:
+  C:\Program Files\Python312\Scripts\robot.exe
+  c:\Users\sharmash\Downloads\QAS-ZinniaLive-AutomationTesting (1)\QAS-ZinniaLive-AutomationTesting
+  C:\Users\sharmash\automation-framwork\%PYTHONPATH%
+  C:\Program Files\Python312\python312.zip
+  C:\Program Files\Python312\DLLs
+  C:\Program Files\Python312\Lib
+  C:\Program Files\Python312
+  C:\Users\sharmash\AppData\Roaming\Python\Python312\site-packages
+  C:\Users\sharmash\AppData\Roaming\Python\Python312\site-packages\win32
+  C:\Users\sharmash\AppData\Roaming\Python\Python312\site-packages\win32\lib
+  C:\Users\sharmash\AppData\Roaming\Python\Python312\site-packages\Pythonwin
+  C:\Program Files\Python312\Lib\site-packages
+[ ERROR ] Taking listener 'DebugLibrary' into use failed: Importing listener 'DebugLibrary' failed: ModuleNotFoundError: No module named 'DebugLibrary'
+Traceback (most recent call last):
+  None
+PYTHONPATH:
+  C:\Program Files\Python312\Scripts\robot.exe
+  c:\Users\sharmash\Downloads\QAS-ZinniaLive-AutomationTesting (1)\QAS-ZinniaLive-AutomationTesting
+  C:\Users\sharmash\automation-framwork\%PYTHONPATH%
+  C:\Program Files\Python312\python312.zip
+  C:\Program Files\Python312\DLLs
+  C:\Program Files\Python312\Lib
+  C:\Program Files\Python312
+  C:\Users\sharmash\AppData\Roaming\Python\Python312\site-packages
+  C:\Users\sharmash\AppData\Roaming\Python\Python312\site-packages\win32
+  C:\Users\sharmash\AppData\Roaming\Python\Python312\site-packages\win32\lib
+  C:\Users\sharmash\AppData\Roaming\Python\Python312\site-packages\Pythonwin
+  C:\Program Files\Python312\Lib\site-packages
+C:\Users\sharmash\AppData\Roaming\Python\Python312\site-packages\urllib3\connectionpool.py:1103: InsecureRequestWarning: Unverified HTTPS request is being made to host 'login.qa.zinnia.com'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(
+C:\Users\sharmash\AppData\Roaming\Python\Python312\site-packages\urllib3\connectionpool.py:1103: InsecureRequestWarning: Unverified HTTPS request is being made to host 'qa.api.zinnia.io'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(
+
+Process Exit Code: 1

@@ -1,0 +1,2144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.0.1 (Python 3.12.1 on win32)" generated="2025-09-22T16:34:15.599553" rpa="false" schemaversion="5">
+<suite id="s1" name="Api Config Executor" source="C:\Users\sharmash\automation-framwork\tests\api\api_config_executor.robot">
+<kw name="Setup Session" type="SETUP">
+<kw name="Create Session" owner="RequestsLibrary">
+<msg time="2025-09-22T16:34:16.191501" level="INFO">Creating Session using : alias=api_session, url=https://login.qa.zinnia.com, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<arg>api_session</arg>
+<arg>https://login.qa.zinnia.com</arg>
+<arg>verify=False</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<status status="PASS" start="2025-09-22T16:34:16.190503" elapsed="0.000998"/>
+</kw>
+<kw name="Create Session" owner="RequestsLibrary">
+<msg time="2025-09-22T16:34:16.194501" level="INFO">Creating Session using : alias=api_session_case, url=https://qa.api.zinnia.io, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<arg>api_session_case</arg>
+<arg>https://qa.api.zinnia.io</arg>
+<arg>verify=False</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<status status="PASS" start="2025-09-22T16:34:16.193500" elapsed="0.001001"/>
+</kw>
+<kw name="Create Session" owner="RequestsLibrary">
+<msg time="2025-09-22T16:34:16.198501" level="INFO">Creating Session using : alias=api_session_bpm, url=https://qa-bpm.se2.com, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<arg>api_session_bpm</arg>
+<arg>https://qa-bpm.se2.com</arg>
+<arg>verify=False</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<status status="PASS" start="2025-09-22T16:34:16.197500" elapsed="0.001001"/>
+</kw>
+<status status="PASS" start="2025-09-22T16:34:16.190503" elapsed="0.009999"/>
+</kw>
+<test id="s1-t1" name="Execute Get OAuth Token API" line="236">
+<kw name="Check API Selection And Load Config" type="SETUP">
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-09-22T16:34:16.201501" level="INFO">${config_loaded} = False</msg>
+<var>${config_loaded}</var>
+<arg>len($FILTERED_APIS) &gt; 0</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-09-22T16:34:16.201501" elapsed="0.000000"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Load And Filter API Configuration">
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-09-22T16:34:16.205500" level="INFO">${config_file} = C:\Users\sharmash\automation-framwork\tests\api\..\api_config.json</msg>
+<var>${config_file}</var>
+<arg>C:\\Users\\sharmash\\automation-framwork\\tests\\api${/}..${/}api_config.json</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-09-22T16:34:16.204502" elapsed="0.000998"/>
+</kw>
+<kw name="File Should Exist" owner="OperatingSystem">
+<msg time="2025-09-22T16:34:16.208500" level="INFO" html="true">File '&lt;a href="file://C:\Users\sharmash\automation-framwork\tests\api_config.json"&gt;C:\Users\sharmash\automation-framwork\tests\api_config.json&lt;/a&gt;' exists.</msg>
+<arg>${config_file}</arg>
+<arg>msg=API config file not found: ${config_file}</arg>
+<doc>Fails unless the given ``path`` points to an existing file.</doc>
+<status status="PASS" start="2025-09-22T16:34:16.207501" elapsed="0.000999"/>
+</kw>
+<kw name="Get File" owner="OperatingSystem">
+<msg time="2025-09-22T16:34:16.211501" level="INFO" html="true">Getting file '&lt;a href="file://C:\Users\sharmash\automation-framwork\tests\api_config.json"&gt;C:\Users\sharmash\automation-framwork\tests\api_config.json&lt;/a&gt;'.</msg>
+<msg time="2025-09-22T16:34:16.211501" level="INFO">${file_content} = {
+    "regions": {
+      "dev": "https://login.qa.zinnia.com/",
+      "QA": "https://login.qa.zinnia.com/",
+      "prod": "https://login.qa.zinnia.com/"
+    },
+    "apis": [
+      {
+        "name": "G...</msg>
+<var>${file_content}</var>
+<arg>${config_file}</arg>
+<doc>Returns the contents of a specified file.</doc>
+<status status="PASS" start="2025-09-22T16:34:16.210501" elapsed="0.001000"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-09-22T16:34:16.215500" level="INFO">${config} = {'regions': {'dev': 'https://login.qa.zinnia.com/', 'QA': 'https://login.qa.zinnia.com/', 'prod': 'https://login.qa.zinnia.com/'}, 'apis': [{'name': 'Get OAuth Token', 'endpoint': '/oauth/token', 'met...</msg>
+<var>${config}</var>
+<arg>json.loads('''${file_content}''')</arg>
+<arg>json</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-09-22T16:34:16.214500" elapsed="0.001000"/>
+</kw>
+<kw name="Dictionary Should Contain Key" owner="Collections">
+<arg>${config}</arg>
+<arg>apis</arg>
+<arg>msg=Config file must contain 'apis' key</arg>
+<doc>Fails if ``key`` is not found from ``dictionary``.</doc>
+<status status="PASS" start="2025-09-22T16:34:16.218500" elapsed="0.000000"/>
+</kw>
+<kw name="Set Global Variable" owner="BuiltIn">
+<msg time="2025-09-22T16:34:16.218500" level="INFO">${GLOBAL_CONFIG} = {'regions': {'dev': 'https://login.qa.zinnia.com/', 'QA': 'https://login.qa.zinnia.com/', 'prod': 'https://login.qa.zinnia.com/'}, 'apis': [{'name': 'Get OAuth Token', 'endpoint': '/oauth/token', 'met...</msg>
+<arg>${GLOBAL_CONFIG}</arg>
+<arg>${config}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<status status="PASS" start="2025-09-22T16:34:16.218500" elapsed="0.000000"/>
+</kw>
+<kw name="Get Environment Variable" owner="OperatingSystem">
+<msg time="2025-09-22T16:34:16.221500" level="INFO">${selected_apis_str} = Get Case Details,Search Cases by Agent Name</msg>
+<var>${selected_apis_str}</var>
+<arg>SELECTED_APIS</arg>
+<arg>default=ALL</arg>
+<doc>Returns the value of an environment variable with the given name.</doc>
+<status status="PASS" start="2025-09-22T16:34:16.220500" elapsed="0.001000"/>
+</kw>
+<kw name="Filter Selected APIs">
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-09-22T16:34:16.224501" level="INFO">${use_all_apis} = False</msg>
+<var>${use_all_apis}</var>
+<arg>"${selected_apis_str}" == "ALL" or "${selected_apis_str}" == ""</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-09-22T16:34:16.224501" elapsed="0.000000"/>
+</kw>
+<kw name="Return From Keyword If" owner="BuiltIn">
+<arg>${use_all_apis}</arg>
+<arg>@{all_apis}</arg>
+<doc>Returns from the enclosing user keyword if ``condition`` is true.</doc>
+<status status="PASS" start="2025-09-22T16:34:16.227502" elapsed="0.000000"/>
+</kw>
+<kw name="Split String" owner="String">
+<msg time="2025-09-22T16:34:16.227502" level="INFO">${selected_api_names} = ['Get Case Details', 'Search Cases by Agent Name']</msg>
+<var>${selected_api_names}</var>
+<arg>${selected_apis_str}</arg>
+<arg>,</arg>
+<doc>Splits the ``string`` using ``separator`` as a delimiter string.</doc>
+<status status="PASS" start="2025-09-22T16:34:16.227502" elapsed="0.000000"/>
+</kw>
+<kw name="Create List" owner="BuiltIn">
+<msg time="2025-09-22T16:34:16.230500" level="INFO">${filtered_apis} = []</msg>
+<var>${filtered_apis}</var>
+<doc>Returns a list containing given items.</doc>
+<status status="PASS" start="2025-09-22T16:34:16.229500" elapsed="0.001000"/>
+</kw>
+<for flavor="IN">
+<iter>
+<kw name="Get From Dictionary" owner="Collections">
+<msg time="2025-09-22T16:34:16.233500" level="INFO">${api_name} = Get OAuth Token</msg>
+<var>${api_name}</var>
+<arg>${api}</arg>
+<arg>name</arg>
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<status status="PASS" start="2025-09-22T16:34:16.233500" elapsed="0.000000"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-09-22T16:34:16.238524" level="INFO">${is_selected} = False</msg>
+<var>${is_selected}</var>
+<arg>"${api_name}" in [name.strip() for name in ${selected_api_names}]</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-09-22T16:34:16.237500" elapsed="0.001024"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<arg>${is_selected}</arg>
+<arg>Append To List</arg>
+<arg>${filtered_apis}</arg>
+<arg>${api}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-09-22T16:34:16.240544" elapsed="0.000993"/>
+</kw>
+<var name="${api}">{'name': 'Get OAuth Token', 'endpoint': '/oauth/token', 'method': 'POST', 'api_type': 'Authentication', 'payload': {'audience': 'https://qa.api.zinnia.io', 'grant_type': 'client_credentials', 'client_...</var>
+<status status="PASS" start="2025-09-22T16:34:16.232500" elapsed="0.009037"/>
+</iter>
+<iter>
+<kw name="Get From Dictionary" owner="Collections">
+<msg time="2025-09-22T16:34:16.242546" level="INFO">${api_name} = Get Case Details</msg>
+<var>${api_name}</var>
+<arg>${api}</arg>
+<arg>name</arg>
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<status status="PASS" start="2025-09-22T16:34:16.242546" elapsed="0.000000"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-09-22T16:34:16.246501" level="INFO">${is_selected} = True</msg>
+<var>${is_selected}</var>
+<arg>"${api_name}" in [name.strip() for name in ${selected_api_names}]</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-09-22T16:34:16.245500" elapsed="0.001001"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Append To List" owner="Collections">
+<arg>${filtered_apis}</arg>
+<arg>${api}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" start="2025-09-22T16:34:16.249501" elapsed="0.000000"/>
+</kw>
+<arg>${is_selected}</arg>
+<arg>Append To List</arg>
+<arg>${filtered_apis}</arg>
+<arg>${api}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-09-22T16:34:16.248501" elapsed="0.002000"/>
+</kw>
+<var name="${api}">{'name': 'Get Case Details', 'endpoint': '/case/v1/cases/{caseID}', 'method': 'GET', 'api_type': 'Case Management', 'base_url': 'https://qa-bpm.se2.com', 'headers': {'Content-Type': 'application/json'...</var>
+<status status="PASS" start="2025-09-22T16:34:16.242546" elapsed="0.007955"/>
+</iter>
+<iter>
+<kw name="Get From Dictionary" owner="Collections">
+<msg time="2025-09-22T16:34:16.251501" level="INFO">${api_name} = Search Cases by Policy Number</msg>
+<var>${api_name}</var>
+<arg>${api}</arg>
+<arg>name</arg>
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<status status="PASS" start="2025-09-22T16:34:16.251501" elapsed="0.000000"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-09-22T16:34:16.255501" level="INFO">${is_selected} = False</msg>
+<var>${is_selected}</var>
+<arg>"${api_name}" in [name.strip() for name in ${selected_api_names}]</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-09-22T16:34:16.254557" elapsed="0.000944"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<arg>${is_selected}</arg>
+<arg>Append To List</arg>
+<arg>${filtered_apis}</arg>
+<arg>${api}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-09-22T16:34:16.259500" elapsed="0.000000"/>
+</kw>
+<var name="${api}">{'name': 'Search Cases by Policy Number', 'endpoint': '/case/v1/cases/search', 'method': 'POST', 'api_type': 'Case Management', 'base_url': 'https://qa-bpm.se2.com', 'payload': {'policyNumber': '57102...</var>
+<status status="PASS" start="2025-09-22T16:34:16.250501" elapsed="0.010000"/>
+</iter>
+<iter>
+<kw name="Get From Dictionary" owner="Collections">
+<msg time="2025-09-22T16:34:16.261517" level="INFO">${api_name} = Search Cases by Agent Name</msg>
+<var>${api_name}</var>
+<arg>${api}</arg>
+<arg>name</arg>
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<status status="PASS" start="2025-09-22T16:34:16.261517" elapsed="0.000000"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-09-22T16:34:16.265501" level="INFO">${is_selected} = True</msg>
+<var>${is_selected}</var>
+<arg>"${api_name}" in [name.strip() for name in ${selected_api_names}]</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-09-22T16:34:16.265501" elapsed="0.000000"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Append To List" owner="Collections">
+<arg>${filtered_apis}</arg>
+<arg>${api}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" start="2025-09-22T16:34:16.269501" elapsed="0.000000"/>
+</kw>
+<arg>${is_selected}</arg>
+<arg>Append To List</arg>
+<arg>${filtered_apis}</arg>
+<arg>${api}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-09-22T16:34:16.268500" elapsed="0.002001"/>
+</kw>
+<var name="${api}">{'name': 'Search Cases by Agent Name', 'endpoint': '/case/v1/cases/search', 'method': 'POST', 'api_type': 'Case Management', 'base_url': 'https://qa-bpm.se2.com', 'payload': {'agentFirstName': 'ROBERT...</var>
+<status status="PASS" start="2025-09-22T16:34:16.260501" elapsed="0.010000"/>
+</iter>
+<iter>
+<kw name="Get From Dictionary" owner="Collections">
+<msg time="2025-09-22T16:34:16.273501" level="INFO">${api_name} = Get Task Assignee Summary</msg>
+<var>${api_name}</var>
+<arg>${api}</arg>
+<arg>name</arg>
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<status status="PASS" start="2025-09-22T16:34:16.273501" elapsed="0.001000"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-09-22T16:34:16.278501" level="INFO">${is_selected} = False</msg>
+<var>${is_selected}</var>
+<arg>"${api_name}" in [name.strip() for name in ${selected_api_names}]</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-09-22T16:34:16.277501" elapsed="0.001000"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<arg>${is_selected}</arg>
+<arg>Append To List</arg>
+<arg>${filtered_apis}</arg>
+<arg>${api}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-09-22T16:34:16.280500" elapsed="0.001001"/>
+</kw>
+<var name="${api}">{'name': 'Get Task Assignee Summary', 'endpoint': '/case/v1/cases/{caseID}/tasks/assignee-summary', 'method': 'GET', 'api_type': 'Task Management', 'base_url': 'https://qa.api.zinnia.io', 'headers': {...</var>
+<status status="PASS" start="2025-09-22T16:34:16.272500" elapsed="0.009001"/>
+</iter>
+<var>${api}</var>
+<value>@{all_apis}</value>
+<status status="PASS" start="2025-09-22T16:34:16.232500" elapsed="0.049001"/>
+</for>
+<kw name="Get Length" owner="BuiltIn">
+<msg time="2025-09-22T16:34:16.282501" level="INFO">Length is 2.</msg>
+<msg time="2025-09-22T16:34:16.282501" level="INFO">${filtered_count} = 2</msg>
+<var>${filtered_count}</var>
+<arg>${filtered_apis}</arg>
+<doc>Returns and logs the length of the given item as an integer.</doc>
+<status status="PASS" start="2025-09-22T16:34:16.282501" elapsed="0.000000"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-09-22T16:34:16.287546" level="INFO">${needs_token} = True</msg>
+<var>${needs_token}</var>
+<arg>${filtered_count} &gt; 0</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-09-22T16:34:16.286506" elapsed="0.001040"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-09-22T16:34:16.291501" level="INFO">${has_token_api} = False</msg>
+<var>${has_token_api}</var>
+<arg>False</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-09-22T16:34:16.291501" elapsed="0.000000"/>
+</kw>
+<for flavor="IN">
+<iter>
+<kw name="Get From Dictionary" owner="Collections">
+<msg time="2025-09-22T16:34:16.296531" level="INFO">${api_name} = Get Case Details</msg>
+<var>${api_name}</var>
+<arg>${api}</arg>
+<arg>name</arg>
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<status status="PASS" start="2025-09-22T16:34:16.296531" elapsed="0.000000"/>
+</kw>
+<kw name="Set Variable If" owner="BuiltIn">
+<msg time="2025-09-22T16:34:16.300532" level="INFO">${has_token_api} = False</msg>
+<var>${has_token_api}</var>
+<arg>"${api_name}" == "Get OAuth Token"</arg>
+<arg>True</arg>
+<arg>${has_token_api}</arg>
+<doc>Sets variable based on the given condition.</doc>
+<status status="PASS" start="2025-09-22T16:34:16.300532" elapsed="0.000000"/>
+</kw>
+<var name="${api}">{'name': 'Get Case Details', 'endpoint': '/case/v1/cases/{caseID}', 'method': 'GET', 'api_type': 'Case Management', 'base_url': 'https://qa-bpm.se2.com', 'headers': {'Content-Type': 'application/json'...</var>
+<status status="PASS" start="2025-09-22T16:34:16.295501" elapsed="0.007999"/>
+</iter>
+<iter>
+<kw name="Get From Dictionary" owner="Collections">
+<msg time="2025-09-22T16:34:16.305501" level="INFO">${api_name} = Search Cases by Agent Name</msg>
+<var>${api_name}</var>
+<arg>${api}</arg>
+<arg>name</arg>
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<status status="PASS" start="2025-09-22T16:34:16.304501" elapsed="0.001000"/>
+</kw>
+<kw name="Set Variable If" owner="BuiltIn">
+<msg time="2025-09-22T16:34:16.310501" level="INFO">${has_token_api} = False</msg>
+<var>${has_token_api}</var>
+<arg>"${api_name}" == "Get OAuth Token"</arg>
+<arg>True</arg>
+<arg>${has_token_api}</arg>
+<doc>Sets variable based on the given condition.</doc>
+<status status="PASS" start="2025-09-22T16:34:16.309500" elapsed="0.001001"/>
+</kw>
+<var name="${api}">{'name': 'Search Cases by Agent Name', 'endpoint': '/case/v1/cases/search', 'method': 'POST', 'api_type': 'Case Management', 'base_url': 'https://qa-bpm.se2.com', 'payload': {'agentFirstName': 'ROBERT...</var>
+<status status="PASS" start="2025-09-22T16:34:16.304501" elapsed="0.009000"/>
+</iter>
+<var>${api}</var>
+<value>@{filtered_apis}</value>
+<status status="PASS" start="2025-09-22T16:34:16.295501" elapsed="0.018000"/>
+</for>
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Add OAuth Token API">
+<for flavor="IN">
+<iter>
+<kw name="Get From Dictionary" owner="Collections">
+<msg time="2025-09-22T16:34:16.316536" level="INFO">${api_name} = Get OAuth Token</msg>
+<var>${api_name}</var>
+<arg>${api}</arg>
+<arg>name</arg>
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<status status="PASS" start="2025-09-22T16:34:16.315542" elapsed="0.000994"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Insert Into List" owner="Collections">
+<arg>${filtered_apis}</arg>
+<arg>0</arg>
+<arg>${api}</arg>
+<doc>Inserts ``value`` into ``list`` to the position specified with ``index``.</doc>
+<status status="PASS" start="2025-09-22T16:34:16.319500" elapsed="0.000000"/>
+</kw>
+<arg>"${api_name}" == "Get OAuth Token"</arg>
+<arg>Insert Into List</arg>
+<arg>${filtered_apis}</arg>
+<arg>0</arg>
+<arg>${api}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-09-22T16:34:16.318500" elapsed="0.002051"/>
+</kw>
+<kw name="Exit For Loop If" owner="BuiltIn">
+<msg time="2025-09-22T16:34:16.320551" level="INFO">Exiting for loop altogether.</msg>
+<arg>"${api_name}" == "Get OAuth Token"</arg>
+<doc>Stops executing the enclosing FOR loop if the ``condition`` is true.</doc>
+<status status="PASS" start="2025-09-22T16:34:16.320551" elapsed="0.000000"/>
+</kw>
+<var name="${api}">{'name': 'Get OAuth Token', 'endpoint': '/oauth/token', 'method': 'POST', 'api_type': 'Authentication', 'payload': {'audience': 'https://qa.api.zinnia.io', 'grant_type': 'client_credentials', 'client_...</var>
+<status status="PASS" start="2025-09-22T16:34:16.315542" elapsed="0.007961"/>
+</iter>
+<var>${api}</var>
+<value>@{all_apis}</value>
+<status status="PASS" start="2025-09-22T16:34:16.315542" elapsed="0.007961"/>
+</for>
+<arg>${filtered_apis}</arg>
+<arg>@{all_apis}</arg>
+<doc>Add OAuth token API to filtered list if not already present</doc>
+<status status="PASS" start="2025-09-22T16:34:16.314501" elapsed="0.010000"/>
+</kw>
+<arg>${needs_token} and not ${has_token_api}</arg>
+<arg>Add OAuth Token API</arg>
+<arg>${filtered_apis}</arg>
+<arg>@{all_apis}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-09-22T16:34:16.314501" elapsed="0.010000"/>
+</kw>
+<kw name="Get Length" owner="BuiltIn">
+<msg time="2025-09-22T16:34:16.324501" level="INFO">Length is 3.</msg>
+<msg time="2025-09-22T16:34:16.324501" level="INFO">${api_count} = 3</msg>
+<var>${api_count}</var>
+<arg>${filtered_apis}</arg>
+<doc>Returns and logs the length of the given item as an integer.</doc>
+<status status="PASS" start="2025-09-22T16:34:16.324501" elapsed="0.000000"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Total APIs to execute: ${api_count}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-22T16:34:16.327533" elapsed="0.001006"/>
+</kw>
+<return>
+<value>@{filtered_apis}</value>
+<status status="PASS" start="2025-09-22T16:34:16.328539" elapsed="0.000000"/>
+</return>
+<msg time="2025-09-22T16:34:16.329500" level="INFO">${filtered_apis} = [{'name': 'Get OAuth Token', 'endpoint': '/oauth/token', 'method': 'POST', 'api_type': 'Authentication', 'payload': {'audience': 'https://qa.api.zinnia.io', 'grant_type': 'client_credentials', 'client...</msg>
+<var>${filtered_apis}</var>
+<arg>${selected_apis_str}</arg>
+<arg>@{config}[apis]</arg>
+<doc>Filter APIs based on selection from dashboard</doc>
+<status status="PASS" start="2025-09-22T16:34:16.223501" elapsed="0.105999"/>
+</kw>
+<kw name="Set Global Variable" owner="BuiltIn">
+<msg time="2025-09-22T16:34:16.333537" level="INFO">@{FILTERED_APIS} = [ {'name': 'Get OAuth Token', 'endpoint': '/oauth/token', 'method': 'POST', 'api_type': 'Authentication', 'payload': {'audience': 'https://qa.api.zinnia.io', 'grant_type': 'client_credentials', 'clien...</msg>
+<arg>@{FILTERED_APIS}</arg>
+<arg>@{filtered_apis}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<status status="PASS" start="2025-09-22T16:34:16.333537" elapsed="0.001010"/>
+</kw>
+<kw name="Get Length" owner="BuiltIn">
+<msg time="2025-09-22T16:34:16.337501" level="INFO">Length is 3.</msg>
+<msg time="2025-09-22T16:34:16.337501" level="INFO">${api_count} = 3</msg>
+<var>${api_count}</var>
+<arg>${filtered_apis}</arg>
+<doc>Returns and logs the length of the given item as an integer.</doc>
+<status status="PASS" start="2025-09-22T16:34:16.337501" elapsed="0.000000"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>\n🚀 Loaded ${api_count} selected APIs for execution</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-22T16:34:16.340501" elapsed="0.001000"/>
+</kw>
+<doc>Load config file and filter APIs based on dashboard selection</doc>
+<status status="PASS" start="2025-09-22T16:34:16.204502" elapsed="0.136999"/>
+</kw>
+<arg>not ${config_loaded}</arg>
+<arg>Load And Filter API Configuration</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-09-22T16:34:16.203502" elapsed="0.137999"/>
+</kw>
+<kw name="Is API Selected">
+<for flavor="IN">
+<iter>
+<kw name="Get From Dictionary" owner="Collections">
+<msg time="2025-09-22T16:34:16.343501" level="INFO">${filtered_api_name} = Get OAuth Token</msg>
+<var>${filtered_api_name}</var>
+<arg>${api}</arg>
+<arg>name</arg>
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<status status="PASS" start="2025-09-22T16:34:16.342502" elapsed="0.000999"/>
+</kw>
+<kw name="Return From Keyword If" owner="BuiltIn">
+<msg time="2025-09-22T16:34:16.346502" level="INFO">Returning from the enclosing user keyword.</msg>
+<arg>'${filtered_api_name}' == '${api_name}'</arg>
+<arg>${True}</arg>
+<doc>Returns from the enclosing user keyword if ``condition`` is true.</doc>
+<status status="PASS" start="2025-09-22T16:34:16.346502" elapsed="0.000000"/>
+</kw>
+<var name="${api}">{'name': 'Get OAuth Token', 'endpoint': '/oauth/token', 'method': 'POST', 'api_type': 'Authentication', 'payload': {'audience': 'https://qa.api.zinnia.io', 'grant_type': 'client_credentials', 'client_...</var>
+<status status="PASS" start="2025-09-22T16:34:16.342502" elapsed="0.006998"/>
+</iter>
+<var>${api}</var>
+<value>@{FILTERED_APIS}</value>
+<status status="PASS" start="2025-09-22T16:34:16.342502" elapsed="0.006998"/>
+</for>
+<kw name="Return From Keyword" owner="BuiltIn">
+<arg>${False}</arg>
+<doc>Returns from the enclosing user keyword.</doc>
+<status status="NOT RUN" start="2025-09-22T16:34:16.349500" elapsed="0.000000"/>
+</kw>
+<msg time="2025-09-22T16:34:16.350501" level="INFO">${api_selected} = True</msg>
+<var>${api_selected}</var>
+<arg>${api_name}</arg>
+<doc>Check if API is in the filtered list</doc>
+<status status="PASS" start="2025-09-22T16:34:16.342502" elapsed="0.007999"/>
+</kw>
+<kw name="Pass Execution If" owner="BuiltIn">
+<arg>not ${api_selected}</arg>
+<arg>API '${api_name}' not selected for execution</arg>
+<doc>Conditionally skips rest of the current test, setup, or teardown with PASS status.</doc>
+<status status="PASS" start="2025-09-22T16:34:16.353501" elapsed="0.000000"/>
+</kw>
+<arg>Get OAuth Token</arg>
+<doc>Load configuration and check if API is selected, exit test if not selected</doc>
+<status status="PASS" start="2025-09-22T16:34:16.201501" elapsed="0.152000"/>
+</kw>
+<kw name="Get API If Selected">
+<for flavor="IN">
+<iter>
+<kw name="Get From Dictionary" owner="Collections">
+<msg time="2025-09-22T16:34:16.355501" level="INFO">${filtered_api_name} = Get OAuth Token</msg>
+<var>${filtered_api_name}</var>
+<arg>${api}</arg>
+<arg>name</arg>
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<status status="PASS" start="2025-09-22T16:34:16.354502" elapsed="0.000999"/>
+</kw>
+<kw name="Return From Keyword If" owner="BuiltIn">
+<msg time="2025-09-22T16:34:16.358500" level="INFO">Returning from the enclosing user keyword.</msg>
+<arg>'${filtered_api_name}' == '${api_name}'</arg>
+<arg>${api}</arg>
+<doc>Returns from the enclosing user keyword if ``condition`` is true.</doc>
+<status status="PASS" start="2025-09-22T16:34:16.358500" elapsed="0.000000"/>
+</kw>
+<var name="${api}">{'name': 'Get OAuth Token', 'endpoint': '/oauth/token', 'method': 'POST', 'api_type': 'Authentication', 'payload': {'audience': 'https://qa.api.zinnia.io', 'grant_type': 'client_credentials', 'client_...</var>
+<status status="PASS" start="2025-09-22T16:34:16.354502" elapsed="0.007000"/>
+</iter>
+<var>${api}</var>
+<value>@{FILTERED_APIS}</value>
+<status status="PASS" start="2025-09-22T16:34:16.354502" elapsed="0.007999"/>
+</for>
+<kw name="Return From Keyword" owner="BuiltIn">
+<arg>None</arg>
+<doc>Returns from the enclosing user keyword.</doc>
+<status status="NOT RUN" start="2025-09-22T16:34:16.362501" elapsed="0.000000"/>
+</kw>
+<msg time="2025-09-22T16:34:16.363503" level="INFO">${api} = {'name': 'Get OAuth Token', 'endpoint': '/oauth/token', 'method': 'POST', 'api_type': 'Authentication', 'payload': {'audience': 'https://qa.api.zinnia.io', 'grant_type': 'client_credentials', 'client_...</msg>
+<var>${api}</var>
+<arg>Get OAuth Token</arg>
+<doc>Get API configuration if it's selected, return None if not selected</doc>
+<status status="PASS" start="2025-09-22T16:34:16.353501" elapsed="0.010002"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Execute API Test">
+<kw name="Get From Dictionary" owner="Collections">
+<msg time="2025-09-22T16:34:16.368500" level="INFO">${api_name} = Get OAuth Token</msg>
+<var>${api_name}</var>
+<arg>${api}</arg>
+<arg>name</arg>
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<status status="PASS" start="2025-09-22T16:34:16.368500" elapsed="0.000000"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>\n=== Executing: ${api_name} ===</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-22T16:34:16.371500" elapsed="0.001002"/>
+</kw>
+<kw name="Execute Single API">
+<kw name="Get From Dictionary" owner="Collections">
+<msg time="2025-09-22T16:34:16.373503" level="INFO">${name} = Get OAuth Token</msg>
+<var>${name}</var>
+<arg>${api}</arg>
+<arg>name</arg>
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<status status="PASS" start="2025-09-22T16:34:16.373503" elapsed="0.000000"/>
+</kw>
+<kw name="Get From Dictionary" owner="Collections">
+<msg time="2025-09-22T16:34:16.377501" level="INFO">${endpoint} = /oauth/token</msg>
+<var>${endpoint}</var>
+<arg>${api}</arg>
+<arg>endpoint</arg>
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<status status="PASS" start="2025-09-22T16:34:16.377501" elapsed="0.000000"/>
+</kw>
+<kw name="Get From Dictionary" owner="Collections">
+<msg time="2025-09-22T16:34:16.382502" level="INFO">${method} = POST</msg>
+<var>${method}</var>
+<arg>${api}</arg>
+<arg>method</arg>
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<status status="PASS" start="2025-09-22T16:34:16.381500" elapsed="0.001002"/>
+</kw>
+<kw name="Get From Dictionary" owner="Collections">
+<msg time="2025-09-22T16:34:16.386501" level="INFO">${headers} = {'Content-Type': 'application/x-www-form-urlencoded'}</msg>
+<var>${headers}</var>
+<arg>${api}</arg>
+<arg>headers</arg>
+<arg>default={}</arg>
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<status status="PASS" start="2025-09-22T16:34:16.386501" elapsed="0.000000"/>
+</kw>
+<kw name="Get From Dictionary" owner="Collections">
+<msg time="2025-09-22T16:34:16.392503" level="INFO">${payload} = {'audience': 'https://qa.api.zinnia.io', 'grant_type': 'client_credentials', 'client_id': 'UuMribrP3e8zVhfHy6wPJ25lVYh1CWN3', 'client_secret': 'WQ4ZBFI0RaYnhlhrZBdw4ltrMk8IKT9bDm1DX_U28doSk4F4Au5KiAso...</msg>
+<var>${payload}</var>
+<arg>${api}</arg>
+<arg>payload</arg>
+<arg>default=None</arg>
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<status status="PASS" start="2025-09-22T16:34:16.391501" elapsed="0.001002"/>
+</kw>
+<kw name="Get From Dictionary" owner="Collections">
+<msg time="2025-09-22T16:34:16.395502" level="INFO">${base_url} = None</msg>
+<var>${base_url}</var>
+<arg>${api}</arg>
+<arg>base_url</arg>
+<arg>default=None</arg>
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<status status="PASS" start="2025-09-22T16:34:16.395502" elapsed="0.001000"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Execute Token API">
+<kw name="Convert Dict To Form Data">
+<kw name="Create List" owner="BuiltIn">
+<msg time="2025-09-22T16:34:16.401501" level="INFO">${list} = []</msg>
+<var>${list}</var>
+<doc>Returns a list containing given items.</doc>
+<status status="PASS" start="2025-09-22T16:34:16.401501" elapsed="0.000000"/>
+</kw>
+<for flavor="IN">
+<iter>
+<kw name="Catenate" owner="BuiltIn">
+<msg time="2025-09-22T16:34:16.406501" level="INFO">${item} = audience=https://qa.api.zinnia.io</msg>
+<var>${item}</var>
+<arg>SEPARATOR==</arg>
+<arg>${key}</arg>
+<arg>${value}</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<status status="PASS" start="2025-09-22T16:34:16.405501" elapsed="0.001000"/>
+</kw>
+<kw name="Append To List" owner="Collections">
+<arg>${list}</arg>
+<arg>${item}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" start="2025-09-22T16:34:16.410501" elapsed="0.000000"/>
+</kw>
+<var name="${key}">audience</var>
+<var name="${value}">https://qa.api.zinnia.io</var>
+<status status="PASS" start="2025-09-22T16:34:16.404501" elapsed="0.006000"/>
+</iter>
+<iter>
+<kw name="Catenate" owner="BuiltIn">
+<msg time="2025-09-22T16:34:16.411502" level="INFO">${item} = grant_type=client_credentials</msg>
+<var>${item}</var>
+<arg>SEPARATOR==</arg>
+<arg>${key}</arg>
+<arg>${value}</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<status status="PASS" start="2025-09-22T16:34:16.411502" elapsed="0.000000"/>
+</kw>
+<kw name="Append To List" owner="Collections">
+<arg>${list}</arg>
+<arg>${item}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" start="2025-09-22T16:34:16.414501" elapsed="0.001000"/>
+</kw>
+<var name="${key}">grant_type</var>
+<var name="${value}">client_credentials</var>
+<status status="PASS" start="2025-09-22T16:34:16.411502" elapsed="0.003999"/>
+</iter>
+<iter>
+<kw name="Catenate" owner="BuiltIn">
+<msg time="2025-09-22T16:34:16.416502" level="INFO">${item} = client_id=UuMribrP3e8zVhfHy6wPJ25lVYh1CWN3</msg>
+<var>${item}</var>
+<arg>SEPARATOR==</arg>
+<arg>${key}</arg>
+<arg>${value}</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<status status="PASS" start="2025-09-22T16:34:16.416502" elapsed="0.000000"/>
+</kw>
+<kw name="Append To List" owner="Collections">
+<arg>${list}</arg>
+<arg>${item}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" start="2025-09-22T16:34:16.419500" elapsed="0.000000"/>
+</kw>
+<var name="${key}">client_id</var>
+<var name="${value}">UuMribrP3e8zVhfHy6wPJ25lVYh1CWN3</var>
+<status status="PASS" start="2025-09-22T16:34:16.415501" elapsed="0.003999"/>
+</iter>
+<iter>
+<kw name="Catenate" owner="BuiltIn">
+<msg time="2025-09-22T16:34:16.420501" level="INFO">${item} = client_secret=WQ4ZBFI0RaYnhlhrZBdw4ltrMk8IKT9bDm1DX_U28doSk4F4Au5KiAsoBCSNYWix</msg>
+<var>${item}</var>
+<arg>SEPARATOR==</arg>
+<arg>${key}</arg>
+<arg>${value}</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<status status="PASS" start="2025-09-22T16:34:16.420501" elapsed="0.000000"/>
+</kw>
+<kw name="Append To List" owner="Collections">
+<arg>${list}</arg>
+<arg>${item}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" start="2025-09-22T16:34:16.424502" elapsed="0.000000"/>
+</kw>
+<var name="${key}">client_secret</var>
+<var name="${value}">WQ4ZBFI0RaYnhlhrZBdw4ltrMk8IKT9bDm1DX_U28doSk4F4Au5KiAsoBCSNYWix</var>
+<status status="PASS" start="2025-09-22T16:34:16.420501" elapsed="0.004001"/>
+</iter>
+<var>${key}</var>
+<var>${value}</var>
+<value>&amp;{dict_payload}</value>
+<status status="PASS" start="2025-09-22T16:34:16.404501" elapsed="0.020001"/>
+</for>
+<kw name="Catenate" owner="BuiltIn">
+<msg time="2025-09-22T16:34:16.425502" level="INFO">${form_data} = audience=https://qa.api.zinnia.io&amp;grant_type=client_credentials&amp;client_id=UuMribrP3e8zVhfHy6wPJ25lVYh1CWN3&amp;client_secret=WQ4ZBFI0RaYnhlhrZBdw4ltrMk8IKT9bDm1DX_U28doSk4F4Au5KiAsoBCSNYWix</msg>
+<var>${form_data}</var>
+<arg>SEPARATOR=&amp;</arg>
+<arg>@{list}</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<status status="PASS" start="2025-09-22T16:34:16.425502" elapsed="0.000000"/>
+</kw>
+<return>
+<value>${form_data}</value>
+<status status="PASS" start="2025-09-22T16:34:16.428500" elapsed="0.000000"/>
+</return>
+<msg time="2025-09-22T16:34:16.429501" level="INFO">${form_data} = audience=https://qa.api.zinnia.io&amp;grant_type=client_credentials&amp;client_id=UuMribrP3e8zVhfHy6wPJ25lVYh1CWN3&amp;client_secret=WQ4ZBFI0RaYnhlhrZBdw4ltrMk8IKT9bDm1DX_U28doSk4F4Au5KiAsoBCSNYWix</msg>
+<var>${form_data}</var>
+<arg>${payload}</arg>
+<status status="PASS" start="2025-09-22T16:34:16.400501" elapsed="0.029000"/>
+</kw>
+<kw name="POST On Session" owner="RequestsLibrary">
+<msg time="2025-09-22T16:34:17.642534" level="INFO">POST Request : url=https://login.qa.zinnia.com/oauth/token 
+ path_url=/oauth/token 
+ headers={'User-Agent': 'python-requests/2.32.3', 'Accept-Encoding': 'gzip, deflate, br', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/x-www-form-urlencoded', 'Content-Length': '185'} 
+ body=audience=https://qa.api.zinnia.io&amp;grant_type=client_credentials&amp;client_id=UuMribrP3e8zVhfHy6wPJ25lVYh1CWN3&amp;client_secret=WQ4ZBFI0RaYnhlhrZBdw4ltrMk8IKT9bDm1DX_U28doSk4F4Au5KiAsoBCSNYWix 
+ </msg>
+<msg time="2025-09-22T16:34:17.642534" level="INFO">POST Response : url=https://login.qa.zinnia.com/oauth/token 
+ status=200, reason=OK 
+ headers={'Date': 'Mon, 22 Sep 2025 11:04:18 GMT', 'Content-Type': 'application/json', 'Transfer-Encoding': 'chunked', 'Connection': 'keep-alive', 'Content-Encoding': 'br', 'CF-Ray': '98315213cf9954a7-DEL', 'CF-Cache-Status': 'DYNAMIC', 'Cache-Control': 'no-store', 'Set-Cookie': 'did=s%3Av0%3Abdadbfa7-dfb6-49e2-b1df-f70e87089462.kHEwJ3dzWxVagSVngIUvrDvs2adcvVy%2Fze5OfZBvJng; Path=/; Expires=Tue, 22 Sep 2026 17:04:18 GMT; HttpOnly; Secure; SameSite=None, did_compat=s%3Av0%3Abdadbfa7-dfb6-49e2-b1df-f70e87089462.kHEwJ3dzWxVagSVngIUvrDvs2adcvVy%2Fze5OfZBvJng; Path=/; Expires=Tue, 22 Sep 2026 17:04:18 GMT; HttpOnly; Secure', 'Strict-Transport-Security': 'max-age=31536000; includeSubDomains', 'Vary': 'Accept-Encoding, Origin', 'Pragma': 'no-cache', 'X-Auth0-L': '0.644', 'X-Auth0-RequestId': 'c223462912c224a71c26', 'X-Content-Type-Options': 'nosniff', 'X-RateLimit-Limit': '300', 'X-RateLimit-Remaining': '299', 'X-RateLimit-Reset': '1758539059', 'Server': 'cloudflare', 'alt-svc': 'h3=":443"; ma=86400'} 
+ body={"access_token":"eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IlU1SWNUOEQ4LTNWdl80NDFIdnlzbyJ9.eyJodHRwczovL3FhLmFwaS56aW5uaWEuaW8vY2xpZW50SWRzIjpbImV2ZXJseSIsImVsaWMiLCJzYnVsIl0sImh0dHBzOi8vcWEuYXBpLnppbm5pYS5pby9wZXJtaXNzaW9ucyI6WyJyZWFkOnBvbGljeSIsIndyaXRlOnBvbGljeSIsIndyaXRlOmNhc2UiLCJyZWFkOmNhc2UiLCJyZWFkOmRvY3VtZW50Iiwid3JpdGU6ZG9jdW1lbnQiLCJ3cml0ZTp0YXNrIiwicmVhZDp0YXNrIl0sInBhcnR5SWQiOiJjNmE3YWI5ZjdkZDg0MDE1YTY1NTJiZmM1YjM2NmI3NyIsInNvdXJjZSI6IkJ1c2luZXNzIFByb2Nlc3MgTWFuYWdlbWVudCIsImlzcyI6Imh0dHBzOi8vbG9naW4ucWEuemlubmlhLmNvbS8iLCJzdWIiOiJVdU1yaWJyUDNlOHpWaGZIeTZ3UEoyNWxWWWgxQ1dOM0BjbGllbnRzIiwiYXVkIjoiaHR0cHM6Ly9xYS5hcGkuemlubmlhLmlvIiwiaWF0IjoxNzU4NTM5MDU4LCJleHAiOjE3NTg2MjU0NTgsInNjb3BlIjoib3BlbmlkIiwiZ3R5IjoiY2xpZW50LWNyZWRlbnRpYWxzIiwiYXpwIjoiVXVNcmliclAzZTh6VmhmSHk2d1BKMjVsVlloMUNXTjMifQ.EywShkqRZscuyJJcnl918AG597eQYcBzEOdB7nq4K-4dt6BMLDf5m94oC-Gj08NznzpIFwiWfPnZJ41FexNpvifnmIh2SkJ9ehGsljDxkImW8A-tTs2B75HDoXPqsnOc8kn1H8Vk86qJt0fgLEqRlw8LigysdGNaCl1dDVlbiqWWxteOTy2XiBosfmVGVpx1UZZRBYzing2h-nrHdgn0Y19EYGP6o7y48rYKq8JeIyCYRBimJUyFlApCA8HYgyw1eWjbkbFjyEQkbfiG9UUAa0Se3EB_Ey9KuJ462aWfgAllMePtwQyNkn8VGAi5ZfUoo_9hJUnvmA8SCiGmTG7asw","scope":"openid","expires_in":86400,"token_type":"Bearer"} 
+ </msg>
+<msg time="2025-09-22T16:34:17.642534" level="INFO">C:\Users\sharmash\AppData\Roaming\Python\Python312\site-packages\urllib3\connectionpool.py:1103: InsecureRequestWarning: Unverified HTTPS request is being made to host 'login.qa.zinnia.com'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(</msg>
+<msg time="2025-09-22T16:34:17.643534" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<var>${response}</var>
+<arg>api_session</arg>
+<arg>${endpoint}</arg>
+<arg>data=${form_data}</arg>
+<arg>headers=${headers}</arg>
+<doc>Sends a POST request on a previously created HTTP Session.</doc>
+<status status="PASS" start="2025-09-22T16:34:16.432500" elapsed="1.211034"/>
+</kw>
+<kw name="Should Be Equal As Integers" owner="BuiltIn">
+<msg time="2025-09-22T16:34:17.645532" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${response.status_code}</arg>
+<arg>200</arg>
+<arg>msg=Failed to get token!</arg>
+<doc>Fails if objects are unequal after converting them to integers.</doc>
+<status status="PASS" start="2025-09-22T16:34:17.645532" elapsed="0.000000"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-09-22T16:34:17.648566" level="INFO">${json} = {'access_token': 'eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IlU1SWNUOEQ4LTNWdl80NDFIdnlzbyJ9.eyJodHRwczovL3FhLmFwaS56aW5uaWEuaW8vY2xpZW50SWRzIjpbImV2ZXJseSIsImVsaWMiLCJzYnVsIl0sImh0dHBzOi8vcWEuYXBpL...</msg>
+<var>${json}</var>
+<arg>${response.json()}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-09-22T16:34:17.647538" elapsed="0.001028"/>
+</kw>
+<kw name="Get From Dictionary" owner="Collections">
+<msg time="2025-09-22T16:34:17.650531" level="INFO">${token} = eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IlU1SWNUOEQ4LTNWdl80NDFIdnlzbyJ9.eyJodHRwczovL3FhLmFwaS56aW5uaWEuaW8vY2xpZW50SWRzIjpbImV2ZXJseSIsImVsaWMiLCJzYnVsIl0sImh0dHBzOi8vcWEuYXBpLnppbm5pYS5pby9wZXJ...</msg>
+<var>${token}</var>
+<arg>${json}</arg>
+<arg>access_token</arg>
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<status status="PASS" start="2025-09-22T16:34:17.650531" elapsed="0.000000"/>
+</kw>
+<kw name="Set Suite Variable" owner="BuiltIn">
+<msg time="2025-09-22T16:34:17.652542" level="INFO">${TOKEN} = eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IlU1SWNUOEQ4LTNWdl80NDFIdnlzbyJ9.eyJodHRwczovL3FhLmFwaS56aW5uaWEuaW8vY2xpZW50SWRzIjpbImV2ZXJseSIsImVsaWMiLCJzYnVsIl0sImh0dHBzOi8vcWEuYXBpLnppbm5pYS5pby9wZXJ...</msg>
+<arg>${TOKEN}</arg>
+<arg>${token}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<status status="PASS" start="2025-09-22T16:34:17.652542" elapsed="0.000000"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Token received: ${token}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-22T16:34:17.655556" elapsed="0.000000"/>
+</kw>
+<arg>${endpoint}</arg>
+<arg>${method}</arg>
+<arg>${headers}</arg>
+<arg>${payload}</arg>
+<status status="PASS" start="2025-09-22T16:34:16.399501" elapsed="1.256055"/>
+</kw>
+<arg>'${name}' == 'Get OAuth Token'</arg>
+<arg>Execute Token API</arg>
+<arg>${endpoint}</arg>
+<arg>${method}</arg>
+<arg>${headers}</arg>
+<arg>${payload}</arg>
+<arg>ELSE</arg>
+<arg>Execute Normal API</arg>
+<arg>${api}</arg>
+<arg>${endpoint}</arg>
+<arg>${method}</arg>
+<arg>${headers}</arg>
+<arg>${payload}</arg>
+<arg>${base_url}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-09-22T16:34:16.398500" elapsed="1.258046"/>
+</kw>
+<arg>${api}</arg>
+<doc>Execute a single API with proper session setup</doc>
+<status status="PASS" start="2025-09-22T16:34:16.372502" elapsed="1.284044"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>=== Completed: ${api_name} ===</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-22T16:34:17.656546" elapsed="0.000989"/>
+</kw>
+<arg>${api}</arg>
+<doc>Execute API test with proper logging</doc>
+<status status="PASS" start="2025-09-22T16:34:16.367500" elapsed="1.290035"/>
+</kw>
+<arg>$api is not None</arg>
+<arg>Execute API Test</arg>
+<arg>${api}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-09-22T16:34:16.367500" elapsed="1.290035"/>
+</kw>
+<doc>Execute OAuth Token API for authentication</doc>
+<status status="PASS" start="2025-09-22T16:34:16.200502" elapsed="1.457033"/>
+</test>
+<test id="s1-t2" name="Execute Get Case Details API" line="242">
+<kw name="Check API Selection And Load Config" type="SETUP">
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-09-22T16:34:17.666497" level="INFO">${config_loaded} = True</msg>
+<var>${config_loaded}</var>
+<arg>len($FILTERED_APIS) &gt; 0</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-09-22T16:34:17.665498" elapsed="0.000999"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<arg>not ${config_loaded}</arg>
+<arg>Load And Filter API Configuration</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-09-22T16:34:17.668498" elapsed="0.000000"/>
+</kw>
+<kw name="Is API Selected">
+<for flavor="IN">
+<iter>
+<kw name="Get From Dictionary" owner="Collections">
+<msg time="2025-09-22T16:34:17.673521" level="INFO">${filtered_api_name} = Get OAuth Token</msg>
+<var>${filtered_api_name}</var>
+<arg>${api}</arg>
+<arg>name</arg>
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<status status="PASS" start="2025-09-22T16:34:17.673521" elapsed="0.000000"/>
+</kw>
+<kw name="Return From Keyword If" owner="BuiltIn">
+<arg>'${filtered_api_name}' == '${api_name}'</arg>
+<arg>${True}</arg>
+<doc>Returns from the enclosing user keyword if ``condition`` is true.</doc>
+<status status="PASS" start="2025-09-22T16:34:17.677530" elapsed="0.000000"/>
+</kw>
+<var name="${api}">{'name': 'Get OAuth Token', 'endpoint': '/oauth/token', 'method': 'POST', 'api_type': 'Authentication', 'payload': {'audience': 'https://qa.api.zinnia.io', 'grant_type': 'client_credentials', 'client_...</var>
+<status status="PASS" start="2025-09-22T16:34:17.673521" elapsed="0.004009"/>
+</iter>
+<iter>
+<kw name="Get From Dictionary" owner="Collections">
+<msg time="2025-09-22T16:34:17.678563" level="INFO">${filtered_api_name} = Get Case Details</msg>
+<var>${filtered_api_name}</var>
+<arg>${api}</arg>
+<arg>name</arg>
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<status status="PASS" start="2025-09-22T16:34:17.677530" elapsed="0.001033"/>
+</kw>
+<kw name="Return From Keyword If" owner="BuiltIn">
+<msg time="2025-09-22T16:34:17.680497" level="INFO">Returning from the enclosing user keyword.</msg>
+<arg>'${filtered_api_name}' == '${api_name}'</arg>
+<arg>${True}</arg>
+<doc>Returns from the enclosing user keyword if ``condition`` is true.</doc>
+<status status="PASS" start="2025-09-22T16:34:17.680497" elapsed="0.000000"/>
+</kw>
+<var name="${api}">{'name': 'Get Case Details', 'endpoint': '/case/v1/cases/{caseID}', 'method': 'GET', 'api_type': 'Case Management', 'base_url': 'https://qa-bpm.se2.com', 'headers': {'Content-Type': 'application/json'...</var>
+<status status="PASS" start="2025-09-22T16:34:17.677530" elapsed="0.003975"/>
+</iter>
+<var>${api}</var>
+<value>@{FILTERED_APIS}</value>
+<status status="PASS" start="2025-09-22T16:34:17.673521" elapsed="0.007984"/>
+</for>
+<kw name="Return From Keyword" owner="BuiltIn">
+<arg>${False}</arg>
+<doc>Returns from the enclosing user keyword.</doc>
+<status status="NOT RUN" start="2025-09-22T16:34:17.682544" elapsed="0.000000"/>
+</kw>
+<msg time="2025-09-22T16:34:17.682544" level="INFO">${api_selected} = True</msg>
+<var>${api_selected}</var>
+<arg>${api_name}</arg>
+<doc>Check if API is in the filtered list</doc>
+<status status="PASS" start="2025-09-22T16:34:17.669498" elapsed="0.013046"/>
+</kw>
+<kw name="Pass Execution If" owner="BuiltIn">
+<arg>not ${api_selected}</arg>
+<arg>API '${api_name}' not selected for execution</arg>
+<doc>Conditionally skips rest of the current test, setup, or teardown with PASS status.</doc>
+<status status="PASS" start="2025-09-22T16:34:17.684502" elapsed="0.000000"/>
+</kw>
+<arg>Get Case Details</arg>
+<doc>Load configuration and check if API is selected, exit test if not selected</doc>
+<status status="PASS" start="2025-09-22T16:34:17.665498" elapsed="0.019004"/>
+</kw>
+<kw name="Get API If Selected">
+<for flavor="IN">
+<iter>
+<kw name="Get From Dictionary" owner="Collections">
+<msg time="2025-09-22T16:34:17.685550" level="INFO">${filtered_api_name} = Get OAuth Token</msg>
+<var>${filtered_api_name}</var>
+<arg>${api}</arg>
+<arg>name</arg>
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<status status="PASS" start="2025-09-22T16:34:17.685550" elapsed="0.000000"/>
+</kw>
+<kw name="Return From Keyword If" owner="BuiltIn">
+<arg>'${filtered_api_name}' == '${api_name}'</arg>
+<arg>${api}</arg>
+<doc>Returns from the enclosing user keyword if ``condition`` is true.</doc>
+<status status="PASS" start="2025-09-22T16:34:17.686538" elapsed="0.001004"/>
+</kw>
+<var name="${api}">{'name': 'Get OAuth Token', 'endpoint': '/oauth/token', 'method': 'POST', 'api_type': 'Authentication', 'payload': {'audience': 'https://qa.api.zinnia.io', 'grant_type': 'client_credentials', 'client_...</var>
+<status status="PASS" start="2025-09-22T16:34:17.685550" elapsed="0.001992"/>
+</iter>
+<iter>
+<kw name="Get From Dictionary" owner="Collections">
+<msg time="2025-09-22T16:34:17.687542" level="INFO">${filtered_api_name} = Get Case Details</msg>
+<var>${filtered_api_name}</var>
+<arg>${api}</arg>
+<arg>name</arg>
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<status status="PASS" start="2025-09-22T16:34:17.687542" elapsed="0.000000"/>
+</kw>
+<kw name="Return From Keyword If" owner="BuiltIn">
+<msg time="2025-09-22T16:34:17.691497" level="INFO">Returning from the enclosing user keyword.</msg>
+<arg>'${filtered_api_name}' == '${api_name}'</arg>
+<arg>${api}</arg>
+<doc>Returns from the enclosing user keyword if ``condition`` is true.</doc>
+<status status="PASS" start="2025-09-22T16:34:17.691497" elapsed="0.000000"/>
+</kw>
+<var name="${api}">{'name': 'Get Case Details', 'endpoint': '/case/v1/cases/{caseID}', 'method': 'GET', 'api_type': 'Case Management', 'base_url': 'https://qa-bpm.se2.com', 'headers': {'Content-Type': 'application/json'...</var>
+<status status="PASS" start="2025-09-22T16:34:17.687542" elapsed="0.005957"/>
+</iter>
+<var>${api}</var>
+<value>@{FILTERED_APIS}</value>
+<status status="PASS" start="2025-09-22T16:34:17.684502" elapsed="0.008997"/>
+</for>
+<kw name="Return From Keyword" owner="BuiltIn">
+<arg>None</arg>
+<doc>Returns from the enclosing user keyword.</doc>
+<status status="NOT RUN" start="2025-09-22T16:34:17.693499" elapsed="0.000000"/>
+</kw>
+<msg time="2025-09-22T16:34:17.693499" level="INFO">${api} = {'name': 'Get Case Details', 'endpoint': '/case/v1/cases/{caseID}', 'method': 'GET', 'api_type': 'Case Management', 'base_url': 'https://qa-bpm.se2.com', 'headers': {'Content-Type': 'application/json'...</msg>
+<var>${api}</var>
+<arg>Get Case Details</arg>
+<doc>Get API configuration if it's selected, return None if not selected</doc>
+<status status="PASS" start="2025-09-22T16:34:17.684502" elapsed="0.010036"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Execute API Test">
+<kw name="Get From Dictionary" owner="Collections">
+<msg time="2025-09-22T16:34:17.697600" level="INFO">${api_name} = Get Case Details</msg>
+<var>${api_name}</var>
+<arg>${api}</arg>
+<arg>name</arg>
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<status status="PASS" start="2025-09-22T16:34:17.697600" elapsed="0.000000"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>\n=== Executing: ${api_name} ===</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-22T16:34:17.699548" elapsed="0.000000"/>
+</kw>
+<kw name="Execute Single API">
+<kw name="Get From Dictionary" owner="Collections">
+<msg time="2025-09-22T16:34:17.700514" level="INFO">${name} = Get Case Details</msg>
+<var>${name}</var>
+<arg>${api}</arg>
+<arg>name</arg>
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<status status="PASS" start="2025-09-22T16:34:17.700514" elapsed="0.000000"/>
+</kw>
+<kw name="Get From Dictionary" owner="Collections">
+<msg time="2025-09-22T16:34:17.702531" level="INFO">${endpoint} = /case/v1/cases/{caseID}</msg>
+<var>${endpoint}</var>
+<arg>${api}</arg>
+<arg>endpoint</arg>
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<status status="PASS" start="2025-09-22T16:34:17.702531" elapsed="0.000000"/>
+</kw>
+<kw name="Get From Dictionary" owner="Collections">
+<msg time="2025-09-22T16:34:17.703526" level="INFO">${method} = GET</msg>
+<var>${method}</var>
+<arg>${api}</arg>
+<arg>method</arg>
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<status status="PASS" start="2025-09-22T16:34:17.703526" elapsed="0.000000"/>
+</kw>
+<kw name="Get From Dictionary" owner="Collections">
+<msg time="2025-09-22T16:34:17.705541" level="INFO">${headers} = {'Content-Type': 'application/json'}</msg>
+<var>${headers}</var>
+<arg>${api}</arg>
+<arg>headers</arg>
+<arg>default={}</arg>
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<status status="PASS" start="2025-09-22T16:34:17.705541" elapsed="0.000000"/>
+</kw>
+<kw name="Get From Dictionary" owner="Collections">
+<msg time="2025-09-22T16:34:17.707532" level="INFO">${payload} = None</msg>
+<var>${payload}</var>
+<arg>${api}</arg>
+<arg>payload</arg>
+<arg>default=None</arg>
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<status status="PASS" start="2025-09-22T16:34:17.707532" elapsed="0.000000"/>
+</kw>
+<kw name="Get From Dictionary" owner="Collections">
+<msg time="2025-09-22T16:34:17.709546" level="INFO">${base_url} = https://qa-bpm.se2.com</msg>
+<var>${base_url}</var>
+<arg>${api}</arg>
+<arg>base_url</arg>
+<arg>default=None</arg>
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<status status="PASS" start="2025-09-22T16:34:17.709546" elapsed="0.000000"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Execute Normal API">
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Set To Dictionary" owner="Collections">
+<arg>${headers}</arg>
+<arg>Authorization=Bearer ${TOKEN}</arg>
+<doc>Adds the given ``key_value_pairs`` and/or ``items`` to the ``dictionary``.</doc>
+<status status="PASS" start="2025-09-22T16:34:17.712539" elapsed="0.000000"/>
+</kw>
+<arg>'${TOKEN}' != 'None'</arg>
+<arg>Set To Dictionary</arg>
+<arg>${headers}</arg>
+<arg>Authorization=Bearer ${TOKEN}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-09-22T16:34:17.712539" elapsed="0.000000"/>
+</kw>
+<kw name="Get From Dictionary" owner="Collections">
+<msg time="2025-09-22T16:34:17.712539" level="INFO">${default_case_id} = CA0000370039</msg>
+<var>${default_case_id}</var>
+<arg>${api}</arg>
+<arg>default_case_id</arg>
+<arg>default=CA0000370039</arg>
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<status status="PASS" start="2025-09-22T16:34:17.712539" elapsed="0.000000"/>
+</kw>
+<kw name="Get Environment Variable" owner="OperatingSystem">
+<msg time="2025-09-22T16:34:17.714497" level="INFO">${caseID} = CA0000370039</msg>
+<var>${caseID}</var>
+<arg>CASE_ID</arg>
+<arg>default=${default_case_id}</arg>
+<doc>Returns the value of an environment variable with the given name.</doc>
+<status status="PASS" start="2025-09-22T16:34:17.714497" elapsed="0.000000"/>
+</kw>
+<kw name="Replace String" owner="String">
+<msg time="2025-09-22T16:34:17.716497" level="INFO">${endpoint} = /case/v1/cases/CA0000370039</msg>
+<var>${endpoint}</var>
+<arg>${endpoint}</arg>
+<arg>{caseID}</arg>
+<arg>${caseID}</arg>
+<doc>Replaces ``search_for`` in the given ``string`` with ``replace_with``.</doc>
+<status status="PASS" start="2025-09-22T16:34:17.716497" elapsed="0.000000"/>
+</kw>
+<kw name="Set Variable If" owner="BuiltIn">
+<msg time="2025-09-22T16:34:17.718497" level="INFO">${session_name} = api_session_bpm</msg>
+<var>${session_name}</var>
+<arg>'${base_url}' == 'https://qa-bpm.se2.com'</arg>
+<arg>api_session_bpm</arg>
+<arg>'${base_url}' == 'https://qa.api.zinnia.io'</arg>
+<arg>api_session_case</arg>
+<arg>api_session_case</arg>
+<doc>Sets variable based on the given condition.</doc>
+<status status="PASS" start="2025-09-22T16:34:17.718497" elapsed="0.000000"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Using session: ${session_name} for base URL: ${base_url}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-22T16:34:17.720535" elapsed="0.000000"/>
+</kw>
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2025-09-22T16:34:17.721497" level="INFO">${kwargs} = {'headers': {'Content-Type': 'application/json', 'Authorization': 'Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IlU1SWNUOEQ4LTNWdl80NDFIdnlzbyJ9.eyJodHRwczovL3FhLmFwaS56aW5uaWEuaW8vY2xpZW50SWRzI...</msg>
+<var>${kwargs}</var>
+<arg>headers=${headers}</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2025-09-22T16:34:17.720535" elapsed="0.000962"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-09-22T16:34:17.723564" level="INFO">${payload_exists} = True</msg>
+<var>${payload_exists}</var>
+<arg>$payload is not None</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-09-22T16:34:17.723564" elapsed="0.000000"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Set To Dictionary" owner="Collections">
+<arg>${kwargs}</arg>
+<arg>json=${payload}</arg>
+<doc>Adds the given ``key_value_pairs`` and/or ``items`` to the ``dictionary``.</doc>
+<status status="PASS" start="2025-09-22T16:34:17.725497" elapsed="0.001045"/>
+</kw>
+<arg>${payload_exists}</arg>
+<arg>Set To Dictionary</arg>
+<arg>${kwargs}</arg>
+<arg>json=${payload}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-09-22T16:34:17.725497" elapsed="0.001045"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="GET On Session" owner="RequestsLibrary">
+<msg time="2025-09-22T16:34:19.030509" level="INFO">GET Request : url=https://qa-bpm.se2.com/case/v1/cases/CA0000370039 
+ path_url=/case/v1/cases/CA0000370039 
+ headers={'User-Agent': 'python-requests/2.32.3', 'Accept-Encoding': 'gzip, deflate, br', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/json', 'Authorization': 'Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IlU1SWNUOEQ4LTNWdl80NDFIdnlzbyJ9.eyJodHRwczovL3FhLmFwaS56aW5uaWEuaW8vY2xpZW50SWRzIjpbImV2ZXJseSIsImVsaWMiLCJzYnVsIl0sImh0dHBzOi8vcWEuYXBpLnppbm5pYS5pby9wZXJtaXNzaW9ucyI6WyJyZWFkOnBvbGljeSIsIndyaXRlOnBvbGljeSIsIndyaXRlOmNhc2UiLCJyZWFkOmNhc2UiLCJyZWFkOmRvY3VtZW50Iiwid3JpdGU6ZG9jdW1lbnQiLCJ3cml0ZTp0YXNrIiwicmVhZDp0YXNrIl0sInBhcnR5SWQiOiJjNmE3YWI5ZjdkZDg0MDE1YTY1NTJiZmM1YjM2NmI3NyIsInNvdXJjZSI6IkJ1c2luZXNzIFByb2Nlc3MgTWFuYWdlbWVudCIsImlzcyI6Imh0dHBzOi8vbG9naW4ucWEuemlubmlhLmNvbS8iLCJzdWIiOiJVdU1yaWJyUDNlOHpWaGZIeTZ3UEoyNWxWWWgxQ1dOM0BjbGllbnRzIiwiYXVkIjoiaHR0cHM6Ly9xYS5hcGkuemlubmlhLmlvIiwiaWF0IjoxNzU4NTM5MDU4LCJleHAiOjE3NTg2MjU0NTgsInNjb3BlIjoib3BlbmlkIiwiZ3R5IjoiY2xpZW50LWNyZWRlbnRpYWxzIiwiYXpwIjoiVXVNcmliclAzZTh6VmhmSHk2d1BKMjVsVlloMUNXTjMifQ.EywShkqRZscuyJJcnl918AG597eQYcBzEOdB7nq4K-4dt6BMLDf5m94oC-Gj08NznzpIFwiWfPnZJ41FexNpvifnmIh2SkJ9ehGsljDxkImW8A-tTs2B75HDoXPqsnOc8kn1H8Vk86qJt0fgLEqRlw8LigysdGNaCl1dDVlbiqWWxteOTy2XiBosfmVGVpx1UZZRBYzing2h-nrHdgn0Y19EYGP6o7y48rYKq8JeIyCYRBimJUyFlApCA8HYgyw1eWjbkbFjyEQkbfiG9UUAa0Se3EB_Ey9KuJ462aWfgAllMePtwQyNkn8VGAi5ZfUoo_9hJUnvmA8SCiGmTG7asw', 'Content-Length': '6'} 
+ body=b'"None"' 
+ </msg>
+<msg time="2025-09-22T16:34:19.030509" level="INFO">GET Response : url=https://qa-bpm.se2.com/case/v1/cases/CA0000370039 
+ status=200, reason= 
+ headers={'Date': 'Mon, 22 Sep 2025 11:04:19 GMT', 'Content-Type': 'application/json', 'Content-Length': '5651', 'Connection': 'close', 'Set-Cookie': 'AWSALBTG=CAzLhHJ9Zek4e4oqh1gUnbFGEwIHzx0v4YzM1nSOoVN0vq1Tt3CVX30+Y+EvfZSfSqMx8l9bk0RMkzETPCzfc5UHujvpP++Pv4yf/RAgDtaQOh4h3MNzVN0OMQW14/LgRMP5MM8J+7ZUhgfx0PMkro38tUJ9KFof99xny4lHEnps; Expires=Mon, 29 Sep 2025 11:04:19 GMT; Path=/, AWSALBTGCORS=CAzLhHJ9Zek4e4oqh1gUnbFGEwIHzx0v4YzM1nSOoVN0vq1Tt3CVX30+Y+EvfZSfSqMx8l9bk0RMkzETPCzfc5UHujvpP++Pv4yf/RAgDtaQOh4h3MNzVN0OMQW14/LgRMP5MM8J+7ZUhgfx0PMkro38tUJ9KFof99xny4lHEnps; Expires=Mon, 29 Sep 2025 11:04:19 GMT; Path=/; SameSite=None; Secure, AWSALB=OlQATpx5EQz4OQaSzjs3zQ+9KHWBUNaKmqOAFUpVBX2E7M3xRnLZ7Aapgm+0qLdj0xM4+ZsAnc9hh0BBCN6CW6hyWjQtjYv4BoexiNLze4iGo3r6ZV4afOCjUz06; Expires=Mon, 29 Sep 2025 11:04:19 GMT; Path=/, AWSALBCORS=OlQATpx5EQz4OQaSzjs3zQ+9KHWBUNaKmqOAFUpVBX2E7M3xRnLZ7Aapgm+0qLdj0xM4+ZsAnc9hh0BBCN6CW6hyWjQtjYv4BoexiNLze4iGo3r6ZV4afOCjUz06; Expires=Mon, 29 Sep 2025 11:04:19 GMT; Path=/; SameSite=None; Secure', 'Vary': 'Origin, Access-Control-Request-Method, Access-Control-Request-Headers', 'x-correlation-id': '07684232-9a70-4b9a-aeb8-ce7a995fda66', 'X-Content-Type-Options': 'nosniff', 'X-XSS-Protection': '1; mode=block', 'Cache-Control': 'no-cache, no-store, max-age=0, must-revalidate', 'Pragma': 'no-cache', 'Expires': '0', 'X-Frame-Options': 'DENY'} 
+ body={"id":"CA0000370039","templateId":"681dfd14-b563-4342-acd2-c8a44d8ed09f","carrier":"MASS","process":"Correspondence","parentInstanceId":null,"linkedCases":null,"correlationId":"a9e90cf1-edf3-483a-880a-500f71437036","caseStatus":"IN_PROGRESS","caseResult":null,"caseResultDetail":null,"primary":true,"escalated":false,"linkDetails":{"linkedCaseInstanceId":null,"linkedReason":"Identified by case management"},"processSubType":"Service Form","caseGroup":null,"policyNumber":"5810002532","planCode":"900","productName":"MassMutual Stable Voyage Plus","caseProcessingDetails":[],"documents":[],"exceptions":[],"notes":[],"tasks":[],"mappedTasks":[],"mappedExceptions":[],"mappedDocuments":[],"mappedNotes":null,"identifiers":[{"identifier":"policyNumber","value":"5810002532"},{"identifier":"transactionId","value":"a9e90cf1-edf3-483a-880a-500f71437036"},{"identifier":"zlCaseId","value":"CA0000370039"},{"identifier":"contractNumber","value":"5810002532"}],"additionalData":{"contractStatus":"Active","requestSubType":"Redemption","policyNumber":"5810002532","owners":[{"firstName":"MENACHEM","middleName":"N","lastName":"GARNETTE","ssn":"337020845","fullName":"MENACHEM N GARNETTE"}],"brokerDealerName":"JP MORGAN SECURITIES LLC","productName":"MassMutual Stable Voyage Plus"},"stages":[{"id":"requestAck","label":"Prepare Process Form Request for processing","stageStatus":"COMPLETED","mappedNotes":[],"steps":[{"id":"requestAck.processFormRequestReceived","label":"Received Process Form Request","stepStatus":"COMPLETED","stepResult":null,"eventRef":["62fb7964-3d3e-44fb-a6f3-7c544d932b37"],"updatedAt":"2024-09-30T13:06:50.000Z","tasks":null,"mappedTasks":null,"mappedExceptions":[],"mappedDocuments":null,"mappedNotes":[],"mappedCases":null,"additionalData":{"mailDetails_city":{"label":"City","value":"CONCORD","type":"string"},"mailDetails_addressLine1":{"label":"Address Line1","value":"24 THOMPSON ST","type":"string"},"deliveryMethod":{"label":"Delivery Method","value":"MAIL","type":"string"},"mailDetails_type":{"label":"Mail Type","value":"owner","type":"string"},"transactionType":{"label":"Transaction Type","value":"Redemption","type":"string"},"transactionSubType":{"label":"Transaction SubType","value":"Full Surrender","type":"string"},"mailDetails_lastName":{"label":"Last Name","value":"GARNETTE","type":"string"},"processName":{"label":"Requested Process Name","value":"Service Request Form","type":"string"},"formName":{"label":"Requested Form name","value":"Annuity Full Surrender Request","type":"string"},"mailDetails_state":{"label":"State","value":"NH","type":"string"},"deliveryDate":{"label":"Delivery Date","value":"2024-09-30T13:06:50.391567","type":"string"},"deliveryStatus":{"label":"Delivery Status","value":"Initiated","type":"string"},"mailDetails_firstName":{"label":"First Name","value":"MENACHEM","type":"string"},"mailDetails_zipCode":{"label":"ZIP Code","value":"03301","type":"string"}},"stepAdditionalData":[],"multiInstance":false,"instanceInfo":null,"createdAt":"2024-09-30T13:06:50.000Z"},{"id":"requestAck.processFormRequestProcessing","label":"Processing Form Request","stepStatus":"COMPLETED","stepResult":null,"eventRef":["62fb7964-3d3e-44fb-a6f3-7c544d932b37","d63996f1-4098-41d8-a260-347bbf252107"],"updatedAt":"2024-09-30T13:06:56.000Z","tasks":null,"mappedTasks":null,"mappedExceptions":[],"mappedDocuments":null,"mappedNotes":[],"mappedCases":null,"additionalData":{},"stepAdditionalData":[],"multiInstance":false,"instanceInfo":null,"createdAt":"2024-09-30T13:06:50.000Z"}],"tasks":null,"mappedTasks":null,"createdAt":"2024-09-30T13:06:50.000Z","updatedAt":"2024-09-30T13:06:56.000Z"},{"id":"requestCompletion","label":"Deliver Process Form","stageStatus":"IN_PROGRESS","mappedNotes":[],"steps":[{"id":"RequestCompletion.completeRequest","label":"Create &amp; Send Requested Form","stepStatus":"IN_PROGRESS","stepResult":null,"eventRef":["d63996f1-4098-41d8-a260-347bbf252107"],"updatedAt":"2024-09-30T13:06:56.000Z","tasks":null,"mappedTasks":null,"mappedExceptions":[],"mappedDocuments":null,"mappedNotes":[],"mappedCases":null,"additionalData":{},"stepAdditionalData":[],"multiInstance":false,"instanceInfo":null,"createdAt":"2024-09-30T13:06:56.000Z"},{"id":"RequestCompletion.deliverLetter","label":"Deliver Requested Form","stepStatus":"NOT_STARTED","stepResult":null,"eventRef":[],"updatedAt":"2024-09-30T13:06:50.000Z","tasks":null,"mappedTasks":null,"mappedExceptions":[],"mappedDocuments":null,"mappedNotes":[],"mappedCases":null,"additionalData":{},"stepAdditionalData":[],"multiInstance":false,"instanceInfo":null,"createdAt":"2024-09-30T13:06:50.000Z"}],"tasks":null,"mappedTasks":null,"createdAt":"2024-09-30T13:06:56.000Z","updatedAt":"2024-09-30T13:06:56.000Z"}],"parties":[{"partyRole":"Servicing Agent","partyType":"Individual","firstName":"LAURA","lastName":"HANSON VIRGINIA","fullName":"LAURA  HANSON VIRGINIA","gender":"M","ssn":"047447214","percent":"100","externalId":"JPM0307670"},{"partyRole":"Owner,Primary","partyType":"Individual","firstName":"MENACHEM","middleName":"N","lastName":"GARNETTE","fullName":"MENACHEM N GARNETTE","prefix":"Ms.","gender":"F","ssn":"337020845","percent":"100"},{"partyRole":"Agent,Agent of Record","partyType":"Individual","firstName":"LAURA","lastName":"HANSON VIRGINIA","fullName":"LAURA  HANSON VIRGINIA","gender":"M","ssn":"047447214","percent":"100","externalId":"JPM0307670"}],"createdAt":"2024-09-30T13:06:50.000Z","updatedAt":"2024-09-30T13:06:56.000Z","systemCreatedDate":null,"systemCreatedDt":null,"systemUpdatedDt":1744623301491,"slaStartDate":null,"etcDate":null,"applicationType":"Digital","caseAdditionalData":[],"deleted":false} 
+ </msg>
+<msg time="2025-09-22T16:34:19.030509" level="INFO">C:\Users\sharmash\AppData\Roaming\Python\Python312\site-packages\urllib3\connectionpool.py:1103: InsecureRequestWarning: Unverified HTTPS request is being made to host 'qa-bpm.se2.com'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(</msg>
+<arg>${session_name}</arg>
+<arg>${endpoint}</arg>
+<arg>&amp;{kwargs}</arg>
+<doc>Sends a GET request on a previously created HTTP Session.</doc>
+<status status="PASS" start="2025-09-22T16:34:17.726542" elapsed="1.303967"/>
+</kw>
+<msg time="2025-09-22T16:34:19.034478" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<var>${response}</var>
+<arg>'${method}' == 'GET'</arg>
+<arg>GET On Session</arg>
+<arg>${session_name}</arg>
+<arg>${endpoint}</arg>
+<arg>&amp;{kwargs}</arg>
+<arg>ELSE IF</arg>
+<arg>'${method}' == 'POST'</arg>
+<arg>POST On Session</arg>
+<arg>${session_name}</arg>
+<arg>${endpoint}</arg>
+<arg>&amp;{kwargs}</arg>
+<arg>ELSE IF</arg>
+<arg>'${method}' == 'PUT'</arg>
+<arg>PUT On Session</arg>
+<arg>${session_name}</arg>
+<arg>${endpoint}</arg>
+<arg>&amp;{kwargs}</arg>
+<arg>ELSE IF</arg>
+<arg>'${method}' == 'DELETE'</arg>
+<arg>DELETE On Session</arg>
+<arg>${session_name}</arg>
+<arg>${endpoint}</arg>
+<arg>&amp;{kwargs}</arg>
+<arg>ELSE</arg>
+<arg>Fail</arg>
+<arg>Unsupported method: ${method}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-09-22T16:34:17.726542" elapsed="1.307936"/>
+</kw>
+<kw name="Should Be True" owner="BuiltIn">
+<arg>${response.status_code} &gt;= 200 and ${response.status_code} &lt; 300</arg>
+<arg>msg=API call failed with status ${response.status_code}: ${response.text}</arg>
+<doc>Fails if the given condition is not true.</doc>
+<status status="PASS" start="2025-09-22T16:34:19.037473" elapsed="0.001028"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>\nAPI: ${endpoint}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-22T16:34:19.039479" elapsed="0.000000"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Session: ${session_name}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-22T16:34:19.039479" elapsed="0.000000"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Status: ${response.status_code}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-22T16:34:19.039479" elapsed="0.000000"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Response: ${response.text}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-22T16:34:19.040437" elapsed="0.000000"/>
+</kw>
+<arg>${api}</arg>
+<arg>${endpoint}</arg>
+<arg>${method}</arg>
+<arg>${headers}</arg>
+<arg>${payload}</arg>
+<arg>${base_url}</arg>
+<doc>Execute API calls with automatic bearer token injection and dynamic session routing</doc>
+<status status="PASS" start="2025-09-22T16:34:17.711542" elapsed="1.328895"/>
+</kw>
+<arg>'${name}' == 'Get OAuth Token'</arg>
+<arg>Execute Token API</arg>
+<arg>${endpoint}</arg>
+<arg>${method}</arg>
+<arg>${headers}</arg>
+<arg>${payload}</arg>
+<arg>ELSE</arg>
+<arg>Execute Normal API</arg>
+<arg>${api}</arg>
+<arg>${endpoint}</arg>
+<arg>${method}</arg>
+<arg>${headers}</arg>
+<arg>${payload}</arg>
+<arg>${base_url}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-09-22T16:34:17.711542" elapsed="1.328895"/>
+</kw>
+<arg>${api}</arg>
+<doc>Execute a single API with proper session setup</doc>
+<status status="PASS" start="2025-09-22T16:34:17.699548" elapsed="1.340889"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>=== Completed: ${api_name} ===</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-22T16:34:19.040437" elapsed="0.000000"/>
+</kw>
+<arg>${api}</arg>
+<doc>Execute API test with proper logging</doc>
+<status status="PASS" start="2025-09-22T16:34:17.696531" elapsed="1.343906"/>
+</kw>
+<arg>$api is not None</arg>
+<arg>Execute API Test</arg>
+<arg>${api}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-09-22T16:34:17.695534" elapsed="1.345949"/>
+</kw>
+<doc>Execute Get Case Details API</doc>
+<status status="PASS" start="2025-09-22T16:34:17.665498" elapsed="1.375985"/>
+</test>
+<test id="s1-t3" name="Execute Search Cases by Policy Number API" line="248">
+<kw name="Check API Selection And Load Config" type="SETUP">
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-09-22T16:34:19.044439" level="INFO">${config_loaded} = True</msg>
+<var>${config_loaded}</var>
+<arg>len($FILTERED_APIS) &gt; 0</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-09-22T16:34:19.044439" elapsed="0.000000"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<arg>not ${config_loaded}</arg>
+<arg>Load And Filter API Configuration</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-09-22T16:34:19.046437" elapsed="0.000000"/>
+</kw>
+<kw name="Is API Selected">
+<for flavor="IN">
+<iter>
+<kw name="Get From Dictionary" owner="Collections">
+<msg time="2025-09-22T16:34:19.047493" level="INFO">${filtered_api_name} = Get OAuth Token</msg>
+<var>${filtered_api_name}</var>
+<arg>${api}</arg>
+<arg>name</arg>
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<status status="PASS" start="2025-09-22T16:34:19.047493" elapsed="0.000000"/>
+</kw>
+<kw name="Return From Keyword If" owner="BuiltIn">
+<arg>'${filtered_api_name}' == '${api_name}'</arg>
+<arg>${True}</arg>
+<doc>Returns from the enclosing user keyword if ``condition`` is true.</doc>
+<status status="PASS" start="2025-09-22T16:34:19.048437" elapsed="0.001038"/>
+</kw>
+<var name="${api}">{'name': 'Get OAuth Token', 'endpoint': '/oauth/token', 'method': 'POST', 'api_type': 'Authentication', 'payload': {'audience': 'https://qa.api.zinnia.io', 'grant_type': 'client_credentials', 'client_...</var>
+<status status="PASS" start="2025-09-22T16:34:19.047493" elapsed="0.001982"/>
+</iter>
+<iter>
+<kw name="Get From Dictionary" owner="Collections">
+<msg time="2025-09-22T16:34:19.049475" level="INFO">${filtered_api_name} = Get Case Details</msg>
+<var>${filtered_api_name}</var>
+<arg>${api}</arg>
+<arg>name</arg>
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<status status="PASS" start="2025-09-22T16:34:19.049475" elapsed="0.000000"/>
+</kw>
+<kw name="Return From Keyword If" owner="BuiltIn">
+<arg>'${filtered_api_name}' == '${api_name}'</arg>
+<arg>${True}</arg>
+<doc>Returns from the enclosing user keyword if ``condition`` is true.</doc>
+<status status="PASS" start="2025-09-22T16:34:19.050477" elapsed="0.000000"/>
+</kw>
+<var name="${api}">{'name': 'Get Case Details', 'endpoint': '/case/v1/cases/{caseID}', 'method': 'GET', 'api_type': 'Case Management', 'base_url': 'https://qa-bpm.se2.com', 'headers': {'Content-Type': 'application/json'...</var>
+<status status="PASS" start="2025-09-22T16:34:19.049475" elapsed="0.001002"/>
+</iter>
+<iter>
+<kw name="Get From Dictionary" owner="Collections">
+<msg time="2025-09-22T16:34:19.051485" level="INFO">${filtered_api_name} = Search Cases by Agent Name</msg>
+<var>${filtered_api_name}</var>
+<arg>${api}</arg>
+<arg>name</arg>
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<status status="PASS" start="2025-09-22T16:34:19.050477" elapsed="0.001008"/>
+</kw>
+<kw name="Return From Keyword If" owner="BuiltIn">
+<arg>'${filtered_api_name}' == '${api_name}'</arg>
+<arg>${True}</arg>
+<doc>Returns from the enclosing user keyword if ``condition`` is true.</doc>
+<status status="PASS" start="2025-09-22T16:34:19.054460" elapsed="0.000000"/>
+</kw>
+<var name="${api}">{'name': 'Search Cases by Agent Name', 'endpoint': '/case/v1/cases/search', 'method': 'POST', 'api_type': 'Case Management', 'base_url': 'https://qa-bpm.se2.com', 'payload': {'agentFirstName': 'ROBERT...</var>
+<status status="PASS" start="2025-09-22T16:34:19.050477" elapsed="0.003983"/>
+</iter>
+<var>${api}</var>
+<value>@{FILTERED_APIS}</value>
+<status status="PASS" start="2025-09-22T16:34:19.047493" elapsed="0.006967"/>
+</for>
+<kw name="Return From Keyword" owner="BuiltIn">
+<msg time="2025-09-22T16:34:19.054460" level="INFO">Returning from the enclosing user keyword.</msg>
+<arg>${False}</arg>
+<doc>Returns from the enclosing user keyword.</doc>
+<status status="PASS" start="2025-09-22T16:34:19.054460" elapsed="0.000000"/>
+</kw>
+<msg time="2025-09-22T16:34:19.056463" level="INFO">${api_selected} = False</msg>
+<var>${api_selected}</var>
+<arg>${api_name}</arg>
+<doc>Check if API is in the filtered list</doc>
+<status status="PASS" start="2025-09-22T16:34:19.046437" elapsed="0.010026"/>
+</kw>
+<kw name="Pass Execution If" owner="BuiltIn">
+<msg time="2025-09-22T16:34:19.058463" level="INFO">Execution passed with message:
+API 'Search Cases by Policy Number' not selected for execution</msg>
+<arg>not ${api_selected}</arg>
+<arg>API '${api_name}' not selected for execution</arg>
+<doc>Conditionally skips rest of the current test, setup, or teardown with PASS status.</doc>
+<status status="PASS" start="2025-09-22T16:34:19.058463" elapsed="0.000000">API 'Search Cases by Policy Number' not selected for execution</status>
+</kw>
+<arg>Search Cases by Policy Number</arg>
+<doc>Load configuration and check if API is selected, exit test if not selected</doc>
+<status status="PASS" start="2025-09-22T16:34:19.044439" elapsed="0.016027">API 'Search Cases by Policy Number' not selected for execution</status>
+</kw>
+<kw name="Get API If Selected">
+<for flavor="IN">
+<iter>
+<kw name="Get From Dictionary" owner="Collections">
+<msg time="2025-09-22T16:34:19.060466" level="INFO">${filtered_api_name} = Get OAuth Token</msg>
+<var>${filtered_api_name}</var>
+<arg>${api}</arg>
+<arg>name</arg>
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<status status="PASS" start="2025-09-22T16:34:19.060466" elapsed="0.000000"/>
+</kw>
+<kw name="Return From Keyword If" owner="BuiltIn">
+<arg>'${filtered_api_name}' == '${api_name}'</arg>
+<arg>${api}</arg>
+<doc>Returns from the enclosing user keyword if ``condition`` is true.</doc>
+<status status="PASS" start="2025-09-22T16:34:19.062462" elapsed="0.000000"/>
+</kw>
+<var name="${api}">{'name': 'Get OAuth Token', 'endpoint': '/oauth/token', 'method': 'POST', 'api_type': 'Authentication', 'payload': {'audience': 'https://qa.api.zinnia.io', 'grant_type': 'client_credentials', 'client_...</var>
+<status status="PASS" start="2025-09-22T16:34:19.060466" elapsed="0.001996"/>
+</iter>
+<iter>
+<kw name="Get From Dictionary" owner="Collections">
+<msg time="2025-09-22T16:34:19.062462" level="INFO">${filtered_api_name} = Get Case Details</msg>
+<var>${filtered_api_name}</var>
+<arg>${api}</arg>
+<arg>name</arg>
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<status status="PASS" start="2025-09-22T16:34:19.062462" elapsed="0.000000"/>
+</kw>
+<kw name="Return From Keyword If" owner="BuiltIn">
+<arg>'${filtered_api_name}' == '${api_name}'</arg>
+<arg>${api}</arg>
+<doc>Returns from the enclosing user keyword if ``condition`` is true.</doc>
+<status status="PASS" start="2025-09-22T16:34:19.064462" elapsed="0.000000"/>
+</kw>
+<var name="${api}">{'name': 'Get Case Details', 'endpoint': '/case/v1/cases/{caseID}', 'method': 'GET', 'api_type': 'Case Management', 'base_url': 'https://qa-bpm.se2.com', 'headers': {'Content-Type': 'application/json'...</var>
+<status status="PASS" start="2025-09-22T16:34:19.062462" elapsed="0.002000"/>
+</iter>
+<iter>
+<kw name="Get From Dictionary" owner="Collections">
+<msg time="2025-09-22T16:34:19.064462" level="INFO">${filtered_api_name} = Search Cases by Agent Name</msg>
+<var>${filtered_api_name}</var>
+<arg>${api}</arg>
+<arg>name</arg>
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<status status="PASS" start="2025-09-22T16:34:19.064462" elapsed="0.000000"/>
+</kw>
+<kw name="Return From Keyword If" owner="BuiltIn">
+<arg>'${filtered_api_name}' == '${api_name}'</arg>
+<arg>${api}</arg>
+<doc>Returns from the enclosing user keyword if ``condition`` is true.</doc>
+<status status="PASS" start="2025-09-22T16:34:19.066462" elapsed="0.000000"/>
+</kw>
+<var name="${api}">{'name': 'Search Cases by Agent Name', 'endpoint': '/case/v1/cases/search', 'method': 'POST', 'api_type': 'Case Management', 'base_url': 'https://qa-bpm.se2.com', 'payload': {'agentFirstName': 'ROBERT...</var>
+<status status="PASS" start="2025-09-22T16:34:19.064462" elapsed="0.002000"/>
+</iter>
+<var>${api}</var>
+<value>@{FILTERED_APIS}</value>
+<status status="PASS" start="2025-09-22T16:34:19.060466" elapsed="0.005996"/>
+</for>
+<kw name="Return From Keyword" owner="BuiltIn">
+<msg time="2025-09-22T16:34:19.066462" level="INFO">Returning from the enclosing user keyword.</msg>
+<arg>None</arg>
+<doc>Returns from the enclosing user keyword.</doc>
+<status status="PASS" start="2025-09-22T16:34:19.066462" elapsed="0.000000"/>
+</kw>
+<msg time="2025-09-22T16:34:19.067463" level="INFO">${api} = None</msg>
+<var>${api}</var>
+<arg>Search Cases by Policy Number</arg>
+<doc>Get API configuration if it's selected, return None if not selected</doc>
+<status status="PASS" start="2025-09-22T16:34:19.060466" elapsed="0.006997"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Execute API Test">
+<kw name="Get From Dictionary" owner="Collections">
+<msg time="2025-09-22T16:34:19.069503" level="FAIL">TypeError: Expected argument 1 to be a dictionary, got string instead.</msg>
+<var>${api_name}</var>
+<arg>${api}</arg>
+<arg>name</arg>
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<status status="FAIL" start="2025-09-22T16:34:19.069503" elapsed="0.000000">TypeError: Expected argument 1 to be a dictionary, got string instead.</status>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>\n=== Executing: ${api_name} ===</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="NOT RUN" start="2025-09-22T16:34:19.070463" elapsed="0.000000"/>
+</kw>
+<kw name="Execute Single API">
+<arg>${api}</arg>
+<doc>Execute a single API with proper session setup</doc>
+<status status="NOT RUN" start="2025-09-22T16:34:19.070463" elapsed="0.000000"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>=== Completed: ${api_name} ===</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="NOT RUN" start="2025-09-22T16:34:19.070463" elapsed="0.000000"/>
+</kw>
+<arg>${api}</arg>
+<doc>Execute API test with proper logging</doc>
+<status status="FAIL" start="2025-09-22T16:34:19.068462" elapsed="0.002001">TypeError: Expected argument 1 to be a dictionary, got string instead.</status>
+</kw>
+<arg>$api is not None</arg>
+<arg>Execute API Test</arg>
+<arg>${api}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="FAIL" start="2025-09-22T16:34:19.068462" elapsed="0.002001">TypeError: Expected argument 1 to be a dictionary, got string instead.</status>
+</kw>
+<doc>Execute Search Cases by Policy Number API</doc>
+<status status="FAIL" start="2025-09-22T16:34:19.044439" elapsed="0.026024">TypeError: Expected argument 1 to be a dictionary, got string instead.</status>
+</test>
+<test id="s1-t4" name="Execute Search Cases by Agent Name API" line="254">
+<kw name="Check API Selection And Load Config" type="SETUP">
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-09-22T16:34:19.075542" level="INFO">${config_loaded} = True</msg>
+<var>${config_loaded}</var>
+<arg>len($FILTERED_APIS) &gt; 0</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-09-22T16:34:19.074517" elapsed="0.001025"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<arg>not ${config_loaded}</arg>
+<arg>Load And Filter API Configuration</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-09-22T16:34:19.077464" elapsed="0.000000"/>
+</kw>
+<kw name="Is API Selected">
+<for flavor="IN">
+<iter>
+<kw name="Get From Dictionary" owner="Collections">
+<msg time="2025-09-22T16:34:19.078464" level="INFO">${filtered_api_name} = Get OAuth Token</msg>
+<var>${filtered_api_name}</var>
+<arg>${api}</arg>
+<arg>name</arg>
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<status status="PASS" start="2025-09-22T16:34:19.077464" elapsed="0.001000"/>
+</kw>
+<kw name="Return From Keyword If" owner="BuiltIn">
+<arg>'${filtered_api_name}' == '${api_name}'</arg>
+<arg>${True}</arg>
+<doc>Returns from the enclosing user keyword if ``condition`` is true.</doc>
+<status status="PASS" start="2025-09-22T16:34:19.079464" elapsed="0.000000"/>
+</kw>
+<var name="${api}">{'name': 'Get OAuth Token', 'endpoint': '/oauth/token', 'method': 'POST', 'api_type': 'Authentication', 'payload': {'audience': 'https://qa.api.zinnia.io', 'grant_type': 'client_credentials', 'client_...</var>
+<status status="PASS" start="2025-09-22T16:34:19.077464" elapsed="0.002000"/>
+</iter>
+<iter>
+<kw name="Get From Dictionary" owner="Collections">
+<msg time="2025-09-22T16:34:19.080464" level="INFO">${filtered_api_name} = Get Case Details</msg>
+<var>${filtered_api_name}</var>
+<arg>${api}</arg>
+<arg>name</arg>
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<status status="PASS" start="2025-09-22T16:34:19.080464" elapsed="0.000000"/>
+</kw>
+<kw name="Return From Keyword If" owner="BuiltIn">
+<arg>'${filtered_api_name}' == '${api_name}'</arg>
+<arg>${True}</arg>
+<doc>Returns from the enclosing user keyword if ``condition`` is true.</doc>
+<status status="PASS" start="2025-09-22T16:34:19.081463" elapsed="0.001001"/>
+</kw>
+<var name="${api}">{'name': 'Get Case Details', 'endpoint': '/case/v1/cases/{caseID}', 'method': 'GET', 'api_type': 'Case Management', 'base_url': 'https://qa-bpm.se2.com', 'headers': {'Content-Type': 'application/json'...</var>
+<status status="PASS" start="2025-09-22T16:34:19.080464" elapsed="0.002000"/>
+</iter>
+<iter>
+<kw name="Get From Dictionary" owner="Collections">
+<msg time="2025-09-22T16:34:19.082464" level="INFO">${filtered_api_name} = Search Cases by Agent Name</msg>
+<var>${filtered_api_name}</var>
+<arg>${api}</arg>
+<arg>name</arg>
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<status status="PASS" start="2025-09-22T16:34:19.082464" elapsed="0.000000"/>
+</kw>
+<kw name="Return From Keyword If" owner="BuiltIn">
+<msg time="2025-09-22T16:34:19.084462" level="INFO">Returning from the enclosing user keyword.</msg>
+<arg>'${filtered_api_name}' == '${api_name}'</arg>
+<arg>${True}</arg>
+<doc>Returns from the enclosing user keyword if ``condition`` is true.</doc>
+<status status="PASS" start="2025-09-22T16:34:19.084462" elapsed="0.000000"/>
+</kw>
+<var name="${api}">{'name': 'Search Cases by Agent Name', 'endpoint': '/case/v1/cases/search', 'method': 'POST', 'api_type': 'Case Management', 'base_url': 'https://qa-bpm.se2.com', 'payload': {'agentFirstName': 'ROBERT...</var>
+<status status="PASS" start="2025-09-22T16:34:19.082464" elapsed="0.002998"/>
+</iter>
+<var>${api}</var>
+<value>@{FILTERED_APIS}</value>
+<status status="PASS" start="2025-09-22T16:34:19.077464" elapsed="0.007998"/>
+</for>
+<kw name="Return From Keyword" owner="BuiltIn">
+<arg>${False}</arg>
+<doc>Returns from the enclosing user keyword.</doc>
+<status status="NOT RUN" start="2025-09-22T16:34:19.085462" elapsed="0.000000"/>
+</kw>
+<msg time="2025-09-22T16:34:19.085462" level="INFO">${api_selected} = True</msg>
+<var>${api_selected}</var>
+<arg>${api_name}</arg>
+<doc>Check if API is in the filtered list</doc>
+<status status="PASS" start="2025-09-22T16:34:19.077464" elapsed="0.007998"/>
+</kw>
+<kw name="Pass Execution If" owner="BuiltIn">
+<arg>not ${api_selected}</arg>
+<arg>API '${api_name}' not selected for execution</arg>
+<doc>Conditionally skips rest of the current test, setup, or teardown with PASS status.</doc>
+<status status="PASS" start="2025-09-22T16:34:19.087059" elapsed="0.000000"/>
+</kw>
+<arg>Search Cases by Agent Name</arg>
+<doc>Load configuration and check if API is selected, exit test if not selected</doc>
+<status status="PASS" start="2025-09-22T16:34:19.074517" elapsed="0.012542"/>
+</kw>
+<kw name="Get API If Selected">
+<for flavor="IN">
+<iter>
+<kw name="Get From Dictionary" owner="Collections">
+<msg time="2025-09-22T16:34:19.088066" level="INFO">${filtered_api_name} = Get OAuth Token</msg>
+<var>${filtered_api_name}</var>
+<arg>${api}</arg>
+<arg>name</arg>
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<status status="PASS" start="2025-09-22T16:34:19.088066" elapsed="0.000000"/>
+</kw>
+<kw name="Return From Keyword If" owner="BuiltIn">
+<arg>'${filtered_api_name}' == '${api_name}'</arg>
+<arg>${api}</arg>
+<doc>Returns from the enclosing user keyword if ``condition`` is true.</doc>
+<status status="PASS" start="2025-09-22T16:34:19.089098" elapsed="0.000000"/>
+</kw>
+<var name="${api}">{'name': 'Get OAuth Token', 'endpoint': '/oauth/token', 'method': 'POST', 'api_type': 'Authentication', 'payload': {'audience': 'https://qa.api.zinnia.io', 'grant_type': 'client_credentials', 'client_...</var>
+<status status="PASS" start="2025-09-22T16:34:19.088066" elapsed="0.001032"/>
+</iter>
+<iter>
+<kw name="Get From Dictionary" owner="Collections">
+<msg time="2025-09-22T16:34:19.090108" level="INFO">${filtered_api_name} = Get Case Details</msg>
+<var>${filtered_api_name}</var>
+<arg>${api}</arg>
+<arg>name</arg>
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<status status="PASS" start="2025-09-22T16:34:19.090108" elapsed="0.000000"/>
+</kw>
+<kw name="Return From Keyword If" owner="BuiltIn">
+<arg>'${filtered_api_name}' == '${api_name}'</arg>
+<arg>${api}</arg>
+<doc>Returns from the enclosing user keyword if ``condition`` is true.</doc>
+<status status="PASS" start="2025-09-22T16:34:19.091106" elapsed="0.000000"/>
+</kw>
+<var name="${api}">{'name': 'Get Case Details', 'endpoint': '/case/v1/cases/{caseID}', 'method': 'GET', 'api_type': 'Case Management', 'base_url': 'https://qa-bpm.se2.com', 'headers': {'Content-Type': 'application/json'...</var>
+<status status="PASS" start="2025-09-22T16:34:19.090108" elapsed="0.000998"/>
+</iter>
+<iter>
+<kw name="Get From Dictionary" owner="Collections">
+<msg time="2025-09-22T16:34:19.091106" level="INFO">${filtered_api_name} = Search Cases by Agent Name</msg>
+<var>${filtered_api_name}</var>
+<arg>${api}</arg>
+<arg>name</arg>
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<status status="PASS" start="2025-09-22T16:34:19.091106" elapsed="0.000000"/>
+</kw>
+<kw name="Return From Keyword If" owner="BuiltIn">
+<msg time="2025-09-22T16:34:19.093123" level="INFO">Returning from the enclosing user keyword.</msg>
+<arg>'${filtered_api_name}' == '${api_name}'</arg>
+<arg>${api}</arg>
+<doc>Returns from the enclosing user keyword if ``condition`` is true.</doc>
+<status status="PASS" start="2025-09-22T16:34:19.093123" elapsed="0.000000"/>
+</kw>
+<var name="${api}">{'name': 'Search Cases by Agent Name', 'endpoint': '/case/v1/cases/search', 'method': 'POST', 'api_type': 'Case Management', 'base_url': 'https://qa-bpm.se2.com', 'payload': {'agentFirstName': 'ROBERT...</var>
+<status status="PASS" start="2025-09-22T16:34:19.091106" elapsed="0.002999"/>
+</iter>
+<var>${api}</var>
+<value>@{FILTERED_APIS}</value>
+<status status="PASS" start="2025-09-22T16:34:19.088066" elapsed="0.007000"/>
+</for>
+<kw name="Return From Keyword" owner="BuiltIn">
+<arg>None</arg>
+<doc>Returns from the enclosing user keyword.</doc>
+<status status="NOT RUN" start="2025-09-22T16:34:19.095066" elapsed="0.000000"/>
+</kw>
+<msg time="2025-09-22T16:34:19.095066" level="INFO">${api} = {'name': 'Search Cases by Agent Name', 'endpoint': '/case/v1/cases/search', 'method': 'POST', 'api_type': 'Case Management', 'base_url': 'https://qa-bpm.se2.com', 'payload': {'agentFirstName': 'ROBERT...</msg>
+<var>${api}</var>
+<arg>Search Cases by Agent Name</arg>
+<doc>Get API configuration if it's selected, return None if not selected</doc>
+<status status="PASS" start="2025-09-22T16:34:19.088066" elapsed="0.007000"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Execute API Test">
+<kw name="Get From Dictionary" owner="Collections">
+<msg time="2025-09-22T16:34:19.097097" level="INFO">${api_name} = Search Cases by Agent Name</msg>
+<var>${api_name}</var>
+<arg>${api}</arg>
+<arg>name</arg>
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<status status="PASS" start="2025-09-22T16:34:19.097097" elapsed="0.000000"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>\n=== Executing: ${api_name} ===</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-22T16:34:19.098120" elapsed="0.000982"/>
+</kw>
+<kw name="Execute Single API">
+<kw name="Get From Dictionary" owner="Collections">
+<msg time="2025-09-22T16:34:19.099102" level="INFO">${name} = Search Cases by Agent Name</msg>
+<var>${name}</var>
+<arg>${api}</arg>
+<arg>name</arg>
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<status status="PASS" start="2025-09-22T16:34:19.099102" elapsed="0.000000"/>
+</kw>
+<kw name="Get From Dictionary" owner="Collections">
+<msg time="2025-09-22T16:34:19.100126" level="INFO">${endpoint} = /case/v1/cases/search</msg>
+<var>${endpoint}</var>
+<arg>${api}</arg>
+<arg>endpoint</arg>
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<status status="PASS" start="2025-09-22T16:34:19.100126" elapsed="0.000000"/>
+</kw>
+<kw name="Get From Dictionary" owner="Collections">
+<msg time="2025-09-22T16:34:19.103095" level="INFO">${method} = POST</msg>
+<var>${method}</var>
+<arg>${api}</arg>
+<arg>method</arg>
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<status status="PASS" start="2025-09-22T16:34:19.103095" elapsed="0.000000"/>
+</kw>
+<kw name="Get From Dictionary" owner="Collections">
+<msg time="2025-09-22T16:34:19.105068" level="INFO">${headers} = {'Content-Type': 'application/json'}</msg>
+<var>${headers}</var>
+<arg>${api}</arg>
+<arg>headers</arg>
+<arg>default={}</arg>
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<status status="PASS" start="2025-09-22T16:34:19.104065" elapsed="0.001003"/>
+</kw>
+<kw name="Get From Dictionary" owner="Collections">
+<msg time="2025-09-22T16:34:19.107066" level="INFO">${payload} = {'agentFirstName': 'ROBERT', 'limit': 1000, 'offset': 0, 'sortDirection': 'desc', 'sortBy': 'createdAt'}</msg>
+<var>${payload}</var>
+<arg>${api}</arg>
+<arg>payload</arg>
+<arg>default=None</arg>
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<status status="PASS" start="2025-09-22T16:34:19.106111" elapsed="0.000955"/>
+</kw>
+<kw name="Get From Dictionary" owner="Collections">
+<msg time="2025-09-22T16:34:19.109066" level="INFO">${base_url} = https://qa-bpm.se2.com</msg>
+<var>${base_url}</var>
+<arg>${api}</arg>
+<arg>base_url</arg>
+<arg>default=None</arg>
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<status status="PASS" start="2025-09-22T16:34:19.108119" elapsed="0.000947"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Execute Normal API">
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Set To Dictionary" owner="Collections">
+<arg>${headers}</arg>
+<arg>Authorization=Bearer ${TOKEN}</arg>
+<doc>Adds the given ``key_value_pairs`` and/or ``items`` to the ``dictionary``.</doc>
+<status status="PASS" start="2025-09-22T16:34:19.111101" elapsed="0.000000"/>
+</kw>
+<arg>'${TOKEN}' != 'None'</arg>
+<arg>Set To Dictionary</arg>
+<arg>${headers}</arg>
+<arg>Authorization=Bearer ${TOKEN}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-09-22T16:34:19.111101" elapsed="0.000000"/>
+</kw>
+<kw name="Get From Dictionary" owner="Collections">
+<msg time="2025-09-22T16:34:19.111101" level="INFO">${default_case_id} = CA0000370039</msg>
+<var>${default_case_id}</var>
+<arg>${api}</arg>
+<arg>default_case_id</arg>
+<arg>default=CA0000370039</arg>
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<status status="PASS" start="2025-09-22T16:34:19.111101" elapsed="0.000000"/>
+</kw>
+<kw name="Get Environment Variable" owner="OperatingSystem">
+<msg time="2025-09-22T16:34:19.113118" level="INFO">${caseID} = CA0000370039</msg>
+<var>${caseID}</var>
+<arg>CASE_ID</arg>
+<arg>default=${default_case_id}</arg>
+<doc>Returns the value of an environment variable with the given name.</doc>
+<status status="PASS" start="2025-09-22T16:34:19.113118" elapsed="0.000000"/>
+</kw>
+<kw name="Replace String" owner="String">
+<msg time="2025-09-22T16:34:19.114100" level="INFO">${endpoint} = /case/v1/cases/search</msg>
+<var>${endpoint}</var>
+<arg>${endpoint}</arg>
+<arg>{caseID}</arg>
+<arg>${caseID}</arg>
+<doc>Replaces ``search_for`` in the given ``string`` with ``replace_with``.</doc>
+<status status="PASS" start="2025-09-22T16:34:19.114100" elapsed="0.000000"/>
+</kw>
+<kw name="Set Variable If" owner="BuiltIn">
+<msg time="2025-09-22T16:34:19.116111" level="INFO">${session_name} = api_session_bpm</msg>
+<var>${session_name}</var>
+<arg>'${base_url}' == 'https://qa-bpm.se2.com'</arg>
+<arg>api_session_bpm</arg>
+<arg>'${base_url}' == 'https://qa.api.zinnia.io'</arg>
+<arg>api_session_case</arg>
+<arg>api_session_case</arg>
+<doc>Sets variable based on the given condition.</doc>
+<status status="PASS" start="2025-09-22T16:34:19.116111" elapsed="0.000000"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Using session: ${session_name} for base URL: ${base_url}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-22T16:34:19.117388" elapsed="0.001003"/>
+</kw>
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2025-09-22T16:34:19.118391" level="INFO">${kwargs} = {'headers': {'Content-Type': 'application/json', 'Authorization': 'Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IlU1SWNUOEQ4LTNWdl80NDFIdnlzbyJ9.eyJodHRwczovL3FhLmFwaS56aW5uaWEuaW8vY2xpZW50SWRzI...</msg>
+<var>${kwargs}</var>
+<arg>headers=${headers}</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2025-09-22T16:34:19.118391" elapsed="0.000000"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-09-22T16:34:19.119391" level="INFO">${payload_exists} = True</msg>
+<var>${payload_exists}</var>
+<arg>$payload is not None</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-09-22T16:34:19.119391" elapsed="0.000000"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Set To Dictionary" owner="Collections">
+<arg>${kwargs}</arg>
+<arg>json=${payload}</arg>
+<doc>Adds the given ``key_value_pairs`` and/or ``items`` to the ``dictionary``.</doc>
+<status status="PASS" start="2025-09-22T16:34:19.120391" elapsed="0.000000"/>
+</kw>
+<arg>${payload_exists}</arg>
+<arg>Set To Dictionary</arg>
+<arg>${kwargs}</arg>
+<arg>json=${payload}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-09-22T16:34:19.120391" elapsed="0.001000"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="POST On Session" owner="RequestsLibrary">
+<msg time="2025-09-22T16:34:23.996164" level="INFO">POST Request : url=https://qa-bpm.se2.com/case/v1/cases/search 
+ path_url=/case/v1/cases/search 
+ headers={'User-Agent': 'python-requests/2.32.3', 'Accept-Encoding': 'gzip, deflate, br', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/json', 'Authorization': 'Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IlU1SWNUOEQ4LTNWdl80NDFIdnlzbyJ9.eyJodHRwczovL3FhLmFwaS56aW5uaWEuaW8vY2xpZW50SWRzIjpbImV2ZXJseSIsImVsaWMiLCJzYnVsIl0sImh0dHBzOi8vcWEuYXBpLnppbm5pYS5pby9wZXJtaXNzaW9ucyI6WyJyZWFkOnBvbGljeSIsIndyaXRlOnBvbGljeSIsIndyaXRlOmNhc2UiLCJyZWFkOmNhc2UiLCJyZWFkOmRvY3VtZW50Iiwid3JpdGU6ZG9jdW1lbnQiLCJ3cml0ZTp0YXNrIiwicmVhZDp0YXNrIl0sInBhcnR5SWQiOiJjNmE3YWI5ZjdkZDg0MDE1YTY1NTJiZmM1YjM2NmI3NyIsInNvdXJjZSI6IkJ1c2luZXNzIFByb2Nlc3MgTWFuYWdlbWVudCIsImlzcyI6Imh0dHBzOi8vbG9naW4ucWEuemlubmlhLmNvbS8iLCJzdWIiOiJVdU1yaWJyUDNlOHpWaGZIeTZ3UEoyNWxWWWgxQ1dOM0BjbGllbnRzIiwiYXVkIjoiaHR0cHM6Ly9xYS5hcGkuemlubmlhLmlvIiwiaWF0IjoxNzU4NTM5MDU4LCJleHAiOjE3NTg2MjU0NTgsInNjb3BlIjoib3BlbmlkIiwiZ3R5IjoiY2xpZW50LWNyZWRlbnRpYWxzIiwiYXpwIjoiVXVNcmliclAzZTh6VmhmSHk2d1BKMjVsVlloMUNXTjMifQ.EywShkqRZscuyJJcnl918AG597eQYcBzEOdB7nq4K-4dt6BMLDf5m94oC-Gj08NznzpIFwiWfPnZJ41FexNpvifnmIh2SkJ9ehGsljDxkImW8A-tTs2B75HDoXPqsnOc8kn1H8Vk86qJt0fgLEqRlw8LigysdGNaCl1dDVlbiqWWxteOTy2XiBosfmVGVpx1UZZRBYzing2h-nrHdgn0Y19EYGP6o7y48rYKq8JeIyCYRBimJUyFlApCA8HYgyw1eWjbkbFjyEQkbfiG9UUAa0Se3EB_Ey9KuJ462aWfgAllMePtwQyNkn8VGAi5ZfUoo_9hJUnvmA8SCiGmTG7asw', 'Cookie': 'AWSALBTG=CAzLhHJ9Zek4e4oqh1gUnbFGEwIHzx0v4YzM1nSOoVN0vq1Tt3CVX30+Y+EvfZSfSqMx8l9bk0RMkzETPCzfc5UHujvpP++Pv4yf/RAgDtaQOh4h3MNzVN0OMQW14/LgRMP5MM8J+7ZUhgfx0PMkro38tUJ9KFof99xny4lHEnps; AWSALBTGCORS=CAzLhHJ9Zek4e4oqh1gUnbFGEwIHzx0v4YzM1nSOoVN0vq1Tt3CVX30+Y+EvfZSfSqMx8l9bk0RMkzETPCzfc5UHujvpP++Pv4yf/RAgDtaQOh4h3MNzVN0OMQW14/LgRMP5MM8J+7ZUhgfx0PMkro38tUJ9KFof99xny4lHEnps; AWSALB=OlQATpx5EQz4OQaSzjs3zQ+9KHWBUNaKmqOAFUpVBX2E7M3xRnLZ7Aapgm+0qLdj0xM4+ZsAnc9hh0BBCN6CW6hyWjQtjYv4BoexiNLze4iGo3r6ZV4afOCjUz06; AWSALBCORS=OlQATpx5EQz4OQaSzjs3zQ+9KHWBUNaKmqOAFUpVBX2E7M3xRnLZ7Aapgm+0qLdj0xM4+ZsAnc9hh0BBCN6CW6hyWjQtjYv4BoexiNLze4iGo3r6ZV4afOCjUz06', 'Content-Length': '104'} 
+ body=b'{"agentFirstName": "ROBERT", "limit": 1000, "offset": 0, "sortDirection": "desc", "sortBy": "createdAt"}' 
+ </msg>
+<msg time="2025-09-22T16:34:23.998149" level="INFO">POST Response : url=https://qa-bpm.se2.com/case/v1/cases/search 
+ status=200, reason= 
+ headers={'Date': 'Mon, 22 Sep 2025 11:04:21 GMT', 'Content-Type': 'application/json', 'Content-Length': '2568274', 'Connection': 'keep-alive', 'Set-Cookie': 'AWSALBTG=UOIZQymOWuWyI5GBrFJ3o9BzHefyEIlBX0/KSIBV30GuJ9F+vJepEb/3olFyX8xINqCaajThLVvgFbQ9olg4vJ0xsXfi/QWxr5EPhyOipThz8KuKQ/istxIAlRLg79iKezGp2+qDJQ2lOqm+zettbWDyinW14ZLMVsY3uy1eCTLZ; Expires=Mon, 29 Sep 2025 11:04:20 GMT; Path=/, AWSALBTGCORS=UOIZQymOWuWyI5GBrFJ3o9BzHefyEIlBX0/KSIBV30GuJ9F+vJepEb/3olFyX8xINqCaajThLVvgFbQ9olg4vJ0xsXfi/QWxr5EPhyOipThz8KuKQ/istxIAlRLg79iKezGp2+qDJQ2lOqm+zettbWDyinW14ZLMVsY3uy1eCTLZ; Expires=Mon, 29 Sep 2025 11:04:20 GMT; Path=/; SameSite=None; Secure, AWSALB=tnkv9OIEcA43HZMSIy/SlN99qqNdtHHISLwSvh/ikFEgmZZaLkK+1jBIBUhmLp7+r6yvMMkDxTPUwH3T1s2FnlurrJhGub0EUJd0+/44uaECB3NSXGMkzNfmGour; Expires=Mon, 29 Sep 2025 11:04:20 GMT; Path=/, AWSALBCORS=tnkv9OIEcA43HZMSIy/SlN99qqNdtHHISLwSvh/ikFEgmZZaLkK+1jBIBUhmLp7+r6yvMMkDxTPUwH3T1s2FnlurrJhGub0EUJd0+/44uaECB3NSXGMkzNfmGour; Expires=Mon, 29 Sep 2025 11:04:20 GMT; Path=/; SameSite=None; Secure', 'Vary': 'Origin, Access-Control-Request-Method, Access-Control-Request-Headers', 'x-correlation-id': 'cdb43028-38d0-4ac0-8fd5-2833211a4e59', 'X-Content-Type-Options': 'nosniff', 'X-XSS-Protection': '1; mode=block', 'Cache-Control': 'no-cache, no-store, max-age=0, must-revalidate', 'Pragma': 'no-cache', 'Expires': '0', 'X-Frame-Options': 'DENY'} 
+ body={"message":"Successfully retrieved data!","data":[{"id":"CA0000492621","templateId":"389e4007-34ee-464d-aa55-cd6a7f27a3ef","carrier":"GLCO","process":"Withdrawal","parentInstanceId":null,"correlationId":"4bc03c68-6a4c-449f-8d01-6709b21e2277","caseStatus":"IN_PROGRESS","processSubType":"Redemption","caseGroup":"Financial","policyNumber":"7720003205","productName":"GILICO WEALTHCHOICE G SERIES","primary":true,"deleted":false,"stages":[{"id":"requestAck","label":"Prepare for processing","stageStatus":"IN_PROGRESS"},{"id":"requestValidation","label":"Validate redemption request","stageStatus":"NOT_STARTED"},{"id":"requestProcessing","label":"Process redemption request","stageStatus":"NOT_STARTED"},{"id":"finishProcessing","label":"Finish processing","stageStatus":"NOT_STARTED"}],"additionalData":{"policyNumber":"7720003205","businessKey":"20250919-5-563115","brokerDealerName":"ADVISORS EXCEL LLC","requestSubType":"REDEMPTION","productName":"GILICO WEALTHCHOICE G SERIES"},"identifiers":[{"identifier":"documentNumber","value":"20250919-5-563115"},{"identifier":"caseID","value":"12424291"},{"identifier":"policyNumber","value":"7720003205"},{"identifier":"businessKey","value":"20250919-5-563115"},{"identifier":"contractNumber","value":"7720003205"},{"identifier":"zlCaseId","value":"CA0000492621"}],"createdAt":"2025-09-19T16:25:23.000Z","updatedAt":"2025-09-19T16:35:23.000Z","parties":[{"partyRole":"Others","partyType":"Individual","firstName":"*****","lastName":"****","fullName":"TYLER REED","prefix":"Mr.","gender":"M","ssn":"*********"},{"partyRole":"Owner,Primary","partyType":"Individual","firstName":"*****","lastName":"****","fullName":"TYLER REED","prefix":"Mr.","gender":"M","ssn":"*********"},{"partyRole":"Agent,Agent of Record","partyType":"Individual","firstName":"******","middleName":"L","lastName":"******","fullName":"ROBERT L BASERA","prefix":"Mr.","gender":"M","ssn":"*********"},{"partyRole":"Servicing Agent","partyType":"Individual","firstName":"******","middleName":"L","lastName":"******","fullName":"ROBERT L BASERA","prefix":"Mr.","gender":"M","ssn":"*********"}],"exceptions":[],"applicationType":"Paper","caseResult":null,"caseResultDetail":null},{"id":"CA0000492596","templateId":"389e4007-34ee-464d-aa55-cd6a7f27a3ef","carrier":"GLCO","process":"Withdrawal","parentInstanceId":null,"correlationId":"eddbbf0e-b0ab-4595-b647-6103e76a4a1d","caseStatus":"IN_PROGRESS","processSubType":"Redemption","caseGroup":"Financial","policyNumber":"7280003382","productName":"GILICO GUARANTY GROWTH PLUS","primary":true,"deleted":false,"stages":[{"id":"requestAck","label":"Prepare for processing","stageStatus":"IN_PROGRESS"},{"id":"requestValidation","label":"Validate redemption request","stageStatus":"NOT_STARTED"},{"id":"requestProcessing","label":"Process redemption request","stageStatus":"NOT_STARTED"},{"id":"finishProcessing","label":"Finish processing","stageStatus":"NOT_STARTED"}],"additionalData":{"policyNumber":"7280003382","businessKey":"20250919-5-562958","brokerDealerName":"ADVISORS EXCEL LLC","requestSubType":"REDEMPTION","productName":"GILICO GUARANTY GROWTH PLUS"},"identifiers":[{"identifier":"documentNumber","value":"20250919-5-562958"},{"identifier":"caseID","value":"12424221"},{"identifier":"policyNumber","value":"7280003382"},{"identifier":"businessKey","value":"20250919-5-562958"},{"identifier":"contractNumber","value":"7280003382"},{"identifier":"zlCaseId","value":"CA0000492596"}],"createdAt":"2025-09-19T16:24:34.000Z","updatedAt":"2025-09-19T16:33:36.000Z","parties":[{"partyRole":"Others","partyType":"Individual","firstName":"*******","lastName":"********","fullName":"TRKEYAQ JIIKNIEO","prefix":"Ms.","gender":"F"},{"partyRole":"Others","partyType":"Individual","firstName":"****","lastName":"******","fullName":"KKOM VAXBHY","prefix":"Mr.","gender":"M"},{"partyRole":"Others","partyType":"Individual","firstName":"*****","lastName":"********","fullName":"HEHBF ACIMPESH","prefix":"Ms.","gender":"F"},{"partyRole":"Others","partyType":"Individual","firstName":"*****","lastName":"*********","fullName":"HPPMS RNZWVHNKQ","prefix":"Mr.","gender":"M"},{"partyRole":"Others","partyType":"Individual","firstName":"****","lastName":"******","fullName":"HWRM SORZSA","prefix":"Ms.","gender":"F"},{"partyRole":"Others","partyType":"Individual","firstName":"******","lastName":"******","fullName":"LYITYQ WBBFAL","prefix":"Ms.","gender":"F"},{"partyRole":"Others","partyType":"Individual","firstName":"*****","lastName":"*****","fullName":"NHCYO IVHEH","prefix":"Mr.","gender":"M"},{"partyRole":"Others","partyType":"Individual","firstName":"****","lastName":"**********","fullName":"HOHE EAWKKDLBRL","prefix":"Mr.","gender":"M"},{"partyRole":"Others","partyType":"Individual","firstName":"*******","lastName":"*******","fullName":"VOFQJTS LEEYATG","prefix":"Mr.","gender":"M","ssn":"*********"},{"partyRole":"Others","partyType":"Individual","firstName":"******","lastName":"*******","fullName":"SNGMOU LYZISZO","prefix":"Mr.","gender":"M"},{"partyRole":"Owner,Primary","partyType":"Company","lastName":"******* *******","fullName":"Jackson Company","prefix":" ","gender":"O","ssn":"*********"},{"partyRole":"Servicing Agent","partyType":"Individual","firstName":"******","middleName":"L","lastName":"******","fullName":"ROBERT L BASERA","prefix":"Mr.","gender":"M","ssn":"*********"},{"partyRole":"Agent,Agent of Record","partyType":"Individual","firstName":"******","middleName":"L","lastName":"******","fullName":"ROBERT L BASERA","prefix":"Mr.","gender":"M","ssn":"*********"}],"exceptions":[],"applicationType":"Paper","caseResult":null,"caseResultDetail":null},{"id":"CA0000492563","templateId":"389e4007-34ee-464d-aa55-cd6a7f27a3ef","carrier":"GLCO","process":"Withdrawal","parentInstanceId":null,"correlationId":"a735a53c-0b69-4788-a4d2-54657dec1c9c","caseStatus":"IN_PROGRESS","processSubType":"Redemption","caseGroup":"Financial","policyNumber":"7720002926","productName":"GILICO WEALTHCHOICE G SERIES","primary":true,"deleted":false,"stages":[{"id":"requestAck","label":"Prepare for processing","stageStatus":"IN_PROGRESS"},{"id":"requestValidation","label":"Validate redemption request","stageStatus":"NOT_STARTED"},{"id":"requestProcessing","label":"Process redemption request","stageStatus":"NOT_STARTED"},{"id":"finishProcessing","label":"Finish processing","stageStatus":"NOT_STARTED"}],"additionalData":{"policyNumber":"7720002926","businessKey":"20250919-5-562728","brokerDealerName":"ADVISORS EXCEL LLC","requestSubType":"REDEMPTION","productName":"GILICO WEALTHCHOICE G SERIES"},"identifiers":[{"identifier":"documentNumber","value":"20250919-5-562728"},{"identifier":"caseID","value":"12424118"},{"identifier":"policyNumber","value":"7720002926"},{"identifier":"businessKey","value":"20250919-5-562728"},{"identifier":"contractNumber","value":"7720002926"},{"identifier":"zlCaseId","value":"CA0000492563"}],"createdAt":"2025-09-19T16:23:16.000Z","updatedAt":"2025-09-19T16:30:21.000Z","parties":[{"partyRole":"Others","partyType":"Individual","firstName":"***","lastName":"****","fullName":"TED HILL","prefix":"Mr.","gender":"M","ssn":"*********"},{"partyRole":"Owner,Primary","partyType":"Individual","firstName":"***","lastName":"****","fullName":"TED HILL","prefix":"Mr.","gender":"M","ssn":"*********"},{"partyRole":"Agent,Agent of Record","partyType":"Individual","firstName":"******","middleName":"L","lastName":"******","fullName":"ROBERT L BASERA","prefix":"Mr.","gender":"M","ssn":"*********"},{"partyRole":"Servicing Agent","partyType":"Individual","firstName":"******","middleName":"L","lastName":"******","fullName":"ROBERT L BASERA","prefix":"Mr.","gender":"M","ssn":"*********"}],"exceptions":[],"applicationType":"Paper","caseResult":null,"caseResultDetail":null},{"id":"CA0000492562","templateId":"389e4007-34ee-464d-aa55-cd6a7f27a3ef","carrier":"GLCO","process":"Withdrawal","parentInstanceId":null,"correlationId":"3d510481-79b1-47b3-9212-f4bd335b2521","caseStatus":"IN_PROGRESS","processSubType":"Redemption","caseGroup":"Financial","policyNumber":"7720003407","productName":"GILICO WEALTHCHOICE G SERIES","primary":true,"deleted":false,"stages":[{"id":"requestAck","label":"Prepare for processing","stageStatus":"IN_PROGRESS"},{"id":"requestValidation","label":"Validate redemption request","stageStatus":"NOT_STARTED"},{"id":"requestProcessing","label":"Process redemption request","stageStatus":"NOT_STARTED"},{"id":"finishProcessing","label":"Finish processing","stageStatus":"NOT_STARTED"}],"additionalData":{"policyNumber":"7720003407","businessKey":"20250919-5-562722","brokerDealerName":"ADVISORS EXCEL LLC","requestSubType":"REDEMPTION","productName":"GILICO WEALTHCHOICE G SERIES"},"identifiers":[{"identifier":"documentNumber","value":"20250919-5-562722"},{"identifier":"caseID","value":"12424115"},{"identifier":"policyNumber","value":"7720003407"},{"identifier":"businessKey","value":"20250919-5-562722"},{"identifier":"contractNumber","value":"7720003407"},{"identifier":"zlCaseId","value":"CA0000492562"}],"createdAt":"2025-09-19T16:23:14.000Z","updatedAt":"2025-09-19T16:30:17.000Z","parties":[{"partyRole":"Others","partyType":"Individual","firstName":"*****","lastName":"*****","fullName":"DAVID HENRY","prefix":"Mr.","gender":"M","ssn":"*********"},{"partyRole":"Owner,Primary","partyType":"Individual","firstName":"*****","lastName":"*****","fullName":"DAVID HENRY","prefix":"Mr.","gender":"M","ssn":"*********"},{"partyRole":"Agent,Agent of Record","partyType":"Individual","firstName":"******","middleName":"L","lastName":"******","fullName":"ROBERT L BASERA","prefix":"Mr.","gender":"M","ssn":"*********"},{"partyRole":"Servicing Agent","partyType":"Individual","firstName":"******","middleName":"L","lastName":"******","fullName":"ROBERT L BASERA","prefix":"Mr.","gender":"M","ssn":"*********"}],"exceptions":[],"applicationType":"Paper","caseResult":null,"caseResultDetail":null},{"id":"CA0000492561","templateId":"389e4007-34ee-464d-aa55-cd6a7f27a3ef","carrier":"GLCO"... (set the log level to DEBUG or TRACE to see the full content) 
+ </msg>
+<msg time="2025-09-22T16:34:23.998149" level="INFO">C:\Users\sharmash\AppData\Roaming\Python\Python312\site-packages\urllib3\connectionpool.py:1103: InsecureRequestWarning: Unverified HTTPS request is being made to host 'qa-bpm.se2.com'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(</msg>
+<arg>${session_name}</arg>
+<arg>${endpoint}</arg>
+<arg>&amp;{kwargs}</arg>
+<doc>Sends a POST request on a previously created HTTP Session.</doc>
+<status status="PASS" start="2025-09-22T16:34:19.121391" elapsed="4.876758"/>
+</kw>
+<msg time="2025-09-22T16:34:24.000078" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<var>${response}</var>
+<arg>'${method}' == 'GET'</arg>
+<arg>GET On Session</arg>
+<arg>${session_name}</arg>
+<arg>${endpoint}</arg>
+<arg>&amp;{kwargs}</arg>
+<arg>ELSE IF</arg>
+<arg>'${method}' == 'POST'</arg>
+<arg>POST On Session</arg>
+<arg>${session_name}</arg>
+<arg>${endpoint}</arg>
+<arg>&amp;{kwargs}</arg>
+<arg>ELSE IF</arg>
+<arg>'${method}' == 'PUT'</arg>
+<arg>PUT On Session</arg>
+<arg>${session_name}</arg>
+<arg>${endpoint}</arg>
+<arg>&amp;{kwargs}</arg>
+<arg>ELSE IF</arg>
+<arg>'${method}' == 'DELETE'</arg>
+<arg>DELETE On Session</arg>
+<arg>${session_name}</arg>
+<arg>${endpoint}</arg>
+<arg>&amp;{kwargs}</arg>
+<arg>ELSE</arg>
+<arg>Fail</arg>
+<arg>Unsupported method: ${method}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-09-22T16:34:19.121391" elapsed="4.878687"/>
+</kw>
+<kw name="Should Be True" owner="BuiltIn">
+<arg>${response.status_code} &gt;= 200 and ${response.status_code} &lt; 300</arg>
+<arg>msg=API call failed with status ${response.status_code}: ${response.text}</arg>
+<doc>Fails if the given condition is not true.</doc>
+<status status="PASS" start="2025-09-22T16:34:24.001927" elapsed="0.025003"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>\nAPI: ${endpoint}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-22T16:34:24.026930" elapsed="0.001000"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Session: ${session_name}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-22T16:34:24.027930" elapsed="0.000000"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Status: ${response.status_code}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-22T16:34:24.027930" elapsed="0.000000"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Response: ${response.text}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-22T16:34:24.027930" elapsed="0.041480"/>
+</kw>
+<arg>${api}</arg>
+<arg>${endpoint}</arg>
+<arg>${method}</arg>
+<arg>${headers}</arg>
+<arg>${payload}</arg>
+<arg>${base_url}</arg>
+<doc>Execute API calls with automatic bearer token injection and dynamic session routing</doc>
+<status status="PASS" start="2025-09-22T16:34:19.111101" elapsed="4.958309"/>
+</kw>
+<arg>'${name}' == 'Get OAuth Token'</arg>
+<arg>Execute Token API</arg>
+<arg>${endpoint}</arg>
+<arg>${method}</arg>
+<arg>${headers}</arg>
+<arg>${payload}</arg>
+<arg>ELSE</arg>
+<arg>Execute Normal API</arg>
+<arg>${api}</arg>
+<arg>${endpoint}</arg>
+<arg>${method}</arg>
+<arg>${headers}</arg>
+<arg>${payload}</arg>
+<arg>${base_url}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-09-22T16:34:19.110111" elapsed="4.959299"/>
+</kw>
+<arg>${api}</arg>
+<doc>Execute a single API with proper session setup</doc>
+<status status="PASS" start="2025-09-22T16:34:19.099102" elapsed="4.970308"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>=== Completed: ${api_name} ===</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-22T16:34:24.069410" elapsed="0.000000"/>
+</kw>
+<arg>${api}</arg>
+<doc>Execute API test with proper logging</doc>
+<status status="PASS" start="2025-09-22T16:34:19.097097" elapsed="4.972313"/>
+</kw>
+<arg>$api is not None</arg>
+<arg>Execute API Test</arg>
+<arg>${api}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-09-22T16:34:19.096109" elapsed="4.973301"/>
+</kw>
+<doc>Execute Search Cases by Agent Name API</doc>
+<status status="PASS" start="2025-09-22T16:34:19.074517" elapsed="4.994893"/>
+</test>
+<test id="s1-t5" name="Execute Get Task Assignee Summary API" line="260">
+<kw name="Check API Selection And Load Config" type="SETUP">
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-09-22T16:34:24.074411" level="INFO">${config_loaded} = True</msg>
+<var>${config_loaded}</var>
+<arg>len($FILTERED_APIS) &gt; 0</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-09-22T16:34:24.074411" elapsed="0.000000"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<arg>not ${config_loaded}</arg>
+<arg>Load And Filter API Configuration</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-09-22T16:34:24.075480" elapsed="0.000931"/>
+</kw>
+<kw name="Is API Selected">
+<for flavor="IN">
+<iter>
+<kw name="Get From Dictionary" owner="Collections">
+<msg time="2025-09-22T16:34:24.076411" level="INFO">${filtered_api_name} = Get OAuth Token</msg>
+<var>${filtered_api_name}</var>
+<arg>${api}</arg>
+<arg>name</arg>
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<status status="PASS" start="2025-09-22T16:34:24.076411" elapsed="0.000000"/>
+</kw>
+<kw name="Return From Keyword If" owner="BuiltIn">
+<arg>'${filtered_api_name}' == '${api_name}'</arg>
+<arg>${True}</arg>
+<doc>Returns from the enclosing user keyword if ``condition`` is true.</doc>
+<status status="PASS" start="2025-09-22T16:34:24.078411" elapsed="0.000000"/>
+</kw>
+<var name="${api}">{'name': 'Get OAuth Token', 'endpoint': '/oauth/token', 'method': 'POST', 'api_type': 'Authentication', 'payload': {'audience': 'https://qa.api.zinnia.io', 'grant_type': 'client_credentials', 'client_...</var>
+<status status="PASS" start="2025-09-22T16:34:24.076411" elapsed="0.002000"/>
+</iter>
+<iter>
+<kw name="Get From Dictionary" owner="Collections">
+<msg time="2025-09-22T16:34:24.078411" level="INFO">${filtered_api_name} = Get Case Details</msg>
+<var>${filtered_api_name}</var>
+<arg>${api}</arg>
+<arg>name</arg>
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<status status="PASS" start="2025-09-22T16:34:24.078411" elapsed="0.000000"/>
+</kw>
+<kw name="Return From Keyword If" owner="BuiltIn">
+<arg>'${filtered_api_name}' == '${api_name}'</arg>
+<arg>${True}</arg>
+<doc>Returns from the enclosing user keyword if ``condition`` is true.</doc>
+<status status="PASS" start="2025-09-22T16:34:24.080411" elapsed="0.000000"/>
+</kw>
+<var name="${api}">{'name': 'Get Case Details', 'endpoint': '/case/v1/cases/{caseID}', 'method': 'GET', 'api_type': 'Case Management', 'base_url': 'https://qa-bpm.se2.com', 'headers': {'Content-Type': 'application/json'...</var>
+<status status="PASS" start="2025-09-22T16:34:24.078411" elapsed="0.002000"/>
+</iter>
+<iter>
+<kw name="Get From Dictionary" owner="Collections">
+<msg time="2025-09-22T16:34:24.080411" level="INFO">${filtered_api_name} = Search Cases by Agent Name</msg>
+<var>${filtered_api_name}</var>
+<arg>${api}</arg>
+<arg>name</arg>
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<status status="PASS" start="2025-09-22T16:34:24.080411" elapsed="0.000000"/>
+</kw>
+<kw name="Return From Keyword If" owner="BuiltIn">
+<arg>'${filtered_api_name}' == '${api_name}'</arg>
+<arg>${True}</arg>
+<doc>Returns from the enclosing user keyword if ``condition`` is true.</doc>
+<status status="PASS" start="2025-09-22T16:34:24.081411" elapsed="0.000000"/>
+</kw>
+<var name="${api}">{'name': 'Search Cases by Agent Name', 'endpoint': '/case/v1/cases/search', 'method': 'POST', 'api_type': 'Case Management', 'base_url': 'https://qa-bpm.se2.com', 'payload': {'agentFirstName': 'ROBERT...</var>
+<status status="PASS" start="2025-09-22T16:34:24.080411" elapsed="0.001000"/>
+</iter>
+<var>${api}</var>
+<value>@{FILTERED_APIS}</value>
+<status status="PASS" start="2025-09-22T16:34:24.076411" elapsed="0.005000"/>
+</for>
+<kw name="Return From Keyword" owner="BuiltIn">
+<msg time="2025-09-22T16:34:24.082456" level="INFO">Returning from the enclosing user keyword.</msg>
+<arg>${False}</arg>
+<doc>Returns from the enclosing user keyword.</doc>
+<status status="PASS" start="2025-09-22T16:34:24.082456" elapsed="0.000000"/>
+</kw>
+<msg time="2025-09-22T16:34:24.083410" level="INFO">${api_selected} = False</msg>
+<var>${api_selected}</var>
+<arg>${api_name}</arg>
+<doc>Check if API is in the filtered list</doc>
+<status status="PASS" start="2025-09-22T16:34:24.076411" elapsed="0.006999"/>
+</kw>
+<kw name="Pass Execution If" owner="BuiltIn">
+<msg time="2025-09-22T16:34:24.084410" level="INFO">Execution passed with message:
+API 'Get Task Assignee Summary' not selected for execution</msg>
+<arg>not ${api_selected}</arg>
+<arg>API '${api_name}' not selected for execution</arg>
+<doc>Conditionally skips rest of the current test, setup, or teardown with PASS status.</doc>
+<status status="PASS" start="2025-09-22T16:34:24.084410" elapsed="0.000000">API 'Get Task Assignee Summary' not selected for execution</status>
+</kw>
+<arg>Get Task Assignee Summary</arg>
+<doc>Load configuration and check if API is selected, exit test if not selected</doc>
+<status status="PASS" start="2025-09-22T16:34:24.073424" elapsed="0.011986">API 'Get Task Assignee Summary' not selected for execution</status>
+</kw>
+<kw name="Get API If Selected">
+<for flavor="IN">
+<iter>
+<kw name="Get From Dictionary" owner="Collections">
+<msg time="2025-09-22T16:34:24.085410" level="INFO">${filtered_api_name} = Get OAuth Token</msg>
+<var>${filtered_api_name}</var>
+<arg>${api}</arg>
+<arg>name</arg>
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<status status="PASS" start="2025-09-22T16:34:24.085410" elapsed="0.000000"/>
+</kw>
+<kw name="Return From Keyword If" owner="BuiltIn">
+<arg>'${filtered_api_name}' == '${api_name}'</arg>
+<arg>${api}</arg>
+<doc>Returns from the enclosing user keyword if ``condition`` is true.</doc>
+<status status="PASS" start="2025-09-22T16:34:24.086410" elapsed="0.001000"/>
+</kw>
+<var name="${api}">{'name': 'Get OAuth Token', 'endpoint': '/oauth/token', 'method': 'POST', 'api_type': 'Authentication', 'payload': {'audience': 'https://qa.api.zinnia.io', 'grant_type': 'client_credentials', 'client_...</var>
+<status status="PASS" start="2025-09-22T16:34:24.085410" elapsed="0.002000"/>
+</iter>
+<iter>
+<kw name="Get From Dictionary" owner="Collections">
+<msg time="2025-09-22T16:34:24.087410" level="INFO">${filtered_api_name} = Get Case Details</msg>
+<var>${filtered_api_name}</var>
+<arg>${api}</arg>
+<arg>name</arg>
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<status status="PASS" start="2025-09-22T16:34:24.087410" elapsed="0.000000"/>
+</kw>
+<kw name="Return From Keyword If" owner="BuiltIn">
+<arg>'${filtered_api_name}' == '${api_name}'</arg>
+<arg>${api}</arg>
+<doc>Returns from the enclosing user keyword if ``condition`` is true.</doc>
+<status status="PASS" start="2025-09-22T16:34:24.088411" elapsed="0.000000"/>
+</kw>
+<var name="${api}">{'name': 'Get Case Details', 'endpoint': '/case/v1/cases/{caseID}', 'method': 'GET', 'api_type': 'Case Management', 'base_url': 'https://qa-bpm.se2.com', 'headers': {'Content-Type': 'application/json'...</var>
+<status status="PASS" start="2025-09-22T16:34:24.087410" elapsed="0.001001"/>
+</iter>
+<iter>
+<kw name="Get From Dictionary" owner="Collections">
+<msg time="2025-09-22T16:34:24.089420" level="INFO">${filtered_api_name} = Search Cases by Agent Name</msg>
+<var>${filtered_api_name}</var>
+<arg>${api}</arg>
+<arg>name</arg>
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<status status="PASS" start="2025-09-22T16:34:24.089420" elapsed="0.000000"/>
+</kw>
+<kw name="Return From Keyword If" owner="BuiltIn">
+<arg>'${filtered_api_name}' == '${api_name}'</arg>
+<arg>${api}</arg>
+<doc>Returns from the enclosing user keyword if ``condition`` is true.</doc>
+<status status="PASS" start="2025-09-22T16:34:24.092411" elapsed="0.000999"/>
+</kw>
+<var name="${api}">{'name': 'Search Cases by Agent Name', 'endpoint': '/case/v1/cases/search', 'method': 'POST', 'api_type': 'Case Management', 'base_url': 'https://qa-bpm.se2.com', 'payload': {'agentFirstName': 'ROBERT...</var>
+<status status="PASS" start="2025-09-22T16:34:24.089420" elapsed="0.003990"/>
+</iter>
+<var>${api}</var>
+<value>@{FILTERED_APIS}</value>
+<status status="PASS" start="2025-09-22T16:34:24.085410" elapsed="0.008000"/>
+</for>
+<kw name="Return From Keyword" owner="BuiltIn">
+<msg time="2025-09-22T16:34:24.093410" level="INFO">Returning from the enclosing user keyword.</msg>
+<arg>None</arg>
+<doc>Returns from the enclosing user keyword.</doc>
+<status status="PASS" start="2025-09-22T16:34:24.093410" elapsed="0.000000"/>
+</kw>
+<msg time="2025-09-22T16:34:24.094413" level="INFO">${api} = None</msg>
+<var>${api}</var>
+<arg>Get Task Assignee Summary</arg>
+<doc>Get API configuration if it's selected, return None if not selected</doc>
+<status status="PASS" start="2025-09-22T16:34:24.085410" elapsed="0.009003"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Execute API Test">
+<kw name="Get From Dictionary" owner="Collections">
+<msg time="2025-09-22T16:34:24.096410" level="FAIL">TypeError: Expected argument 1 to be a dictionary, got string instead.</msg>
+<var>${api_name}</var>
+<arg>${api}</arg>
+<arg>name</arg>
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<status status="FAIL" start="2025-09-22T16:34:24.096410" elapsed="0.000000">TypeError: Expected argument 1 to be a dictionary, got string instead.</status>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>\n=== Executing: ${api_name} ===</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="NOT RUN" start="2025-09-22T16:34:24.097410" elapsed="0.000000"/>
+</kw>
+<kw name="Execute Single API">
+<arg>${api}</arg>
+<doc>Execute a single API with proper session setup</doc>
+<status status="NOT RUN" start="2025-09-22T16:34:24.097410" elapsed="0.000000"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>=== Completed: ${api_name} ===</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="NOT RUN" start="2025-09-22T16:34:24.097410" elapsed="0.000000"/>
+</kw>
+<arg>${api}</arg>
+<doc>Execute API test with proper logging</doc>
+<status status="FAIL" start="2025-09-22T16:34:24.095410" elapsed="0.002000">TypeError: Expected argument 1 to be a dictionary, got string instead.</status>
+</kw>
+<arg>$api is not None</arg>
+<arg>Execute API Test</arg>
+<arg>${api}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="FAIL" start="2025-09-22T16:34:24.095410" elapsed="0.002000">TypeError: Expected argument 1 to be a dictionary, got string instead.</status>
+</kw>
+<doc>Execute Get Task Assignee Summary API</doc>
+<status status="FAIL" start="2025-09-22T16:34:24.073424" elapsed="0.023986">TypeError: Expected argument 1 to be a dictionary, got string instead.</status>
+</test>
+<doc>API Configuration Executor for handling token and case APIs</doc>
+<status status="FAIL" start="2025-09-22T16:34:15.683501" elapsed="8.416909"/>
+</suite>
+<statistics>
+<total>
+<stat pass="3" fail="2" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="3" fail="2" skip="0" id="s1" name="Api Config Executor">Api Config Executor</stat>
+</suite>
+</statistics>
+<errors>
+<msg time="2025-09-22T16:34:15.675501" level="ERROR">Taking listener 'allure_console_listener.AllureConsoleListener:results/run_20250922_163415\allure-results' into use failed: Importing listener 'allure_console_listener.AllureConsoleListener' failed: ModuleNotFoundError: No module named 'allure_console_listener'
+Traceback (most recent call last):
+  None
+PYTHONPATH:
+  C:\Program Files\Python312\Scripts\robot.exe
+  c:\Users\sharmash\Downloads\QAS-ZinniaLive-AutomationTesting (1)\QAS-ZinniaLive-AutomationTesting
+  C:\Users\sharmash\automation-framwork\%PYTHONPATH%
+  C:\Program Files\Python312\python312.zip
+  C:\Program Files\Python312\DLLs
+  C:\Program Files\Python312\Lib
+  C:\Program Files\Python312
+  C:\Users\sharmash\AppData\Roaming\Python\Python312\site-packages
+  C:\Users\sharmash\AppData\Roaming\Python\Python312\site-packages\win32
+  C:\Users\sharmash\AppData\Roaming\Python\Python312\site-packages\win32\lib
+  C:\Users\sharmash\AppData\Roaming\Python\Python312\site-packages\Pythonwin
+  C:\Program Files\Python312\Lib\site-packages</msg>
+<msg time="2025-09-22T16:34:15.679501" level="ERROR">Taking listener 'DebugLibrary' into use failed: Importing listener 'DebugLibrary' failed: ModuleNotFoundError: No module named 'DebugLibrary'
+Traceback (most recent call last):
+  None
+PYTHONPATH:
+  C:\Program Files\Python312\Scripts\robot.exe
+  c:\Users\sharmash\Downloads\QAS-ZinniaLive-AutomationTesting (1)\QAS-ZinniaLive-AutomationTesting
+  C:\Users\sharmash\automation-framwork\%PYTHONPATH%
+  C:\Program Files\Python312\python312.zip
+  C:\Program Files\Python312\DLLs
+  C:\Program Files\Python312\Lib
+  C:\Program Files\Python312
+  C:\Users\sharmash\AppData\Roaming\Python\Python312\site-packages
+  C:\Users\sharmash\AppData\Roaming\Python\Python312\site-packages\win32
+  C:\Users\sharmash\AppData\Roaming\Python\Python312\site-packages\win32\lib
+  C:\Users\sharmash\AppData\Roaming\Python\Python312\site-packages\Pythonwin
+  C:\Program Files\Python312\Lib\site-packages</msg>
+</errors>
+</robot>

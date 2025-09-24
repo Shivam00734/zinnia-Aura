@@ -1,0 +1,50 @@
+Complete Test Execution Console Output
+============================================================
+Execution Time: 2025-09-23 19:32:15
+Environment: QA
+Test Type: regression
+Selected APIs: ['Get Assigned Tasks']
+Selected Tests: []
+============================================================
+
+
+=== api_console_output.log ===
+API Test Console Output
+==================================================
+Environment: QA
+Selected APIs: ['Get Assigned Tasks']
+Test Type: regression
+Start Time: 2025-09-23 19:32:15
+==================================================
+
+STDOUT:
+====================================================================================================
+Dynamic Api Tests :: Dynamic API Tests - Auto-generated for selected APIs
+====================================================================================================
+Test_01_Get_Assigned_Tasks :: Execute Get Assigned Tasks
+=== Executing: Get Assigned Tasks ===
+Using session: api_session_bpm for base URL: https://qa.api.zinnia.io
+API: /case/v1/tasks/assigned
+Session: api_session_case
+Status: 200
+Response: []
+=== Completed: Get Assigned Tasks ===
+| PASS |
+----------------------------------------------------------------------------------------------------
+Dynamic Api Tests :: Dynamic API Tests - Auto-generated for selected APIs                   | PASS |
+1 test, 1 passed, 0 failed
+====================================================================================================
+Output:  C:\Users\sharmash\automation-framwork\results\run_20250923_193211\output.xml
+Log:     C:\Users\sharmash\automation-framwork\results\run_20250923_193211\results\run_20250923_193211\detailed_log.html
+Report:  C:\Users\sharmash\automation-framwork\results\run_20250923_193211\results\run_20250923_193211\detailed_report.html
+
+STDERR:
+C:\Users\sharmash\AppData\Roaming\Python\Python312\site-packages\urllib3\connectionpool.py:1103: InsecureRequestWarning: Unverified HTTPS request is being made to host 'login.qa.zinnia.com'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(
+C:\Users\sharmash\AppData\Roaming\Python\Python312\site-packages\urllib3\connectionpool.py:1103: InsecureRequestWarning: Unverified HTTPS request is being made to host 'qa.api.zinnia.io'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(
+
+Process Exit Code: 0
+
+=== End of api_console_output.log ===
+

@@ -1,0 +1,14 @@
+{
+  "execution_info": {
+    "timestamp": "2025-09-22T17:57:09.564291",
+    "environment": "dev",
+    "test_type": "smoke",
+    "selected_apis": [
+      "Search Cases by Agent Name"
+    ],
+    "selected_tests": [],
+    "execution_failures": [],
+    "console_integration": "enabled",
+    "enhanced_logging": "enabled"
+  }
+}
